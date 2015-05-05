@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.View.WebSite", "ITI.PixLogic.View.WebSite\ITI.PixLogic.View.WebSite.csproj", "{A1EEFB8F-3A05-41E8-9C7F-C2F4AE94FC28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.View.WinApp", "ITI.PixLogic.View.WinApp\ITI.PixLogic.View.WinApp.csproj", "{9AC49749-1955-48BE-B632-BD28D6AB4E0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.Tests", "ITI.PixLogic.Tests\ITI.PixLogic.Tests.csproj", "{057632F9-4DA7-414D-8322-768DDA1F4F71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.Controller", "ITI.PixLogic.Controller\ITI.PixLogic.Controller.csproj", "{F149C96F-200B-4769-A990-7266CF3DA8EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.Model", "ITI.PixLogic.Model\ITI.PixLogic.Model.csproj", "{DE63CA4B-7145-44BE-B7FB-26132EC954C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CC4A0853-E7B4-4320-BDDA-CD0FCA0A70FE}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1EEFB8F-3A05-41E8-9C7F-C2F4AE94FC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EEFB8F-3A05-41E8-9C7F-C2F4AE94FC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EEFB8F-3A05-41E8-9C7F-C2F4AE94FC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EEFB8F-3A05-41E8-9C7F-C2F4AE94FC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC49749-1955-48BE-B632-BD28D6AB4E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC49749-1955-48BE-B632-BD28D6AB4E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC49749-1955-48BE-B632-BD28D6AB4E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC49749-1955-48BE-B632-BD28D6AB4E0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057632F9-4DA7-414D-8322-768DDA1F4F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057632F9-4DA7-414D-8322-768DDA1F4F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057632F9-4DA7-414D-8322-768DDA1F4F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057632F9-4DA7-414D-8322-768DDA1F4F71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F149C96F-200B-4769-A990-7266CF3DA8EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F149C96F-200B-4769-A990-7266CF3DA8EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F149C96F-200B-4769-A990-7266CF3DA8EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F149C96F-200B-4769-A990-7266CF3DA8EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE63CA4B-7145-44BE-B7FB-26132EC954C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE63CA4B-7145-44BE-B7FB-26132EC954C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE63CA4B-7145-44BE-B7FB-26132EC954C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE63CA4B-7145-44BE-B7FB-26132EC954C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
