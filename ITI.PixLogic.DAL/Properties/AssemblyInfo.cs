@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "ITI.PixLogic.BLL" )]
+[assembly: AssemblyTitle("ITI.PixLogic.DAL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ITI.PixLogic.Controller")]
+[assembly: AssemblyProduct("ITI.PixLogic.DAL")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cb4ccc0b-84f1-4cbd-9f87-5224305351c7")]
+[assembly: Guid("0a9d5470-4819-4e7f-b9ef-38c2ea778ed3")]
 
 // Version information for an assembly consists of the following four values:
 //

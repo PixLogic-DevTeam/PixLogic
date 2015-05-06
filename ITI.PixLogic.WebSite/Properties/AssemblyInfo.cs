@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "ITI.PixLogic.View.WebSite" )]
+[assembly: AssemblyTitle( "ITI.PixLogic.WebSite" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible( false )]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid( "10b06ec8-f4ca-4882-8cae-2fb02e3d585e" )]
+[assembly: Guid( "3f6a32d3-3202-4bd3-a958-a44f2c8690c2" )]
 
 // Version information for an assembly consists of the following four values:
 //

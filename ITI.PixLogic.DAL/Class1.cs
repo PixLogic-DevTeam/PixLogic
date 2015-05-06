@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITI.PixLogic.Model
+namespace ITI.PixLogic.DAL
 {
     public class Class1
     {
