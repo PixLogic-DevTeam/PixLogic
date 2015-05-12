@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="395d7f9079414d0cb756d1adebe85b31" Name="Diagram1" ZoomLevel="46">
+        <EntityTypeShape EntityType="PLDB.Model.account" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.accounts_main_categories" Width="1.5" PointX="1.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.accounts_sub_categories" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.capitalized" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.capitalized_categories_in_packs" Width="1.5" PointX="13" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.capitalized_items_in_packs" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.capitalized_main_categories" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.capitalized_reserved" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.capitalized_states" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.capitalized_sub_categories" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.company" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.consumable" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.consumables_categories_in_packs" Width="1.5" PointX="13" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.consumables_items_in_packs" Width="1.5" PointX="10.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.consumables_main_categories" Width="1.5" PointX="3.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.consumables_reserved" Width="1.5" PointX="13.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.consumables_states" Width="1.5" PointX="6" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.consumables_sub_categories" Width="1.5" PointX="6" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.contact" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.generics_packs" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.invoice" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.repair" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.reservation" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PLDB.Model.specifics_packs" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="PLDB.Model.accounts_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.reservations_accounts_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.accounts_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_current_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_invoices_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_items_in_packs_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_reserved_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.repairs_capitalized_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_categories_in_packs_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_categories_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_items_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_reserved_initial_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_reserved_reservations_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.capitalized_reserved_return_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.contacts_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.invoices_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.repairs_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_current_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_invoices_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_items_in_packs_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_reserved_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_categories_in_packs_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_categories_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_items_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumable_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_reserved_initial_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_reserved_reservations_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="PLDB.Model.consumables_reserved_return_states_cstrt" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
