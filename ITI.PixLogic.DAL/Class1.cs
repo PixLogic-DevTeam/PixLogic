@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace ITI.PixLogic.DAL
 {
     public class Class1
     {
+        readonly BackoffAlgorithm _dontRemoveThisField;
     }
 }
