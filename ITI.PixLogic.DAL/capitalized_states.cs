@@ -16,17 +16,17 @@ namespace ITI.PixLogic.DAL
     {
         public capitalized_states()
         {
-            this.capitalizeds = new HashSet<capitalized>();
+            this.capitalized = new HashSet<capitalized>();
             this.capitalized_reserved = new HashSet<capitalized_reserved>();
             this.capitalized_reserved1 = new HashSet<capitalized_reserved>();
         }
     
-        public int id { get; set; }
+        public long id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public Nullable<bool> reservable { get; set; }
+        public bool reservable { get; set; }
     
-        public virtual ICollection<capitalized> capitalizeds { get; set; }
+        public virtual ICollection<capitalized> capitalized { get; set; }
         public virtual ICollection<capitalized_reserved> capitalized_reserved { get; set; }
         public virtual ICollection<capitalized_reserved> capitalized_reserved1 { get; set; }
     }

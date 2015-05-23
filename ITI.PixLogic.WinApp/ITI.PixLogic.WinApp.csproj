@@ -51,6 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddConsumableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConsumableForm.Designer.cs">
+      <DependentUpon>AddConsumableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CCN.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddConsumableForm.resx">
+      <DependentUpon>AddConsumableForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,6 +83,8 @@
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="ITI.PixLogic.DAL.consumable.datasource" />
+    <None Include="ITI.PixLogic.DAL.consumables.datasource" />
+    <None Include="ITI.PixLogic.DAL.consumables_sub_categories.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

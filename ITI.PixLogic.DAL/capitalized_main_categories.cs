@@ -19,7 +19,7 @@ namespace ITI.PixLogic.DAL
             this.capitalized_sub_categories = new HashSet<capitalized_sub_categories>();
         }
     
-        public int id { get; set; }
+        public long id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
     

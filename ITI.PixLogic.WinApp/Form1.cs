@@ -12,20 +12,52 @@ using System.Data.Entity;
 
 namespace ITI.PixLogic.WinApp
 {
-	public partial class Form1 : Form
+	public partial class Consumable_table : Form
 	{
+        
         pldb_entities ple;
-		public Form1()
+		public Consumable_table()
 		{
 			InitializeComponent();
             Form1_Load();
             
 		}
+        
         private void Form1_Load()
         {
+            
             ple = new pldb_entities();
             ple.consumables.Load();
-            consumableBindingSource.DataSource = ple.consumables.Local.ToBindingList();
+            consumablesBindingSource.DataSource = ple.consumables.Local.ToBindingList();
+        }
+
+        private void Clear_datagridview_Click(object sender, EventArgs e)
+        {
+
+            if (consumablesdataGridView.SelectedRows.Count == 0 || consumablesdataGridView.SelectedRows.Contains(consumablesdataGridView.Rows[consumablesdataGridView.RowCount-1])) 
+            //if (consumablesdataGridView.SelectedRows[0].Cells[0].Value == null)
+            {
+                MessageBox.Show("Veuillez selectionner une ligne a supprimer");
+            }
+            
+
+            else
+            {
+                var toBeDeleted = (long)consumablesdataGridView.SelectedRows[0].Cells[0].Value;
+                var consumableData = ple.consumables.First(c => c.id == toBeDeleted);
+                ple.consumables.Remove(consumableData);
+                ple.SaveChanges();
+                ple.consumables.Load();
+                consumablesdataGridView.DataSource = ple.consumables.Local.ToBindingList();
+            }
+           
+            }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddConsumableForm ACF = new AddConsumableForm();
+            ACF.Show();
+
         }
        
 	}

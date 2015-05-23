@@ -14,11 +14,11 @@ namespace ITI.PixLogic.DAL
     
     public partial class consumables_items_in_packs
     {
-        public int id { get; set; }
-        public Nullable<int> item { get; set; }
-        public Nullable<int> pack { get; set; }
+        public long id { get; set; }
+        public long item { get; set; }
+        public long pack { get; set; }
     
-        public virtual consumable consumable { get; set; }
+        public virtual consumables consumables { get; set; }
         public virtual specifics_packs specifics_packs { get; set; }
     }
 }

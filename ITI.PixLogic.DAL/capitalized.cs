@@ -18,24 +18,24 @@ namespace ITI.PixLogic.DAL
         {
             this.capitalized_items_in_packs = new HashSet<capitalized_items_in_packs>();
             this.capitalized_reserved = new HashSet<capitalized_reserved>();
-            this.repairs = new HashSet<repair>();
+            this.repairs = new HashSet<repairs>();
         }
     
-        public int id { get; set; }
+        public long id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public string picture { get; set; }
+        public string picture_path { get; set; }
         public Nullable<long> ean13 { get; set; }
-        public Nullable<decimal> reservation_cost { get; set; }
-        public Nullable<int> sub_category { get; set; }
-        public Nullable<int> invoice { get; set; }
-        public Nullable<int> current_state { get; set; }
+        public long reservation_cost { get; set; }
+        public long sub_category { get; set; }
+        public long invoice { get; set; }
+        public long current_state { get; set; }
     
         public virtual capitalized_states capitalized_states { get; set; }
-        public virtual invoice invoice1 { get; set; }
+        public virtual invoices invoices { get; set; }
         public virtual ICollection<capitalized_items_in_packs> capitalized_items_in_packs { get; set; }
         public virtual ICollection<capitalized_reserved> capitalized_reserved { get; set; }
         public virtual capitalized_sub_categories capitalized_sub_categories { get; set; }
-        public virtual ICollection<repair> repairs { get; set; }
+        public virtual ICollection<repairs> repairs { get; set; }
     }
 }

@@ -16,16 +16,16 @@ namespace ITI.PixLogic.DAL
     {
         public capitalized_sub_categories()
         {
-            this.capitalizeds = new HashSet<capitalized>();
+            this.capitalized = new HashSet<capitalized>();
             this.capitalized_categories_in_packs = new HashSet<capitalized_categories_in_packs>();
         }
     
-        public int id { get; set; }
+        public long id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public Nullable<int> main_category { get; set; }
+        public long main_category { get; set; }
     
-        public virtual ICollection<capitalized> capitalizeds { get; set; }
+        public virtual ICollection<capitalized> capitalized { get; set; }
         public virtual ICollection<capitalized_categories_in_packs> capitalized_categories_in_packs { get; set; }
         public virtual capitalized_main_categories capitalized_main_categories { get; set; }
     }

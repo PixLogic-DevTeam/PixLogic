@@ -20,8 +20,8 @@ namespace ITI.PixLogic.DAL
             this.consumables_items_in_packs = new HashSet<consumables_items_in_packs>();
         }
     
-        public int id { get; set; }
-        public string namel { get; set; }
+        public long id { get; set; }
+        public string name { get; set; }
         public string description { get; set; }
     
         public virtual ICollection<capitalized_items_in_packs> capitalized_items_in_packs { get; set; }

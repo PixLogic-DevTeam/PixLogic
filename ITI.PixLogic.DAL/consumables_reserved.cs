@@ -14,16 +14,16 @@ namespace ITI.PixLogic.DAL
     
     public partial class consumables_reserved
     {
-        public int id { get; set; }
-        public Nullable<System.DateTime> return_date { get; set; }
-        public Nullable<int> reservation { get; set; }
-        public Nullable<int> item { get; set; }
-        public Nullable<int> initial_state { get; set; }
-        public Nullable<int> return_state { get; set; }
+        public long id { get; set; }
+        public Nullable<System.DateTime> real_return_date { get; set; }
+        public long reservation { get; set; }
+        public long item { get; set; }
+        public long initial_state { get; set; }
+        public Nullable<long> return_state { get; set; }
     
-        public virtual consumable consumable { get; set; }
+        public virtual consumables consumables { get; set; }
         public virtual consumables_states consumables_states { get; set; }
-        public virtual reservation reservation1 { get; set; }
+        public virtual reservations reservations { get; set; }
         public virtual consumables_states consumables_states1 { get; set; }
     }
 }

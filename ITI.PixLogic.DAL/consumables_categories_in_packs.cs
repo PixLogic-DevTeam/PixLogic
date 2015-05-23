@@ -14,9 +14,9 @@ namespace ITI.PixLogic.DAL
     
     public partial class consumables_categories_in_packs
     {
-        public int id { get; set; }
-        public Nullable<int> category { get; set; }
-        public Nullable<int> pack { get; set; }
+        public long id { get; set; }
+        public long category { get; set; }
+        public long pack { get; set; }
     
         public virtual consumables_sub_categories consumables_sub_categories { get; set; }
         public virtual generics_packs generics_packs { get; set; }

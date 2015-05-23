@@ -25,29 +25,29 @@ namespace ITI.PixLogic.DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<account> accounts { get; set; }
+        public virtual DbSet<accounts> accounts { get; set; }
         public virtual DbSet<accounts_main_categories> accounts_main_categories { get; set; }
         public virtual DbSet<accounts_sub_categories> accounts_sub_categories { get; set; }
-        public virtual DbSet<capitalized> capitalizeds { get; set; }
+        public virtual DbSet<capitalized> capitalized { get; set; }
         public virtual DbSet<capitalized_categories_in_packs> capitalized_categories_in_packs { get; set; }
         public virtual DbSet<capitalized_items_in_packs> capitalized_items_in_packs { get; set; }
         public virtual DbSet<capitalized_main_categories> capitalized_main_categories { get; set; }
         public virtual DbSet<capitalized_reserved> capitalized_reserved { get; set; }
         public virtual DbSet<capitalized_states> capitalized_states { get; set; }
         public virtual DbSet<capitalized_sub_categories> capitalized_sub_categories { get; set; }
-        public virtual DbSet<company> companies { get; set; }
-        public virtual DbSet<consumable> consumables { get; set; }
+        public virtual DbSet<companies> companies { get; set; }
+        public virtual DbSet<consumables> consumables { get; set; }
         public virtual DbSet<consumables_categories_in_packs> consumables_categories_in_packs { get; set; }
         public virtual DbSet<consumables_items_in_packs> consumables_items_in_packs { get; set; }
         public virtual DbSet<consumables_main_categories> consumables_main_categories { get; set; }
         public virtual DbSet<consumables_reserved> consumables_reserved { get; set; }
         public virtual DbSet<consumables_states> consumables_states { get; set; }
         public virtual DbSet<consumables_sub_categories> consumables_sub_categories { get; set; }
-        public virtual DbSet<contact> contacts { get; set; }
+        public virtual DbSet<contacts> contacts { get; set; }
         public virtual DbSet<generics_packs> generics_packs { get; set; }
-        public virtual DbSet<invoice> invoices { get; set; }
-        public virtual DbSet<repair> repairs { get; set; }
-        public virtual DbSet<reservation> reservations { get; set; }
+        public virtual DbSet<invoices> invoices { get; set; }
+        public virtual DbSet<repairs> repairs { get; set; }
+        public virtual DbSet<reservations> reservations { get; set; }
         public virtual DbSet<specifics_packs> specifics_packs { get; set; }
     }
 }
