@@ -16,7 +16,7 @@ namespace ITI.PixLogic.DAL
     {
         public accounts_sub_categories()
         {
-            this.accounts = new HashSet<account>();
+            this.accounts = new HashSet<accounts>();
         }
     
         public long id { get; set; }
@@ -24,7 +24,7 @@ namespace ITI.PixLogic.DAL
         public string description { get; set; }
         public long main_category { get; set; }
     
-        public virtual ICollection<account> accounts { get; set; }
+        public virtual ICollection<accounts> accounts { get; set; }
         public virtual accounts_main_categories accounts_main_categories { get; set; }
     }
 }

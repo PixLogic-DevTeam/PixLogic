@@ -21,9 +21,9 @@ namespace ITI.PixLogic.DAL
         public long initial_state { get; set; }
         public Nullable<long> return_state { get; set; }
     
-        public virtual consumable consumable { get; set; }
+        public virtual consumables consumables { get; set; }
         public virtual consumables_states consumables_states { get; set; }
-        public virtual reservation reservation1 { get; set; }
+        public virtual reservations reservations { get; set; }
         public virtual consumables_states consumables_states1 { get; set; }
     }
 }

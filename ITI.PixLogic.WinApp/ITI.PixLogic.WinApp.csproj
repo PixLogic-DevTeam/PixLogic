@@ -109,6 +109,8 @@
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="ITI.PixLogic.DAL.consumable.datasource" />
+    <None Include="ITI.PixLogic.DAL.consumables.datasource" />
+    <None Include="ITI.PixLogic.DAL.consumables_sub_categories.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.account.datasource" />
     <None Include="Properties\Settings.settings">

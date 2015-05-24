@@ -16,7 +16,7 @@ namespace ITI.PixLogic.DAL
     {
         public consumables_sub_categories()
         {
-            this.consumables = new HashSet<consumable>();
+            this.consumables = new HashSet<consumables>();
             this.consumables_categories_in_packs = new HashSet<consumables_categories_in_packs>();
         }
     
@@ -25,7 +25,7 @@ namespace ITI.PixLogic.DAL
         public string description { get; set; }
         public long main_category { get; set; }
     
-        public virtual ICollection<consumable> consumables { get; set; }
+        public virtual ICollection<consumables> consumables { get; set; }
         public virtual ICollection<consumables_categories_in_packs> consumables_categories_in_packs { get; set; }
         public virtual consumables_main_categories consumables_main_categories { get; set; }
     }

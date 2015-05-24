@@ -56,117 +56,114 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="account.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+    <Compile Include="accounts.cs">
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="accounts_main_categories.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="accounts_sub_categories.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="capitalized.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="capitalized_categories_in_packs.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="capitalized_items_in_packs.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="capitalized_main_categories.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="capitalized_reserved.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="capitalized_states.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="capitalized_sub_categories.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="company.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+    <Compile Include="companies.cs">
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="consumable.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+    <Compile Include="consumables.cs">
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="consumables_categories_in_packs.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="consumables_items_in_packs.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="consumables_main_categories.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="consumables_reserved.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="consumables_states.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="consumables_sub_categories.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="contact.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+    <Compile Include="contacts.cs">
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="FULLPLDB.Context.cs">
+    <Compile Include="FullPLDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FULLPLDB.Context.tt</DependentUpon>
+      <DependentUpon>FullPLDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="FULLPLDB.cs">
+    <Compile Include="FullPLDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="FULLPLDB.Designer.cs">
+    <Compile Include="FullPLDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FULLPLDB.edmx</DependentUpon>
+      <DependentUpon>FullPLDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="generics_packs.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="invoice.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+    <Compile Include="invoices.cs">
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="repair.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+    <Compile Include="repairs.cs">
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="reservation.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+    <Compile Include="reservations.cs">
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
     <Compile Include="specifics_packs.cs">
-      <DependentUpon>FULLPLDB.tt</DependentUpon>
+      <DependentUpon>FullPLDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
-    <EntityDeploy Include="FULLPLDB.edmx">
+    <None Include="app.config" />
+    <EntityDeploy Include="FullPLDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FULLPLDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>FullPLDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="FULLPLDB.Context.tt">
+    <None Include="FullPLDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FULLPLDB.edmx</DependentUpon>
-      <LastGenOutput>FULLPLDB.Context.cs</LastGenOutput>
+      <DependentUpon>FullPLDB.edmx</DependentUpon>
+      <LastGenOutput>FullPLDB.Context.cs</LastGenOutput>
     </None>
-    <None Include="FULLPLDB.edmx.diagram">
-      <DependentUpon>FULLPLDB.edmx</DependentUpon>
+    <None Include="FullPLDB.edmx.diagram">
+      <DependentUpon>FullPLDB.edmx</DependentUpon>
     </None>
-    <None Include="FULLPLDB.tt">
+    <None Include="FullPLDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FULLPLDB.edmx</DependentUpon>
-      <LastGenOutput>FULLPLDB.cs</LastGenOutput>
+      <DependentUpon>FullPLDB.edmx</DependentUpon>
+      <LastGenOutput>FullPLDB.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

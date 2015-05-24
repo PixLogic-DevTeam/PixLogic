@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ITI.PixLogic.WinApp
+{
+	static class Program
+	{
+		/// <summary>
+		/// The main entry point for the application.
+		/// </summary>
+		[STAThread]
+		static void Main()
+		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault( false );
+<<<<<<< HEAD
+			Application.Run( new Home() );
+=======
+			Application.Run( new Consumable_table() );
+>>>>>>> 535be39ed04c0a77040322ade34cf4956fd7dbdb
+		}
+	}
+}

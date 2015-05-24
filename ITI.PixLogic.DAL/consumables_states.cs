@@ -16,7 +16,7 @@ namespace ITI.PixLogic.DAL
     {
         public consumables_states()
         {
-            this.consumables = new HashSet<consumable>();
+            this.consumables = new HashSet<consumables>();
             this.consumables_reserved = new HashSet<consumables_reserved>();
             this.consumables_reserved1 = new HashSet<consumables_reserved>();
         }
@@ -26,7 +26,7 @@ namespace ITI.PixLogic.DAL
         public string description { get; set; }
         public bool reservable { get; set; }
     
-        public virtual ICollection<consumable> consumables { get; set; }
+        public virtual ICollection<consumables> consumables { get; set; }
         public virtual ICollection<consumables_reserved> consumables_reserved { get; set; }
         public virtual ICollection<consumables_reserved> consumables_reserved1 { get; set; }
     }

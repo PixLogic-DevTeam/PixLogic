@@ -23,7 +23,7 @@ namespace ITI.PixLogic.DAL
     
         public virtual capitalized capitalized { get; set; }
         public virtual capitalized_states capitalized_states { get; set; }
-        public virtual reservation reservation1 { get; set; }
+        public virtual reservations reservations { get; set; }
         public virtual capitalized_states capitalized_states1 { get; set; }
     }
 }

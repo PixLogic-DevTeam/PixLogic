@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+<<<<<<< HEAD
+      <Diagram DiagramId="fccba43e5aae46aeb478c5c0b51b7a29" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="pldbModel.account" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.accounts_main_categories" Width="1.5" PointX="1.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.accounts_sub_categories" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.capitalized" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.capitalized_categories_in_packs" Width="1.5" PointX="13" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.capitalized_items_in_packs" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.capitalized_main_categories" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.capitalized_reserved" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.capitalized_states" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.capitalized_sub_categories" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.company" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.consumable" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.consumables_categories_in_packs" Width="1.5" PointX="13" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.consumables_items_in_packs" Width="1.5" PointX="10.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.consumables_main_categories" Width="1.5" PointX="3.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.consumables_reserved" Width="1.5" PointX="13.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.consumables_states" Width="1.5" PointX="6" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.consumables_sub_categories" Width="1.5" PointX="6" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.contact" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.generics_packs" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.invoice" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.repair" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.reservation" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pldbModel.specifics_packs" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="pldbModel.accounts_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.reservations_accounts_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.accounts_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_current_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_invoices_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_items_in_packs_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_reserved_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.repairs_item_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_categories_in_packs_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_categories_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_items_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_reserved_initial_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_reserved_reservations_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.capitalized_reserved_return_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.contacts_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.invoices_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.repairs_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_current_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_invoices_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_items_in_packs_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_reserved_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_categories_in_packs_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_categories_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_items_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumable_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_reserved_initial_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_reserved_reservations_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pldbModel.consumables_reserved_return_states_cstrt" ManuallyRouted="false" />
+=======
+      <Diagram DiagramId="72ee121c6fd6437b9c96a984fec5e5e8" Name="Diagram1">
+        <EntityTypeShape EntityType="pixlogic_dbModel.accounts" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.accounts_main_categories" Width="1.5" PointX="1.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.accounts_sub_categories" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.capitalized" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.capitalized_categories_in_packs" Width="1.5" PointX="13" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.capitalized_items_in_packs" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.capitalized_main_categories" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.capitalized_reserved" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.capitalized_states" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.capitalized_sub_categories" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.companies" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.consumables" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.consumables_categories_in_packs" Width="1.5" PointX="13" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.consumables_items_in_packs" Width="1.5" PointX="10.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.consumables_main_categories" Width="1.5" PointX="3.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.consumables_reserved" Width="1.5" PointX="13.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.consumables_states" Width="1.5" PointX="6" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.consumables_sub_categories" Width="1.5" PointX="6" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.contacts" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.generics_packs" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.invoices" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.repairs" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.reservations" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pixlogic_dbModel.specifics_packs" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="pixlogic_dbModel.accounts_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.reservations_accounts_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.accounts_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_current_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_invoices_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_items_in_packs_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_reserved_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.repairs_item_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_categories_in_packs_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_categories_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_items_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_reserved_initial_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_reserved_reservations_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.capitalized_reserved_return_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.contacts_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.invoices_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.repairs_companies_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_current_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_invoices_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_items_in_packs_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_reserved_items_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_categories_in_packs_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_categories_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_items_in_packs_packs_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumable_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_reserved_initial_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_reserved_reservations_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="pixlogic_dbModel.consumables_reserved_return_states_cstrt" ManuallyRouted="false" />
+>>>>>>> 535be39ed04c0a77040322ade34cf4956fd7dbdb
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
