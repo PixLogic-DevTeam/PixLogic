@@ -4,239 +4,240 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PLDB.Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="pldbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="accounts">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="first_name" Type="varchar" MaxLength="255" />
-          <Property Name="last_name" Type="varchar" MaxLength="255" />
-          <Property Name="email" Type="varchar" MaxLength="255" />
-          <Property Name="password" Type="varchar" MaxLength="255" />
-          <Property Name="active" Type="bool" />
-          <Property Name="wallet" Type="int" />
-          <Property Name="sub_category" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="tinytext" Nullable="false" />
+          <Property Name="last_name" Type="tinytext" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="tinytext" Nullable="false" />
+          <Property Name="active" Type="bool" Nullable="false" />
+          <Property Name="wallet" Type="int" Nullable="false" />
+          <Property Name="sub_category" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="accounts_main_categories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
         </EntityType>
         <EntityType Name="accounts_sub_categories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
-          <Property Name="main_category" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="main_category" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="capitalized">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
-          <Property Name="picture" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="picture_path" Type="tinytext" />
           <Property Name="ean13" Type="uint" />
-          <Property Name="reservation_cost" Type="decimal" Precision="10" Scale="0" />
-          <Property Name="sub_category" Type="int" />
-          <Property Name="invoice" Type="int" />
-          <Property Name="current_state" Type="int" />
+          <Property Name="reservation_cost" Type="uint" Nullable="false" />
+          <Property Name="sub_category" Type="uint" Nullable="false" />
+          <Property Name="invoice" Type="uint" Nullable="false" />
+          <Property Name="current_state" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="capitalized_categories_in_packs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="category" Type="int" />
-          <Property Name="pack" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="uint" Nullable="false" />
+          <Property Name="pack" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="capitalized_items_in_packs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="item" Type="int" />
-          <Property Name="pack" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="pack" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="capitalized_main_categories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
         </EntityType>
         <EntityType Name="capitalized_reserved">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="return_date" Type="datetime" Precision="0" />
-          <Property Name="reservation" Type="int" />
-          <Property Name="item" Type="int" />
-          <Property Name="initial_state" Type="int" />
-          <Property Name="return_state" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="real_return_date" Type="datetime" Precision="0" />
+          <Property Name="reservation" Type="uint" Nullable="false" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="initial_state" Type="uint" Nullable="false" />
+          <Property Name="return_state" Type="uint" />
         </EntityType>
         <EntityType Name="capitalized_states">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
-          <Property Name="reservable" Type="bool" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="reservable" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="capitalized_sub_categories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
-          <Property Name="main_category" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="main_category" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="companies">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="phone" Type="int" />
-          <Property Name="adress" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="phone" Type="uint" />
+          <Property Name="adress" Type="tinytext" />
         </EntityType>
         <EntityType Name="consumables">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
-          <Property Name="reservation_cost" Type="decimal" Precision="10" Scale="0" />
-          <Property Name="sub_category" Type="int" />
-          <Property Name="invoice" Type="int" />
-          <Property Name="current_state" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="reservation_cost" Type="uint" Nullable="false" />
+          <Property Name="sub_category" Type="uint" Nullable="false" />
+          <Property Name="invoice" Type="uint" Nullable="false" />
+          <Property Name="current_state" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="consumables_categories_in_packs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="category" Type="int" />
-          <Property Name="pack" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="uint" Nullable="false" />
+          <Property Name="pack" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="consumables_items_in_packs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="item" Type="int" />
-          <Property Name="pack" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="pack" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="consumables_main_categories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
         </EntityType>
         <EntityType Name="consumables_reserved">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="return_date" Type="datetime" Precision="0" />
-          <Property Name="reservation" Type="int" />
-          <Property Name="item" Type="int" />
-          <Property Name="initial_state" Type="int" />
-          <Property Name="return_state" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="real_return_date" Type="datetime" Precision="0" />
+          <Property Name="reservation" Type="uint" Nullable="false" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="initial_state" Type="uint" Nullable="false" />
+          <Property Name="return_state" Type="uint" />
         </EntityType>
         <EntityType Name="consumables_states">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
-          <Property Name="reservable" Type="bool" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="reservable" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="consumables_sub_categories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
-          <Property Name="main_category" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="main_category" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="contacts">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="first_name" Type="varchar" MaxLength="255" />
-          <Property Name="last_name" Type="varchar" MaxLength="255" />
-          <Property Name="phone" Type="int" />
-          <Property Name="email" Type="varchar" MaxLength="255" />
-          <Property Name="company" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="tinytext" Nullable="false" />
+          <Property Name="last_name" Type="tinytext" Nullable="false" />
+          <Property Name="phone" Type="uint" />
+          <Property Name="email" Type="tinytext" />
+          <Property Name="company" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="generics_packs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
         </EntityType>
         <EntityType Name="invoices">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="purchase_date" Type="date" />
-          <Property Name="purchase_cost" Type="decimal" Precision="10" Scale="0" />
-          <Property Name="annual_depreciation_rate" Type="int" />
-          <Property Name="phase_number" Type="uint" />
-          <Property Name="company" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="purchase_date" Type="date" Nullable="false" />
+          <Property Name="purchase_cost" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="annual_depreciation_rate" Type="int" Nullable="false" />
+          <Property Name="phase_number" Type="uint" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="company" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="repairs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="start_date" Type="date" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="start_date" Type="date" Nullable="false" />
           <Property Name="return_date" Type="date" />
-          <Property Name="capitalized" Type="int" />
-          <Property Name="repairer" Type="int" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="repairer" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="reservations">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="start_date" Type="datetime" Precision="0" />
-          <Property Name="estimated_return_date" Type="datetime" Precision="0" />
-          <Property Name="confirmation" Type="bool" />
-          <Property Name="taken_out" Type="bool" />
-          <Property Name="account" Type="int" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="start_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="estimated_return_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="confirmed" Type="bool" Nullable="false" />
+          <Property Name="taken_out" Type="bool" Nullable="false" />
+          <Property Name="account" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="specifics_packs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="namel" Type="varchar" MaxLength="255" />
-          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
         </EntityType>
         <Association Name="accounts_main_categories_cstrt">
-          <End Role="accounts_main_categories" Type="Self.accounts_main_categories" Multiplicity="0..1" />
+          <End Role="accounts_main_categories" Type="Self.accounts_main_categories" Multiplicity="1" />
           <End Role="accounts_sub_categories" Type="Self.accounts_sub_categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="accounts_main_categories">
@@ -248,7 +249,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="accounts_sub_categories_cstrt">
-          <End Role="accounts_sub_categories" Type="Self.accounts_sub_categories" Multiplicity="0..1" />
+          <End Role="accounts_sub_categories" Type="Self.accounts_sub_categories" Multiplicity="1" />
           <End Role="accounts" Type="Self.accounts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="accounts_sub_categories">
@@ -260,7 +261,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_categories_in_packs_categories_cstrt">
-          <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="0..1" />
+          <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="1" />
           <End Role="capitalized_categories_in_packs" Type="Self.capitalized_categories_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_sub_categories">
@@ -272,7 +273,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_categories_in_packs_packs_cstrt">
-          <End Role="generics_packs" Type="Self.generics_packs" Multiplicity="0..1" />
+          <End Role="generics_packs" Type="Self.generics_packs" Multiplicity="1" />
           <End Role="capitalized_categories_in_packs" Type="Self.capitalized_categories_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="generics_packs">
@@ -284,7 +285,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_current_states_cstrt">
-          <End Role="capitalized_states" Type="Self.capitalized_states" Multiplicity="0..1" />
+          <End Role="capitalized_states" Type="Self.capitalized_states" Multiplicity="1" />
           <End Role="capitalized" Type="Self.capitalized" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_states">
@@ -296,7 +297,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_invoices_cstrt">
-          <End Role="invoices" Type="Self.invoices" Multiplicity="0..1" />
+          <End Role="invoices" Type="Self.invoices" Multiplicity="1" />
           <End Role="capitalized" Type="Self.capitalized" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="invoices">
@@ -308,7 +309,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_items_in_packs_items_cstrt">
-          <End Role="capitalized" Type="Self.capitalized" Multiplicity="0..1" />
+          <End Role="capitalized" Type="Self.capitalized" Multiplicity="1" />
           <End Role="capitalized_items_in_packs" Type="Self.capitalized_items_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized">
@@ -320,7 +321,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_items_in_packs_packs_cstrt">
-          <End Role="specifics_packs" Type="Self.specifics_packs" Multiplicity="0..1" />
+          <End Role="specifics_packs" Type="Self.specifics_packs" Multiplicity="1" />
           <End Role="capitalized_items_in_packs" Type="Self.capitalized_items_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="specifics_packs">
@@ -332,7 +333,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_main_categories_cstrt">
-          <End Role="capitalized_main_categories" Type="Self.capitalized_main_categories" Multiplicity="0..1" />
+          <End Role="capitalized_main_categories" Type="Self.capitalized_main_categories" Multiplicity="1" />
           <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_main_categories">
@@ -344,7 +345,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_reserved_initial_states_cstrt">
-          <End Role="capitalized_states" Type="Self.capitalized_states" Multiplicity="0..1" />
+          <End Role="capitalized_states" Type="Self.capitalized_states" Multiplicity="1" />
           <End Role="capitalized_reserved" Type="Self.capitalized_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_states">
@@ -356,7 +357,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_reserved_items_cstrt">
-          <End Role="capitalized" Type="Self.capitalized" Multiplicity="0..1" />
+          <End Role="capitalized" Type="Self.capitalized" Multiplicity="1" />
           <End Role="capitalized_reserved" Type="Self.capitalized_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized">
@@ -368,7 +369,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_reserved_reservations_cstrt">
-          <End Role="reservations" Type="Self.reservations" Multiplicity="0..1" />
+          <End Role="reservations" Type="Self.reservations" Multiplicity="1" />
           <End Role="capitalized_reserved" Type="Self.capitalized_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="reservations">
@@ -392,7 +393,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_sub_categories_cstrt">
-          <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="0..1" />
+          <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="1" />
           <End Role="capitalized" Type="Self.capitalized" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_sub_categories">
@@ -404,7 +405,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumable_main_categories_cstrt">
-          <End Role="consumables_main_categories" Type="Self.consumables_main_categories" Multiplicity="0..1" />
+          <End Role="consumables_main_categories" Type="Self.consumables_main_categories" Multiplicity="1" />
           <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_main_categories">
@@ -416,7 +417,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_categories_in_packs_categories_cstrt">
-          <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="0..1" />
+          <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="1" />
           <End Role="consumables_categories_in_packs" Type="Self.consumables_categories_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_sub_categories">
@@ -428,7 +429,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_categories_in_packs_packs_cstrt">
-          <End Role="generics_packs" Type="Self.generics_packs" Multiplicity="0..1" />
+          <End Role="generics_packs" Type="Self.generics_packs" Multiplicity="1" />
           <End Role="consumables_categories_in_packs" Type="Self.consumables_categories_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="generics_packs">
@@ -440,7 +441,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_current_states_cstrt">
-          <End Role="consumables_states" Type="Self.consumables_states" Multiplicity="0..1" />
+          <End Role="consumables_states" Type="Self.consumables_states" Multiplicity="1" />
           <End Role="consumables" Type="Self.consumables" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_states">
@@ -452,7 +453,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_invoices_cstrt">
-          <End Role="invoices" Type="Self.invoices" Multiplicity="0..1" />
+          <End Role="invoices" Type="Self.invoices" Multiplicity="1" />
           <End Role="consumables" Type="Self.consumables" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="invoices">
@@ -464,7 +465,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_items_in_packs_items_cstrt">
-          <End Role="consumables" Type="Self.consumables" Multiplicity="0..1" />
+          <End Role="consumables" Type="Self.consumables" Multiplicity="1" />
           <End Role="consumables_items_in_packs" Type="Self.consumables_items_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables">
@@ -476,7 +477,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_items_in_packs_packs_cstrt">
-          <End Role="specifics_packs" Type="Self.specifics_packs" Multiplicity="0..1" />
+          <End Role="specifics_packs" Type="Self.specifics_packs" Multiplicity="1" />
           <End Role="consumables_items_in_packs" Type="Self.consumables_items_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="specifics_packs">
@@ -488,7 +489,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_reserved_initial_states_cstrt">
-          <End Role="consumables_states" Type="Self.consumables_states" Multiplicity="0..1" />
+          <End Role="consumables_states" Type="Self.consumables_states" Multiplicity="1" />
           <End Role="consumables_reserved" Type="Self.consumables_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_states">
@@ -500,7 +501,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_reserved_items_cstrt">
-          <End Role="consumables" Type="Self.consumables" Multiplicity="0..1" />
+          <End Role="consumables" Type="Self.consumables" Multiplicity="1" />
           <End Role="consumables_reserved" Type="Self.consumables_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables">
@@ -512,7 +513,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_reserved_reservations_cstrt">
-          <End Role="reservations" Type="Self.reservations" Multiplicity="0..1" />
+          <End Role="reservations" Type="Self.reservations" Multiplicity="1" />
           <End Role="consumables_reserved" Type="Self.consumables_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="reservations">
@@ -536,7 +537,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_sub_categories_cstrt">
-          <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="0..1" />
+          <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="1" />
           <End Role="consumables" Type="Self.consumables" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_sub_categories">
@@ -548,7 +549,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="contacts_companies_cstrt">
-          <End Role="companies" Type="Self.companies" Multiplicity="0..1" />
+          <End Role="companies" Type="Self.companies" Multiplicity="1" />
           <End Role="contacts" Type="Self.contacts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="companies">
@@ -560,7 +561,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="invoices_companies_cstrt">
-          <End Role="companies" Type="Self.companies" Multiplicity="0..1" />
+          <End Role="companies" Type="Self.companies" Multiplicity="1" />
           <End Role="invoices" Type="Self.invoices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="companies">
@@ -571,20 +572,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="repairs_capitalized_cstrt">
-          <End Role="capitalized" Type="Self.capitalized" Multiplicity="0..1" />
-          <End Role="repairs" Type="Self.repairs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="capitalized">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="repairs">
-              <PropertyRef Name="capitalized" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="repairs_companies_cstrt">
-          <End Role="companies" Type="Self.companies" Multiplicity="0..1" />
+          <End Role="companies" Type="Self.companies" Multiplicity="1" />
           <End Role="repairs" Type="Self.repairs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="companies">
@@ -595,8 +584,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="repairs_item_cstrt">
+          <End Role="capitalized" Type="Self.capitalized" Multiplicity="1" />
+          <End Role="repairs" Type="Self.repairs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="capitalized">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="repairs">
+              <PropertyRef Name="item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="reservations_accounts_cstrt">
-          <End Role="accounts" Type="Self.accounts" Multiplicity="0..1" />
+          <End Role="accounts" Type="Self.accounts" Multiplicity="1" />
           <End Role="reservations" Type="Self.reservations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="accounts">
@@ -607,7 +608,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PLDBModelStoreContainer">
+        <EntityContainer Name="pldbModelStoreContainer">
           <EntitySet Name="accounts" EntityType="Self.accounts" Schema="pixlogic_db" store:Type="Tables" />
           <EntitySet Name="accounts_main_categories" EntityType="Self.accounts_main_categories" Schema="pixlogic_db" store:Type="Tables" />
           <EntitySet Name="accounts_sub_categories" EntityType="Self.accounts_sub_categories" Schema="pixlogic_db" store:Type="Tables" />
@@ -744,12 +745,12 @@
             <End Role="companies" EntitySet="companies" />
             <End Role="invoices" EntitySet="invoices" />
           </AssociationSet>
-          <AssociationSet Name="repairs_capitalized_cstrt" Association="Self.repairs_capitalized_cstrt">
-            <End Role="capitalized" EntitySet="capitalized" />
-            <End Role="repairs" EntitySet="repairs" />
-          </AssociationSet>
           <AssociationSet Name="repairs_companies_cstrt" Association="Self.repairs_companies_cstrt">
             <End Role="companies" EntitySet="companies" />
+            <End Role="repairs" EntitySet="repairs" />
+          </AssociationSet>
+          <AssociationSet Name="repairs_item_cstrt" Association="Self.repairs_item_cstrt">
+            <End Role="capitalized" EntitySet="capitalized" />
             <End Role="repairs" EntitySet="repairs" />
           </AssociationSet>
           <AssociationSet Name="reservations_accounts_cstrt" Association="Self.reservations_accounts_cstrt">
@@ -757,23 +758,22 @@
             <End Role="reservations" EntitySet="reservations" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PLDB.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="pldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="account">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="active" Type="Boolean" />
-          <Property Name="wallet" Type="Int32" />
-          <Property Name="sub_category" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="wallet" Type="Int32" Nullable="false" />
+          <Property Name="sub_category" Type="Int64" Nullable="false" />
           <NavigationProperty Name="accounts_sub_categories" Relationship="Self.accounts_sub_categories_cstrt" FromRole="accounts" ToRole="accounts_sub_categories" />
           <NavigationProperty Name="reservations" Relationship="Self.reservations_accounts_cstrt" FromRole="accounts" ToRole="reservations" />
         </EntityType>
@@ -781,19 +781,19 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="accounts_sub_categories" Relationship="Self.accounts_main_categories_cstrt" FromRole="accounts_main_categories" ToRole="accounts_sub_categories" />
         </EntityType>
         <EntityType Name="accounts_sub_categories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="main_category" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="main_category" Type="Int64" Nullable="false" />
           <NavigationProperty Name="accounts" Relationship="Self.accounts_sub_categories_cstrt" FromRole="accounts_sub_categories" ToRole="accounts" />
           <NavigationProperty Name="accounts_main_categories" Relationship="Self.accounts_main_categories_cstrt" FromRole="accounts_sub_categories" ToRole="accounts_main_categories" />
         </EntityType>
@@ -801,29 +801,29 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="picture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="picture_path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="ean13" Type="Int64" />
-          <Property Name="reservation_cost" Type="Decimal" />
-          <Property Name="sub_category" Type="Int32" />
-          <Property Name="invoice" Type="Int32" />
-          <Property Name="current_state" Type="Int32" />
+          <Property Name="reservation_cost" Type="Int64" Nullable="false" />
+          <Property Name="sub_category" Type="Int64" Nullable="false" />
+          <Property Name="invoice" Type="Int64" Nullable="false" />
+          <Property Name="current_state" Type="Int64" Nullable="false" />
           <NavigationProperty Name="capitalized_states" Relationship="Self.capitalized_current_states_cstrt" FromRole="capitalized" ToRole="capitalized_states" />
           <NavigationProperty Name="invoice1" Relationship="Self.capitalized_invoices_cstrt" FromRole="capitalized" ToRole="invoices" />
           <NavigationProperty Name="capitalized_items_in_packs" Relationship="Self.capitalized_items_in_packs_items_cstrt" FromRole="capitalized" ToRole="capitalized_items_in_packs" />
           <NavigationProperty Name="capitalized_reserved" Relationship="Self.capitalized_reserved_items_cstrt" FromRole="capitalized" ToRole="capitalized_reserved" />
           <NavigationProperty Name="capitalized_sub_categories" Relationship="Self.capitalized_sub_categories_cstrt" FromRole="capitalized" ToRole="capitalized_sub_categories" />
-          <NavigationProperty Name="repairs" Relationship="Self.repairs_capitalized_cstrt" FromRole="capitalized" ToRole="repairs" />
+          <NavigationProperty Name="repairs" Relationship="Self.repairs_item_cstrt" FromRole="capitalized" ToRole="repairs" />
         </EntityType>
         <EntityType Name="capitalized_categories_in_packs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="category" Type="Int32" />
-          <Property Name="pack" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="Int64" Nullable="false" />
+          <Property Name="pack" Type="Int64" Nullable="false" />
           <NavigationProperty Name="capitalized_sub_categories" Relationship="Self.capitalized_categories_in_packs_categories_cstrt" FromRole="capitalized_categories_in_packs" ToRole="capitalized_sub_categories" />
           <NavigationProperty Name="generics_packs" Relationship="Self.capitalized_categories_in_packs_packs_cstrt" FromRole="capitalized_categories_in_packs" ToRole="generics_packs" />
         </EntityType>
@@ -831,9 +831,9 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="item" Type="Int32" />
-          <Property Name="pack" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="pack" Type="Int64" Nullable="false" />
           <NavigationProperty Name="capitalized" Relationship="Self.capitalized_items_in_packs_items_cstrt" FromRole="capitalized_items_in_packs" ToRole="capitalized" />
           <NavigationProperty Name="specifics_packs" Relationship="Self.capitalized_items_in_packs_packs_cstrt" FromRole="capitalized_items_in_packs" ToRole="specifics_packs" />
         </EntityType>
@@ -841,21 +841,21 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="capitalized_sub_categories" Relationship="Self.capitalized_main_categories_cstrt" FromRole="capitalized_main_categories" ToRole="capitalized_sub_categories" />
         </EntityType>
         <EntityType Name="capitalized_reserved">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="return_date" Type="DateTime" />
-          <Property Name="reservation" Type="Int32" />
-          <Property Name="item" Type="Int32" />
-          <Property Name="initial_state" Type="Int32" />
-          <Property Name="return_state" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="real_return_date" Type="DateTime" />
+          <Property Name="reservation" Type="Int64" Nullable="false" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="initial_state" Type="Int64" Nullable="false" />
+          <Property Name="return_state" Type="Int64" />
           <NavigationProperty Name="capitalized" Relationship="Self.capitalized_reserved_items_cstrt" FromRole="capitalized_reserved" ToRole="capitalized" />
           <NavigationProperty Name="capitalized_states" Relationship="Self.capitalized_reserved_initial_states_cstrt" FromRole="capitalized_reserved" ToRole="capitalized_states" />
           <NavigationProperty Name="reservation1" Relationship="Self.capitalized_reserved_reservations_cstrt" FromRole="capitalized_reserved" ToRole="reservations" />
@@ -865,10 +865,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="reservable" Type="Boolean" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="reservable" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="capitalizeds" Relationship="Self.capitalized_current_states_cstrt" FromRole="capitalized_states" ToRole="capitalized" />
           <NavigationProperty Name="capitalized_reserved" Relationship="Self.capitalized_reserved_initial_states_cstrt" FromRole="capitalized_states" ToRole="capitalized_reserved" />
           <NavigationProperty Name="capitalized_reserved1" Relationship="Self.capitalized_reserved_return_states_cstrt" FromRole="capitalized_states" ToRole="capitalized_reserved" />
@@ -877,10 +877,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="main_category" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="main_category" Type="Int64" Nullable="false" />
           <NavigationProperty Name="capitalizeds" Relationship="Self.capitalized_sub_categories_cstrt" FromRole="capitalized_sub_categories" ToRole="capitalized" />
           <NavigationProperty Name="capitalized_categories_in_packs" Relationship="Self.capitalized_categories_in_packs_categories_cstrt" FromRole="capitalized_sub_categories" ToRole="capitalized_categories_in_packs" />
           <NavigationProperty Name="capitalized_main_categories" Relationship="Self.capitalized_main_categories_cstrt" FromRole="capitalized_sub_categories" ToRole="capitalized_main_categories" />
@@ -889,9 +889,9 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="phone" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="Int64" />
           <Property Name="adress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="contacts" Relationship="Self.contacts_companies_cstrt" FromRole="companies" ToRole="contacts" />
           <NavigationProperty Name="invoices" Relationship="Self.invoices_companies_cstrt" FromRole="companies" ToRole="invoices" />
@@ -901,13 +901,13 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="reservation_cost" Type="Decimal" />
-          <Property Name="sub_category" Type="Int32" />
-          <Property Name="invoice" Type="Int32" />
-          <Property Name="current_state" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="reservation_cost" Type="Int64" Nullable="false" />
+          <Property Name="sub_category" Type="Int64" Nullable="false" />
+          <Property Name="invoice" Type="Int64" Nullable="false" />
+          <Property Name="current_state" Type="Int64" Nullable="false" />
           <NavigationProperty Name="consumables_states" Relationship="Self.consumables_current_states_cstrt" FromRole="consumables" ToRole="consumables_states" />
           <NavigationProperty Name="invoice1" Relationship="Self.consumables_invoices_cstrt" FromRole="consumables" ToRole="invoices" />
           <NavigationProperty Name="consumables_items_in_packs" Relationship="Self.consumables_items_in_packs_items_cstrt" FromRole="consumables" ToRole="consumables_items_in_packs" />
@@ -918,9 +918,9 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="category" Type="Int32" />
-          <Property Name="pack" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="Int64" Nullable="false" />
+          <Property Name="pack" Type="Int64" Nullable="false" />
           <NavigationProperty Name="consumables_sub_categories" Relationship="Self.consumables_categories_in_packs_categories_cstrt" FromRole="consumables_categories_in_packs" ToRole="consumables_sub_categories" />
           <NavigationProperty Name="generics_packs" Relationship="Self.consumables_categories_in_packs_packs_cstrt" FromRole="consumables_categories_in_packs" ToRole="generics_packs" />
         </EntityType>
@@ -928,9 +928,9 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="item" Type="Int32" />
-          <Property Name="pack" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="pack" Type="Int64" Nullable="false" />
           <NavigationProperty Name="consumable" Relationship="Self.consumables_items_in_packs_items_cstrt" FromRole="consumables_items_in_packs" ToRole="consumables" />
           <NavigationProperty Name="specifics_packs" Relationship="Self.consumables_items_in_packs_packs_cstrt" FromRole="consumables_items_in_packs" ToRole="specifics_packs" />
         </EntityType>
@@ -938,21 +938,21 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="consumables_sub_categories" Relationship="Self.consumable_main_categories_cstrt" FromRole="consumables_main_categories" ToRole="consumables_sub_categories" />
         </EntityType>
         <EntityType Name="consumables_reserved">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="return_date" Type="DateTime" />
-          <Property Name="reservation" Type="Int32" />
-          <Property Name="item" Type="Int32" />
-          <Property Name="initial_state" Type="Int32" />
-          <Property Name="return_state" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="real_return_date" Type="DateTime" />
+          <Property Name="reservation" Type="Int64" Nullable="false" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="initial_state" Type="Int64" Nullable="false" />
+          <Property Name="return_state" Type="Int64" />
           <NavigationProperty Name="consumable" Relationship="Self.consumables_reserved_items_cstrt" FromRole="consumables_reserved" ToRole="consumables" />
           <NavigationProperty Name="consumables_states" Relationship="Self.consumables_reserved_initial_states_cstrt" FromRole="consumables_reserved" ToRole="consumables_states" />
           <NavigationProperty Name="reservation1" Relationship="Self.consumables_reserved_reservations_cstrt" FromRole="consumables_reserved" ToRole="reservations" />
@@ -962,10 +962,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="reservable" Type="Boolean" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="reservable" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="consumables" Relationship="Self.consumables_current_states_cstrt" FromRole="consumables_states" ToRole="consumables" />
           <NavigationProperty Name="consumables_reserved" Relationship="Self.consumables_reserved_initial_states_cstrt" FromRole="consumables_states" ToRole="consumables_reserved" />
           <NavigationProperty Name="consumables_reserved1" Relationship="Self.consumables_reserved_return_states_cstrt" FromRole="consumables_states" ToRole="consumables_reserved" />
@@ -974,10 +974,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="main_category" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="main_category" Type="Int64" Nullable="false" />
           <NavigationProperty Name="consumables" Relationship="Self.consumables_sub_categories_cstrt" FromRole="consumables_sub_categories" ToRole="consumables" />
           <NavigationProperty Name="consumables_categories_in_packs" Relationship="Self.consumables_categories_in_packs_categories_cstrt" FromRole="consumables_sub_categories" ToRole="consumables_categories_in_packs" />
           <NavigationProperty Name="consumables_main_categories" Relationship="Self.consumable_main_categories_cstrt" FromRole="consumables_sub_categories" ToRole="consumables_main_categories" />
@@ -986,21 +986,21 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="phone" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="Int64" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="company" Type="Int32" />
+          <Property Name="company" Type="Int64" Nullable="false" />
           <NavigationProperty Name="company1" Relationship="Self.contacts_companies_cstrt" FromRole="contacts" ToRole="companies" />
         </EntityType>
         <EntityType Name="generics_packs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="capitalized_categories_in_packs" Relationship="Self.capitalized_categories_in_packs_packs_cstrt" FromRole="generics_packs" ToRole="capitalized_categories_in_packs" />
           <NavigationProperty Name="consumables_categories_in_packs" Relationship="Self.consumables_categories_in_packs_packs_cstrt" FromRole="generics_packs" ToRole="consumables_categories_in_packs" />
         </EntityType>
@@ -1008,12 +1008,13 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="purchase_date" Type="DateTime" />
-          <Property Name="purchase_cost" Type="Decimal" />
-          <Property Name="annual_depreciation_rate" Type="Int32" />
-          <Property Name="phase_number" Type="Int64" />
-          <Property Name="company" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="purchase_date" Type="DateTime" Nullable="false" />
+          <Property Name="purchase_cost" Type="Decimal" Nullable="false" />
+          <Property Name="annual_depreciation_rate" Type="Int32" Nullable="false" />
+          <Property Name="phase_number" Type="Int64" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="company" Type="Int64" Nullable="false" />
           <NavigationProperty Name="capitalizeds" Relationship="Self.capitalized_invoices_cstrt" FromRole="invoices" ToRole="capitalized" />
           <NavigationProperty Name="company1" Relationship="Self.invoices_companies_cstrt" FromRole="invoices" ToRole="companies" />
           <NavigationProperty Name="consumables" Relationship="Self.consumables_invoices_cstrt" FromRole="invoices" ToRole="consumables" />
@@ -1022,24 +1023,24 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="start_date" Type="DateTime" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" />
           <Property Name="return_date" Type="DateTime" />
-          <Property Name="capitalized" Type="Int32" />
-          <Property Name="repairer" Type="Int32" />
-          <NavigationProperty Name="capitalized1" Relationship="Self.repairs_capitalized_cstrt" FromRole="repairs" ToRole="capitalized" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="repairer" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="capitalized" Relationship="Self.repairs_item_cstrt" FromRole="repairs" ToRole="capitalized" />
           <NavigationProperty Name="company" Relationship="Self.repairs_companies_cstrt" FromRole="repairs" ToRole="companies" />
         </EntityType>
         <EntityType Name="reservation">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="start_date" Type="DateTime" />
-          <Property Name="estimated_return_date" Type="DateTime" />
-          <Property Name="confirmation" Type="Boolean" />
-          <Property Name="taken_out" Type="Boolean" />
-          <Property Name="account" Type="Int32" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" />
+          <Property Name="estimated_return_date" Type="DateTime" Nullable="false" />
+          <Property Name="confirmed" Type="Boolean" Nullable="false" />
+          <Property Name="taken_out" Type="Boolean" Nullable="false" />
+          <Property Name="account" Type="Int64" Nullable="false" />
           <NavigationProperty Name="account1" Relationship="Self.reservations_accounts_cstrt" FromRole="reservations" ToRole="accounts" />
           <NavigationProperty Name="capitalized_reserved" Relationship="Self.capitalized_reserved_reservations_cstrt" FromRole="reservations" ToRole="capitalized_reserved" />
           <NavigationProperty Name="consumables_reserved" Relationship="Self.consumables_reserved_reservations_cstrt" FromRole="reservations" ToRole="consumables_reserved" />
@@ -1048,14 +1049,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="namel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="capitalized_items_in_packs" Relationship="Self.capitalized_items_in_packs_packs_cstrt" FromRole="specifics_packs" ToRole="capitalized_items_in_packs" />
           <NavigationProperty Name="consumables_items_in_packs" Relationship="Self.consumables_items_in_packs_packs_cstrt" FromRole="specifics_packs" ToRole="consumables_items_in_packs" />
         </EntityType>
         <Association Name="accounts_sub_categories_cstrt">
-          <End Role="accounts_sub_categories" Type="Self.accounts_sub_categories" Multiplicity="0..1" />
+          <End Role="accounts_sub_categories" Type="Self.accounts_sub_categories" Multiplicity="1" />
           <End Role="accounts" Type="Self.account" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="accounts_sub_categories">
@@ -1067,7 +1068,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="reservations_accounts_cstrt">
-          <End Role="accounts" Type="Self.account" Multiplicity="0..1" />
+          <End Role="accounts" Type="Self.account" Multiplicity="1" />
           <End Role="reservations" Type="Self.reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="accounts">
@@ -1079,7 +1080,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="accounts_main_categories_cstrt">
-          <End Role="accounts_main_categories" Type="Self.accounts_main_categories" Multiplicity="0..1" />
+          <End Role="accounts_main_categories" Type="Self.accounts_main_categories" Multiplicity="1" />
           <End Role="accounts_sub_categories" Type="Self.accounts_sub_categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="accounts_main_categories">
@@ -1091,7 +1092,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_current_states_cstrt">
-          <End Role="capitalized_states" Type="Self.capitalized_states" Multiplicity="0..1" />
+          <End Role="capitalized_states" Type="Self.capitalized_states" Multiplicity="1" />
           <End Role="capitalized" Type="Self.capitalized" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_states">
@@ -1103,7 +1104,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_invoices_cstrt">
-          <End Role="invoices" Type="Self.invoice" Multiplicity="0..1" />
+          <End Role="invoices" Type="Self.invoice" Multiplicity="1" />
           <End Role="capitalized" Type="Self.capitalized" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="invoices">
@@ -1115,7 +1116,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_items_in_packs_items_cstrt">
-          <End Role="capitalized" Type="Self.capitalized" Multiplicity="0..1" />
+          <End Role="capitalized" Type="Self.capitalized" Multiplicity="1" />
           <End Role="capitalized_items_in_packs" Type="Self.capitalized_items_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized">
@@ -1127,7 +1128,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_reserved_items_cstrt">
-          <End Role="capitalized" Type="Self.capitalized" Multiplicity="0..1" />
+          <End Role="capitalized" Type="Self.capitalized" Multiplicity="1" />
           <End Role="capitalized_reserved" Type="Self.capitalized_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized">
@@ -1139,7 +1140,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_sub_categories_cstrt">
-          <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="0..1" />
+          <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="1" />
           <End Role="capitalized" Type="Self.capitalized" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_sub_categories">
@@ -1150,20 +1151,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="repairs_capitalized_cstrt">
-          <End Role="capitalized" Type="Self.capitalized" Multiplicity="0..1" />
+        <Association Name="repairs_item_cstrt">
+          <End Role="capitalized" Type="Self.capitalized" Multiplicity="1" />
           <End Role="repairs" Type="Self.repair" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="repairs">
-              <PropertyRef Name="capitalized" />
+              <PropertyRef Name="item" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_categories_in_packs_categories_cstrt">
-          <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="0..1" />
+          <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="1" />
           <End Role="capitalized_categories_in_packs" Type="Self.capitalized_categories_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_sub_categories">
@@ -1175,7 +1176,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_categories_in_packs_packs_cstrt">
-          <End Role="generics_packs" Type="Self.generics_packs" Multiplicity="0..1" />
+          <End Role="generics_packs" Type="Self.generics_packs" Multiplicity="1" />
           <End Role="capitalized_categories_in_packs" Type="Self.capitalized_categories_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="generics_packs">
@@ -1187,7 +1188,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_items_in_packs_packs_cstrt">
-          <End Role="specifics_packs" Type="Self.specifics_packs" Multiplicity="0..1" />
+          <End Role="specifics_packs" Type="Self.specifics_packs" Multiplicity="1" />
           <End Role="capitalized_items_in_packs" Type="Self.capitalized_items_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="specifics_packs">
@@ -1199,7 +1200,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_main_categories_cstrt">
-          <End Role="capitalized_main_categories" Type="Self.capitalized_main_categories" Multiplicity="0..1" />
+          <End Role="capitalized_main_categories" Type="Self.capitalized_main_categories" Multiplicity="1" />
           <End Role="capitalized_sub_categories" Type="Self.capitalized_sub_categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_main_categories">
@@ -1211,7 +1212,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_reserved_initial_states_cstrt">
-          <End Role="capitalized_states" Type="Self.capitalized_states" Multiplicity="0..1" />
+          <End Role="capitalized_states" Type="Self.capitalized_states" Multiplicity="1" />
           <End Role="capitalized_reserved" Type="Self.capitalized_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="capitalized_states">
@@ -1223,7 +1224,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="capitalized_reserved_reservations_cstrt">
-          <End Role="reservations" Type="Self.reservation" Multiplicity="0..1" />
+          <End Role="reservations" Type="Self.reservation" Multiplicity="1" />
           <End Role="capitalized_reserved" Type="Self.capitalized_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="reservations">
@@ -1247,7 +1248,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="contacts_companies_cstrt">
-          <End Role="companies" Type="Self.company" Multiplicity="0..1" />
+          <End Role="companies" Type="Self.company" Multiplicity="1" />
           <End Role="contacts" Type="Self.contact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="companies">
@@ -1259,7 +1260,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="invoices_companies_cstrt">
-          <End Role="companies" Type="Self.company" Multiplicity="0..1" />
+          <End Role="companies" Type="Self.company" Multiplicity="1" />
           <End Role="invoices" Type="Self.invoice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="companies">
@@ -1271,7 +1272,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="repairs_companies_cstrt">
-          <End Role="companies" Type="Self.company" Multiplicity="0..1" />
+          <End Role="companies" Type="Self.company" Multiplicity="1" />
           <End Role="repairs" Type="Self.repair" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="companies">
@@ -1283,7 +1284,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_current_states_cstrt">
-          <End Role="consumables_states" Type="Self.consumables_states" Multiplicity="0..1" />
+          <End Role="consumables_states" Type="Self.consumables_states" Multiplicity="1" />
           <End Role="consumables" Type="Self.consumable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_states">
@@ -1295,7 +1296,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_invoices_cstrt">
-          <End Role="invoices" Type="Self.invoice" Multiplicity="0..1" />
+          <End Role="invoices" Type="Self.invoice" Multiplicity="1" />
           <End Role="consumables" Type="Self.consumable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="invoices">
@@ -1307,7 +1308,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_items_in_packs_items_cstrt">
-          <End Role="consumables" Type="Self.consumable" Multiplicity="0..1" />
+          <End Role="consumables" Type="Self.consumable" Multiplicity="1" />
           <End Role="consumables_items_in_packs" Type="Self.consumables_items_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables">
@@ -1319,7 +1320,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_reserved_items_cstrt">
-          <End Role="consumables" Type="Self.consumable" Multiplicity="0..1" />
+          <End Role="consumables" Type="Self.consumable" Multiplicity="1" />
           <End Role="consumables_reserved" Type="Self.consumables_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables">
@@ -1331,7 +1332,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_sub_categories_cstrt">
-          <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="0..1" />
+          <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="1" />
           <End Role="consumables" Type="Self.consumable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_sub_categories">
@@ -1343,7 +1344,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_categories_in_packs_categories_cstrt">
-          <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="0..1" />
+          <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="1" />
           <End Role="consumables_categories_in_packs" Type="Self.consumables_categories_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_sub_categories">
@@ -1355,7 +1356,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_categories_in_packs_packs_cstrt">
-          <End Role="generics_packs" Type="Self.generics_packs" Multiplicity="0..1" />
+          <End Role="generics_packs" Type="Self.generics_packs" Multiplicity="1" />
           <End Role="consumables_categories_in_packs" Type="Self.consumables_categories_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="generics_packs">
@@ -1367,7 +1368,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_items_in_packs_packs_cstrt">
-          <End Role="specifics_packs" Type="Self.specifics_packs" Multiplicity="0..1" />
+          <End Role="specifics_packs" Type="Self.specifics_packs" Multiplicity="1" />
           <End Role="consumables_items_in_packs" Type="Self.consumables_items_in_packs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="specifics_packs">
@@ -1379,7 +1380,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumable_main_categories_cstrt">
-          <End Role="consumables_main_categories" Type="Self.consumables_main_categories" Multiplicity="0..1" />
+          <End Role="consumables_main_categories" Type="Self.consumables_main_categories" Multiplicity="1" />
           <End Role="consumables_sub_categories" Type="Self.consumables_sub_categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_main_categories">
@@ -1391,7 +1392,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_reserved_initial_states_cstrt">
-          <End Role="consumables_states" Type="Self.consumables_states" Multiplicity="0..1" />
+          <End Role="consumables_states" Type="Self.consumables_states" Multiplicity="1" />
           <End Role="consumables_reserved" Type="Self.consumables_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="consumables_states">
@@ -1403,7 +1404,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="consumables_reserved_reservations_cstrt">
-          <End Role="reservations" Type="Self.reservation" Multiplicity="0..1" />
+          <End Role="reservations" Type="Self.reservation" Multiplicity="1" />
           <End Role="consumables_reserved" Type="Self.consumables_reserved" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="reservations">
@@ -1483,7 +1484,7 @@
             <End Role="capitalized_sub_categories" EntitySet="capitalized_sub_categories" />
             <End Role="capitalized" EntitySet="capitalizeds" />
           </AssociationSet>
-          <AssociationSet Name="repairs_capitalized_cstrt" Association="Self.repairs_capitalized_cstrt">
+          <AssociationSet Name="repairs_item_cstrt" Association="Self.repairs_item_cstrt">
             <End Role="capitalized" EntitySet="capitalizeds" />
             <End Role="repairs" EntitySet="repairs" />
           </AssociationSet>
@@ -1581,9 +1582,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PLDBModelStoreContainer" CdmEntityContainer="pldb_entities">
+        <EntityContainerMapping StorageEntityContainer="pldbModelStoreContainer" CdmEntityContainer="pldb_entities">
           <EntitySetMapping Name="accounts">
-            <EntityTypeMapping TypeName="PLDB.Model.account">
+            <EntityTypeMapping TypeName="pldbModel.account">
               <MappingFragment StoreEntitySet="accounts">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />
@@ -1597,7 +1598,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="accounts_main_categories">
-            <EntityTypeMapping TypeName="PLDB.Model.accounts_main_categories">
+            <EntityTypeMapping TypeName="pldbModel.accounts_main_categories">
               <MappingFragment StoreEntitySet="accounts_main_categories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1606,7 +1607,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="accounts_sub_categories">
-            <EntityTypeMapping TypeName="PLDB.Model.accounts_sub_categories">
+            <EntityTypeMapping TypeName="pldbModel.accounts_sub_categories">
               <MappingFragment StoreEntitySet="accounts_sub_categories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1616,12 +1617,12 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="capitalizeds">
-            <EntityTypeMapping TypeName="PLDB.Model.capitalized">
+            <EntityTypeMapping TypeName="pldbModel.capitalized">
               <MappingFragment StoreEntitySet="capitalized">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="picture_path" ColumnName="picture_path" />
                 <ScalarProperty Name="ean13" ColumnName="ean13" />
                 <ScalarProperty Name="reservation_cost" ColumnName="reservation_cost" />
                 <ScalarProperty Name="sub_category" ColumnName="sub_category" />
@@ -1631,7 +1632,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="capitalized_categories_in_packs">
-            <EntityTypeMapping TypeName="PLDB.Model.capitalized_categories_in_packs">
+            <EntityTypeMapping TypeName="pldbModel.capitalized_categories_in_packs">
               <MappingFragment StoreEntitySet="capitalized_categories_in_packs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category" ColumnName="category" />
@@ -1640,7 +1641,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="capitalized_items_in_packs">
-            <EntityTypeMapping TypeName="PLDB.Model.capitalized_items_in_packs">
+            <EntityTypeMapping TypeName="pldbModel.capitalized_items_in_packs">
               <MappingFragment StoreEntitySet="capitalized_items_in_packs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="item" ColumnName="item" />
@@ -1649,7 +1650,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="capitalized_main_categories">
-            <EntityTypeMapping TypeName="PLDB.Model.capitalized_main_categories">
+            <EntityTypeMapping TypeName="pldbModel.capitalized_main_categories">
               <MappingFragment StoreEntitySet="capitalized_main_categories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1658,10 +1659,10 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="capitalized_reserved">
-            <EntityTypeMapping TypeName="PLDB.Model.capitalized_reserved">
+            <EntityTypeMapping TypeName="pldbModel.capitalized_reserved">
               <MappingFragment StoreEntitySet="capitalized_reserved">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="return_date" ColumnName="return_date" />
+                <ScalarProperty Name="real_return_date" ColumnName="real_return_date" />
                 <ScalarProperty Name="reservation" ColumnName="reservation" />
                 <ScalarProperty Name="item" ColumnName="item" />
                 <ScalarProperty Name="initial_state" ColumnName="initial_state" />
@@ -1670,7 +1671,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="capitalized_states">
-            <EntityTypeMapping TypeName="PLDB.Model.capitalized_states">
+            <EntityTypeMapping TypeName="pldbModel.capitalized_states">
               <MappingFragment StoreEntitySet="capitalized_states">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1680,7 +1681,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="capitalized_sub_categories">
-            <EntityTypeMapping TypeName="PLDB.Model.capitalized_sub_categories">
+            <EntityTypeMapping TypeName="pldbModel.capitalized_sub_categories">
               <MappingFragment StoreEntitySet="capitalized_sub_categories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1690,7 +1691,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="companies">
-            <EntityTypeMapping TypeName="PLDB.Model.company">
+            <EntityTypeMapping TypeName="pldbModel.company">
               <MappingFragment StoreEntitySet="companies">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1700,7 +1701,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="consumables">
-            <EntityTypeMapping TypeName="PLDB.Model.consumable">
+            <EntityTypeMapping TypeName="pldbModel.consumable">
               <MappingFragment StoreEntitySet="consumables">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1713,7 +1714,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="consumables_categories_in_packs">
-            <EntityTypeMapping TypeName="PLDB.Model.consumables_categories_in_packs">
+            <EntityTypeMapping TypeName="pldbModel.consumables_categories_in_packs">
               <MappingFragment StoreEntitySet="consumables_categories_in_packs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category" ColumnName="category" />
@@ -1722,7 +1723,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="consumables_items_in_packs">
-            <EntityTypeMapping TypeName="PLDB.Model.consumables_items_in_packs">
+            <EntityTypeMapping TypeName="pldbModel.consumables_items_in_packs">
               <MappingFragment StoreEntitySet="consumables_items_in_packs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="item" ColumnName="item" />
@@ -1731,7 +1732,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="consumables_main_categories">
-            <EntityTypeMapping TypeName="PLDB.Model.consumables_main_categories">
+            <EntityTypeMapping TypeName="pldbModel.consumables_main_categories">
               <MappingFragment StoreEntitySet="consumables_main_categories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1740,10 +1741,10 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="consumables_reserved">
-            <EntityTypeMapping TypeName="PLDB.Model.consumables_reserved">
+            <EntityTypeMapping TypeName="pldbModel.consumables_reserved">
               <MappingFragment StoreEntitySet="consumables_reserved">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="return_date" ColumnName="return_date" />
+                <ScalarProperty Name="real_return_date" ColumnName="real_return_date" />
                 <ScalarProperty Name="reservation" ColumnName="reservation" />
                 <ScalarProperty Name="item" ColumnName="item" />
                 <ScalarProperty Name="initial_state" ColumnName="initial_state" />
@@ -1752,7 +1753,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="consumables_states">
-            <EntityTypeMapping TypeName="PLDB.Model.consumables_states">
+            <EntityTypeMapping TypeName="pldbModel.consumables_states">
               <MappingFragment StoreEntitySet="consumables_states">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1762,7 +1763,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="consumables_sub_categories">
-            <EntityTypeMapping TypeName="PLDB.Model.consumables_sub_categories">
+            <EntityTypeMapping TypeName="pldbModel.consumables_sub_categories">
               <MappingFragment StoreEntitySet="consumables_sub_categories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1772,7 +1773,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="contacts">
-            <EntityTypeMapping TypeName="PLDB.Model.contact">
+            <EntityTypeMapping TypeName="pldbModel.contact">
               <MappingFragment StoreEntitySet="contacts">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />
@@ -1784,7 +1785,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="generics_packs">
-            <EntityTypeMapping TypeName="PLDB.Model.generics_packs">
+            <EntityTypeMapping TypeName="pldbModel.generics_packs">
               <MappingFragment StoreEntitySet="generics_packs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1793,45 +1794,46 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="invoices">
-            <EntityTypeMapping TypeName="PLDB.Model.invoice">
+            <EntityTypeMapping TypeName="pldbModel.invoice">
               <MappingFragment StoreEntitySet="invoices">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="purchase_date" ColumnName="purchase_date" />
                 <ScalarProperty Name="purchase_cost" ColumnName="purchase_cost" />
                 <ScalarProperty Name="annual_depreciation_rate" ColumnName="annual_depreciation_rate" />
                 <ScalarProperty Name="phase_number" ColumnName="phase_number" />
+                <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="company" ColumnName="company" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="repairs">
-            <EntityTypeMapping TypeName="PLDB.Model.repair">
+            <EntityTypeMapping TypeName="pldbModel.repair">
               <MappingFragment StoreEntitySet="repairs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="start_date" ColumnName="start_date" />
                 <ScalarProperty Name="return_date" ColumnName="return_date" />
-                <ScalarProperty Name="capitalized" ColumnName="capitalized" />
+                <ScalarProperty Name="item" ColumnName="item" />
                 <ScalarProperty Name="repairer" ColumnName="repairer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="reservations">
-            <EntityTypeMapping TypeName="PLDB.Model.reservation">
+            <EntityTypeMapping TypeName="pldbModel.reservation">
               <MappingFragment StoreEntitySet="reservations">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="start_date" ColumnName="start_date" />
                 <ScalarProperty Name="estimated_return_date" ColumnName="estimated_return_date" />
-                <ScalarProperty Name="confirmation" ColumnName="confirmation" />
+                <ScalarProperty Name="confirmed" ColumnName="confirmed" />
                 <ScalarProperty Name="taken_out" ColumnName="taken_out" />
                 <ScalarProperty Name="account" ColumnName="account" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="specifics_packs">
-            <EntityTypeMapping TypeName="PLDB.Model.specifics_packs">
+            <EntityTypeMapping TypeName="pldbModel.specifics_packs">
               <MappingFragment StoreEntitySet="specifics_packs">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="namel" ColumnName="namel" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1853,7 +1855,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
