@@ -45,6 +45,7 @@
             this.UserCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.MainCategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // firstName
@@ -197,11 +198,22 @@
             this.MainCategoryComboBox.TabIndex = 18;
             this.MainCategoryComboBox.Click += new System.EventHandler(this.MainCategoryComboBox_Click);
             // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(481, 332);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(75, 23);
+            this.buttonBack.TabIndex = 19;
+            this.buttonBack.Text = "Retour";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
             // AddUserAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 373);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.MainCategoryComboBox);
             this.Controls.Add(this.CategoryLabel);
             this.Controls.Add(this.UserCategoryComboBox);
@@ -245,5 +257,6 @@
         private System.Windows.Forms.ComboBox UserCategoryComboBox;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.ComboBox MainCategoryComboBox;
+        private System.Windows.Forms.Button buttonBack;
     }
 }

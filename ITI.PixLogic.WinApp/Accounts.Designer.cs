@@ -66,7 +66,7 @@
             this.dataGridViewUsers.Location = new System.Drawing.Point(2, 2);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(1044, 328);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(788, 494);
             this.dataGridViewUsers.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -173,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 462);
+            this.ClientSize = new System.Drawing.Size(1028, 549);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.button_back);
@@ -181,6 +181,7 @@
             this.Controls.Add(this.dataGridViewUsers);
             this.Name = "Accounts";
             this.Text = "Comptes utilisateurs";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
             this.ResumeLayout(false);

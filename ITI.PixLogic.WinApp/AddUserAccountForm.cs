@@ -82,5 +82,11 @@ namespace ITI.PixLogic.WinApp
             MainCategoryComboBox.ValueMember = "id";
             MainCategoryComboBox.DisplayMember = "name";
         }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            new Accounts().Show();
+            this.Close();
+        }
     }
 }
