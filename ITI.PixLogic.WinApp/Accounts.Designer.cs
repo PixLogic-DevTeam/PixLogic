@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
-            this.save_button = new System.Windows.Forms.Button();
-            this.button_back = new System.Windows.Forms.Button();
-            this.button_add = new System.Windows.Forms.Button();
-            this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +38,11 @@
             this.activeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.walletDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.save_button = new System.Windows.Forms.Button();
+            this.button_back = new System.Windows.Forms.Button();
+            this.button_add = new System.Windows.Forms.Button();
+            this.button_delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -67,40 +68,6 @@
             this.dataGridViewUsers.ReadOnly = true;
             this.dataGridViewUsers.Size = new System.Drawing.Size(1044, 328);
             this.dataGridViewUsers.TabIndex = 0;
-            // 
-            // save_button
-            // 
-            this.save_button.Location = new System.Drawing.Point(40, 368);
-            this.save_button.Name = "save_button";
-            this.save_button.Size = new System.Drawing.Size(75, 23);
-            this.save_button.TabIndex = 1;
-            this.save_button.Text = "Sauvegarder";
-            this.save_button.UseVisualStyleBackColor = true;
-            this.save_button.Click += new System.EventHandler(this.save_button_Click);
-            // 
-            // button_back
-            // 
-            this.button_back.Location = new System.Drawing.Point(218, 368);
-            this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(75, 23);
-            this.button_back.TabIndex = 2;
-            this.button_back.Text = "Retour";
-            this.button_back.UseVisualStyleBackColor = true;
-            this.button_back.Click += new System.EventHandler(this.button_back_Click);
-            // 
-            // button_add
-            // 
-            this.button_add.Location = new System.Drawing.Point(402, 368);
-            this.button_add.Name = "button_add";
-            this.button_add.Size = new System.Drawing.Size(75, 23);
-            this.button_add.TabIndex = 3;
-            this.button_add.Text = "Ajouter";
-            this.button_add.UseVisualStyleBackColor = true;
-            this.button_add.Click += new System.EventHandler(this.button_add_Click);
-            // 
-            // accountBindingSource
-            // 
-            this.accountBindingSource.DataSource = typeof(ITI.PixLogic.DAL.accounts);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -158,11 +125,56 @@
             this.subcategoryDataGridViewTextBoxColumn.Name = "subcategoryDataGridViewTextBoxColumn";
             this.subcategoryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // accountBindingSource
+            // 
+            this.accountBindingSource.DataSource = typeof(ITI.PixLogic.DAL.accounts);
+            // 
+            // save_button
+            // 
+            this.save_button.Location = new System.Drawing.Point(40, 368);
+            this.save_button.Name = "save_button";
+            this.save_button.Size = new System.Drawing.Size(75, 23);
+            this.save_button.TabIndex = 1;
+            this.save_button.Text = "Sauvegarder";
+            this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
+            // 
+            // button_back
+            // 
+            this.button_back.Location = new System.Drawing.Point(218, 368);
+            this.button_back.Name = "button_back";
+            this.button_back.Size = new System.Drawing.Size(75, 23);
+            this.button_back.TabIndex = 2;
+            this.button_back.Text = "Retour";
+            this.button_back.UseVisualStyleBackColor = true;
+            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            // 
+            // button_add
+            // 
+            this.button_add.Location = new System.Drawing.Point(402, 368);
+            this.button_add.Name = "button_add";
+            this.button_add.Size = new System.Drawing.Size(75, 23);
+            this.button_add.TabIndex = 3;
+            this.button_add.Text = "Ajouter";
+            this.button_add.UseVisualStyleBackColor = true;
+            this.button_add.Click += new System.EventHandler(this.button_add_Click);
+            // 
+            // button_delete
+            // 
+            this.button_delete.Location = new System.Drawing.Point(570, 367);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(75, 23);
+            this.button_delete.TabIndex = 4;
+            this.button_delete.Text = "Supprimer";
+            this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+            // 
             // Accounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 462);
+            this.Controls.Add(this.button_delete);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.button_back);
             this.Controls.Add(this.save_button);
@@ -190,5 +202,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn activeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn walletDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button_delete;
     }
 }

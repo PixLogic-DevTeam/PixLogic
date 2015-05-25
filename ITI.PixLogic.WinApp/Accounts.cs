@@ -51,5 +51,27 @@ namespace ITI.PixLogic.WinApp
             new AddUserAccountForm().Show();
             this.Close();
         }
+
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewUsers.SelectedRows.Count == 0 || dataGridViewUsers.SelectedRows.Contains(dataGridViewUsers.Rows[dataGridViewUsers.RowCount - 1]))
+            //if (consumablesdataGridView.SelectedRows[0].Cells[0].Value == null)
+            {
+                MessageBox.Show("Veuillez selectionner une ligne a supprimer");
+            }
+
+
+            else
+            {
+                var toBeDeleted = (long)dataGridViewUsers.SelectedRows[0].Cells[0].Value;
+                var UserData = ple.accounts.First(c => c.id == toBeDeleted);
+                ple.accounts.Remove(UserData);
+                ple.SaveChanges();
+                ple.accounts.Load();
+                dataGridViewUsers.DataSource = ple.accounts.Local.ToBindingList();
+                
+            }
+           
+        }
     }
 }

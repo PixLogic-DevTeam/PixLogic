@@ -12,20 +12,20 @@ using System.Data.Entity;
 
 namespace ITI.PixLogic.WinApp
 {
-	public partial class Consumable_table : Form
-	{
-        
+    public partial class Consumable_table : Form
+    {
+
         pldb_entities ple;
-		public Consumable_table()
-		{
-			InitializeComponent();
+        public Consumable_table()
+        {
+            InitializeComponent();
             Form1_Load();
-            
-		}
-        
+
+        }
+
         private void Form1_Load()
         {
-            
+
             ple = new pldb_entities();
             ple.consumables.Load();
             consumablesBindingSource.DataSource = ple.consumables.Local.ToBindingList();
@@ -34,12 +34,10 @@ namespace ITI.PixLogic.WinApp
         private void Clear_datagridview_Click(object sender, EventArgs e)
         {
 
-            if (consumablesdataGridView.SelectedRows.Count == 0 || consumablesdataGridView.SelectedRows.Contains(consumablesdataGridView.Rows[consumablesdataGridView.RowCount-1])) 
-            //if (consumablesdataGridView.SelectedRows[0].Cells[0].Value == null)
+            if (consumablesdataGridView.SelectedRows.Count == 0 || consumablesdataGridView.SelectedRows.Contains(consumablesdataGridView.Rows[consumablesdataGridView.RowCount - 1]))
             {
                 MessageBox.Show("Veuillez selectionner une ligne a supprimer");
             }
-            
 
             else
             {
@@ -50,15 +48,15 @@ namespace ITI.PixLogic.WinApp
                 ple.consumables.Load();
                 consumablesdataGridView.DataSource = ple.consumables.Local.ToBindingList();
             }
-           
-            }
+
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddConsumableForm ACF = new AddConsumableForm();
-            ACF.Show();
+            //AddConsumableForm ACF = new AddConsumableForm();
+            //ACF.Show();
 
         }
-       
-	}
+
+    }
 }

@@ -27,7 +27,7 @@ namespace ITI.PixLogic.WinApp
 
         private void consumable_button_Click(object sender, System.EventArgs e)
         {
-            new Form1().Show();
+            new Consumable_table().Show();
             this.Hide();
         }
     }
