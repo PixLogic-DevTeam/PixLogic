@@ -100,7 +100,7 @@
             // 
             // accountBindingSource
             // 
-            this.accountBindingSource.DataSource = typeof(ITI.PixLogic.DAL.account);
+            this.accountBindingSource.DataSource = typeof(ITI.PixLogic.DAL.accounts);
             // 
             // idDataGridViewTextBoxColumn
             // 

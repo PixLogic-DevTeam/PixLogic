@@ -27,7 +27,7 @@ namespace ITI.PixLogic.WinApp
      
         private void button_confirm_Click(object sender, EventArgs e)
         {
-            account objAccount = new account();
+            accounts objAccount = new accounts();
             objAccount.first_name = textBox_firstName.Text;
             objAccount.last_name = textBox_lastName.Text;
             objAccount.email = textBoxMail.Text;
