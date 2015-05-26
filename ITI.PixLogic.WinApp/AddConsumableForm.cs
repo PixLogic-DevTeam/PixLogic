@@ -46,9 +46,8 @@ namespace ITI.PixLogic.WinApp
             int selectedIndex = subCategoryComboBox.SelectedIndex;
             Object selectedItem = subCategoryComboBox.SelectedItem;
             string test = subCategoryComboBox.Text;
-            MessageBox.Show("Selected Item Text: " + test + "\n" +
-                             "Index: " + selectedIndex.ToString());
-
+           /* MessageBox.Show("Selected Item Text: " + test + "\n" +
+                             "Index: " + selectedIndex.ToString());*/
 
 
             consumables_states state = ple.consumables_states.First();
