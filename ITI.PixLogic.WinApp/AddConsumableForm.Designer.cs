@@ -46,6 +46,7 @@
             this.subCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mainCategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.button_back = new System.Windows.Forms.Button();
             nameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.consumablessubcategoriesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -53,71 +54,79 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(125, 291);
+            nameLabel.Location = new System.Drawing.Point(94, 236);
+            nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(104, 17);
+            nameLabel.Size = new System.Drawing.Size(78, 13);
             nameLabel.TabIndex = 14;
             nameLabel.Text = "Sous-catégorie";
             // 
             // id_consumable
             // 
             this.id_consumable.AutoSize = true;
-            this.id_consumable.Location = new System.Drawing.Point(125, 54);
+            this.id_consumable.Location = new System.Drawing.Point(94, 44);
+            this.id_consumable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.id_consumable.Name = "id_consumable";
-            this.id_consumable.Size = new System.Drawing.Size(19, 17);
+            this.id_consumable.Size = new System.Drawing.Size(15, 13);
             this.id_consumable.TabIndex = 0;
             this.id_consumable.Text = "id";
             // 
             // name_consumable
             // 
             this.name_consumable.AutoSize = true;
-            this.name_consumable.Location = new System.Drawing.Point(125, 99);
+            this.name_consumable.Location = new System.Drawing.Point(94, 80);
+            this.name_consumable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.name_consumable.Name = "name_consumable";
-            this.name_consumable.Size = new System.Drawing.Size(37, 17);
+            this.name_consumable.Size = new System.Drawing.Size(29, 13);
             this.name_consumable.TabIndex = 1;
             this.name_consumable.Text = "Nom";
             // 
             // description_consumable
             // 
             this.description_consumable.AutoSize = true;
-            this.description_consumable.Location = new System.Drawing.Point(125, 148);
+            this.description_consumable.Location = new System.Drawing.Point(94, 120);
+            this.description_consumable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.description_consumable.Name = "description_consumable";
-            this.description_consumable.Size = new System.Drawing.Size(79, 17);
+            this.description_consumable.Size = new System.Drawing.Size(60, 13);
             this.description_consumable.TabIndex = 2;
             this.description_consumable.Text = "Description";
             // 
             // reservation_cost_consumable
             // 
             this.reservation_cost_consumable.AutoSize = true;
-            this.reservation_cost_consumable.Location = new System.Drawing.Point(125, 188);
+            this.reservation_cost_consumable.Location = new System.Drawing.Point(94, 153);
+            this.reservation_cost_consumable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.reservation_cost_consumable.Name = "reservation_cost_consumable";
-            this.reservation_cost_consumable.Size = new System.Drawing.Size(132, 17);
+            this.reservation_cost_consumable.Size = new System.Drawing.Size(99, 13);
             this.reservation_cost_consumable.TabIndex = 3;
             this.reservation_cost_consumable.Text = "Coût de réservation";
             // 
             // invoice_consumable
             // 
             this.invoice_consumable.AutoSize = true;
-            this.invoice_consumable.Location = new System.Drawing.Point(125, 337);
+            this.invoice_consumable.Location = new System.Drawing.Point(94, 274);
+            this.invoice_consumable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.invoice_consumable.Name = "invoice_consumable";
-            this.invoice_consumable.Size = new System.Drawing.Size(56, 17);
+            this.invoice_consumable.Size = new System.Drawing.Size(43, 13);
             this.invoice_consumable.TabIndex = 5;
             this.invoice_consumable.Text = "Facture";
             // 
             // current_state_consumable
             // 
             this.current_state_consumable.AutoSize = true;
-            this.current_state_consumable.Location = new System.Drawing.Point(125, 378);
+            this.current_state_consumable.Location = new System.Drawing.Point(94, 307);
+            this.current_state_consumable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.current_state_consumable.Name = "current_state_consumable";
-            this.current_state_consumable.Size = new System.Drawing.Size(33, 17);
+            this.current_state_consumable.Size = new System.Drawing.Size(26, 13);
             this.current_state_consumable.TabIndex = 6;
             this.current_state_consumable.Text = "Etat";
             // 
             // Add_consumable_button
             // 
-            this.Add_consumable_button.Location = new System.Drawing.Point(286, 430);
+            this.Add_consumable_button.Location = new System.Drawing.Point(214, 349);
+            this.Add_consumable_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Add_consumable_button.Name = "Add_consumable_button";
-            this.Add_consumable_button.Size = new System.Drawing.Size(75, 23);
+            this.Add_consumable_button.Size = new System.Drawing.Size(56, 19);
             this.Add_consumable_button.TabIndex = 7;
             this.Add_consumable_button.Text = "Ajouter";
             this.Add_consumable_button.UseVisualStyleBackColor = true;
@@ -125,37 +134,42 @@
             // 
             // Name_consumable_txt
             // 
-            this.Name_consumable_txt.Location = new System.Drawing.Point(330, 94);
+            this.Name_consumable_txt.Location = new System.Drawing.Point(248, 76);
+            this.Name_consumable_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name_consumable_txt.Name = "Name_consumable_txt";
-            this.Name_consumable_txt.Size = new System.Drawing.Size(100, 22);
+            this.Name_consumable_txt.Size = new System.Drawing.Size(76, 20);
             this.Name_consumable_txt.TabIndex = 8;
             // 
             // Description_consumable_txt
             // 
-            this.Description_consumable_txt.Location = new System.Drawing.Point(330, 143);
+            this.Description_consumable_txt.Location = new System.Drawing.Point(248, 116);
+            this.Description_consumable_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Description_consumable_txt.Name = "Description_consumable_txt";
-            this.Description_consumable_txt.Size = new System.Drawing.Size(100, 22);
+            this.Description_consumable_txt.Size = new System.Drawing.Size(76, 20);
             this.Description_consumable_txt.TabIndex = 9;
             // 
             // Invoice_consumable_txt
             // 
-            this.Invoice_consumable_txt.Location = new System.Drawing.Point(330, 332);
+            this.Invoice_consumable_txt.Location = new System.Drawing.Point(248, 270);
+            this.Invoice_consumable_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Invoice_consumable_txt.Name = "Invoice_consumable_txt";
-            this.Invoice_consumable_txt.Size = new System.Drawing.Size(100, 22);
+            this.Invoice_consumable_txt.Size = new System.Drawing.Size(76, 20);
             this.Invoice_consumable_txt.TabIndex = 12;
             // 
             // Current_state_consumable_txt
             // 
-            this.Current_state_consumable_txt.Location = new System.Drawing.Point(330, 373);
+            this.Current_state_consumable_txt.Location = new System.Drawing.Point(248, 303);
+            this.Current_state_consumable_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Current_state_consumable_txt.Name = "Current_state_consumable_txt";
-            this.Current_state_consumable_txt.Size = new System.Drawing.Size(100, 22);
+            this.Current_state_consumable_txt.Size = new System.Drawing.Size(76, 20);
             this.Current_state_consumable_txt.TabIndex = 13;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(330, 182);
+            this.textBox1.Location = new System.Drawing.Point(248, 148);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
             this.textBox1.TabIndex = 14;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
@@ -168,18 +182,20 @@
             this.subCategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumablessubcategoriesBindingSource, "name", true));
             this.subCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.subCategoryComboBox.FormattingEnabled = true;
-            this.subCategoryComboBox.Location = new System.Drawing.Point(330, 284);
+            this.subCategoryComboBox.Location = new System.Drawing.Point(248, 231);
+            this.subCategoryComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.subCategoryComboBox.Name = "subCategoryComboBox";
-            this.subCategoryComboBox.Size = new System.Drawing.Size(244, 24);
+            this.subCategoryComboBox.Size = new System.Drawing.Size(184, 21);
             this.subCategoryComboBox.TabIndex = 15;
             this.subCategoryComboBox.Click += new System.EventHandler(this.subCategoryComboBox_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(125, 241);
+            this.label1.Location = new System.Drawing.Point(94, 196);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 16;
             this.label1.Text = "Catégorie principale";
             // 
@@ -187,17 +203,29 @@
             // 
             this.mainCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mainCategoryComboBox.FormattingEnabled = true;
-            this.mainCategoryComboBox.Location = new System.Drawing.Point(330, 234);
+            this.mainCategoryComboBox.Location = new System.Drawing.Point(248, 190);
+            this.mainCategoryComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainCategoryComboBox.Name = "mainCategoryComboBox";
-            this.mainCategoryComboBox.Size = new System.Drawing.Size(244, 24);
+            this.mainCategoryComboBox.Size = new System.Drawing.Size(184, 21);
             this.mainCategoryComboBox.TabIndex = 17;
             this.mainCategoryComboBox.Click += new System.EventHandler(this.mainCategoryComboBox_Click);
             // 
+            // button_back
+            // 
+            this.button_back.Location = new System.Drawing.Point(366, 347);
+            this.button_back.Name = "button_back";
+            this.button_back.Size = new System.Drawing.Size(75, 23);
+            this.button_back.TabIndex = 18;
+            this.button_back.Text = "Retour";
+            this.button_back.UseVisualStyleBackColor = true;
+            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            // 
             // AddConsumableForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 592);
+            this.ClientSize = new System.Drawing.Size(593, 481);
+            this.Controls.Add(this.button_back);
             this.Controls.Add(this.mainCategoryComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(nameLabel);
@@ -214,6 +242,7 @@
             this.Controls.Add(this.description_consumable);
             this.Controls.Add(this.name_consumable);
             this.Controls.Add(this.id_consumable);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddConsumableForm";
             this.Text = "AddConsumableForm";
             ((System.ComponentModel.ISupportInitialize)(this.consumablessubcategoriesBindingSource)).EndInit();
@@ -242,5 +271,6 @@
         private System.Windows.Forms.ComboBox subCategoryComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox mainCategoryComboBox;
+        private System.Windows.Forms.Button button_back;
     }
 }

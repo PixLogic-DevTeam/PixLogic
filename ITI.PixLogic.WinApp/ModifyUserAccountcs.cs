@@ -21,6 +21,7 @@ namespace ITI.PixLogic.WinApp
 
         private void textBox_firstName_TextChanged(object sender, EventArgs e)
         {
+
             accounts objAccount = new accounts();
             textBox_firstName.Text = objAccount.first_name;
         }

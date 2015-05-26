@@ -63,6 +63,12 @@
     <Compile Include="AddCapitalized.Designer.cs">
       <DependentUpon>AddCapitalized.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddConsumableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConsumableForm.Designer.cs">
+      <DependentUpon>AddConsumableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUserAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddCapitalized.resx">
       <DependentUpon>AddCapitalized.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddConsumableForm.resx">
+      <DependentUpon>AddConsumableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddUserAccountForm.resx">
       <DependentUpon>AddUserAccountForm.cs</DependentUpon>

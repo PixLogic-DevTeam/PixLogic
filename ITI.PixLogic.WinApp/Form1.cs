@@ -53,8 +53,8 @@ namespace ITI.PixLogic.WinApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //AddConsumableForm ACF = new AddConsumableForm();
-            //ACF.Show();
+            new AddConsumableForm().Show();
+            this.Close();
 
         }
 
