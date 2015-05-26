@@ -31,6 +31,24 @@ namespace ITI.PixLogic.WinApp
 
         private void Suppr_Btn_Click( object sender, EventArgs e )
         {
+            if ( CapitalizedGridView.SelectedRows.Count == 0 || CapitalizedGridView.SelectedRows.Contains( CapitalizedGridView.Rows[ CapitalizedGridView.RowCount - 1 ] ) )
+            {
+                MessageBox.Show( "Veuillez selectionner une ligne a supprimer" );
+            }
+
+            else
+            {
+                var toBeDeleted = (long)CapitalizedGridView.SelectedRows[ 0 ].Cells[ 0 ].Value;
+                var consumableData = ple.consumables.First( c => c.id == toBeDeleted );
+                ple.consumables.Remove( consumableData );
+                ple.SaveChanges( );
+                ple.consumables.Load( );
+                CapitalizedGridView.DataSource = ple.consumables.Local.ToBindingList( );
+            }
+        }
+
+        private void Add_Btn_Click( object sender, EventArgs e )
+        {
 
         }
     }

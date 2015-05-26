@@ -134,6 +134,7 @@
             this.Add_Btn.TabIndex = 2;
             this.Add_Btn.Text = "Ajouter";
             this.Add_Btn.UseVisualStyleBackColor = true;
+            this.Add_Btn.Click += new System.EventHandler(this.Add_Btn_Click);
             // 
             // Capitalized
             // 

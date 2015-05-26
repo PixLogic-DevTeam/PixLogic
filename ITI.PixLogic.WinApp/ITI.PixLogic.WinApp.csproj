@@ -57,6 +57,12 @@
     <Compile Include="Accounts.Designer.cs">
       <DependentUpon>Accounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCapitalized.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCapitalized.Designer.cs">
+      <DependentUpon>AddCapitalized.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUserAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Accounts.resx">
       <DependentUpon>Accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCapitalized.resx">
+      <DependentUpon>AddCapitalized.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddUserAccountForm.resx">
       <DependentUpon>AddUserAccountForm.cs</DependentUpon>
