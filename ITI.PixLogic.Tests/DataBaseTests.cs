@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using ITI.PixLogic.DAL;
 using System.Data.Entity;
-using MySql.Data.Entity;
+using System.Data.EntityClient;
 
 namespace ITI.PixLogic.Tests
 {
@@ -16,11 +16,11 @@ namespace ITI.PixLogic.Tests
         [Test]
         public void tables_consumable_is_not_null()
         {
-            /*pldb_entities ple = new pldb_entities();
+            pldb_entities ple = new pldb_entities();
             ple.consumables.Load();
            var data =  ple.consumables.Local.ToBindingList();
 
-           Assert.That(data != null);*/
+           Assert.That(data != null);
         }
     }
 }

@@ -43,6 +43,7 @@
             this.button_back = new System.Windows.Forms.Button();
             this.button_add = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
+            this.button_modify = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -169,11 +170,22 @@
             this.button_delete.UseVisualStyleBackColor = true;
             this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
+            // button_modify
+            // 
+            this.button_modify.Location = new System.Drawing.Point(736, 367);
+            this.button_modify.Name = "button_modify";
+            this.button_modify.Size = new System.Drawing.Size(75, 23);
+            this.button_modify.TabIndex = 5;
+            this.button_modify.Text = "Modifier";
+            this.button_modify.UseVisualStyleBackColor = true;
+            this.button_modify.Click += new System.EventHandler(this.button_modify_Click);
+            // 
             // Accounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 549);
+            this.Controls.Add(this.button_modify);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.button_back);
@@ -204,5 +216,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn walletDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button_delete;
+        private System.Windows.Forms.Button button_modify;
     }
 }

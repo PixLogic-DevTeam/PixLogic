@@ -45,6 +45,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.nameSubCategory = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.button_back = new System.Windows.Forms.Button();
             nameLabel = new System.Windows.Forms.Label();
             nameLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.consumablesdataGridView)).BeginInit();
@@ -199,11 +200,22 @@
             this.nameTextBox.Size = new System.Drawing.Size(76, 20);
             this.nameTextBox.TabIndex = 7;
             // 
+            // button_back
+            // 
+            this.button_back.Location = new System.Drawing.Point(992, 38);
+            this.button_back.Name = "button_back";
+            this.button_back.Size = new System.Drawing.Size(75, 23);
+            this.button_back.TabIndex = 8;
+            this.button_back.Text = "Retour";
+            this.button_back.UseVisualStyleBackColor = true;
+            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            // 
             // Consumable_table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 549);
+            this.Controls.Add(this.button_back);
             this.Controls.Add(nameLabel1);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(nameLabel);
@@ -239,6 +251,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn invoiceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentstateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button_back;
 	}
 }
 

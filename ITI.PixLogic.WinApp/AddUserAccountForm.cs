@@ -36,9 +36,10 @@ namespace ITI.PixLogic.WinApp
             objAccount.wallet = Convert.ToInt32(textBoxWallet.Text);
             //objAccount.active = Convert.ToBoolean(comboBoxState);
 
-            accounts_sub_categories sub = ple.accounts_sub_categories.FirstOrDefault(o => o.name == UserCategoryComboBox.Text);
+            /*accounts_sub_categories sub = ple.accounts_sub_categories.FirstOrDefault(o => o.name == UserCategoryComboBox.Text);
             Debug.Assert(sub != null);
-            sub.name = UserCategoryComboBox.Text;
+            sub.name = UserCategoryComboBox.Text;*/
+            accounts_sub_categories sub = ple.accounts_sub_categories.First();
             objAccount.accounts_sub_categories = sub;
 
             accounts_main_categories main = ple.accounts_main_categories.First();
