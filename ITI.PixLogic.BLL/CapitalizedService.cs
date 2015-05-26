@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ITI.PixLogic.BLL
 {
-    public class Class1
+    public static class CapitalizedService
     {
+
+        //public void AddCapitalized()
+        //{
+
+        //}
     }
 }

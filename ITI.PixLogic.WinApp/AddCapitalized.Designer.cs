@@ -42,6 +42,8 @@
             this.InvoiceLbl = new System.Windows.Forms.Label();
             this.CurrentStateLbl = new System.Windows.Forms.Label();
             this.CurrentStateComboBox = new System.Windows.Forms.ComboBox();
+            this.BackBtn = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NameLbl
@@ -52,7 +54,6 @@
             this.NameLbl.Size = new System.Drawing.Size(38, 13);
             this.NameLbl.TabIndex = 0;
             this.NameLbl.Text = "Nom : ";
-            this.NameLbl.Click += new System.EventHandler(this.label1_Click);
             // 
             // NameTextBox
             // 
@@ -118,7 +119,6 @@
             this.SubCatLbl.Size = new System.Drawing.Size(87, 13);
             this.SubCatLbl.TabIndex = 8;
             this.SubCatLbl.Text = "Sous-catégorie : ";
-            this.SubCatLbl.Click += new System.EventHandler(this.label5_Click);
             // 
             // SubCatComboBox
             // 
@@ -127,6 +127,7 @@
             this.SubCatComboBox.Name = "SubCatComboBox";
             this.SubCatComboBox.Size = new System.Drawing.Size(134, 21);
             this.SubCatComboBox.TabIndex = 9;
+            this.SubCatComboBox.Click += new System.EventHandler(this.SubCatComboBox_Click);
             // 
             // InvoiceComboBox
             // 
@@ -135,6 +136,7 @@
             this.InvoiceComboBox.Name = "InvoiceComboBox";
             this.InvoiceComboBox.Size = new System.Drawing.Size(134, 21);
             this.InvoiceComboBox.TabIndex = 10;
+            this.InvoiceComboBox.Click += new System.EventHandler(this.InvoiceComboBox_Click);
             // 
             // InvoiceLbl
             // 
@@ -161,12 +163,35 @@
             this.CurrentStateComboBox.Name = "CurrentStateComboBox";
             this.CurrentStateComboBox.Size = new System.Drawing.Size(134, 21);
             this.CurrentStateComboBox.TabIndex = 13;
+            this.CurrentStateComboBox.Click += new System.EventHandler(this.CurrentStateComboBox_Click);
+            // 
+            // BackBtn
+            // 
+            this.BackBtn.Location = new System.Drawing.Point(258, 309);
+            this.BackBtn.Name = "BackBtn";
+            this.BackBtn.Size = new System.Drawing.Size(75, 23);
+            this.BackBtn.TabIndex = 14;
+            this.BackBtn.Text = "Annuler";
+            this.BackBtn.UseVisualStyleBackColor = true;
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Location = new System.Drawing.Point(12, 309);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddBtn.TabIndex = 15;
+            this.AddBtn.Text = "Ajouter";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // AddCapitalized
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 553);
+            this.ClientSize = new System.Drawing.Size(344, 344);
+            this.Controls.Add(this.AddBtn);
+            this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.CurrentStateComboBox);
             this.Controls.Add(this.CurrentStateLbl);
             this.Controls.Add(this.InvoiceLbl);
@@ -204,5 +229,7 @@
         private System.Windows.Forms.Label InvoiceLbl;
         private System.Windows.Forms.Label CurrentStateLbl;
         private System.Windows.Forms.ComboBox CurrentStateComboBox;
+        private System.Windows.Forms.Button BackBtn;
+        private System.Windows.Forms.Button AddBtn;
     }
 }
