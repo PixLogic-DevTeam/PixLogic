@@ -30,6 +30,7 @@
         {
             this.users_account_button = new System.Windows.Forms.Button();
             this.consumable_button = new System.Windows.Forms.Button();
+            this.CapitalizedBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // users_account_button
@@ -52,11 +53,22 @@
             this.consumable_button.UseVisualStyleBackColor = true;
             this.consumable_button.Click += new System.EventHandler(this.consumable_button_Click);
             // 
+            // CapitalizedBtn
+            // 
+            this.CapitalizedBtn.Location = new System.Drawing.Point(331, 179);
+            this.CapitalizedBtn.Name = "CapitalizedBtn";
+            this.CapitalizedBtn.Size = new System.Drawing.Size(131, 26);
+            this.CapitalizedBtn.TabIndex = 2;
+            this.CapitalizedBtn.Text = "Immobilisables";
+            this.CapitalizedBtn.UseVisualStyleBackColor = true;
+            this.CapitalizedBtn.Click += new System.EventHandler(this.CapitalizedBtn_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 391);
+            this.Controls.Add(this.CapitalizedBtn);
             this.Controls.Add(this.consumable_button);
             this.Controls.Add(this.users_account_button);
             this.Name = "Home";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button users_account_button;
         private System.Windows.Forms.Button consumable_button;
+        private System.Windows.Forms.Button CapitalizedBtn;
     }
 }

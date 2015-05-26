@@ -30,5 +30,11 @@ namespace ITI.PixLogic.WinApp
             new Consumable_table().Show();
             this.Hide();
         }
+
+        private void CapitalizedBtn_Click( object sender, EventArgs e )
+        {
+            new Capitalized( ).Show( );
+            this.Hide( );
+        }
     }
 }
