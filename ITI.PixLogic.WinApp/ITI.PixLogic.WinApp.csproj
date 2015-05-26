@@ -140,6 +140,9 @@
     <None Include="ITI.PixLogic.DAL.consumables_sub_categories.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.account.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_main_categories.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_sub_categories.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.capitalized.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

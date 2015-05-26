@@ -71,7 +71,9 @@ namespace ITI.PixLogic.WinApp
             if (result == "False" && textBoxWallet.TextLength != 0)
             {
                 MessageBox.Show("Tapez uniquement des chiffres.");
+                textBoxWallet.Text = "";
             }
+
         }
 
         private void UserCategoryComboBox_Click(object sender, EventArgs e)
