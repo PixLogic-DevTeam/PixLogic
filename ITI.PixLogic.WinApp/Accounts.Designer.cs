@@ -66,7 +66,7 @@
             this.dataGridViewUsers.Location = new System.Drawing.Point(2, 2);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(788, 494);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(844, 494);
             this.dataGridViewUsers.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
