@@ -54,18 +54,20 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(28, 98);
+            nameLabel.Location = new System.Drawing.Point(21, 80);
+            nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(125, 17);
+            nameLabel.Size = new System.Drawing.Size(94, 13);
             nameLabel.TabIndex = 4;
             nameLabel.Text = "subCategoryName";
             // 
             // nameLabel1
             // 
             nameLabel1.AutoSize = true;
-            nameLabel1.Location = new System.Drawing.Point(28, 182);
+            nameLabel1.Location = new System.Drawing.Point(21, 148);
+            nameLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nameLabel1.Name = "nameLabel1";
-            nameLabel1.Size = new System.Drawing.Size(132, 17);
+            nameLabel1.Size = new System.Drawing.Size(99, 13);
             nameLabel1.TabIndex = 6;
             nameLabel1.Text = "mainCategoryName";
             // 
@@ -87,11 +89,12 @@
             this.invoiceDataGridViewTextBoxColumn,
             this.currentstateDataGridViewTextBoxColumn});
             this.consumablesdataGridView.DataSource = this.consumablesBindingSource;
-            this.consumablesdataGridView.Location = new System.Drawing.Point(183, 12);
+            this.consumablesdataGridView.Location = new System.Drawing.Point(137, 10);
+            this.consumablesdataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.consumablesdataGridView.Name = "consumablesdataGridView";
             this.consumablesdataGridView.ReadOnly = true;
             this.consumablesdataGridView.RowTemplate.Height = 24;
-            this.consumablesdataGridView.Size = new System.Drawing.Size(1050, 608);
+            this.consumablesdataGridView.Size = new System.Drawing.Size(788, 494);
             this.consumablesdataGridView.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -146,19 +149,22 @@
             // consumablesBindingSource
             // 
             this.consumablesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.consumables);
+            this.consumablesBindingSource.CurrentChanged += new System.EventHandler(this.consumablesBindingSource_CurrentChanged);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 0;
             // 
             // Clear_datagridview
             // 
-            this.Clear_datagridview.Location = new System.Drawing.Point(1624, 221);
+            this.Clear_datagridview.Location = new System.Drawing.Point(1218, 180);
+            this.Clear_datagridview.Margin = new System.Windows.Forms.Padding(2);
             this.Clear_datagridview.Name = "Clear_datagridview";
-            this.Clear_datagridview.Size = new System.Drawing.Size(254, 117);
+            this.Clear_datagridview.Size = new System.Drawing.Size(190, 95);
             this.Clear_datagridview.TabIndex = 1;
             this.Clear_datagridview.Text = "Clear";
             this.Clear_datagridview.UseVisualStyleBackColor = true;
@@ -166,9 +172,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1624, 57);
+            this.button2.Location = new System.Drawing.Point(1218, 46);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(254, 121);
+            this.button2.Size = new System.Drawing.Size(190, 98);
             this.button2.TabIndex = 2;
             this.button2.Text = "Add consumable";
             this.button2.UseVisualStyleBackColor = true;
@@ -177,24 +184,26 @@
             // nameSubCategory
             // 
             this.nameSubCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumablesBindingSource, "consumables_sub_categories.name", true));
-            this.nameSubCategory.Location = new System.Drawing.Point(31, 141);
+            this.nameSubCategory.Location = new System.Drawing.Point(23, 115);
+            this.nameSubCategory.Margin = new System.Windows.Forms.Padding(2);
             this.nameSubCategory.Name = "nameSubCategory";
-            this.nameSubCategory.Size = new System.Drawing.Size(100, 22);
+            this.nameSubCategory.Size = new System.Drawing.Size(76, 20);
             this.nameSubCategory.TabIndex = 5;
             // 
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumablesBindingSource, "consumables_sub_categories.consumables_main_categories.name", true));
-            this.nameTextBox.Location = new System.Drawing.Point(31, 221);
+            this.nameTextBox.Location = new System.Drawing.Point(23, 180);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(76, 20);
             this.nameTextBox.TabIndex = 7;
             // 
             // Consumable_table
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1704, 676);
+            this.ClientSize = new System.Drawing.Size(1203, 549);
             this.Controls.Add(nameLabel1);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(nameLabel);
@@ -203,6 +212,7 @@
             this.Controls.Add(this.Clear_datagridview);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.consumablesdataGridView);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Consumable_table";
             this.Text = "Consumables";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

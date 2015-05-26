@@ -51,12 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Accounts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounts.Designer.cs">
       <DependentUpon>Accounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCapitalized.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCapitalized.Designer.cs">
+      <DependentUpon>AddCapitalized.cs</DependentUpon>
     </Compile>
     <Compile Include="AddUserAccountForm.cs">
       <SubType>Form</SubType>
@@ -64,21 +69,15 @@
     <Compile Include="AddUserAccountForm.Designer.cs">
       <DependentUpon>AddUserAccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapitalizedForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapitalizedForm.Designer.cs">
-      <DependentUpon>CapitalizedForm.cs</DependentUpon>
-    </Compile>
+<<<<<<< HEAD
 =======
-    <Compile Include="AddConsumableForm.cs">
+    <Compile Include="Capitalized.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddConsumableForm.Designer.cs">
-      <DependentUpon>AddConsumableForm.cs</DependentUpon>
+    <Compile Include="Capitalized.Designer.cs">
+      <DependentUpon>Capitalized.cs</DependentUpon>
     </Compile>
-    <Compile Include="CCN.cs" />
->>>>>>> 535be39ed04c0a77040322ade34cf4956fd7dbdb
+>>>>>>> 0d9cb4c9079f4436d2cbc31fa9a64bc5d5324455
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,20 +92,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <EmbeddedResource Include="Accounts.resx">
       <DependentUpon>Accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCapitalized.resx">
+      <DependentUpon>AddCapitalized.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddUserAccountForm.resx">
       <DependentUpon>AddUserAccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapitalizedForm.resx">
-      <DependentUpon>CapitalizedForm.cs</DependentUpon>
+<<<<<<< HEAD
 =======
-    <EmbeddedResource Include="AddConsumableForm.resx">
-      <DependentUpon>AddConsumableForm.cs</DependentUpon>
->>>>>>> 535be39ed04c0a77040322ade34cf4956fd7dbdb
+    <EmbeddedResource Include="Capitalized.resx">
+      <DependentUpon>Capitalized.cs</DependentUpon>
     </EmbeddedResource>
+>>>>>>> 0d9cb4c9079f4436d2cbc31fa9a64bc5d5324455
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +128,7 @@
     <None Include="ITI.PixLogic.DAL.consumables_sub_categories.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.account.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.capitalized.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

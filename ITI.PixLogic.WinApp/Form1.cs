@@ -58,5 +58,10 @@ namespace ITI.PixLogic.WinApp
 
         }
 
+        private void consumablesBindingSource_CurrentChanged( object sender, EventArgs e )
+        {
+
+        }
+
     }
 }
