@@ -9,9 +9,9 @@ namespace ITI.PixLogic.BLL
     public static class CapitalizedService
     {
 
-        public void AddCapitalized()
-        {
+        //public void AddCapitalized()
+        //{
 
-        }
+        //}
     }
 }

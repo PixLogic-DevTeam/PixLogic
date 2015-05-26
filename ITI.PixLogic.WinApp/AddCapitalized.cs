@@ -71,6 +71,8 @@ namespace ITI.PixLogic.WinApp
             ple.capitalized.Add( objCapitalized );
             ple.SaveChanges();
 
+            
+
             this.Close( );
         }
     }
