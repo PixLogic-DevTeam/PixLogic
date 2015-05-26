@@ -49,7 +49,7 @@ namespace ITI.PixLogic.WinApp
 
         private void Add_Btn_Click( object sender, EventArgs e )
         {
-
+            new AddCapitalized( ).Show( );
         }
     }
 }
