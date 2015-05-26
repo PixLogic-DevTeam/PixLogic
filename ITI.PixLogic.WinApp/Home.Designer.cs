@@ -37,7 +37,7 @@
             // 
             this.users_account_button.Location = new System.Drawing.Point(46, 165);
             this.users_account_button.Name = "users_account_button";
-            this.users_account_button.Size = new System.Drawing.Size(123, 23);
+            this.users_account_button.Size = new System.Drawing.Size(131, 26);
             this.users_account_button.TabIndex = 0;
             this.users_account_button.Text = "Comptes utilisateurs";
             this.users_account_button.UseVisualStyleBackColor = true;
@@ -45,9 +45,9 @@
             // 
             // consumable_button
             // 
-            this.consumable_button.Location = new System.Drawing.Point(539, 165);
+            this.consumable_button.Location = new System.Drawing.Point(402, 165);
             this.consumable_button.Name = "consumable_button";
-            this.consumable_button.Size = new System.Drawing.Size(89, 23);
+            this.consumable_button.Size = new System.Drawing.Size(131, 26);
             this.consumable_button.TabIndex = 1;
             this.consumable_button.Text = "Consommables";
             this.consumable_button.UseVisualStyleBackColor = true;
@@ -55,7 +55,7 @@
             // 
             // CapitalizedBtn
             // 
-            this.CapitalizedBtn.Location = new System.Drawing.Point(331, 179);
+            this.CapitalizedBtn.Location = new System.Drawing.Point(223, 165);
             this.CapitalizedBtn.Name = "CapitalizedBtn";
             this.CapitalizedBtn.Size = new System.Drawing.Size(131, 26);
             this.CapitalizedBtn.TabIndex = 2;

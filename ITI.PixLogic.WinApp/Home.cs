@@ -34,7 +34,7 @@ namespace ITI.PixLogic.WinApp
         private void CapitalizedBtn_Click( object sender, EventArgs e )
         {
             new Capitalized( ).Show( );
-            //this.Hide( );
+            this.Hide( );
         }
     }
 }

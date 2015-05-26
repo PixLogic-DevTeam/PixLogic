@@ -73,5 +73,13 @@ namespace ITI.PixLogic.WinApp
             }
            
         }
+
+        private void button_modify_Click(object sender, EventArgs e)
+        {
+            /*var toBeModify = (long)dataGridViewUsers.SelectedRows[0].Cells[0].Value;
+            var UserData = ple.accounts.First(c => c.id == toBeModify);*/
+            new ModifyUserAccountcs().Show();
+            this.Close();
+        }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label nameLabel;
+            System.Windows.Forms.Label nameLabel1;
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +45,17 @@
             this.button_back = new System.Windows.Forms.Button();
             this.button_add = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
+            this.button_modify = new System.Windows.Forms.Button();
+            this.accounts_sub_categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameSubCategory = new System.Windows.Forms.TextBox();
+            this.accounts_main_categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameMainCategory = new System.Windows.Forms.TextBox();
+            nameLabel = new System.Windows.Forms.Label();
+            nameLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accounts_sub_categoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accounts_main_categoriesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewUsers
@@ -169,11 +180,68 @@
             this.button_delete.UseVisualStyleBackColor = true;
             this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
+            // button_modify
+            // 
+            this.button_modify.Location = new System.Drawing.Point(736, 367);
+            this.button_modify.Name = "button_modify";
+            this.button_modify.Size = new System.Drawing.Size(75, 23);
+            this.button_modify.TabIndex = 5;
+            this.button_modify.Text = "Modifier";
+            this.button_modify.UseVisualStyleBackColor = true;
+            this.button_modify.Click += new System.EventHandler(this.button_modify_Click);
+            // 
+            // accounts_sub_categoriesBindingSource
+            // 
+            this.accounts_sub_categoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.accounts_sub_categories);
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(940, 87);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(71, 13);
+            nameLabel.TabIndex = 6;
+            nameLabel.Text = "Sub Category";
+            // 
+            // nameSubCategory
+            // 
+            this.nameSubCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accounts_sub_categoriesBindingSource, "name", true));
+            this.nameSubCategory.Location = new System.Drawing.Point(928, 117);
+            this.nameSubCategory.Name = "nameSubCategory";
+            this.nameSubCategory.Size = new System.Drawing.Size(100, 20);
+            this.nameSubCategory.TabIndex = 8;
+            // 
+            // accounts_main_categoriesBindingSource
+            // 
+            this.accounts_main_categoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.accounts_main_categories);
+            // 
+            // nameLabel1
+            // 
+            nameLabel1.AutoSize = true;
+            nameLabel1.Location = new System.Drawing.Point(936, 21);
+            nameLabel1.Name = "nameLabel1";
+            nameLabel1.Size = new System.Drawing.Size(75, 13);
+            nameLabel1.TabIndex = 8;
+            nameLabel1.Text = "Main Category";
+            // 
+            // nameMainCategory
+            // 
+            this.nameMainCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accounts_main_categoriesBindingSource, "name", true));
+            this.nameMainCategory.Location = new System.Drawing.Point(928, 51);
+            this.nameMainCategory.Name = "nameMainCategory";
+            this.nameMainCategory.Size = new System.Drawing.Size(100, 20);
+            this.nameMainCategory.TabIndex = 9;
+            // 
             // Accounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 549);
+            this.ClientSize = new System.Drawing.Size(1094, 549);
+            this.Controls.Add(nameLabel1);
+            this.Controls.Add(this.nameMainCategory);
+            this.Controls.Add(nameLabel);
+            this.Controls.Add(this.nameSubCategory);
+            this.Controls.Add(this.button_modify);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.button_back);
@@ -184,7 +252,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accounts_sub_categoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accounts_main_categoriesBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -204,5 +275,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn walletDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button_delete;
+        private System.Windows.Forms.Button button_modify;
+        private System.Windows.Forms.BindingSource accounts_sub_categoriesBindingSource;
+        private System.Windows.Forms.TextBox nameSubCategory;
+        private System.Windows.Forms.BindingSource accounts_main_categoriesBindingSource;
+        private System.Windows.Forms.TextBox nameMainCategory;
     }
 }
