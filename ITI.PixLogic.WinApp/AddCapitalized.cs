@@ -31,10 +31,10 @@ namespace ITI.PixLogic.WinApp
 
         private void InvoiceComboBox_Click( object sender, EventArgs e )
         {
-            //ple.invoices.Load( );
-            //InvoiceComboBox.DataSource = ple.invoices.Local.ToBindingList( );
-            //InvoiceComboBox.ValueMember = "id";
-            //InvoiceComboBox.DisplayMember = "description";
+            ple.invoices.Load( );
+            InvoiceComboBox.DataSource = ple.invoices.Local.ToBindingList( );
+            InvoiceComboBox.ValueMember = "id";
+            InvoiceComboBox.DisplayMember = "description";
         }
 
         private void CurrentStateComboBox_Click( object sender, EventArgs e )
@@ -62,6 +62,10 @@ namespace ITI.PixLogic.WinApp
             Debug.Assert( subcat != null );
             subcat.name = SubCatComboBox.Text;
             objCapitalized.capitalized_sub_categories = subcat;
+
+            invoices invo = ple.invoices.FirstOrDefault( o => o.description == InvoiceComboBox.Text );
+            Debug.Assert( invo != null );
+            objCapitalized.invoice = invo.id;
 
             capitalized_states state = ple.capitalized_states.FirstOrDefault( o => o.name == CurrentStateComboBox.Text );
             Debug.Assert( state != null );

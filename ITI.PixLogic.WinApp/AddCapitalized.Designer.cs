@@ -57,6 +57,8 @@
             // 
             // NameTextBox
             // 
+            this.NameTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.NameTextBox.ForeColor = System.Drawing.SystemColors.MenuText;
             this.NameTextBox.Location = new System.Drawing.Point(126, 25);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(94, 20);
