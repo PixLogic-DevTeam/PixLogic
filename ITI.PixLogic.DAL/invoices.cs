@@ -14,12 +14,6 @@ namespace ITI.PixLogic.DAL
     
     public partial class invoices
     {
-        public invoices()
-        {
-            this.capitalized = new HashSet<capitalized>();
-            this.consumables = new HashSet<consumables>();
-        }
-    
         public long id { get; set; }
         public System.DateTime purchase_date { get; set; }
         public decimal purchase_cost { get; set; }
@@ -28,8 +22,6 @@ namespace ITI.PixLogic.DAL
         public string description { get; set; }
         public long company { get; set; }
     
-        public virtual ICollection<capitalized> capitalized { get; set; }
         public virtual companies companies { get; set; }
-        public virtual ICollection<consumables> consumables { get; set; }
     }
 }

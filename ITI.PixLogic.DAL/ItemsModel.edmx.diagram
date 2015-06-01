@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7954ad68860849f59ac84a4609f43bf2" Name="Diagram1">
+        <EntityTypeShape EntityType="ItemsEntity.brands" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemsEntity.capitalized" Width="1.5" PointX="0.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemsEntity.capitalized_main_categories" Width="1.5" PointX="0.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemsEntity.capitalized_sub_categories" Width="1.5" PointX="0.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemsEntity.consumables" Width="1.5" PointX="6.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemsEntity.consumables_main_categories" Width="1.5" PointX="6.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemsEntity.consumables_sub_categories" Width="1.5" PointX="6.375" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemsEntity.states" Width="1.5" PointX="3.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="ItemsEntity.capitalized_brand_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="ItemsEntity.consumables_brands_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="ItemsEntity.capitalized_current_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="ItemsEntity.capitalized_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="ItemsEntity.capitalized_main_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="ItemsEntity.consumables_current_states_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="ItemsEntity.consumables_sub_categories_cstrt" ManuallyRouted="false" />
+        <AssociationConnector Association="ItemsEntity.consumable_main_categories_cstrt" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

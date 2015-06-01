@@ -14,11 +14,6 @@ namespace ITI.PixLogic.DAL
     
     public partial class accounts
     {
-        public accounts()
-        {
-            this.reservations = new HashSet<reservations>();
-        }
-    
         public long id { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
@@ -29,6 +24,5 @@ namespace ITI.PixLogic.DAL
         public long sub_category { get; set; }
     
         public virtual accounts_sub_categories accounts_sub_categories { get; set; }
-        public virtual ICollection<reservations> reservations { get; set; }
     }
 }

@@ -12,12 +12,20 @@ namespace ITI.PixLogic.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class consumables_categories_in_packs
+    public partial class states
     {
-        public long id { get; set; }
-        public long category { get; set; }
-        public long pack { get; set; }
+        public states()
+        {
+            this.capitalized = new HashSet<capitalized>();
+            this.consumables = new HashSet<consumables>();
+        }
     
-        public virtual packs packs { get; set; }
+        public long id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public bool reservable { get; set; }
+    
+        public virtual ICollection<capitalized> capitalized { get; set; }
+        public virtual ICollection<consumables> consumables { get; set; }
     }
 }

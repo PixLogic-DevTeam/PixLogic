@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\florian\Desktop\IN'TECH INFO\Semestre 4\PI\PixLogic\ITI.PixLogic.DAL\FullPLDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Sources\C#\S4\ITI.PixLogic\ITI.PixLogic.DAL\AccountingModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
