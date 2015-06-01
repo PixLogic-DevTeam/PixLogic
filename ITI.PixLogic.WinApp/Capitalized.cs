@@ -64,17 +64,18 @@ namespace ITI.PixLogic.WinApp
 
             if ( CapitalizedGridView.SelectedRows.Count == 0 || CapitalizedGridView.SelectedRows.Contains( CapitalizedGridView.Rows[ CapitalizedGridView.RowCount - 1 ] ) )
             {
-                MessageBox.Show( "Veuillez selectionner une ligne a supprimer" );
+                MessageBox.Show( "Veuillez selectionner une ligne a éditer" );
             }
             else 
             {
-                capitalized SelectedCapitalized = CapitalizedGridView.SelectedRows[ 0 ].DataBoundItem as capitalized;
-
+                capitalized SelectedCapitalized = (capitalized)CapitalizedGridView.CurrentRow.DataBoundItem;
+                
                 using ( AddCapitalized EditCapForm = new AddCapitalized( ) )
                 {
                     EditCapForm.NameTBox = SelectedCapitalized.name;
                     EditCapForm.DescriptionRTBox = SelectedCapitalized.description;
-                    EditCapForm.EAN13 = Convert.ToInt64( SelectedCapitalized.ean13 );
+                    Nullable<long> EAN13ToEdit = EditCapForm.EAN13;
+                    EAN13ToEdit = SelectedCapitalized.ean13;
                 }
             }
             

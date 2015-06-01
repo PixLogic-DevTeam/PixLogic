@@ -21,14 +21,27 @@ namespace ITI.PixLogic.WinApp
 
         public string DescriptionRTBox { get; set; }
 
-        public long EAN13
+        public Nullable<long> EAN13
         {
-            get { return Convert.ToInt64( EANTextBox.Text ); }
-            set 
+            get 
             {
-                long eanValue = Convert.ToInt64( EANTextBox.Text );
-                eanValue = value; 
+                Nullable<long> Value = new Nullable<long>( );
+                string sEAN = EANTextBox.Text;
+
+                try
+                {
+                    if ( !string.IsNullOrEmpty( sEAN ) && sEAN.Trim( ).Length > 0 )
+                    {
+                        TypeConverter conv = TypeDescriptor.GetConverter( typeof( long ) );
+                        Value = (long)conv.ConvertFrom( sEAN );
+                    }
+                }
+                catch { }
+                return Value;
             }
+
+            set{ EAN13 = value; }
+
         }
 
         public capitalized_sub_categories SubCatCBox

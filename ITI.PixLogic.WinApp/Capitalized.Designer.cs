@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.capitalizedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CapitalizedGridView = new System.Windows.Forms.DataGridView();
+            this.Suppr_Btn = new System.Windows.Forms.Button();
+            this.Add_Btn = new System.Windows.Forms.Button();
+            this.EditBtn = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,16 +41,11 @@
             this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.invoiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentstateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Suppr_Btn = new System.Windows.Forms.Button();
-            this.Add_Btn = new System.Windows.Forms.Button();
-            this.EditBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.capitalizedBindingSource)).BeginInit();
+            this.capitalizedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.CapitalizedGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.capitalizedBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // capitalizedBindingSource
-            // 
-            this.capitalizedBindingSource.DataSource = typeof(ITI.PixLogic.DAL.capitalized);
             // 
             // CapitalizedGridView
             // 
@@ -71,6 +68,36 @@
             this.CapitalizedGridView.Name = "CapitalizedGridView";
             this.CapitalizedGridView.Size = new System.Drawing.Size(843, 475);
             this.CapitalizedGridView.TabIndex = 0;
+            // 
+            // Suppr_Btn
+            // 
+            this.Suppr_Btn.Location = new System.Drawing.Point(83, 12);
+            this.Suppr_Btn.Name = "Suppr_Btn";
+            this.Suppr_Btn.Size = new System.Drawing.Size(67, 27);
+            this.Suppr_Btn.TabIndex = 1;
+            this.Suppr_Btn.Text = "Supprimer";
+            this.Suppr_Btn.UseVisualStyleBackColor = true;
+            this.Suppr_Btn.Click += new System.EventHandler(this.Suppr_Btn_Click);
+            // 
+            // Add_Btn
+            // 
+            this.Add_Btn.Location = new System.Drawing.Point(83, 45);
+            this.Add_Btn.Name = "Add_Btn";
+            this.Add_Btn.Size = new System.Drawing.Size(66, 27);
+            this.Add_Btn.TabIndex = 2;
+            this.Add_Btn.Text = "Ajouter";
+            this.Add_Btn.UseVisualStyleBackColor = true;
+            this.Add_Btn.Click += new System.EventHandler(this.Add_Btn_Click);
+            // 
+            // EditBtn
+            // 
+            this.EditBtn.Location = new System.Drawing.Point(83, 78);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Size = new System.Drawing.Size(66, 27);
+            this.EditBtn.TabIndex = 3;
+            this.EditBtn.Text = "Modifier";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -120,35 +147,9 @@
             this.currentstateDataGridViewTextBoxColumn.HeaderText = "current_state";
             this.currentstateDataGridViewTextBoxColumn.Name = "currentstateDataGridViewTextBoxColumn";
             // 
-            // Suppr_Btn
+            // capitalizedBindingSource
             // 
-            this.Suppr_Btn.Location = new System.Drawing.Point(83, 12);
-            this.Suppr_Btn.Name = "Suppr_Btn";
-            this.Suppr_Btn.Size = new System.Drawing.Size(67, 27);
-            this.Suppr_Btn.TabIndex = 1;
-            this.Suppr_Btn.Text = "Supprimer";
-            this.Suppr_Btn.UseVisualStyleBackColor = true;
-            this.Suppr_Btn.Click += new System.EventHandler(this.Suppr_Btn_Click);
-            // 
-            // Add_Btn
-            // 
-            this.Add_Btn.Location = new System.Drawing.Point(83, 45);
-            this.Add_Btn.Name = "Add_Btn";
-            this.Add_Btn.Size = new System.Drawing.Size(66, 27);
-            this.Add_Btn.TabIndex = 2;
-            this.Add_Btn.Text = "Ajouter";
-            this.Add_Btn.UseVisualStyleBackColor = true;
-            this.Add_Btn.Click += new System.EventHandler(this.Add_Btn_Click);
-            // 
-            // EditBtn
-            // 
-            this.EditBtn.Location = new System.Drawing.Point(83, 78);
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(66, 27);
-            this.EditBtn.TabIndex = 3;
-            this.EditBtn.Text = "Modifier";
-            this.EditBtn.UseVisualStyleBackColor = true;
-            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            this.capitalizedBindingSource.DataSource = typeof(ITI.PixLogic.DAL.capitalized);
             // 
             // Capitalized
             // 
@@ -161,8 +162,8 @@
             this.Controls.Add(this.CapitalizedGridView);
             this.Name = "Capitalized";
             this.Text = "Capitalized";
-            ((System.ComponentModel.ISupportInitialize)(this.capitalizedBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CapitalizedGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.capitalizedBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -182,6 +183,7 @@
         private System.Windows.Forms.Button Suppr_Btn;
         private System.Windows.Forms.Button Add_Btn;
         private System.Windows.Forms.Button EditBtn;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
 
     }
 }
