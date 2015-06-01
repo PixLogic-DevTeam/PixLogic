@@ -50,6 +50,34 @@ namespace ITI.PixLogic.WinApp
         private void Add_Btn_Click( object sender, EventArgs e )
         {
             new AddCapitalized( ).Show( );
+
+            using( AddCapitalized addCapForm = new AddCapitalized() )
+            {
+                
+            }
+        }
+
+        private void EditBtn_Click( object sender, EventArgs e )
+        {
+            new AddCapitalized( ).Show( );
+
+
+            if ( CapitalizedGridView.SelectedRows.Count == 0 || CapitalizedGridView.SelectedRows.Contains( CapitalizedGridView.Rows[ CapitalizedGridView.RowCount - 1 ] ) )
+            {
+                MessageBox.Show( "Veuillez selectionner une ligne a supprimer" );
+            }
+            else 
+            {
+                capitalized SelectedCapitalized = CapitalizedGridView.SelectedRows[ 0 ].DataBoundItem as capitalized;
+
+                using ( AddCapitalized EditCapForm = new AddCapitalized( ) )
+                {
+                    EditCapForm.NameTBox = SelectedCapitalized.name;
+                    EditCapForm.DescriptionRTBox = SelectedCapitalized.description;
+                    EditCapForm.EAN13 = Convert.ToInt64( SelectedCapitalized.ean13 );
+                }
+            }
+            
         }
     }
 }

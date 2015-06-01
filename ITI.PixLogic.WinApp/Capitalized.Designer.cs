@@ -41,6 +41,7 @@
             this.currentstateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Suppr_Btn = new System.Windows.Forms.Button();
             this.Add_Btn = new System.Windows.Forms.Button();
+            this.EditBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.capitalizedBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CapitalizedGridView)).BeginInit();
             this.SuspendLayout();
@@ -139,11 +140,22 @@
             this.Add_Btn.UseVisualStyleBackColor = true;
             this.Add_Btn.Click += new System.EventHandler(this.Add_Btn_Click);
             // 
+            // EditBtn
+            // 
+            this.EditBtn.Location = new System.Drawing.Point(83, 78);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Size = new System.Drawing.Size(66, 27);
+            this.EditBtn.TabIndex = 3;
+            this.EditBtn.Text = "Modifier";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            // 
             // Capitalized
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 499);
+            this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.Add_Btn);
             this.Controls.Add(this.Suppr_Btn);
             this.Controls.Add(this.CapitalizedGridView);
@@ -169,6 +181,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn currentstateDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button Suppr_Btn;
         private System.Windows.Forms.Button Add_Btn;
+        private System.Windows.Forms.Button EditBtn;
 
     }
 }

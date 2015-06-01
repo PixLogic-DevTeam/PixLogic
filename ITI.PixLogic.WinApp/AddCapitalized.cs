@@ -16,6 +16,33 @@ namespace ITI.PixLogic.WinApp
     public partial class AddCapitalized : Form
     {
         pldb_entities ple = new pldb_entities( );
+
+        public string NameTBox { get; set; }
+
+        public string DescriptionRTBox { get; set; }
+
+        public long EAN13
+        {
+            get { return Convert.ToInt64( EANTextBox.Text ); }
+            set 
+            {
+                long eanValue = Convert.ToInt64( EANTextBox.Text );
+                eanValue = value; 
+            }
+        }
+
+        public capitalized_sub_categories SubCatCBox
+        {
+            get 
+            {
+                capitalized_sub_categories subcat = ple.capitalized_sub_categories.FirstOrDefault( o => o.name == SubCatComboBox.Text );
+                Debug.Assert( subcat != null );
+                subcat.name = SubCatComboBox.Text;
+                return subcat;
+            }
+            set { SubCatCBox = value; }
+        }
+        
         public AddCapitalized()
         {
             InitializeComponent( );
