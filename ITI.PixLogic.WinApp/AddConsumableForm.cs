@@ -69,6 +69,7 @@ namespace ITI.PixLogic.WinApp
             ple.consumables.Add(objConsumable);
             ple.SaveChanges();
             ple.consumables.Load();
+
             this.Close();
             new Consumable_table().Show();
 
