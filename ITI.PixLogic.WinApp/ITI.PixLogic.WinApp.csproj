@@ -51,79 +51,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts.cs">
+    <Compile Include="AccountsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accounts.Designer.cs">
-      <DependentUpon>Accounts.cs</DependentUpon>
+    <Compile Include="AccountsView.Designer.cs">
+      <DependentUpon>AccountsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddCapitalized.cs">
+    <Compile Include="AddCapitalizedView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCapitalized.Designer.cs">
-      <DependentUpon>AddCapitalized.cs</DependentUpon>
+    <Compile Include="AddCapitalizedView.Designer.cs">
+      <DependentUpon>AddCapitalizedView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddConsumableForm.cs">
+    <Compile Include="AddConsumableView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddConsumableForm.Designer.cs">
-      <DependentUpon>AddConsumableForm.cs</DependentUpon>
+    <Compile Include="AddConsumableView.Designer.cs">
+      <DependentUpon>AddConsumableView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddUserAccountForm.cs">
+    <Compile Include="AddAccountView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUserAccountForm.Designer.cs">
-      <DependentUpon>AddUserAccountForm.cs</DependentUpon>
+    <Compile Include="AddAccountView.Designer.cs">
+      <DependentUpon>AddAccountView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Capitalized.cs">
+    <Compile Include="CapitalizedView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Capitalized.Designer.cs">
-      <DependentUpon>Capitalized.cs</DependentUpon>
+    <Compile Include="CapitalizedView.Designer.cs">
+      <DependentUpon>CapitalizedView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsumableTableForm.cs">
+    <Compile Include="ConsumablesView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsumableTableForm.Designer.cs">
-      <DependentUpon>ConsumableTableForm.cs</DependentUpon>
+    <Compile Include="ConsumablesView.Designer.cs">
+      <DependentUpon>ConsumablesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="HomeView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
+    <Compile Include="HomeView.Designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModifyUserAccountcs.cs">
+    <Compile Include="ModifyAccountView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyUserAccountcs.Designer.cs">
-      <DependentUpon>ModifyUserAccountcs.cs</DependentUpon>
+    <Compile Include="ModifyAccountView.Designer.cs">
+      <DependentUpon>ModifyAccountView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Accounts.resx">
-      <DependentUpon>Accounts.cs</DependentUpon>
+    <EmbeddedResource Include="AccountsView.resx">
+      <DependentUpon>AccountsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddCapitalized.resx">
-      <DependentUpon>AddCapitalized.cs</DependentUpon>
+    <EmbeddedResource Include="AddCapitalizedView.resx">
+      <DependentUpon>AddCapitalizedView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddConsumableForm.resx">
-      <DependentUpon>AddConsumableForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddConsumableView.resx">
+      <DependentUpon>AddConsumableView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddUserAccountForm.resx">
-      <DependentUpon>AddUserAccountForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddAccountView.resx">
+      <DependentUpon>AddAccountView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Capitalized.resx">
-      <DependentUpon>Capitalized.cs</DependentUpon>
+    <EmbeddedResource Include="CapitalizedView.resx">
+      <DependentUpon>CapitalizedView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsumableTableForm.resx">
-      <DependentUpon>ConsumableTableForm.cs</DependentUpon>
+    <EmbeddedResource Include="ConsumablesView.resx">
+      <DependentUpon>ConsumablesView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <EmbeddedResource Include="HomeView.resx">
+      <DependentUpon>HomeView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyUserAccountcs.resx">
-      <DependentUpon>ModifyUserAccountcs.cs</DependentUpon>
+    <EmbeddedResource Include="ModifyAccountView.resx">
+      <DependentUpon>ModifyAccountView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -134,10 +134,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ITI.PixLogic.DAL.consumable.datasource" />
-    <None Include="ITI.PixLogic.DAL.consumables.datasource" />
-    <None Include="ITI.PixLogic.DAL.consumables_sub_categories.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.account.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts.datasource" />

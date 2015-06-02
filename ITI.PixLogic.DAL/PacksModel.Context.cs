@@ -13,9 +13,9 @@ namespace ITI.PixLogic.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PacksEntityConnectionSettings : DbContext
+    public partial class PacksEntity : DbContext
     {
-        public PacksEntityConnectionSettings()
+        public PacksEntity()
             : base("name=PacksEntityConnectionSettings")
         {
         }

@@ -13,9 +13,9 @@ namespace ITI.PixLogic.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AccountingEntityConnectionSettings : DbContext
+    public partial class AccountingEntity : DbContext
     {
-        public AccountingEntityConnectionSettings()
+        public AccountingEntity()
             : base("name=AccountingEntityConnectionSettings")
         {
         }

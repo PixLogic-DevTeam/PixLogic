@@ -13,9 +13,9 @@ namespace ITI.PixLogic.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ReservationsEntityConnectionSettings : DbContext
+    public partial class ReservationsEntity : DbContext
     {
-        public ReservationsEntityConnectionSettings()
+        public ReservationsEntity()
             : base("name=ReservationsEntityConnectionSettings")
         {
         }

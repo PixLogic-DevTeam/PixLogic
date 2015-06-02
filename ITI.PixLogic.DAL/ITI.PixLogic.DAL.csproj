@@ -140,6 +140,7 @@
     <Compile Include="contacts.cs">
       <DependentUpon>AccountingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CompilerOptimizationFix.cs" />
     <Compile Include="invoices.cs">
       <DependentUpon>AccountingModel.tt</DependentUpon>
     </Compile>

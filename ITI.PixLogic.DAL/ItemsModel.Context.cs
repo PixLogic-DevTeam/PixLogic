@@ -9,29 +9,29 @@
 
 namespace ITI.PixLogic.DAL
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class ItemsEntityConnectionSettings : DbContext
-    {
-        public ItemsEntityConnectionSettings()
-            : base("name=ItemsEntityConnectionSettings")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
-        public virtual DbSet<brands> brands { get; set; }
-        public virtual DbSet<capitalized> capitalized { get; set; }
-        public virtual DbSet<capitalized_main_categories> capitalized_main_categories { get; set; }
-        public virtual DbSet<capitalized_sub_categories> capitalized_sub_categories { get; set; }
-        public virtual DbSet<consumables> consumables { get; set; }
-        public virtual DbSet<consumables_main_categories> consumables_main_categories { get; set; }
-        public virtual DbSet<consumables_sub_categories> consumables_sub_categories { get; set; }
-        public virtual DbSet<states> states { get; set; }
-    }
+	using System;
+	using System.Data.Entity;
+	using System.Data.Entity.Infrastructure;
+	
+	public partial class ItemsEntity : DbContext
+	{
+		public ItemsEntity()
+			: base("name=ItemsEntityConnectionSettings")
+		{
+		}
+	
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			throw new UnintentionalCodeFirstException();
+		}
+	
+		public virtual DbSet<brands> brands { get; set; }
+		public virtual DbSet<capitalized> capitalized { get; set; }
+		public virtual DbSet<capitalized_main_categories> capitalized_main_categories { get; set; }
+		public virtual DbSet<capitalized_sub_categories> capitalized_sub_categories { get; set; }
+		public virtual DbSet<consumables> consumables { get; set; }
+		public virtual DbSet<consumables_main_categories> consumables_main_categories { get; set; }
+		public virtual DbSet<consumables_sub_categories> consumables_sub_categories { get; set; }
+		public virtual DbSet<states> states { get; set; }
+	}
 }
