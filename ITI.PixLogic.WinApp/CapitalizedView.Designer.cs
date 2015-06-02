@@ -161,6 +161,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn currentstateDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button Suppr_Btn;
         private System.Windows.Forms.Button Add_Btn;
-
     }
 }

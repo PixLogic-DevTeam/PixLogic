@@ -1,16 +1,14 @@
-﻿using System;
+﻿using ITI.PixLogic.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ITI.PixLogic.DAL;
-using System.Data.Entity;
-using System.Data.SqlClient;
-using System.Diagnostics;
 
 namespace ITI.PixLogic.WinApp
 {
@@ -51,7 +49,6 @@ namespace ITI.PixLogic.WinApp
 			objConsumable.states = state;
 
 			consumables_sub_categories sub = _itemsEntity.consumables_sub_categories.FirstOrDefault(o => o.name == subCategoryComboBox.Text);
-			Debug.Assert(sub != null);
 			sub.name = subCategoryComboBox.Text;
 			objConsumable.consumables_sub_categories = sub;
 

@@ -55,22 +55,23 @@
 			// nameLabel
 			// 
 			nameLabel.AutoSize = true;
-			nameLabel.Location = new System.Drawing.Point(20, 113);
+			nameLabel.Location = new System.Drawing.Point(1, 242);
 			nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			nameLabel.Name = "nameLabel";
-			nameLabel.Size = new System.Drawing.Size(94, 13);
+			nameLabel.Size = new System.Drawing.Size(78, 13);
 			nameLabel.TabIndex = 4;
-			nameLabel.Text = "subCategoryName";
+			nameLabel.Text = "Sous-catégorie";
+			nameLabel.Click += new System.EventHandler(this.nameLabel_Click);
 			// 
 			// nameLabel1
 			// 
 			nameLabel1.AutoSize = true;
-			nameLabel1.Location = new System.Drawing.Point(20, 192);
+			nameLabel1.Location = new System.Drawing.Point(1, 205);
 			nameLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			nameLabel1.Name = "nameLabel1";
-			nameLabel1.Size = new System.Drawing.Size(99, 13);
+			nameLabel1.Size = new System.Drawing.Size(52, 13);
 			nameLabel1.TabIndex = 6;
-			nameLabel1.Text = "mainCategoryName";
+			nameLabel1.Text = "Catégorie";
 			// 
 			// consumablesdataGridView
 			// 
@@ -154,7 +155,7 @@
 			// 
 			// Clear_datagridview
 			// 
-			this.Clear_datagridview.Location = new System.Drawing.Point(23, 33);
+			this.Clear_datagridview.Location = new System.Drawing.Point(23, 38);
 			this.Clear_datagridview.Margin = new System.Windows.Forms.Padding(2);
 			this.Clear_datagridview.Name = "Clear_datagridview";
 			this.Clear_datagridview.Size = new System.Drawing.Size(75, 23);
@@ -177,24 +178,24 @@
 			// nameSubCategory
 			// 
 			this.nameSubCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumablesBindingSource, "consumables_sub_categories.name", true));
-			this.nameSubCategory.Location = new System.Drawing.Point(23, 146);
+			this.nameSubCategory.Location = new System.Drawing.Point(4, 257);
 			this.nameSubCategory.Margin = new System.Windows.Forms.Padding(2);
 			this.nameSubCategory.Name = "nameSubCategory";
-			this.nameSubCategory.Size = new System.Drawing.Size(76, 20);
+			this.nameSubCategory.Size = new System.Drawing.Size(129, 20);
 			this.nameSubCategory.TabIndex = 5;
 			// 
 			// nameTextBox
 			// 
 			this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumablesBindingSource, "consumables_sub_categories.consumables_main_categories.name", true));
-			this.nameTextBox.Location = new System.Drawing.Point(23, 233);
+			this.nameTextBox.Location = new System.Drawing.Point(4, 220);
 			this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
 			this.nameTextBox.Name = "nameTextBox";
-			this.nameTextBox.Size = new System.Drawing.Size(76, 20);
+			this.nameTextBox.Size = new System.Drawing.Size(129, 20);
 			this.nameTextBox.TabIndex = 7;
 			// 
 			// button_back
 			// 
-			this.button_back.Location = new System.Drawing.Point(23, 77);
+			this.button_back.Location = new System.Drawing.Point(23, 95);
 			this.button_back.Name = "button_back";
 			this.button_back.Size = new System.Drawing.Size(75, 23);
 			this.button_back.TabIndex = 8;
@@ -204,7 +205,7 @@
 			// 
 			// button_modify
 			// 
-			this.button_modify.Location = new System.Drawing.Point(23, 52);
+			this.button_modify.Location = new System.Drawing.Point(23, 66);
 			this.button_modify.Name = "button_modify";
 			this.button_modify.Size = new System.Drawing.Size(75, 23);
 			this.button_modify.TabIndex = 9;
