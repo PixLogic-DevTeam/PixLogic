@@ -10,7 +10,7 @@ namespace ITI.PixLogic.DAL
     {
         public consumables consumables { get; set; }
         public consumables_sub_categories sub_categories { get; set; }
-        public consumables_states state { get; set; }
+        public states state { get; set; }
         public Int64 id
         {
             get { return consumables.id; }
@@ -21,12 +21,12 @@ namespace ITI.PixLogic.DAL
             get { return sub_categories.name; }
             set { sub_categories.name = value; }
         }
-        public string name
+		public string product_reference
         {
-            get { return consumables.name; }
-            set { consumables.name = value; }
+            get { return consumables.product_reference; }
+			set { consumables.product_reference = value; }
         }
-        public Int64 reservation_cost
+        public long? reservation_cost
         {
             get { return consumables.reservation_cost; }
             set { consumables.reservation_cost = value; }
