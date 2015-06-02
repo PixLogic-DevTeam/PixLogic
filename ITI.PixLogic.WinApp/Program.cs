@@ -16,7 +16,7 @@ namespace ITI.PixLogic.WinApp
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault( false );
-			Application.Run( new Consumable_table() );
+			Application.Run( new HomeView() );
 		}
 	}
 }

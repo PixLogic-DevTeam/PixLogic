@@ -14,28 +14,19 @@ namespace ITI.PixLogic.DAL
     
     public partial class capitalized
     {
-        public capitalized()
-        {
-            this.capitalized_items_in_packs = new HashSet<capitalized_items_in_packs>();
-            this.capitalized_reserved = new HashSet<capitalized_reserved>();
-            this.repairs = new HashSet<repairs>();
-        }
-    
         public long id { get; set; }
-        public string name { get; set; }
+        public string product_reference { get; set; }
         public string description { get; set; }
         public string picture_path { get; set; }
         public Nullable<long> ean13 { get; set; }
-        public long reservation_cost { get; set; }
+        public long brand { get; set; }
+        public Nullable<long> reservation_cost { get; set; }
         public long sub_category { get; set; }
         public long invoice { get; set; }
         public long current_state { get; set; }
     
-        public virtual capitalized_states capitalized_states { get; set; }
-        public virtual invoices invoices { get; set; }
-        public virtual ICollection<capitalized_items_in_packs> capitalized_items_in_packs { get; set; }
-        public virtual ICollection<capitalized_reserved> capitalized_reserved { get; set; }
+        public virtual brands brands { get; set; }
+        public virtual states states { get; set; }
         public virtual capitalized_sub_categories capitalized_sub_categories { get; set; }
-        public virtual ICollection<repairs> repairs { get; set; }
     }
 }

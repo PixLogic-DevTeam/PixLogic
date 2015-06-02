@@ -27,7 +27,6 @@ namespace ITI.PixLogic.DAL
         public bool taken_out { get; set; }
         public long account { get; set; }
     
-        public virtual accounts accounts { get; set; }
         public virtual ICollection<capitalized_reserved> capitalized_reserved { get; set; }
         public virtual ICollection<consumables_reserved> consumables_reserved { get; set; }
     }

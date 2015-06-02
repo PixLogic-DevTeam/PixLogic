@@ -21,9 +21,6 @@ namespace ITI.PixLogic.DAL
         public long initial_state { get; set; }
         public Nullable<long> return_state { get; set; }
     
-        public virtual capitalized capitalized { get; set; }
-        public virtual capitalized_states capitalized_states { get; set; }
         public virtual reservations reservations { get; set; }
-        public virtual capitalized_states capitalized_states1 { get; set; }
     }
 }

@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82F27EFA-6C20-4BC9-8A25-3F2037EB2162}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITI.PixLogic.WinApp</RootNamespace>
+    <AssemblyName>ITI.PixLogic.WinApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Data.6.9.6\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.6\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountsView.Designer.cs">
+      <DependentUpon>AccountsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCapitalizedView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCapitalizedView.Designer.cs">
+      <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddConsumableView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConsumableView.Designer.cs">
+      <DependentUpon>AddConsumableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAccountView.Designer.cs">
+      <DependentUpon>AddAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapitalizedView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapitalizedView.Designer.cs">
+      <DependentUpon>CapitalizedView.cs</DependentUpon>
+    </Compile>
+<<<<<<< HEAD
+    <Compile Include="CCN.cs" />
+    <Compile Include="ConsumAndSubcategoriesAndMaincategories.cs" />
+    <Compile Include="Form1.cs">
+=======
+    <Compile Include="ConsumablesView.cs">
+>>>>>>> develop
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsumablesView.Designer.cs">
+      <DependentUpon>ConsumablesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeView.Designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyAccountView.Designer.cs">
+      <DependentUpon>ModifyAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pixlogic_dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pixlogic_dbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AccountsView.resx">
+      <DependentUpon>AccountsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCapitalizedView.resx">
+      <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddConsumableView.resx">
+      <DependentUpon>AddConsumableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAccountView.resx">
+      <DependentUpon>AddAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapitalizedView.resx">
+      <DependentUpon>CapitalizedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesView.resx">
+      <DependentUpon>ConsumablesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeView.resx">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyAccountView.resx">
+      <DependentUpon>ModifyAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+<<<<<<< HEAD
+    <None Include="pixlogic_dbDataSet.xsc">
+      <DependentUpon>pixlogic_dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="pixlogic_dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pixlogic_dbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pixlogic_dbDataSet.xss">
+      <DependentUpon>pixlogic_dbDataSet.xsd</DependentUpon>
+    </None>
+=======
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.account.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_main_categories.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_sub_categories.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.capitalized.datasource" />
+>>>>>>> develop
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITI.PixLogic.DAL\ITI.PixLogic.DAL.csproj">
+      <Project>{3a9317a0-32dc-475a-aac2-4b9ffa819f69}</Project>
+      <Name>ITI.PixLogic.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

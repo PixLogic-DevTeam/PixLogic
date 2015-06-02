@@ -32,11 +32,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Data.6.9.6\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.6\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -56,16 +65,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddConsumableForm.cs">
+    <Compile Include="AccountsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddConsumableForm.Designer.cs">
-      <DependentUpon>AddConsumableForm.cs</DependentUpon>
+    <Compile Include="AccountsView.Designer.cs">
+      <DependentUpon>AccountsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="CCN.cs" />
+    <Compile Include="AddCapitalizedView.cs">
     <Compile Include="ConsumAndSubcategoriesAndMaincategories.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCapitalizedView.Designer.cs">
+      <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddConsumableView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConsumableView.Designer.cs">
+      <DependentUpon>AddConsumableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAccountView.Designer.cs">
+      <DependentUpon>AddAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapitalizedView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapitalizedView.Designer.cs">
+      <DependentUpon>CapitalizedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsumablesView.Designer.cs">
+      <DependentUpon>ConsumablesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeView.Designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyAccountView.Designer.cs">
+      <DependentUpon>ModifyAccountView.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -77,8 +125,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddConsumableForm.resx">
-      <DependentUpon>AddConsumableForm.cs</DependentUpon>
+    <EmbeddedResource Include="AccountsView.resx">
+      <DependentUpon>AccountsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCapitalizedView.resx">
+      <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddConsumableView.resx">
+      <DependentUpon>AddConsumableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAccountView.resx">
+      <DependentUpon>AddAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapitalizedView.resx">
+      <DependentUpon>CapitalizedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesView.resx">
+      <DependentUpon>ConsumablesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeView.resx">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyAccountView.resx">
+      <DependentUpon>ModifyAccountView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -92,10 +161,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ITI.PixLogic.DAL.consumable.datasource" />
-    <None Include="ITI.PixLogic.DAL.consumables.datasource" />
-    <None Include="ITI.PixLogic.DAL.consumables_sub_categories.datasource" />
     <None Include="packages.config" />
     <None Include="pixlogic_dbDataSet.xsc">
       <DependentUpon>pixlogic_dbDataSet.xsd</DependentUpon>
@@ -119,7 +184,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ITI.PixLogic.DAL\ITI.PixLogic.DAL.csproj">

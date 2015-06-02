@@ -18,7 +18,6 @@ namespace ITI.PixLogic.DAL
         public long category { get; set; }
         public long pack { get; set; }
     
-        public virtual capitalized_sub_categories capitalized_sub_categories { get; set; }
-        public virtual generics_packs generics_packs { get; set; }
+        public virtual packs packs { get; set; }
     }
 }

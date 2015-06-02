@@ -18,7 +18,6 @@ namespace ITI.PixLogic.DAL
         public long item { get; set; }
         public long pack { get; set; }
     
-        public virtual consumables consumables { get; set; }
-        public virtual specifics_packs specifics_packs { get; set; }
+        public virtual packs packs { get; set; }
     }
 }

@@ -20,7 +20,6 @@ namespace ITI.PixLogic.DAL
         public long item { get; set; }
         public long repairer { get; set; }
     
-        public virtual capitalized capitalized { get; set; }
         public virtual companies companies { get; set; }
     }
 }
