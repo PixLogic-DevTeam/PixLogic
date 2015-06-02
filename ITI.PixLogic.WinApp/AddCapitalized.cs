@@ -63,30 +63,22 @@ namespace ITI.PixLogic.WinApp
 
         private void SubCatComboBox_Click( object sender, EventArgs e )
         {
-            ple.capitalized_sub_categories.Load( );
-            SubCatComboBox.DataSource = ple.capitalized_sub_categories.Local.ToBindingList( );
-            SubCatComboBox.ValueMember = "id";
-            SubCatComboBox.DisplayMember = "name";
+            
         }
 
         private void InvoiceComboBox_Click( object sender, EventArgs e )
         {
-            ple.invoices.Load( );
-            InvoiceComboBox.DataSource = ple.invoices.Local.ToBindingList( );
-            InvoiceComboBox.ValueMember = "id";
-            InvoiceComboBox.DisplayMember = "description";
+           
         }
 
         private void CurrentStateComboBox_Click( object sender, EventArgs e )
         {
-            ple.capitalized_states.Load( );
-            CurrentStateComboBox.DataSource = ple.capitalized_states.Local.ToBindingList( );
-            CurrentStateComboBox.ValueMember = "id";
-            CurrentStateComboBox.DisplayMember = "name";
+            
         }
 
         private void BackBtn_Click( object sender, EventArgs e )
         {
+            DialogResult = DialogResult.Cancel;
             this.Close( );
         }
 
@@ -114,10 +106,29 @@ namespace ITI.PixLogic.WinApp
 
             ple.capitalized.Add( objCapitalized );
             ple.SaveChanges();
-
+            DialogResult = DialogResult.OK;
             
 
             this.Close( );
+        }
+
+        private void AddCapitalized_Load( object sender, EventArgs e )
+        {
+            ple.capitalized_sub_categories.Load( );
+            SubCatComboBox.DataSource = ple.capitalized_sub_categories.Local.ToBindingList( );
+            SubCatComboBox.ValueMember = "id";
+            SubCatComboBox.DisplayMember = "name";
+            
+
+            ple.invoices.Load( );
+            InvoiceComboBox.DataSource = ple.invoices.Local.ToBindingList( );
+            InvoiceComboBox.ValueMember = "id";
+            InvoiceComboBox.DisplayMember = "description";
+
+            ple.capitalized_states.Load( );
+            CurrentStateComboBox.DataSource = ple.capitalized_states.Local.ToBindingList( );
+            CurrentStateComboBox.ValueMember = "id";
+            CurrentStateComboBox.DisplayMember = "name";
         }
     }
 }

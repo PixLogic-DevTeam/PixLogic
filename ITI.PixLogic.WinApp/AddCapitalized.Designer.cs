@@ -210,6 +210,7 @@
             this.Controls.Add(this.NameLbl);
             this.Name = "AddCapitalized";
             this.Text = "Immobilisables";
+            this.Load += new System.EventHandler(this.AddCapitalized_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

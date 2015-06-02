@@ -59,9 +59,7 @@ namespace ITI.PixLogic.WinApp
 
         private void EditBtn_Click( object sender, EventArgs e )
         {
-            new AddCapitalized( ).Show( );
-
-
+            
             if ( CapitalizedGridView.SelectedRows.Count == 0 || CapitalizedGridView.SelectedRows.Contains( CapitalizedGridView.Rows[ CapitalizedGridView.RowCount - 1 ] ) )
             {
                 MessageBox.Show( "Veuillez selectionner une ligne a éditer" );
@@ -72,10 +70,14 @@ namespace ITI.PixLogic.WinApp
                 
                 using ( AddCapitalized EditCapForm = new AddCapitalized( ) )
                 {
+
                     EditCapForm.NameTBox = SelectedCapitalized.name;
                     EditCapForm.DescriptionRTBox = SelectedCapitalized.description;
                     Nullable<long> EAN13ToEdit = EditCapForm.EAN13;
                     EAN13ToEdit = SelectedCapitalized.ean13;
+
+                    DialogResult r = EditCapForm.ShowDialog( );
+                    //if ( r == DialogResult.Cancel ) return;
                 }
             }
             
