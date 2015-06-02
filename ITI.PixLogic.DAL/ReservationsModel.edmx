@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ReservationsEntity.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="capitalized_reserved">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="real_return_date" Type="datetime" Precision="0" />
+          <Property Name="reservation" Type="uint" Nullable="false" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="initial_state" Type="uint" Nullable="false" />
+          <Property Name="return_state" Type="uint" />
+        </EntityType>
+        <EntityType Name="consumables_reserved">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="real_return_date" Type="datetime" Precision="0" />
+          <Property Name="reservation" Type="uint" Nullable="false" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="initial_state" Type="uint" Nullable="false" />
+          <Property Name="return_state" Type="uint" />
+        </EntityType>
+        <EntityType Name="reservations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="start_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="estimated_return_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="confirmed" Type="bool" Nullable="false" />
+          <Property Name="taken_out" Type="bool" Nullable="false" />
+          <Property Name="account" Type="uint" Nullable="false" />
+        </EntityType>
+        <Association Name="capitalized_reserved_reservations_cstrt">
+          <End Role="reservations" Type="Self.reservations" Multiplicity="1" />
+          <End Role="capitalized_reserved" Type="Self.capitalized_reserved" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="capitalized_reserved">
+              <PropertyRef Name="reservation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="consumables_reserved_reservations_cstrt">
+          <End Role="reservations" Type="Self.reservations" Multiplicity="1" />
+          <End Role="consumables_reserved" Type="Self.consumables_reserved" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="consumables_reserved">
+              <PropertyRef Name="reservation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReservationsEntityStoreContainer">
+          <EntitySet Name="capitalized_reserved" EntityType="Self.capitalized_reserved" Schema="pixlogic_db" store:Type="Tables" />
+          <EntitySet Name="consumables_reserved" EntityType="Self.consumables_reserved" Schema="pixlogic_db" store:Type="Tables" />
+          <EntitySet Name="reservations" EntityType="Self.reservations" Schema="pixlogic_db" store:Type="Tables" />
+          <AssociationSet Name="capitalized_reserved_reservations_cstrt" Association="Self.capitalized_reserved_reservations_cstrt">
+            <End Role="reservations" EntitySet="reservations" />
+            <End Role="capitalized_reserved" EntitySet="capitalized_reserved" />
+          </AssociationSet>
+          <AssociationSet Name="consumables_reserved_reservations_cstrt" Association="Self.consumables_reserved_reservations_cstrt">
+            <End Role="reservations" EntitySet="reservations" />
+            <End Role="consumables_reserved" EntitySet="consumables_reserved" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReservationsEntity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="capitalized_reserved">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="real_return_date" Type="DateTime" />
+          <Property Name="reservation" Type="Int64" Nullable="false" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="initial_state" Type="Int64" Nullable="false" />
+          <Property Name="return_state" Type="Int64" />
+          <NavigationProperty Name="reservations" Relationship="Self.capitalized_reserved_reservations_cstrt" FromRole="capitalized_reserved" ToRole="reservations" />
+        </EntityType>
+        <EntityType Name="consumables_reserved">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="real_return_date" Type="DateTime" />
+          <Property Name="reservation" Type="Int64" Nullable="false" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="initial_state" Type="Int64" Nullable="false" />
+          <Property Name="return_state" Type="Int64" />
+          <NavigationProperty Name="reservations" Relationship="Self.consumables_reserved_reservations_cstrt" FromRole="consumables_reserved" ToRole="reservations" />
+        </EntityType>
+        <EntityType Name="reservations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" />
+          <Property Name="estimated_return_date" Type="DateTime" Nullable="false" />
+          <Property Name="confirmed" Type="Boolean" Nullable="false" />
+          <Property Name="taken_out" Type="Boolean" Nullable="false" />
+          <Property Name="account" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="capitalized_reserved" Relationship="Self.capitalized_reserved_reservations_cstrt" FromRole="reservations" ToRole="capitalized_reserved" />
+          <NavigationProperty Name="consumables_reserved" Relationship="Self.consumables_reserved_reservations_cstrt" FromRole="reservations" ToRole="consumables_reserved" />
+        </EntityType>
+        <Association Name="capitalized_reserved_reservations_cstrt">
+          <End Role="reservations" Type="Self.reservations" Multiplicity="1" />
+          <End Role="capitalized_reserved" Type="Self.capitalized_reserved" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="capitalized_reserved">
+              <PropertyRef Name="reservation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="consumables_reserved_reservations_cstrt">
+          <End Role="reservations" Type="Self.reservations" Multiplicity="1" />
+          <End Role="consumables_reserved" Type="Self.consumables_reserved" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="consumables_reserved">
+              <PropertyRef Name="reservation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReservationsEntityConnectionSettings" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="capitalized_reserved" EntityType="Self.capitalized_reserved" />
+          <EntitySet Name="consumables_reserved" EntityType="Self.consumables_reserved" />
+          <EntitySet Name="reservations" EntityType="Self.reservations" />
+          <AssociationSet Name="capitalized_reserved_reservations_cstrt" Association="Self.capitalized_reserved_reservations_cstrt">
+            <End Role="reservations" EntitySet="reservations" />
+            <End Role="capitalized_reserved" EntitySet="capitalized_reserved" />
+          </AssociationSet>
+          <AssociationSet Name="consumables_reserved_reservations_cstrt" Association="Self.consumables_reserved_reservations_cstrt">
+            <End Role="reservations" EntitySet="reservations" />
+            <End Role="consumables_reserved" EntitySet="consumables_reserved" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ReservationsEntityStoreContainer" CdmEntityContainer="ReservationsEntityConnectionSettings">
+          <EntitySetMapping Name="capitalized_reserved">
+            <EntityTypeMapping TypeName="ReservationsEntity.capitalized_reserved">
+              <MappingFragment StoreEntitySet="capitalized_reserved">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="real_return_date" ColumnName="real_return_date" />
+                <ScalarProperty Name="reservation" ColumnName="reservation" />
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="initial_state" ColumnName="initial_state" />
+                <ScalarProperty Name="return_state" ColumnName="return_state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="consumables_reserved">
+            <EntityTypeMapping TypeName="ReservationsEntity.consumables_reserved">
+              <MappingFragment StoreEntitySet="consumables_reserved">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="real_return_date" ColumnName="real_return_date" />
+                <ScalarProperty Name="reservation" ColumnName="reservation" />
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="initial_state" ColumnName="initial_state" />
+                <ScalarProperty Name="return_state" ColumnName="return_state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservations">
+            <EntityTypeMapping TypeName="ReservationsEntity.reservations">
+              <MappingFragment StoreEntitySet="reservations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="estimated_return_date" ColumnName="estimated_return_date" />
+                <ScalarProperty Name="confirmed" ColumnName="confirmed" />
+                <ScalarProperty Name="taken_out" ColumnName="taken_out" />
+                <ScalarProperty Name="account" ColumnName="account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -14,24 +14,17 @@ namespace ITI.PixLogic.DAL
     
     public partial class consumables
     {
-        public consumables()
-        {
-            this.consumables_items_in_packs = new HashSet<consumables_items_in_packs>();
-            this.consumables_reserved = new HashSet<consumables_reserved>();
-        }
-    
         public long id { get; set; }
-        public string name { get; set; }
+        public string product_reference { get; set; }
         public string description { get; set; }
-        public long reservation_cost { get; set; }
+        public long brand { get; set; }
+        public Nullable<long> reservation_cost { get; set; }
         public long sub_category { get; set; }
         public long invoice { get; set; }
         public long current_state { get; set; }
     
-        public virtual consumables_states consumables_states { get; set; }
-        public virtual invoices invoices { get; set; }
-        public virtual ICollection<consumables_items_in_packs> consumables_items_in_packs { get; set; }
-        public virtual ICollection<consumables_reserved> consumables_reserved { get; set; }
+        public virtual brands brands { get; set; }
+        public virtual states states { get; set; }
         public virtual consumables_sub_categories consumables_sub_categories { get; set; }
     }
 }
