@@ -40,12 +40,12 @@
             this.Name_consumable_txt = new System.Windows.Forms.TextBox();
             this.Description_consumable_txt = new System.Windows.Forms.TextBox();
             this.Invoice_consumable_txt = new System.Windows.Forms.TextBox();
-            this.Current_state_consumable_txt = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.consumablessubcategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.subCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mainCategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.stateComboBox = new System.Windows.Forms.ComboBox();
             nameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.consumablessubcategoriesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -142,21 +142,14 @@
             this.Invoice_consumable_txt.Location = new System.Drawing.Point(330, 332);
             this.Invoice_consumable_txt.Name = "Invoice_consumable_txt";
             this.Invoice_consumable_txt.Size = new System.Drawing.Size(100, 22);
-            this.Invoice_consumable_txt.TabIndex = 12;
-            // 
-            // Current_state_consumable_txt
-            // 
-            this.Current_state_consumable_txt.Location = new System.Drawing.Point(330, 373);
-            this.Current_state_consumable_txt.Name = "Current_state_consumable_txt";
-            this.Current_state_consumable_txt.Size = new System.Drawing.Size(100, 22);
-            this.Current_state_consumable_txt.TabIndex = 13;
+            this.Invoice_consumable_txt.TabIndex = 17;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(330, 182);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 14;
+            this.textBox1.TabIndex = 12;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // consumablessubcategoriesBindingSource
@@ -190,20 +183,30 @@
             this.mainCategoryComboBox.Location = new System.Drawing.Point(330, 234);
             this.mainCategoryComboBox.Name = "mainCategoryComboBox";
             this.mainCategoryComboBox.Size = new System.Drawing.Size(244, 24);
-            this.mainCategoryComboBox.TabIndex = 17;
+            this.mainCategoryComboBox.TabIndex = 14;
             this.mainCategoryComboBox.Click += new System.EventHandler(this.mainCategoryComboBox_Click);
+            // 
+            // stateComboBox
+            // 
+            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Location = new System.Drawing.Point(330, 378);
+            this.stateComboBox.Name = "stateComboBox";
+            this.stateComboBox.Size = new System.Drawing.Size(121, 24);
+            this.stateComboBox.TabIndex = 18;
+            this.stateComboBox.Click += new System.EventHandler(this.stateComboBox_Click);
             // 
             // AddConsumableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 592);
+            this.Controls.Add(this.stateComboBox);
             this.Controls.Add(this.mainCategoryComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(nameLabel);
             this.Controls.Add(this.subCategoryComboBox);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.Current_state_consumable_txt);
             this.Controls.Add(this.Invoice_consumable_txt);
             this.Controls.Add(this.Description_consumable_txt);
             this.Controls.Add(this.Name_consumable_txt);
@@ -234,7 +237,6 @@
         private System.Windows.Forms.TextBox Name_consumable_txt;
         private System.Windows.Forms.TextBox Description_consumable_txt;
         private System.Windows.Forms.TextBox Invoice_consumable_txt;
-        private System.Windows.Forms.TextBox Current_state_consumable_txt;
         private System.Windows.Forms.BindingSource consumableBindingSource;
         private System.Windows.Forms.BindingSource consumables_sub_categoriesBindingSource;
         private System.Windows.Forms.TextBox textBox1;
@@ -242,5 +244,6 @@
         private System.Windows.Forms.ComboBox subCategoryComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox mainCategoryComboBox;
+        private System.Windows.Forms.ComboBox stateComboBox;
     }
 }

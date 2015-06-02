@@ -30,7 +30,14 @@ namespace ITI.PixLogic.WinApp
             ple = new pldb_entities();
             
             consumables objConsumable = new consumables();
-            objConsumable.name = Name_consumable_txt.Text;
+            if (Name_consumable_txt.Text.Length == 0)
+            {
+                MessageBox.Show("Veuillez renseigner un nom de consommable");
+            }
+            else
+            {
+                objConsumable.name = Name_consumable_txt.Text;
+            }
             objConsumable.description = Description_consumable_txt.Text;
             
             long l;
@@ -48,29 +55,54 @@ namespace ITI.PixLogic.WinApp
             string test = subCategoryComboBox.Text;
             MessageBox.Show("Selected Item Text: " + test + "\n" +
                              "Index: " + selectedIndex.ToString());
-               
-       
+
+
+
+            consumables_states state = ple.consumables_states.FirstOrDefault(o => o.name == stateComboBox.Text);
             
-            consumables_states state = ple.consumables_states.First();
-            objConsumable.consumables_states = state;
+            if (stateComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Veuillez renseigner l'état du consommable à ajouter");
+            }
+            else
+            {
+                state.name = stateComboBox.Text;
+                objConsumable.consumables_states = state;
+            }
 
             consumables_sub_categories sub = ple.consumables_sub_categories.FirstOrDefault(o => o.name == subCategoryComboBox.Text);
-            Debug.Assert(sub != null);
-            sub.name = subCategoryComboBox.Text;
-            objConsumable.consumables_sub_categories = sub;
+         
+            if (subCategoryComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Veuillez renseigner une sous-catégorie à votre consommable");
+            }
+            else
+            {
+                sub.name = subCategoryComboBox.Text;
+                objConsumable.consumables_sub_categories = sub;
+            }
             
             consumables_main_categories main = ple.consumables_main_categories.FirstOrDefault(o => o.name == mainCategoryComboBox.Text);
-            main.name = mainCategoryComboBox.Text;
-            objConsumable.consumables_sub_categories.consumables_main_categories = main;
            
+            if (mainCategoryComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Veuillez renseigner un catégorie principale à votre consommable");
+            }
+            else
+            {
+                main.name = mainCategoryComboBox.Text;
+                objConsumable.consumables_sub_categories.consumables_main_categories = main;
+            }
 
             invoices invoice = ple.invoices.First();
             objConsumable.invoices = invoice;
             
-            ple.consumables.Add(objConsumable);
-            ple.SaveChanges();
-            ple.consumables.Load();
+                ple.consumables.Add(objConsumable);
+                ple.SaveChanges();
+                ple.consumables.Load();
+           
             this.Close();
+            
             
             
             
@@ -110,6 +142,16 @@ namespace ITI.PixLogic.WinApp
             mainCategoryComboBox.DataSource = ple.consumables_main_categories.Local.ToBindingList();
             mainCategoryComboBox.ValueMember = "id";
             mainCategoryComboBox.DisplayMember = "name";
+        }
+
+        private void stateComboBox_Click(object sender, EventArgs e)
+        {
+            ple = new pldb_entities();
+            ple.consumables_states.Load();
+
+            stateComboBox.DataSource = ple.consumables_states.Local.ToBindingList();
+            stateComboBox.ValueMember = "id";
+            stateComboBox.DisplayMember = "name";
         }
 
        
