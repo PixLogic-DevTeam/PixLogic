@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PacksEntity.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="capitalized_categories_in_packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="uint" Nullable="false" />
+          <Property Name="pack" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="capitalized_items_in_packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="pack" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="consumables_categories_in_packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="uint" Nullable="false" />
+          <Property Name="pack" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="consumables_items_in_packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item" Type="uint" Nullable="false" />
+          <Property Name="pack" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="tinytext" Nullable="false" />
+          <Property Name="description" Type="text" />
+        </EntityType>
+        <Association Name="capitalized_categories_in_packs_packs_cstrt">
+          <End Role="packs" Type="Self.packs" Multiplicity="1" />
+          <End Role="capitalized_categories_in_packs" Type="Self.capitalized_categories_in_packs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="capitalized_categories_in_packs">
+              <PropertyRef Name="pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="capitalized_items_in_packs_packs_cstrt">
+          <End Role="packs" Type="Self.packs" Multiplicity="1" />
+          <End Role="capitalized_items_in_packs" Type="Self.capitalized_items_in_packs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="capitalized_items_in_packs">
+              <PropertyRef Name="pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="consumables_categories_in_packs_packs_cstrt">
+          <End Role="packs" Type="Self.packs" Multiplicity="1" />
+          <End Role="consumables_categories_in_packs" Type="Self.consumables_categories_in_packs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="consumables_categories_in_packs">
+              <PropertyRef Name="pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="consumables_items_in_packs_packs_cstrt">
+          <End Role="packs" Type="Self.packs" Multiplicity="1" />
+          <End Role="consumables_items_in_packs" Type="Self.consumables_items_in_packs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="consumables_items_in_packs">
+              <PropertyRef Name="pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PacksEntityStoreContainer">
+          <EntitySet Name="capitalized_categories_in_packs" EntityType="Self.capitalized_categories_in_packs" Schema="pixlogic_db" store:Type="Tables" />
+          <EntitySet Name="capitalized_items_in_packs" EntityType="Self.capitalized_items_in_packs" Schema="pixlogic_db" store:Type="Tables" />
+          <EntitySet Name="consumables_categories_in_packs" EntityType="Self.consumables_categories_in_packs" Schema="pixlogic_db" store:Type="Tables" />
+          <EntitySet Name="consumables_items_in_packs" EntityType="Self.consumables_items_in_packs" Schema="pixlogic_db" store:Type="Tables" />
+          <EntitySet Name="packs" EntityType="Self.packs" Schema="pixlogic_db" store:Type="Tables" />
+          <AssociationSet Name="capitalized_categories_in_packs_packs_cstrt" Association="Self.capitalized_categories_in_packs_packs_cstrt">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="capitalized_categories_in_packs" EntitySet="capitalized_categories_in_packs" />
+          </AssociationSet>
+          <AssociationSet Name="capitalized_items_in_packs_packs_cstrt" Association="Self.capitalized_items_in_packs_packs_cstrt">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="capitalized_items_in_packs" EntitySet="capitalized_items_in_packs" />
+          </AssociationSet>
+          <AssociationSet Name="consumables_categories_in_packs_packs_cstrt" Association="Self.consumables_categories_in_packs_packs_cstrt">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="consumables_categories_in_packs" EntitySet="consumables_categories_in_packs" />
+          </AssociationSet>
+          <AssociationSet Name="consumables_items_in_packs_packs_cstrt" Association="Self.consumables_items_in_packs_packs_cstrt">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="consumables_items_in_packs" EntitySet="consumables_items_in_packs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PacksEntity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="capitalized_categories_in_packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="Int64" Nullable="false" />
+          <Property Name="pack" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="packs" Relationship="Self.capitalized_categories_in_packs_packs_cstrt" FromRole="capitalized_categories_in_packs" ToRole="packs" />
+        </EntityType>
+        <EntityType Name="capitalized_items_in_packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="pack" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="packs" Relationship="Self.capitalized_items_in_packs_packs_cstrt" FromRole="capitalized_items_in_packs" ToRole="packs" />
+        </EntityType>
+        <EntityType Name="consumables_categories_in_packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="Int64" Nullable="false" />
+          <Property Name="pack" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="packs" Relationship="Self.consumables_categories_in_packs_packs_cstrt" FromRole="consumables_categories_in_packs" ToRole="packs" />
+        </EntityType>
+        <EntityType Name="consumables_items_in_packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="pack" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="packs" Relationship="Self.consumables_items_in_packs_packs_cstrt" FromRole="consumables_items_in_packs" ToRole="packs" />
+        </EntityType>
+        <EntityType Name="packs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="capitalized_categories_in_packs" Relationship="Self.capitalized_categories_in_packs_packs_cstrt" FromRole="packs" ToRole="capitalized_categories_in_packs" />
+          <NavigationProperty Name="capitalized_items_in_packs" Relationship="Self.capitalized_items_in_packs_packs_cstrt" FromRole="packs" ToRole="capitalized_items_in_packs" />
+          <NavigationProperty Name="consumables_categories_in_packs" Relationship="Self.consumables_categories_in_packs_packs_cstrt" FromRole="packs" ToRole="consumables_categories_in_packs" />
+          <NavigationProperty Name="consumables_items_in_packs" Relationship="Self.consumables_items_in_packs_packs_cstrt" FromRole="packs" ToRole="consumables_items_in_packs" />
+        </EntityType>
+        <Association Name="capitalized_categories_in_packs_packs_cstrt">
+          <End Role="packs" Type="Self.packs" Multiplicity="1" />
+          <End Role="capitalized_categories_in_packs" Type="Self.capitalized_categories_in_packs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="capitalized_categories_in_packs">
+              <PropertyRef Name="pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="capitalized_items_in_packs_packs_cstrt">
+          <End Role="packs" Type="Self.packs" Multiplicity="1" />
+          <End Role="capitalized_items_in_packs" Type="Self.capitalized_items_in_packs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="capitalized_items_in_packs">
+              <PropertyRef Name="pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="consumables_categories_in_packs_packs_cstrt">
+          <End Role="packs" Type="Self.packs" Multiplicity="1" />
+          <End Role="consumables_categories_in_packs" Type="Self.consumables_categories_in_packs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="consumables_categories_in_packs">
+              <PropertyRef Name="pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="consumables_items_in_packs_packs_cstrt">
+          <End Role="packs" Type="Self.packs" Multiplicity="1" />
+          <End Role="consumables_items_in_packs" Type="Self.consumables_items_in_packs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="consumables_items_in_packs">
+              <PropertyRef Name="pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PacksEntityConnectionSettings" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="capitalized_categories_in_packs" EntityType="Self.capitalized_categories_in_packs" />
+          <EntitySet Name="capitalized_items_in_packs" EntityType="Self.capitalized_items_in_packs" />
+          <EntitySet Name="consumables_categories_in_packs" EntityType="Self.consumables_categories_in_packs" />
+          <EntitySet Name="consumables_items_in_packs" EntityType="Self.consumables_items_in_packs" />
+          <EntitySet Name="packs" EntityType="Self.packs" />
+          <AssociationSet Name="capitalized_categories_in_packs_packs_cstrt" Association="Self.capitalized_categories_in_packs_packs_cstrt">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="capitalized_categories_in_packs" EntitySet="capitalized_categories_in_packs" />
+          </AssociationSet>
+          <AssociationSet Name="capitalized_items_in_packs_packs_cstrt" Association="Self.capitalized_items_in_packs_packs_cstrt">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="capitalized_items_in_packs" EntitySet="capitalized_items_in_packs" />
+          </AssociationSet>
+          <AssociationSet Name="consumables_categories_in_packs_packs_cstrt" Association="Self.consumables_categories_in_packs_packs_cstrt">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="consumables_categories_in_packs" EntitySet="consumables_categories_in_packs" />
+          </AssociationSet>
+          <AssociationSet Name="consumables_items_in_packs_packs_cstrt" Association="Self.consumables_items_in_packs_packs_cstrt">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="consumables_items_in_packs" EntitySet="consumables_items_in_packs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PacksEntityStoreContainer" CdmEntityContainer="PacksEntityConnectionSettings">
+          <EntitySetMapping Name="capitalized_categories_in_packs">
+            <EntityTypeMapping TypeName="PacksEntity.capitalized_categories_in_packs">
+              <MappingFragment StoreEntitySet="capitalized_categories_in_packs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="pack" ColumnName="pack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="capitalized_items_in_packs">
+            <EntityTypeMapping TypeName="PacksEntity.capitalized_items_in_packs">
+              <MappingFragment StoreEntitySet="capitalized_items_in_packs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="pack" ColumnName="pack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="consumables_categories_in_packs">
+            <EntityTypeMapping TypeName="PacksEntity.consumables_categories_in_packs">
+              <MappingFragment StoreEntitySet="consumables_categories_in_packs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="pack" ColumnName="pack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="consumables_items_in_packs">
+            <EntityTypeMapping TypeName="PacksEntity.consumables_items_in_packs">
+              <MappingFragment StoreEntitySet="consumables_items_in_packs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="pack" ColumnName="pack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="packs">
+            <EntityTypeMapping TypeName="PacksEntity.packs">
+              <MappingFragment StoreEntitySet="packs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

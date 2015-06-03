@@ -29,7 +29,7 @@ DROP TABLE capitalized_main_categories;
 -- ^ Capitalized data ^
 DROP TABLE states;
 DROP TABLE brands;
--- ^ Common data ^
+-- ^ Brands and states data ^
 DROP TABLE invoices;
 DROP TABLE contacts;
 DROP TABLE companies;

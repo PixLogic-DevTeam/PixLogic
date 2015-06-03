@@ -22,8 +22,8 @@ VALUES (1, "2015-05-19", 6.30, 100, 0, 1), (2, "2015-05-19", 100, 20, 1, 2), (3,
 -- ^ Accounting data ^
 INSERT INTO brands (id, name)
 VALUES (1, "Canon"), (2, "ADOX");
-INSERT INTO states (id, name)
-VALUES (1, "Neuf"), (2, "Occasion"), (3, "Cassé(e)");
+INSERT INTO states (id, name, reservable)
+VALUES (1, "Neuf", true), (2, "Occasion", true), (3, "Cassé(e)", false);
 -- ^ Brands and states data ^
 INSERT INTO capitalized_main_categories (id, name)
 VALUES (1, "Appareil photo"), (2, "Flash");

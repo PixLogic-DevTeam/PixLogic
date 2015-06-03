@@ -29,7 +29,7 @@ DELETE FROM capitalized_main_categories;
 -- ^ Capitalized data ^
 DELETE FROM states;
 DELETE FROM brands;
--- ^ Common data ^
+-- ^ Brands and states data ^
 DELETE FROM invoices;
 DELETE FROM contacts;
 DELETE FROM companies;
