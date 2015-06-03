@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="72ee121c6fd6437b9c96a984fec5e5e8" Name="Diagram1">
+      <Diagram DiagramId="72ee121c6fd6437b9c96a984fec5e5e8" Name="Diagram1" ZoomLevel="55">
         <EntityTypeShape EntityType="pixlogic_dbModel.accounts" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="pixlogic_dbModel.accounts_main_categories" Width="1.5" PointX="1.5" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="pixlogic_dbModel.accounts_sub_categories" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />

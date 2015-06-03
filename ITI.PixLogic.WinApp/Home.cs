@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using System.IO;
+using System.Data.SqlClient;
+using ITI.PixLogic.DAL;
 
 namespace ITI.PixLogic.WinApp
 {
     public partial class Home : Form
     {
+        pldb_entities ple = new pldb_entities();
         public Home()
         {
             InitializeComponent();
@@ -57,13 +60,24 @@ namespace ITI.PixLogic.WinApp
                     {
                         using (myStream)
                         {
-                            //MessageBox.Show("Ok");
-//                            LOAD DATA INFILE 'c:/tmp/discounts.csv' 
-//INTO TABLE discounts 
-//FIELDS TERMINATED BY ',' 
-//ENCLOSED BY '"'
-//LINES TERMINATED BY '\n'
-//IGNORE 1 ROWS;
+                            
+                            var reader = new StreamReader(File.OpenRead(openFileDialog.FileName));
+                            List<string> listA = new List<string>();
+
+                            reader.ReadLine();
+                            while (!reader.EndOfStream)
+                            {
+                                var line = reader.ReadLine();
+                                var values = line.Split(',');
+
+                                listA.Add(values[0]);
+                                listA.Add(values[1]);
+                            }
+                            foreach (string val in listA)
+                            {
+                                MessageBox.Show(val);
+                            }
+
                         }
                     }
                 }
