@@ -31,19 +31,20 @@ namespace ITI.PixLogic.WinApp
 
 		private void Suppr_Btn_Click( object sender, EventArgs e )
 		{
-			if ( CapitalizedGridView.SelectedRows.Count == 0 || CapitalizedGridView.SelectedRows.Contains( CapitalizedGridView.Rows[ CapitalizedGridView.RowCount - 1 ] ) )
+            if ( CapitalizedDataListView.SelectedItems.Count == 0 )
 			{
 				MessageBox.Show( "Veuillez selectionner une ligne a supprimer" );
 			}
 
 			else
 			{
-				var toBeDeleted = (long)CapitalizedGridView.SelectedRows[ 0 ].Cells[ 0 ].Value;
-				var consumableData = _itemsEntity.consumables.First( c => c.id == toBeDeleted );
-				_itemsEntity.consumables.Remove( consumableData );
-				_itemsEntity.SaveChanges( );
-				_itemsEntity.consumables.Load( );
-				CapitalizedGridView.DataSource = _itemsEntity.consumables.Local.ToBindingList( );
+                foreach(var item in CapitalizedDataListView.SelectedObjects)
+                {
+                    _itemsEntity.capitalized.Remove( (capitalized)item );
+                }
+                _itemsEntity.SaveChanges( );
+                _itemsEntity.capitalized.Load( );
+                CapitalizedDataListView.DataSource = _itemsEntity.capitalized.Local.ToBindingList( );
 			}
 		}
 
@@ -51,5 +52,21 @@ namespace ITI.PixLogic.WinApp
 		{
 			new AddCapitalizedView( ).Show( );
 		}
+
+        private void EditBtn_Click( object sender, EventArgs e )
+        {
+            using(AddCapitalizedView editForm = new AddCapitalizedView())
+            {
+                //capitalized capToEdit = (capitalized)CapitalizedDataListView.SelectedItem;
+
+                
+            }
+        }
+
+        private void BackBtn_Click( object sender, EventArgs e )
+        {
+            this.Close( );
+            new HomeView( ).Show( );
+        }
 	}
 }

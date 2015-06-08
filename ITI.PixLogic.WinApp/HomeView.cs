@@ -70,5 +70,10 @@ namespace ITI.PixLogic.WinApp
 		private void Home_Load( object sender, EventArgs e )
 		{
 		}
+
+        private void ExitBtn_Click( object sender, EventArgs e )
+        {
+            Application.Exit( );
+        }
 	}
 }

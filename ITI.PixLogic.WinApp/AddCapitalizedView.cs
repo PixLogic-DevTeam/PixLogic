@@ -18,6 +18,23 @@ namespace ITI.PixLogic.WinApp
 		ItemsEntity _itemsEntity = new ItemsEntity();
 		AccountingEntity _accountingEntity = new AccountingEntity();
 
+        public string CapitalizedName { get; set; }
+
+        public string Description {get; set;}
+
+        public string Reference { get; set; }
+
+        public Nullable<long> EAN13 { get; set; }
+
+        public Nullable<long> ReservationCost { get; set; }
+
+        public long SubCategory { get; set; }
+
+        public long Invoice { get; set; }
+
+        public long Current_State { get; set; }
+
+
 		public AddCapitalizedView()
 		{
 			InitializeComponent( );
