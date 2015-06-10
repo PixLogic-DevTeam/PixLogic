@@ -1,4 +1,5 @@
-﻿using LumenWorks.Framework.IO.Csv;
+﻿using ITI.PixLogic.DAL;
+using LumenWorks.Framework.IO.Csv;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace ITI.PixLogic.WinApp
 {
     public partial class HomeView : Form
     {
+        AccountsEntity _accountsEntity = new AccountsEntity();
         public HomeView()
         {
             InitializeComponent();
@@ -49,32 +51,53 @@ namespace ITI.PixLogic.WinApp
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                try
+                //try
+                //{
+                if ((myStream = openFileDialog.OpenFile()) != null)
                 {
-                    if ((myStream = openFileDialog.OpenFile()) != null)
+                    using (myStream)
                     {
-                        using (myStream)
+                        // open the file openFileDialog.FileName which is a CSV file with headers
+                        using (CsvReader csv =
+                               new CsvReader(new StreamReader(openFileDialog.FileName), true))
                         {
-                            // open the file openFileDialog.FileName which is a CSV file with headers
-                            using (CsvReader csv =
-                                   new CsvReader(new StreamReader(openFileDialog.FileName), true))
-                            {
-                                int fieldCount = csv.FieldCount;
+                            int fieldCount = csv.FieldCount;
 
-                                string[] headers = csv.GetFieldHeaders();
-                                while (csv.ReadNextRecord())
-                                {
-                                    for (int i = 0; i < fieldCount; i++) MessageBox.Show(string.Format("{0} = {1};", headers[i], csv[i]));                                                    
-                                }
+                            string[] headers = csv.GetFieldHeaders();
+                            while (csv.ReadNextRecord())
+                            {
+                                for (int i = 0; i < fieldCount; i++) MessageBox.Show(string.Format("{0} = {1};", headers[i], csv[i]));
+
+                                accounts user = new accounts();
+                                user.first_name = csv[1];
+                                user.last_name = csv[2];
+                                user.email = csv[3];
+                                user.password = csv[4];
+                                //user.active = Convert.ToBoolean(csv[5]);
+                                user.wallet = Convert.ToInt32(csv[6]);
+                                var test = csv[7];
+                                accounts_sub_categories asc = _accountsEntity.accounts_sub_categories.FirstOrDefault(o => o.name == test);
+                                asc.name = csv[7];
+                                user.sub_category = asc.id;
+                                user.accounts_sub_categories = asc;
+
+                                var test2 = csv[8];
+                                accounts_main_categories amc = _accountsEntity.accounts_main_categories.FirstOrDefault(o => o.name == test2);
+                                amc.name = csv[8];
+
+                                user.accounts_sub_categories.accounts_main_categories = amc;
+
+                                _accountsEntity.accounts.Add(user);
+                                _accountsEntity.SaveChanges();
                             }
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: could not read file from disk (" + ex.Message + ")");
-                }
             }
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: could not read file from disk (" + ex.Message + ")");
+            //}
         }
 
         private void Home_Load(object sender, EventArgs e)
