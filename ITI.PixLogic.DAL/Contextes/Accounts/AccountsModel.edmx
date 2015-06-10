@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ITI.PixLogic.DAL.Contextes.Accounts.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="tinytext" Nullable="false" />
+          <Property Name="LastName" Type="tinytext" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="tinytext" Nullable="false" />
+          <Property Name="Salt" Type="tinytext" Nullable="false" />
+          <Property Name="Phone" Type="tinytext" />
+          <Property Name="Adress" Type="tinytext" />
+          <Property Name="Historic" Type="longtext" />
+          <Property Name="Wallet" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bool" Nullable="false" />
+          <Property Name="Banned" Type="bool" Nullable="false" />
+          <Property Name="PicturePath" Type="tinytext" />
+          <Property Name="SubCategory" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="accountmaincategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="tinytext" />
+        </EntityType>
+        <EntityType Name="accountsubcategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="tinytext" />
+          <Property Name="MainCategory" Type="uint" Nullable="false" />
+        </EntityType>
+        <Association Name="account_ibfk_1">
+          <End Role="accountsubcategory" Type="Self.accountsubcategory" Multiplicity="1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accountsubcategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="SubCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="accountsubcategory_ibfk_1">
+          <End Role="accountmaincategory" Type="Self.accountmaincategory" Multiplicity="1" />
+          <End Role="accountsubcategory" Type="Self.accountsubcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accountmaincategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="accountsubcategory">
+              <PropertyRef Name="MainCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ITIPixLogicDALContextesAccountsStoreContainer">
+          <EntitySet Name="account" EntityType="Self.account" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="accountmaincategory" EntityType="Self.accountmaincategory" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="accountsubcategory" EntityType="Self.accountsubcategory" Schema="pixlogicdb" store:Type="Tables" />
+          <AssociationSet Name="account_ibfk_1" Association="Self.account_ibfk_1">
+            <End Role="accountsubcategory" EntitySet="accountsubcategory" />
+            <End Role="account" EntitySet="account" />
+          </AssociationSet>
+          <AssociationSet Name="accountsubcategory_ibfk_1" Association="Self.accountsubcategory_ibfk_1">
+            <End Role="accountmaincategory" EntitySet="accountmaincategory" />
+            <End Role="accountsubcategory" EntitySet="accountsubcategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITI.PixLogic.DAL.Contextes.Accounts" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Historic" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="Wallet" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Banned" Type="Boolean" Nullable="false" />
+          <Property Name="PicturePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SubCategory" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="accountsubcategory" Relationship="Self.account_ibfk_1" FromRole="account" ToRole="accountsubcategory" />
+        </EntityType>
+        <EntityType Name="accountmaincategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="accountsubcategories" Relationship="Self.accountsubcategory_ibfk_1" FromRole="accountmaincategory" ToRole="accountsubcategory" />
+        </EntityType>
+        <EntityType Name="accountsubcategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MainCategory" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="accounts" Relationship="Self.account_ibfk_1" FromRole="accountsubcategory" ToRole="account" />
+          <NavigationProperty Name="accountmaincategory" Relationship="Self.accountsubcategory_ibfk_1" FromRole="accountsubcategory" ToRole="accountmaincategory" />
+        </EntityType>
+        <Association Name="account_ibfk_1">
+          <End Role="accountsubcategory" Type="Self.accountsubcategory" Multiplicity="1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accountsubcategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="SubCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="accountsubcategory_ibfk_1">
+          <End Role="accountmaincategory" Type="Self.accountmaincategory" Multiplicity="1" />
+          <End Role="accountsubcategory" Type="Self.accountsubcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accountmaincategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="accountsubcategory">
+              <PropertyRef Name="MainCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccountsEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accounts" EntityType="Self.account" />
+          <EntitySet Name="accountmaincategories" EntityType="Self.accountmaincategory" />
+          <EntitySet Name="accountsubcategories" EntityType="Self.accountsubcategory" />
+          <AssociationSet Name="account_ibfk_1" Association="Self.account_ibfk_1">
+            <End Role="accountsubcategory" EntitySet="accountsubcategories" />
+            <End Role="account" EntitySet="accounts" />
+          </AssociationSet>
+          <AssociationSet Name="accountsubcategory_ibfk_1" Association="Self.accountsubcategory_ibfk_1">
+            <End Role="accountmaincategory" EntitySet="accountmaincategories" />
+            <End Role="accountsubcategory" EntitySet="accountsubcategories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITIPixLogicDALContextesAccountsStoreContainer" CdmEntityContainer="AccountsEntity">
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contextes.Accounts.account">
+              <MappingFragment StoreEntitySet="account">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Historic" ColumnName="Historic" />
+                <ScalarProperty Name="Wallet" ColumnName="Wallet" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Banned" ColumnName="Banned" />
+                <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accountmaincategories">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contextes.Accounts.accountmaincategory">
+              <MappingFragment StoreEntitySet="accountmaincategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accountsubcategories">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contextes.Accounts.accountsubcategory">
+              <MappingFragment StoreEntitySet="accountsubcategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MainCategory" ColumnName="MainCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

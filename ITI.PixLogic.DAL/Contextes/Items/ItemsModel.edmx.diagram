@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="491a4e732681488e988f37811c5d4301" Name="Diagram1">
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Items.item" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Items.itembrand" Width="1.5" PointX="7.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Items.itemmaincategory" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Items.itemrestoration" Width="1.5" PointX="7.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Items.itemstate" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Items.itemsubcategory" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Items.item_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Items.item_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Items.item_ibfk_4" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Items.itemrestoration_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Items.itemsubcategory_ibfk_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
