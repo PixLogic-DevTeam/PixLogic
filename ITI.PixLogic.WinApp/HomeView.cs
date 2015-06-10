@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LumenWorks.Framework.IO.Csv;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,7 +55,18 @@ namespace ITI.PixLogic.WinApp
                     {
                         using (myStream)
                         {
+                            // open the file openFileDialog.FileName which is a CSV file with headers
+                            using (CsvReader csv =
+                                   new CsvReader(new StreamReader(openFileDialog.FileName), true))
+                            {
+                                int fieldCount = csv.FieldCount;
 
+                                string[] headers = csv.GetFieldHeaders();
+                                while (csv.ReadNextRecord())
+                                {
+                                    for (int i = 0; i < fieldCount; i++) MessageBox.Show(string.Format("{0} = {1};", headers[i], csv[i]));                                                    
+                                }
+                            }
                         }
                     }
                 }
@@ -68,5 +80,6 @@ namespace ITI.PixLogic.WinApp
         private void Home_Load(object sender, EventArgs e)
         {
         }
+
     }
 }
