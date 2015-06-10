@@ -1,3 +1,3 @@
 # Informations #
 **SGBDR:** *MySQL*                                                                                           
-**DB's name:** *pixlogic_db*
+**DB's name:** *PixLogicDB*
