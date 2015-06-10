@@ -4,8 +4,8 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ITI.PixLogic.DAL.Contextes.Packs.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="pack">
+      <Schema Namespace="ITI.PixLogic.DAL.Contexts.Packs.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Pack">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -14,7 +14,7 @@
           <Property Name="Description" Type="text" />
           <Property Name="Reservable" Type="bool" Nullable="false" />
         </EntityType>
-        <EntityType Name="packageditem">
+        <EntityType Name="PackagedItem">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -22,7 +22,7 @@
           <Property Name="UsedItem" Type="uint" Nullable="false" />
           <Property Name="UsedPack" Type="uint" Nullable="false" />
         </EntityType>
-        <EntityType Name="packageditemcategory">
+        <EntityType Name="PackagedItemCategory">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -31,48 +31,48 @@
           <Property Name="UsedPack" Type="uint" Nullable="false" />
         </EntityType>
         <Association Name="packageditem_ibfk_2">
-          <End Role="pack" Type="Self.pack" Multiplicity="1" />
-          <End Role="packageditem" Type="Self.packageditem" Multiplicity="*" />
+          <End Role="Pack" Type="Self.Pack" Multiplicity="1" />
+          <End Role="PackagedItem" Type="Self.PackagedItem" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="pack">
+            <Principal Role="Pack">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="packageditem">
+            <Dependent Role="PackagedItem">
               <PropertyRef Name="UsedPack" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="packageditemcategory_ibfk_2">
-          <End Role="pack" Type="Self.pack" Multiplicity="1" />
-          <End Role="packageditemcategory" Type="Self.packageditemcategory" Multiplicity="*" />
+          <End Role="Pack" Type="Self.Pack" Multiplicity="1" />
+          <End Role="PackagedItemCategory" Type="Self.PackagedItemCategory" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="pack">
+            <Principal Role="Pack">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="packageditemcategory">
+            <Dependent Role="PackagedItemCategory">
               <PropertyRef Name="UsedPack" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ITIPixLogicDALContextesPacksStoreContainer">
-          <EntitySet Name="pack" EntityType="Self.pack" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="packageditem" EntityType="Self.packageditem" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="packageditemcategory" EntityType="Self.packageditemcategory" Schema="pixlogicdb" store:Type="Tables" />
+        <EntityContainer Name="ITIPixLogicDALContextsPacksStoreContainer">
+          <EntitySet Name="Pack" EntityType="Self.Pack" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="PackagedItem" EntityType="Self.PackagedItem" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="PackagedItemCategory" EntityType="Self.PackagedItemCategory" Schema="pixlogicdb" store:Type="Tables" />
           <AssociationSet Name="packageditem_ibfk_2" Association="Self.packageditem_ibfk_2">
-            <End Role="pack" EntitySet="pack" />
-            <End Role="packageditem" EntitySet="packageditem" />
+            <End Role="Pack" EntitySet="Pack" />
+            <End Role="PackagedItem" EntitySet="PackagedItem" />
           </AssociationSet>
           <AssociationSet Name="packageditemcategory_ibfk_2" Association="Self.packageditemcategory_ibfk_2">
-            <End Role="pack" EntitySet="pack" />
-            <End Role="packageditemcategory" EntitySet="packageditemcategory" />
+            <End Role="Pack" EntitySet="Pack" />
+            <End Role="PackagedItemCategory" EntitySet="PackagedItemCategory" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ITI.PixLogic.DAL.Contextes.Packs" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="pack">
+      <Schema Namespace="ITI.PixLogic.DAL.Contexts.Packs" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Pack">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -80,62 +80,62 @@
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="Reservable" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="packageditems" Relationship="Self.packageditem_ibfk_2" FromRole="pack" ToRole="packageditem" />
-          <NavigationProperty Name="packageditemcategories" Relationship="Self.packageditemcategory_ibfk_2" FromRole="pack" ToRole="packageditemcategory" />
+          <NavigationProperty Name="PackagedItems" Relationship="Self.packageditem_ibfk_2" FromRole="Pack" ToRole="PackagedItem" />
+          <NavigationProperty Name="PackagedItemCategories" Relationship="Self.packageditemcategory_ibfk_2" FromRole="Pack" ToRole="PackagedItemCategory" />
         </EntityType>
-        <EntityType Name="packageditem">
+        <EntityType Name="PackagedItem">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UsedItem" Type="Int64" Nullable="false" />
           <Property Name="UsedPack" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="pack" Relationship="Self.packageditem_ibfk_2" FromRole="packageditem" ToRole="pack" />
+          <NavigationProperty Name="Pack" Relationship="Self.packageditem_ibfk_2" FromRole="PackagedItem" ToRole="Pack" />
         </EntityType>
-        <EntityType Name="packageditemcategory">
+        <EntityType Name="PackagedItemCategory">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UsedCategory" Type="Int64" Nullable="false" />
           <Property Name="UsedPack" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="pack" Relationship="Self.packageditemcategory_ibfk_2" FromRole="packageditemcategory" ToRole="pack" />
+          <NavigationProperty Name="Pack" Relationship="Self.packageditemcategory_ibfk_2" FromRole="PackagedItemCategory" ToRole="Pack" />
         </EntityType>
         <Association Name="packageditem_ibfk_2">
-          <End Role="pack" Type="Self.pack" Multiplicity="1" />
-          <End Role="packageditem" Type="Self.packageditem" Multiplicity="*" />
+          <End Role="Pack" Type="Self.Pack" Multiplicity="1" />
+          <End Role="PackagedItem" Type="Self.PackagedItem" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="pack">
+            <Principal Role="Pack">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="packageditem">
+            <Dependent Role="PackagedItem">
               <PropertyRef Name="UsedPack" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="packageditemcategory_ibfk_2">
-          <End Role="pack" Type="Self.pack" Multiplicity="1" />
-          <End Role="packageditemcategory" Type="Self.packageditemcategory" Multiplicity="*" />
+          <End Role="Pack" Type="Self.Pack" Multiplicity="1" />
+          <End Role="PackagedItemCategory" Type="Self.PackagedItemCategory" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="pack">
+            <Principal Role="Pack">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="packageditemcategory">
+            <Dependent Role="PackagedItemCategory">
               <PropertyRef Name="UsedPack" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PacksEntity" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="packs" EntityType="Self.pack" />
-          <EntitySet Name="packageditems" EntityType="Self.packageditem" />
-          <EntitySet Name="packageditemcategories" EntityType="Self.packageditemcategory" />
+          <EntitySet Name="Packs" EntityType="Self.Pack" />
+          <EntitySet Name="PackagedItems" EntityType="Self.PackagedItem" />
+          <EntitySet Name="PackagedItemCategories" EntityType="Self.PackagedItemCategory" />
           <AssociationSet Name="packageditem_ibfk_2" Association="Self.packageditem_ibfk_2">
-            <End Role="pack" EntitySet="packs" />
-            <End Role="packageditem" EntitySet="packageditems" />
+            <End Role="Pack" EntitySet="Packs" />
+            <End Role="PackagedItem" EntitySet="PackagedItems" />
           </AssociationSet>
           <AssociationSet Name="packageditemcategory_ibfk_2" Association="Self.packageditemcategory_ibfk_2">
-            <End Role="pack" EntitySet="packs" />
-            <End Role="packageditemcategory" EntitySet="packageditemcategories" />
+            <End Role="Pack" EntitySet="Packs" />
+            <End Role="PackagedItemCategory" EntitySet="PackagedItemCategories" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -143,10 +143,10 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ITIPixLogicDALContextesPacksStoreContainer" CdmEntityContainer="PacksEntity">
-          <EntitySetMapping Name="packs">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contextes.Packs.pack">
-              <MappingFragment StoreEntitySet="pack">
+        <EntityContainerMapping StorageEntityContainer="ITIPixLogicDALContextsPacksStoreContainer" CdmEntityContainer="PacksEntity">
+          <EntitySetMapping Name="Packs">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Packs.Pack">
+              <MappingFragment StoreEntitySet="Pack">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -154,18 +154,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="packageditems">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contextes.Packs.packageditem">
-              <MappingFragment StoreEntitySet="packageditem">
+          <EntitySetMapping Name="PackagedItems">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Packs.PackagedItem">
+              <MappingFragment StoreEntitySet="PackagedItem">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UsedItem" ColumnName="UsedItem" />
                 <ScalarProperty Name="UsedPack" ColumnName="UsedPack" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="packageditemcategories">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contextes.Packs.packageditemcategory">
-              <MappingFragment StoreEntitySet="packageditemcategory">
+          <EntitySetMapping Name="PackagedItemCategories">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Packs.PackagedItemCategory">
+              <MappingFragment StoreEntitySet="PackagedItemCategory">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UsedCategory" ColumnName="UsedCategory" />
                 <ScalarProperty Name="UsedPack" ColumnName="UsedPack" />
