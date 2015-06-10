@@ -57,7 +57,7 @@ namespace ITI.PixLogic.WinApp
         {
             using(AddCapitalizedView editForm = new AddCapitalizedView())
             {
-                //capitalized capToEdit = (capitalized)CapitalizedDataListView.SelectedItem;
+                capitalized capToEdit = (capitalized)CapitalizedDataListView.SelectedObject;
 
                 
             }
