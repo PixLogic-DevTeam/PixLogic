@@ -17,6 +17,7 @@ namespace ITI.PixLogic.WinApp
     public partial class Home : Form
     {
         pldb_entities ple = new pldb_entities();
+
         public Home()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace ITI.PixLogic.WinApp
 
             openFileDialog.InitialDirectory = "c:\\";
             openFileDialog.Filter = "CSV files (*.csv) | *.csv | All files (*.*)|*.*";
-            openFileDialog.FilterIndex = 1;
+            //openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -60,24 +61,24 @@ namespace ITI.PixLogic.WinApp
                     {
                         using (myStream)
                         {
+
+                            //var reader = new StreamReader(File.OpenRead(openFileDialog.FileName));
+                            //List<string> listA = new List<string>();
+
+                            //reader.ReadLine();
+                            //while (!reader.EndOfStream)
+                            //{
+                            //    var line = reader.ReadLine();
+                            //    var values = line.Split(',');
+
+                            //    listA.Add(values[0]);
+                            //    listA.Add(values[1]);
+                            //}
+                            //foreach (string val in listA)
+                            //{
+                            //    MessageBox.Show(val);
+                            //}
                             
-                            var reader = new StreamReader(File.OpenRead(openFileDialog.FileName));
-                            List<string> listA = new List<string>();
-
-                            reader.ReadLine();
-                            while (!reader.EndOfStream)
-                            {
-                                var line = reader.ReadLine();
-                                var values = line.Split(',');
-
-                                listA.Add(values[0]);
-                                listA.Add(values[1]);
-                            }
-                            foreach (string val in listA)
-                            {
-                                MessageBox.Show(val);
-                            }
-
                         }
                     }
                 }
