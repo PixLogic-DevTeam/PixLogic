@@ -183,6 +183,10 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ITI.PixLogic.BLL\ITI.PixLogic.BLL.csproj">
+      <Project>{5c575dde-54f6-46f0-bde6-49733496811f}</Project>
+      <Name>ITI.PixLogic.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ITI.PixLogic.DAL\ITI.PixLogic.DAL.csproj">
       <Project>{3a9317a0-32dc-475a-aac2-4b9ffa819f69}</Project>
       <Name>ITI.PixLogic.DAL</Name>

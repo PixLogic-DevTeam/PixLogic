@@ -125,10 +125,9 @@
     <Compile Include="Views\ConsumablesView.Designer.cs">
       <DependentUpon>ConsumablesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeView.cs">
 =======
-    <Compile Include="Views\HomeView.cs">
 >>>>>>> develop
+    <Compile Include="Views\HomeView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\HomeView.Designer.cs">
@@ -161,7 +160,7 @@
     <EmbeddedResource Include="Views\ConsumablesView.resx">
       <DependentUpon>ConsumablesView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeView.resx">
+    <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModifyAccountView.resx">

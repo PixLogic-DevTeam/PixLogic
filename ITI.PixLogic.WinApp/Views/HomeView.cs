@@ -57,5 +57,20 @@ namespace ITI.PixLogic.WinApp
         {
             Application.Exit( );
         }
+
+        private void CapitalizedBtn_Click( object sender, EventArgs e )
+        {
+
+        }
+
+        private void consumable_button_Click( object sender, EventArgs e )
+        {
+
+        }
+
+        private void users_account_button_Click( object sender, EventArgs e )
+        {
+
+        }
 	}
 }

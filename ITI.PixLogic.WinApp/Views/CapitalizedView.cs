@@ -1,4 +1,5 @@
 ﻿using ITI.PixLogic.DAL;
+using ITI.PixLogic.DAL.Contexts.Items;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,8 +26,8 @@ namespace ITI.PixLogic.WinApp
 		private void Capitalized_Load( )
 		{
 			_itemsEntity = new ItemsEntity();
-			_itemsEntity.capitalized.Load( );
-			capitalizedBindingSource.DataSource = _itemsEntity.capitalized.Local.ToBindingList( );
+			_itemsEntity.Items.Load( );
+            capitalizedBindingSource.DataSource = _itemsEntity.Items.Local.ToBindingList( );
 		}
 
 		private void Suppr_Btn_Click( object sender, EventArgs e )
@@ -40,11 +41,11 @@ namespace ITI.PixLogic.WinApp
 			{
                 foreach(var item in CapitalizedDataListView.SelectedObjects)
                 {
-                    _itemsEntity.capitalized.Remove( (capitalized)item );
+                    _itemsEntity.Items.Remove( (Item)item );
                 }
                 _itemsEntity.SaveChanges( );
-                _itemsEntity.capitalized.Load( );
-                CapitalizedDataListView.DataSource = _itemsEntity.capitalized.Local.ToBindingList( );
+                _itemsEntity.Items.Load( );
+                CapitalizedDataListView.DataSource = _itemsEntity.Items.Local.ToBindingList( );
 			}
 		}
 
@@ -57,7 +58,7 @@ namespace ITI.PixLogic.WinApp
         {
             using(AddCapitalizedView editForm = new AddCapitalizedView())
             {
-                capitalized capToEdit = (capitalized)CapitalizedDataListView.SelectedObject;
+                Item capToEdit = (Item)CapitalizedDataListView.SelectedObject;
 
                 
             }
