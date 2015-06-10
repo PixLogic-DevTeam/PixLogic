@@ -65,40 +65,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountsView.cs">
+    <Compile Include="Views\AccountsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountsView.Designer.cs">
+    <Compile Include="Views\AccountsView.Designer.cs">
       <DependentUpon>AccountsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddCapitalizedView.cs">
+    <Compile Include="Views\AddCapitalizedView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCapitalizedView.Designer.cs">
+    <Compile Include="Views\AddCapitalizedView.Designer.cs">
       <DependentUpon>AddCapitalizedView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddConsumableView.cs">
+    <Compile Include="Views\AddConsumableView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddConsumableView.Designer.cs">
+    <Compile Include="Views\AddConsumableView.Designer.cs">
       <DependentUpon>AddConsumableView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAccountView.cs">
+    <Compile Include="Views\AddAccountView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAccountView.Designer.cs">
+    <Compile Include="Views\AddAccountView.Designer.cs">
       <DependentUpon>AddAccountView.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapitalizedView.cs">
+    <Compile Include="Views\CapitalizedView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapitalizedView.Designer.cs">
+    <Compile Include="Views\CapitalizedView.Designer.cs">
       <DependentUpon>CapitalizedView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsumablesView.cs">
+    <Compile Include="Views\ConsumablesView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsumablesView.Designer.cs">
+    <Compile Include="Views\ConsumablesView.Designer.cs">
       <DependentUpon>ConsumablesView.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeView.cs">
@@ -107,36 +107,36 @@
     <Compile Include="HomeView.Designer.cs">
       <DependentUpon>HomeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModifyAccountView.cs">
+    <Compile Include="Views\ModifyAccountView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyAccountView.Designer.cs">
+    <Compile Include="Views\ModifyAccountView.Designer.cs">
       <DependentUpon>ModifyAccountView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AccountsView.resx">
+    <EmbeddedResource Include="Views\AccountsView.resx">
       <DependentUpon>AccountsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddCapitalizedView.resx">
+    <EmbeddedResource Include="Views\AddCapitalizedView.resx">
       <DependentUpon>AddCapitalizedView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddConsumableView.resx">
+    <EmbeddedResource Include="Views\AddConsumableView.resx">
       <DependentUpon>AddConsumableView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAccountView.resx">
+    <EmbeddedResource Include="Views\AddAccountView.resx">
       <DependentUpon>AddAccountView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapitalizedView.resx">
+    <EmbeddedResource Include="Views\CapitalizedView.resx">
       <DependentUpon>CapitalizedView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsumablesView.resx">
+    <EmbeddedResource Include="Views\ConsumablesView.resx">
       <DependentUpon>ConsumablesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyAccountView.resx">
+    <EmbeddedResource Include="Views\ModifyAccountView.resx">
       <DependentUpon>ModifyAccountView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
