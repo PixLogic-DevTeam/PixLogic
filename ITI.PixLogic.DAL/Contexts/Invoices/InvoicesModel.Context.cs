@@ -27,6 +27,6 @@ namespace ITI.PixLogic.DAL.Contexts.Invoices
     
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
-        public virtual DbSet<invoice> Invoices { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
     }
 }

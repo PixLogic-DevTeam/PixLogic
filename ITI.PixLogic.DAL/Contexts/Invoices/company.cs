@@ -17,7 +17,7 @@ namespace ITI.PixLogic.DAL.Contexts.Invoices
         public Company()
         {
             this.Contacts = new HashSet<Contact>();
-            this.Invoices = new HashSet<invoice>();
+            this.Invoices = new HashSet<Invoice>();
         }
     
         public long Id { get; set; }
@@ -30,6 +30,6 @@ namespace ITI.PixLogic.DAL.Contexts.Invoices
         public string LogoPath { get; set; }
     
         public virtual ICollection<Contact> Contacts { get; set; }
-        public virtual ICollection<invoice> Invoices { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }
