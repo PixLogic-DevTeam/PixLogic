@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d414525711ee4d43af505020c0a0b39b" Name="Diagram1">
-        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Packs.pack" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Packs.packageditem" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Packs.packageditemcategory" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
-        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Packs.packageditem_ibfk_2" ManuallyRouted="false" />
-        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Packs.packageditemcategory_ibfk_2" ManuallyRouted="false" />
+      <Diagram DiagramId="3cba2d76ccb74b35be53f89b1a89e4ce" Name="Diagram1">
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Packs.PackagedItemCategory" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Packs.PackagedItem" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Packs.Pack" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Packs.packageditemcategories_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Packs.packageditems_ibfk_2" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

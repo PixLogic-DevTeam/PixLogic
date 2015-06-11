@@ -16,8 +16,8 @@ namespace ITI.PixLogic.DAL.Contexts.Packs
     {
         public Pack()
         {
-            this.PackagedItems = new HashSet<PackagedItem>();
             this.PackagedItemCategories = new HashSet<PackagedItemCategory>();
+            this.PackagedItems = new HashSet<PackagedItem>();
         }
     
         public long Id { get; set; }
@@ -25,7 +25,7 @@ namespace ITI.PixLogic.DAL.Contexts.Packs
         public string Description { get; set; }
         public bool Reservable { get; set; }
     
-        public virtual ICollection<PackagedItem> PackagedItems { get; set; }
         public virtual ICollection<PackagedItemCategory> PackagedItemCategories { get; set; }
+        public virtual ICollection<PackagedItem> PackagedItems { get; set; }
     }
 }

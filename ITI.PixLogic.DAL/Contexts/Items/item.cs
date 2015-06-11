@@ -33,8 +33,8 @@ namespace ITI.PixLogic.DAL.Contexts.Items
         public long CurrentState { get; set; }
     
         public virtual ItemBrand ItemBrand { get; set; }
+        public virtual ICollection<ItemRestoration> ItemRestorations { get; set; }
         public virtual ItemSubCategory ItemSubCategory { get; set; }
         public virtual ItemState ItemState { get; set; }
-        public virtual ICollection<ItemRestoration> ItemRestorations { get; set; }
     }
 }
