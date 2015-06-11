@@ -44,8 +44,8 @@ namespace ITI.PixLogic.WinApp
 
 		private void SubCatComboBox_Click( object sender, EventArgs e )
 		{
-            _itemsEntity.ItemSubcategories.Load( );
-            SubCatComboBox.DataSource = _itemsEntity.ItemSubcategories.Local.ToBindingList( );
+            _itemsEntity.ItemSubCategories.Load( );
+            SubCatComboBox.DataSource = _itemsEntity.ItemSubCategories.Local.ToBindingList( );
 			SubCatComboBox.ValueMember = "id";
 			SubCatComboBox.DisplayMember = "name";
 		}
@@ -79,12 +79,12 @@ namespace ITI.PixLogic.WinApp
 			objItem.EAN13 = Convert.ToInt64( EANTextBox.Text );
 			objItem.ReservationCost = Convert.ToInt64( ResCostTextBox.Text );
 
-            ItemSubCategory subcat = _itemsEntity.ItemSubcategories.FirstOrDefault( o => o.Name == SubCatComboBox.Text );
+            ItemSubCategory subcat = _itemsEntity.ItemSubCategories.FirstOrDefault( o => o.Name == SubCatComboBox.Text );
 			Debug.Assert( subcat != null );
 			subcat.Name = SubCatComboBox.Text;
             objItem.ItemSubCategory = subcat;
 
-			invoice invo = _invoiceEntity.Invoices.FirstOrDefault( o => o.ScanPath == InvoiceComboBox.Text );
+			Invoice invo = _invoiceEntity.Invoices.FirstOrDefault( o => o.ScanPath == InvoiceComboBox.Text );
 			Debug.Assert( invo != null );
 			objItem.RelatedInvoice = invo.Id;
 
