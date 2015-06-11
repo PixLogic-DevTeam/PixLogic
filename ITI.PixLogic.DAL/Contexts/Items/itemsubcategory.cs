@@ -24,7 +24,7 @@ namespace ITI.PixLogic.DAL.Contexts.Items
         public string Description { get; set; }
         public long MainCategory { get; set; }
     
-        public virtual ICollection<Item> Items { get; set; }
         public virtual ItemMainCategory ItemMainCategory { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

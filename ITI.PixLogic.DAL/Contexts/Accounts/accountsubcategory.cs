@@ -24,7 +24,7 @@ namespace ITI.PixLogic.DAL.Contexts.Accounts
         public string Description { get; set; }
         public long MainCategory { get; set; }
     
-        public virtual ICollection<Account> Accounts { get; set; }
         public virtual AccountMainCategory AccountMainCategory { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

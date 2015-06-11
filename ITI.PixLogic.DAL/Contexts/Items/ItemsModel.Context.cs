@@ -25,10 +25,10 @@ namespace ITI.PixLogic.DAL.Contexts.Items
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<ItemBrand> ItemBrands { get; set; }
         public virtual DbSet<ItemMainCategory> ItemMainCategories { get; set; }
         public virtual DbSet<ItemRestoration> ItemRestorations { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<ItemState> ItemStates { get; set; }
         public virtual DbSet<ItemSubCategory> ItemSubCategories { get; set; }
     }
