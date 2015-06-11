@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8fbaebd5afcb434ea95840845743687e" Name="Diagram1">
-        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Invoices.company" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Invoices.contact" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contextes.Invoices.invoice" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Invoices.contact_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="ITI.PixLogic.DAL.Contextes.Invoices.invoice_ibfk_1" ManuallyRouted="false" />
+      <Diagram DiagramId="c5e022b946f74cd3a39ea9f56eb148da" Name="Diagram1">
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Invoices.Company" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Invoices.Contact" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Invoices.Invoice" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Invoices.contact_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Invoices.invoice_ibfk_1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

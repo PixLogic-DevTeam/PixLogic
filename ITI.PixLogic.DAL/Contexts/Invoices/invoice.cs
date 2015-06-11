@@ -12,7 +12,7 @@ namespace ITI.PixLogic.DAL.Contexts.Invoices
     using System;
     using System.Collections.Generic;
     
-    public partial class invoice
+    public partial class Invoice
     {
         public long Id { get; set; }
         public long PhaseNumber { get; set; }
