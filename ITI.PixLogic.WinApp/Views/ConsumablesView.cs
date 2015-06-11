@@ -1,4 +1,5 @@
 ﻿using ITI.PixLogic.DAL;
+using ITI.PixLogic.DAL.Contexts.Items;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,8 +29,8 @@ namespace ITI.PixLogic.WinApp
 		{
 
 			_itemsEntity = new ItemsEntity();
-			_itemsEntity.consumables.Load();
-			consumablesBindingSource.DataSource = _itemsEntity.consumables.Local.ToBindingList();
+			_itemsEntity.Items.Load();
+			consumablesBindingSource.DataSource = _itemsEntity.Items.Local.ToBindingList();
 		}
 
 		private void Clear_datagridview_Click(object sender, EventArgs e)
@@ -43,11 +44,11 @@ namespace ITI.PixLogic.WinApp
 			else
 			{
 				var toBeDeleted = (long)consumablesdataGridView.SelectedRows[0].Cells[0].Value;
-				var consumableData = _itemsEntity.consumables.First(c => c.id == toBeDeleted);
-				_itemsEntity.consumables.Remove(consumableData);
+				var consumableData = _itemsEntity.Items.First(c => c.Id == toBeDeleted);
+				_itemsEntity.Items.Remove(consumableData);
 				_itemsEntity.SaveChanges();
-				_itemsEntity.consumables.Load();
-				consumablesdataGridView.DataSource = _itemsEntity.consumables.Local.ToBindingList();
+				_itemsEntity.Items.Load();
+				consumablesdataGridView.DataSource = _itemsEntity.Items.Local.ToBindingList();
 			}
 
 		}

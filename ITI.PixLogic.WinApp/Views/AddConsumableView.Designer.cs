@@ -175,7 +175,7 @@
 			// 
 			// consumablessubcategoriesBindingSource
 			// 
-			this.consumablessubcategoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.consumables_sub_categories);
+			this.consumablessubcategoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory);
 			this.consumablessubcategoriesBindingSource.CurrentChanged += new System.EventHandler(this.consumablessubcategoriesBindingSource_CurrentChanged);
 			// 
 			// subCategoryComboBox

@@ -1,4 +1,4 @@
-﻿using ITI.PixLogic.DAL;
+﻿using ITI.PixLogic.DAL.Contexts.Accounts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ namespace ITI.PixLogic.WinApp
 {
 	public partial class ModifyAccountView : Form
 	{
-		AccountsEntity _accountsEntity = new AccountsEntity();
+		AccountsEntity _invoiceEntity = new AccountsEntity();
 
 		public ModifyAccountView()
 		{
@@ -23,8 +23,8 @@ namespace ITI.PixLogic.WinApp
 
 		private void textBox_firstName_TextChanged(object sender, EventArgs e)
 		{
-			accounts objAccount = new accounts();
-			textBox_firstName.Text = objAccount.first_name;
+			Account objAccount = new Account();
+			textBox_firstName.Text = objAccount.FirstName;
 		}
 
 		private void ModifyAccountView_Load( object sender, EventArgs e )

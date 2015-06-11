@@ -142,7 +142,7 @@
 			// 
 			// consumablesBindingSource
 			// 
-			this.consumablesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.consumables);
+			this.consumablesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Items.Item);
 			this.consumablesBindingSource.CurrentChanged += new System.EventHandler(this.consumablesBindingSource_CurrentChanged);
 			// 
 			// button1

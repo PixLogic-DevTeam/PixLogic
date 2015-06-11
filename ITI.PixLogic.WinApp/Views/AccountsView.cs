@@ -1,4 +1,5 @@
 ﻿using ITI.PixLogic.DAL;
+using ITI.PixLogic.DAL.Contexts.Accounts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,8 +25,8 @@ namespace ITI.PixLogic.WinApp
 
         private void Accounts_Load()
         {
-            _accountsEntity.accounts.Load();
-            accountBindingSource.DataSource = _accountsEntity.accounts.Local.ToBindingList();    
+            _accountsEntity.Accounts.Load();
+            accountBindingSource.DataSource = _accountsEntity.Accounts.Local.ToBindingList();    
         }
 
         private void save_button_Click(object sender, EventArgs e)
@@ -64,11 +65,11 @@ namespace ITI.PixLogic.WinApp
             else
             {
                 var toBeDeleted = (long)dataGridViewUsers.SelectedRows[0].Cells[0].Value;
-                var UserData = _accountsEntity.accounts.First(c => c.id == toBeDeleted);
-                _accountsEntity.accounts.Remove(UserData);
+                var UserData = _accountsEntity.Accounts.First(c => c.Id == toBeDeleted);
+                _accountsEntity.Accounts.Remove(UserData);
                 _accountsEntity.SaveChanges();
-                _accountsEntity.accounts.Load();
-                dataGridViewUsers.DataSource = _accountsEntity.accounts.Local.ToBindingList();
+                _accountsEntity.Accounts.Load();
+                dataGridViewUsers.DataSource = _accountsEntity.Accounts.Local.ToBindingList();
                 
             }
            

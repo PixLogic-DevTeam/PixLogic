@@ -93,7 +93,7 @@
             // 
             // capitalizedBindingSource
             // 
-            this.capitalizedBindingSource.DataSource = typeof(ITI.PixLogic.DAL.capitalized);
+            this.capitalizedBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Items.Item);
             // 
             // CapitalizedView
             // 

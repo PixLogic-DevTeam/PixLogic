@@ -1,4 +1,6 @@
 ﻿using ITI.PixLogic.DAL;
+using ITI.PixLogic.DAL.Contexts.Items;
+using ITI.PixLogic.DAL.Contexts.Invoices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +18,7 @@ namespace ITI.PixLogic.WinApp
 	public partial class AddCapitalizedView : Form
 	{
 		ItemsEntity _itemsEntity = new ItemsEntity();
-		AccountingEntity _accountingEntity = new AccountingEntity();
+		InvoicesEntity _invoiceEntity = new InvoicesEntity();
 
         public string CapitalizedName { get; set; }
 
@@ -42,24 +44,24 @@ namespace ITI.PixLogic.WinApp
 
 		private void SubCatComboBox_Click( object sender, EventArgs e )
 		{
-			_itemsEntity.capitalized_sub_categories.Load( );
-			SubCatComboBox.DataSource = _itemsEntity.capitalized_sub_categories.Local.ToBindingList( );
+            _itemsEntity.ItemSubcategories.Load( );
+            SubCatComboBox.DataSource = _itemsEntity.ItemSubcategories.Local.ToBindingList( );
 			SubCatComboBox.ValueMember = "id";
 			SubCatComboBox.DisplayMember = "name";
 		}
 
 		private void InvoiceComboBox_Click( object sender, EventArgs e )
 		{
-			_accountingEntity.invoices.Load();
-			InvoiceComboBox.DataSource = _accountingEntity.invoices.Local.ToBindingList();
+            _invoiceEntity.Invoices.Load( );
+			InvoiceComboBox.DataSource = _invoiceEntity.Invoices.Local.ToBindingList();
 			InvoiceComboBox.ValueMember = "id";
 			InvoiceComboBox.DisplayMember = "description";
 		}
 
 		private void CurrentStateComboBox_Click( object sender, EventArgs e )
 		{
-			_itemsEntity.states.Load( );
-			CurrentStateComboBox.DataSource = _itemsEntity.states.Local.ToBindingList( );
+            _itemsEntity.ItemStates.Load( );
+            CurrentStateComboBox.DataSource = _itemsEntity.ItemStates.Local.ToBindingList( );
 			CurrentStateComboBox.ValueMember = "id";
 			CurrentStateComboBox.DisplayMember = "name";
 		}
@@ -71,27 +73,27 @@ namespace ITI.PixLogic.WinApp
 
 		private void AddBtn_Click( object sender, EventArgs e )
 		{
-			capitalized objCapitalized = new capitalized( );
-			objCapitalized.product_reference = NameTextBox.Text;
-			objCapitalized.description = DescriptionRichTextBox.Text;
-			objCapitalized.ean13 = Convert.ToInt64( EANTextBox.Text );
-			objCapitalized.reservation_cost = Convert.ToInt64( ResCostTextBox.Text );
+            Item objItem = new Item( );
+			objItem.Reference = NameTextBox.Text;
+			objItem.Description = DescriptionRichTextBox.Text;
+			objItem.EAN13 = Convert.ToInt64( EANTextBox.Text );
+			objItem.ReservationCost = Convert.ToInt64( ResCostTextBox.Text );
 
-			capitalized_sub_categories subcat = _itemsEntity.capitalized_sub_categories.FirstOrDefault( o => o.name == SubCatComboBox.Text );
+            ItemSubCategory subcat = _itemsEntity.ItemSubcategories.FirstOrDefault( o => o.Name == SubCatComboBox.Text );
 			Debug.Assert( subcat != null );
-			subcat.name = SubCatComboBox.Text;
-			objCapitalized.capitalized_sub_categories = subcat;
+			subcat.Name = SubCatComboBox.Text;
+            objItem.ItemSubCategory = subcat;
 
-			invoices invo = _accountingEntity.invoices.FirstOrDefault( o => o.description == InvoiceComboBox.Text );
+			invoice invo = _invoiceEntity.Invoices.FirstOrDefault( o => o.ScanPath == InvoiceComboBox.Text );
 			Debug.Assert( invo != null );
-			objCapitalized.invoice = invo.id;
+			objItem.RelatedInvoice = invo.Id;
 
-			states state = _itemsEntity.states.FirstOrDefault( o => o.name == CurrentStateComboBox.Text );
+			ItemState state = _itemsEntity.ItemStates.FirstOrDefault( o => o.Name == CurrentStateComboBox.Text );
 			Debug.Assert( state != null );
-			state.name = CurrentStateComboBox.Text;
-			objCapitalized.states = state;
+			state.Name = CurrentStateComboBox.Text;
+			objItem.ItemState = state;
 
-			_itemsEntity.capitalized.Add( objCapitalized );
+			_itemsEntity.Items.Add( objItem );
 			_itemsEntity.SaveChanges();
 
 			this.Close( );

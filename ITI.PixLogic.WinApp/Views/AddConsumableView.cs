@@ -1,4 +1,6 @@
 ﻿using ITI.PixLogic.DAL;
+using ITI.PixLogic.DAL.Contexts.Items;
+using ITI.PixLogic.DAL.Contexts.Invoices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +16,8 @@ namespace ITI.PixLogic.WinApp
 {
 	public partial class AddConsumableView : Form
 	{
-		ItemsEntity _itemsEntity;
-		AccountingEntity _accountingEntity;
+		ItemsEntity _itemsEntity = new ItemsEntity();
+		InvoicesEntity _invoiceEntity = new InvoicesEntity();
 
 		public AddConsumableView()
 		{
@@ -25,17 +27,14 @@ namespace ITI.PixLogic.WinApp
 		private void Add_consumable_button_Click(object sender, EventArgs e)
 		{
 
-			_itemsEntity = new ItemsEntity();
-			_accountingEntity = new AccountingEntity();
-
-			consumables objConsumable = new consumables();
-			objConsumable.product_reference = Name_consumable_txt.Text;
-			objConsumable.description = Description_consumable_txt.Text;
+			Item objConsumable = new Item();
+			objConsumable.Reference = Name_consumable_txt.Text;
+			objConsumable.Description = Description_consumable_txt.Text;
 
 			long l;
 			if (long.TryParse(textBox1.Text, out l))
 			{
-				objConsumable.reservation_cost = l;
+				objConsumable.ReservationCost = l;
 			}
 
 			int selectedIndex = subCategoryComboBox.SelectedIndex;
@@ -45,24 +44,24 @@ namespace ITI.PixLogic.WinApp
 							 "Index: " + selectedIndex.ToString());*/
 
 
-			states state = _itemsEntity.states.First();
-			objConsumable.states = state;
+			ItemState state = _itemsEntity.ItemStates.First();
+			objConsumable.ItemState = state;
 
-			consumables_sub_categories sub = _itemsEntity.consumables_sub_categories.FirstOrDefault(o => o.name == subCategoryComboBox.Text);
-			sub.name = subCategoryComboBox.Text;
-			objConsumable.consumables_sub_categories = sub;
+			ItemSubCategory sub = _itemsEntity.ItemSubcategories.FirstOrDefault(o => o.Name == subCategoryComboBox.Text);
+			sub.Name = subCategoryComboBox.Text;
+			objConsumable.ItemSubCategory = sub;
 
-			consumables_main_categories main = _itemsEntity.consumables_main_categories.FirstOrDefault(o => o.name == mainCategoryComboBox.Text);
-			main.name = mainCategoryComboBox.Text;
-			objConsumable.consumables_sub_categories.consumables_main_categories = main;
+			ItemMainCategory main = _itemsEntity.ItemMainCategories.FirstOrDefault(o => o.Name == mainCategoryComboBox.Text);
+			main.Name = mainCategoryComboBox.Text;
+			objConsumable.ItemSubCategory.ItemMainCategory = main;
 
 
-			invoices invoice = _accountingEntity.invoices.First();
-			objConsumable.invoice = invoice.id;
+			invoice invoice = _invoiceEntity.Invoices.First();
+			objConsumable.RelatedInvoice = invoice.Id;
 
-			_itemsEntity.consumables.Add(objConsumable);
+			_itemsEntity.Items.Add(objConsumable);
 			_itemsEntity.SaveChanges();
-			_itemsEntity.consumables.Load();
+			_itemsEntity.Items.Load();
 
 			this.Close();
 			new ConsumablesView().Show();
@@ -85,9 +84,9 @@ namespace ITI.PixLogic.WinApp
 		private void subCategoryComboBox_Click(object sender, EventArgs e)
 		{
 			_itemsEntity = new ItemsEntity();
-			_itemsEntity.consumables_sub_categories.Load();
+			_itemsEntity.ItemSubcategories.Load();
 
-			subCategoryComboBox.DataSource = _itemsEntity.consumables_sub_categories.Local.ToBindingList();
+			subCategoryComboBox.DataSource = _itemsEntity.ItemSubcategories.Local.ToBindingList();
 			subCategoryComboBox.ValueMember = "id";
 			subCategoryComboBox.DisplayMember = "name";
 		}
@@ -95,9 +94,9 @@ namespace ITI.PixLogic.WinApp
 		private void mainCategoryComboBox_Click(object sender, EventArgs e)
 		{
 			_itemsEntity = new ItemsEntity();
-			_itemsEntity.consumables_main_categories.Load();
+			_itemsEntity.ItemMainCategories.Load();
 
-			mainCategoryComboBox.DataSource = _itemsEntity.consumables_main_categories.Local.ToBindingList();
+			mainCategoryComboBox.DataSource = _itemsEntity.ItemMainCategories.Local.ToBindingList();
 			mainCategoryComboBox.ValueMember = "id";
 			mainCategoryComboBox.DisplayMember = "name";
 		}

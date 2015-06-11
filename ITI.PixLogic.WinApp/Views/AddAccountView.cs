@@ -1,4 +1,5 @@
 ﻿using ITI.PixLogic.DAL;
+using ITI.PixLogic.DAL.Contexts.Accounts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,24 +28,24 @@ namespace ITI.PixLogic.WinApp
 
 		private void button_confirm_Click(object sender, EventArgs e)
 		{
-			accounts objAccount = new accounts();
-			objAccount.first_name = textBox_firstName.Text;
-			objAccount.last_name = textBox_lastName.Text.ToUpper();
-			objAccount.email = textBoxMail.Text;
-			objAccount.password = textBoxPassword.Text;
-			objAccount.wallet = Convert.ToInt32(textBoxWallet.Text);
+            Account objAccount = new Account( );
+			objAccount.FirstName = textBox_firstName.Text;
+			objAccount.LastName = textBox_lastName.Text.ToUpper();
+			objAccount.Email = textBoxMail.Text;
+			objAccount.Password = textBoxPassword.Text;
+			objAccount.Wallet = Convert.ToInt32(textBoxWallet.Text);
 			//objAccount.active = Convert.ToBoolean(comboBoxState);
 
 			/*accounts_sub_categories sub = ple.accounts_sub_categories.FirstOrDefault(o => o.name == UserCategoryComboBox.Text);
 			Debug.Assert(sub != null);
 			sub.name = UserCategoryComboBox.Text;*/
-			accounts_sub_categories sub = _accountsEntity.accounts_sub_categories.First();
-			objAccount.accounts_sub_categories = sub;
+			AccountSubCategory sub = _accountsEntity.AccountSubCategories.First();
+			objAccount.AccountSubCategory = sub;
 
-			accounts_main_categories main = _accountsEntity.accounts_main_categories.First();
-			objAccount.accounts_sub_categories.accounts_main_categories = main;
+			AccountMainCategory main = _accountsEntity.AccountMainCategories.First();
+			objAccount.AccountSubCategory.AccountMainCategory = main;
 
-			_accountsEntity.accounts.Add(objAccount);
+			_accountsEntity.Accounts.Add(objAccount);
 			_accountsEntity.SaveChanges();
 
 			this.Close();
@@ -77,8 +78,8 @@ namespace ITI.PixLogic.WinApp
 
 		private void UserCategoryComboBox_Click(object sender, EventArgs e)
 		{
-			_accountsEntity.accounts_sub_categories.Load();
-			UserCategoryComboBox.DataSource = _accountsEntity.accounts_sub_categories.Local.ToBindingList();
+			_accountsEntity.AccountSubCategories.Load();
+            UserCategoryComboBox.DataSource = _accountsEntity.AccountSubCategories.Local.ToBindingList( );
 			UserCategoryComboBox.ValueMember = "id";
 			UserCategoryComboBox.DisplayMember = "name";
 		}
@@ -90,8 +91,8 @@ namespace ITI.PixLogic.WinApp
 
 		private void MainCategoryComboBox_Click(object sender, EventArgs e)
 		{
-			_accountsEntity.accounts_main_categories.Load();
-			MainCategoryComboBox.DataSource = _accountsEntity.accounts_main_categories.Local.ToBindingList();
+			_accountsEntity.AccountMainCategories.Load();
+            MainCategoryComboBox.DataSource = _accountsEntity.AccountMainCategories.Local.ToBindingList( );
 			MainCategoryComboBox.ValueMember = "id";
 			MainCategoryComboBox.DisplayMember = "name";
 		}

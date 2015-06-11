@@ -156,7 +156,7 @@
 			// 
 			// accountBindingSource
 			// 
-			this.accountBindingSource.DataSource = typeof(ITI.PixLogic.DAL.accounts);
+			this.accountBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Accounts.Account);
 			// 
 			// save_button
 			// 
@@ -210,7 +210,7 @@
 			// 
 			// accounts_sub_categoriesBindingSource
 			// 
-			this.accounts_sub_categoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.accounts_sub_categories);
+			this.accounts_sub_categoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Accounts.AccountSubCategory);
 			// 
 			// nameSubCategory
 			// 
@@ -222,7 +222,7 @@
 			// 
 			// accounts_main_categoriesBindingSource
 			// 
-			this.accounts_main_categoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.accounts_main_categories);
+			this.accounts_main_categoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Accounts.AccountMainCategory);
 			// 
 			// nameMainCategory
 			// 
