@@ -1,5 +1,6 @@
 ﻿using ITI.PixLogic.DAL;
 using ITI.PixLogic.DAL.Contexts.Items;
+using ITI.PixLogic.BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,12 +40,7 @@ namespace ITI.PixLogic.WinApp
 
 			else
 			{
-                foreach(var item in CapitalizedDataListView.SelectedObjects)
-                {
-                    _itemsEntity.Items.Remove( (Item)item );
-                }
-                _itemsEntity.SaveChanges( );
-                _itemsEntity.Items.Load( );
+                CapitalizedService.DeleteItem( (Item) CapitalizedDataListView.SelectedObject );
                 CapitalizedDataListView.DataSource = _itemsEntity.Items.Local.ToBindingList( );
 			}
 		}
