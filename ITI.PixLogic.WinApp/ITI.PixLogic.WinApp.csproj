@@ -104,6 +104,12 @@
     <Compile Include="ConsumablesView.Designer.cs">
       <DependentUpon>ConsumablesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeView.cs">
       <SubType>Form</SubType>
     </Compile>

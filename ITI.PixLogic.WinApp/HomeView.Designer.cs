@@ -36,6 +36,8 @@
             this.cSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilisateursformatPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,10 +75,11 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportDeDonnéeToolStripMenuItem,
-            this.aideToolStripMenuItem});
+            this.aideToolStripMenuItem,
+            this.exportationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(234, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(571, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -106,15 +109,30 @@
             // contactToolStripMenuItem
             // 
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.contactToolStripMenuItem.Text = "Contacts";
+            // 
+            // exportationsToolStripMenuItem
+            // 
+            this.exportationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.utilisateursformatPDFToolStripMenuItem});
+            this.exportationsToolStripMenuItem.Name = "exportationsToolStripMenuItem";
+            this.exportationsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.exportationsToolStripMenuItem.Text = "Exportations";
+            // 
+            // utilisateursformatPDFToolStripMenuItem
+            // 
+            this.utilisateursformatPDFToolStripMenuItem.Name = "utilisateursformatPDFToolStripMenuItem";
+            this.utilisateursformatPDFToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.utilisateursformatPDFToolStripMenuItem.Text = "Utilisateurs (format PDF)";
+            this.utilisateursformatPDFToolStripMenuItem.Click += new System.EventHandler(this.utilisateursformatPDFToolStripMenuItem_Click);
             // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(234, 220);
+            this.ClientSize = new System.Drawing.Size(571, 256);
             this.Controls.Add(this.CapitalizedBtn);
             this.Controls.Add(this.consumable_button);
             this.Controls.Add(this.users_account_button);
@@ -140,5 +158,7 @@
         private System.Windows.Forms.ToolStripMenuItem cSVToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utilisateursformatPDFToolStripMenuItem;
     }
 }
