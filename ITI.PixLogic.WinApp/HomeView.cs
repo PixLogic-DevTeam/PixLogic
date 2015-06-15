@@ -1,5 +1,5 @@
 ﻿using iTextSharp.text;
-using iTextSharp.text.html.simpleparser;
+using iTextSharp;
 using iTextSharp.text.pdf;
 using ITI.PixLogic.DAL;
 using LumenWorks.Framework.IO.Csv;
@@ -15,9 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
-using iTextSharp;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+
 
 namespace ITI.PixLogic.WinApp
 {
@@ -98,6 +96,8 @@ namespace ITI.PixLogic.WinApp
                                 _accountsEntity.accounts.Add(user);
                                 _accountsEntity.SaveChanges();
                             }
+
+                            MessageBox.Show("Import réussi");
                         }
                     }
                 }
@@ -113,14 +113,57 @@ namespace ITI.PixLogic.WinApp
         private void utilisateursformatPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            Document doc = new Document();
-            
+            Document doc = new Document(PageSize.A4, 2, 2, 2, 2);
+            Paragraph p = new Paragraph("Export Database data to PDF file in c#");
+            // p.Alignment("center");
+
+            try
+            {
                 PdfWriter.GetInstance(doc, new FileStream("réservations.pdf", FileMode.Create));
+                PdfPTable pdftable = new PdfPTable(4);
+                pdftable.HorizontalAlignment = 1;
+                pdftable.SpacingBefore = 20f;
+                pdftable.SpacingAfter = 20f;
 
-                doc.Open();
-                doc.Add(new Phrase("Réservations"));
+                List<accounts> data = new List<accounts>();
+                using (_accountsEntity)
+                {
+                    data = _accountsEntity.accounts.OrderBy(a => a.id).ThenBy(a => a.first_name).ThenBy(a => a.last_name).ToList();
+                }
 
+                foreach (var Account in data)
+                {
+                    pdftable.AddCell(Account.first_name.ToString());
+                    pdftable.AddCell(Account.last_name.ToString());
+                    pdftable.AddCell(Account.password.ToString());
+
+                    doc.Open();
+                    doc.Add(p);
+                    doc.Add(pdftable);
+
+                    /*byte[] content = File.ReadAllBytes();
+
+                    HttpContext context = HttpContext.Current;
+
+                    context.Response.BinaryWrite(content);
+                    context.Response.ContentType ="application\pdf";
+                    context.Response.AppendHeader("Content-Disposition","attachment; filename=" + filename);
+                    context.Response.End();*/
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message);
+            }
+
+            finally
+            {
                 doc.Close();
-            
-       }    }
-} 
+            }
+
+            //doc.Add(new Phrase("Réservations"));
+
+            MessageBox.Show("PDF créer.");
+        }
+    }
+}
