@@ -115,13 +115,12 @@ namespace ITI.PixLogic.WinApp
 
             Document doc = new Document();
             
-                PdfWriter.GetInstance(doc, new FileStream("fichier.pdf", FileMode.Create));
+                PdfWriter.GetInstance(doc, new FileStream("réservations.pdf", FileMode.Create));
 
                 doc.Open();
-                doc.Add(new Phrase("hello world"));
+                doc.Add(new Phrase("Réservations"));
 
                 doc.Close();
             
-        }
-    }
-}
+       }    }
+} 
