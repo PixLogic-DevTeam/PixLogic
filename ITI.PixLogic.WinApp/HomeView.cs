@@ -115,40 +115,56 @@ namespace ITI.PixLogic.WinApp
 
             Document doc = new Document(PageSize.A4, 2, 2, 2, 2);
             Paragraph p = new Paragraph("Export Database data to PDF file in c#");
-            // p.Alignment("center");
+            p.Alignment = Element.ALIGN_CENTER;
 
             try
             {
                 PdfWriter.GetInstance(doc, new FileStream("réservations.pdf", FileMode.Create));
-                PdfPTable pdftable = new PdfPTable(4);
+
+                PdfPTable pdftable = new PdfPTable(8);
                 pdftable.HorizontalAlignment = 1;
                 pdftable.SpacingBefore = 20f;
                 pdftable.SpacingAfter = 20f;
 
+                pdftable.AddCell("ID");
+                pdftable.AddCell("Prénom");
+                pdftable.AddCell("Nom");
+                pdftable.AddCell("Email");
+                pdftable.AddCell("Mot de passe");
+                pdftable.AddCell("Etat");
+                pdftable.AddCell("Porte-monnaie");
+                pdftable.AddCell("Sous-catégorie");
+                
+
+
+                PdfPTable pdftable2 = new PdfPTable(8);
+                pdftable2.HorizontalAlignment = 1;
+                pdftable2.SpacingBefore = 20f;
+                pdftable2.SpacingAfter = 20f;
+
                 List<accounts> data = new List<accounts>();
                 using (_accountsEntity)
                 {
-                    data = _accountsEntity.accounts.OrderBy(a => a.id).ThenBy(a => a.first_name).ThenBy(a => a.last_name).ToList();
+                    data = _accountsEntity.accounts.OrderBy(a => a.first_name).ThenBy(a => a.last_name).ThenBy(a => a.password).ToList();
                 }
 
                 foreach (var Account in data)
                 {
-                    pdftable.AddCell(Account.first_name.ToString());
-                    pdftable.AddCell(Account.last_name.ToString());
-                    pdftable.AddCell(Account.password.ToString());
+                    pdftable2.AddCell(Account.id.ToString());
+                    pdftable2.AddCell(Account.first_name);
+                    pdftable2.AddCell(Account.last_name);
+                    pdftable2.AddCell(Account.email);
+                    pdftable2.AddCell(Account.password);
+                    pdftable2.AddCell(Account.active.ToString());
+                    pdftable2.AddCell(Account.wallet.ToString() + " points");
+                    pdftable2.AddCell(Account.sub_category.ToString());
 
                     doc.Open();
+                    doc.AddAuthor("Loïc DONNE");
                     doc.Add(p);
                     doc.Add(pdftable);
+                    doc.Add(pdftable2);
 
-                    /*byte[] content = File.ReadAllBytes();
-
-                    HttpContext context = HttpContext.Current;
-
-                    context.Response.BinaryWrite(content);
-                    context.Response.ContentType ="application\pdf";
-                    context.Response.AppendHeader("Content-Disposition","attachment; filename=" + filename);
-                    context.Response.End();*/
                 }
             }
             catch (Exception ex)
@@ -160,8 +176,6 @@ namespace ITI.PixLogic.WinApp
             {
                 doc.Close();
             }
-
-            //doc.Add(new Phrase("Réservations"));
 
             MessageBox.Show("PDF créer.");
         }
