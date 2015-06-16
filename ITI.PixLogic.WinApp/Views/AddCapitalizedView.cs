@@ -98,5 +98,10 @@ namespace ITI.PixLogic.WinApp
 
 			this.Close( );
 		}
+
+        private void checkBox2_CheckedChanged( object sender, EventArgs e )
+        {
+
+        }
 	}
 }

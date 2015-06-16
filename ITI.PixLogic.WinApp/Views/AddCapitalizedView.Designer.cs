@@ -46,6 +46,8 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.IsReservableCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // NameLbl
@@ -68,7 +70,7 @@
             // 
             // DescriptionRichTextBox
             // 
-            this.DescriptionRichTextBox.Location = new System.Drawing.Point(126, 64);
+            this.DescriptionRichTextBox.Location = new System.Drawing.Point(126, 112);
             this.DescriptionRichTextBox.Name = "DescriptionRichTextBox";
             this.DescriptionRichTextBox.Size = new System.Drawing.Size(207, 110);
             this.DescriptionRichTextBox.TabIndex = 2;
@@ -77,7 +79,7 @@
             // DescriptionLbl
             // 
             this.DescriptionLbl.AutoSize = true;
-            this.DescriptionLbl.Location = new System.Drawing.Point(51, 67);
+            this.DescriptionLbl.Location = new System.Drawing.Point(51, 115);
             this.DescriptionLbl.Name = "DescriptionLbl";
             this.DescriptionLbl.Size = new System.Drawing.Size(69, 13);
             this.DescriptionLbl.TabIndex = 3;
@@ -86,7 +88,7 @@
             // EANLbl
             // 
             this.EANLbl.AutoSize = true;
-            this.EANLbl.Location = new System.Drawing.Point(70, 187);
+            this.EANLbl.Location = new System.Drawing.Point(70, 235);
             this.EANLbl.Name = "EANLbl";
             this.EANLbl.Size = new System.Drawing.Size(50, 13);
             this.EANLbl.TabIndex = 4;
@@ -94,14 +96,14 @@
             // 
             // EANTextBox
             // 
-            this.EANTextBox.Location = new System.Drawing.Point(126, 180);
+            this.EANTextBox.Location = new System.Drawing.Point(126, 228);
             this.EANTextBox.Name = "EANTextBox";
             this.EANTextBox.Size = new System.Drawing.Size(103, 20);
             this.EANTextBox.TabIndex = 5;
             // 
             // ResCostTextBox
             // 
-            this.ResCostTextBox.Location = new System.Drawing.Point(126, 206);
+            this.ResCostTextBox.Location = new System.Drawing.Point(126, 254);
             this.ResCostTextBox.Name = "ResCostTextBox";
             this.ResCostTextBox.Size = new System.Drawing.Size(103, 20);
             this.ResCostTextBox.TabIndex = 6;
@@ -109,7 +111,7 @@
             // ResCostLbl
             // 
             this.ResCostLbl.AutoSize = true;
-            this.ResCostLbl.Location = new System.Drawing.Point(12, 209);
+            this.ResCostLbl.Location = new System.Drawing.Point(12, 257);
             this.ResCostLbl.Name = "ResCostLbl";
             this.ResCostLbl.Size = new System.Drawing.Size(108, 13);
             this.ResCostLbl.TabIndex = 7;
@@ -118,7 +120,7 @@
             // SubCatLbl
             // 
             this.SubCatLbl.AutoSize = true;
-            this.SubCatLbl.Location = new System.Drawing.Point(33, 238);
+            this.SubCatLbl.Location = new System.Drawing.Point(33, 286);
             this.SubCatLbl.Name = "SubCatLbl";
             this.SubCatLbl.Size = new System.Drawing.Size(87, 13);
             this.SubCatLbl.TabIndex = 8;
@@ -127,7 +129,7 @@
             // SubCatComboBox
             // 
             this.SubCatComboBox.FormattingEnabled = true;
-            this.SubCatComboBox.Location = new System.Drawing.Point(126, 235);
+            this.SubCatComboBox.Location = new System.Drawing.Point(126, 283);
             this.SubCatComboBox.Name = "SubCatComboBox";
             this.SubCatComboBox.Size = new System.Drawing.Size(134, 21);
             this.SubCatComboBox.TabIndex = 9;
@@ -136,7 +138,7 @@
             // InvoiceComboBox
             // 
             this.InvoiceComboBox.FormattingEnabled = true;
-            this.InvoiceComboBox.Location = new System.Drawing.Point(126, 262);
+            this.InvoiceComboBox.Location = new System.Drawing.Point(126, 310);
             this.InvoiceComboBox.Name = "InvoiceComboBox";
             this.InvoiceComboBox.Size = new System.Drawing.Size(134, 21);
             this.InvoiceComboBox.TabIndex = 10;
@@ -145,7 +147,7 @@
             // InvoiceLbl
             // 
             this.InvoiceLbl.AutoSize = true;
-            this.InvoiceLbl.Location = new System.Drawing.Point(68, 265);
+            this.InvoiceLbl.Location = new System.Drawing.Point(68, 313);
             this.InvoiceLbl.Name = "InvoiceLbl";
             this.InvoiceLbl.Size = new System.Drawing.Size(52, 13);
             this.InvoiceLbl.TabIndex = 11;
@@ -154,7 +156,7 @@
             // CurrentStateLbl
             // 
             this.CurrentStateLbl.AutoSize = true;
-            this.CurrentStateLbl.Location = new System.Drawing.Point(53, 294);
+            this.CurrentStateLbl.Location = new System.Drawing.Point(53, 342);
             this.CurrentStateLbl.Name = "CurrentStateLbl";
             this.CurrentStateLbl.Size = new System.Drawing.Size(67, 13);
             this.CurrentStateLbl.TabIndex = 12;
@@ -163,7 +165,7 @@
             // CurrentStateComboBox
             // 
             this.CurrentStateComboBox.FormattingEnabled = true;
-            this.CurrentStateComboBox.Location = new System.Drawing.Point(126, 291);
+            this.CurrentStateComboBox.Location = new System.Drawing.Point(126, 339);
             this.CurrentStateComboBox.Name = "CurrentStateComboBox";
             this.CurrentStateComboBox.Size = new System.Drawing.Size(134, 21);
             this.CurrentStateComboBox.TabIndex = 13;
@@ -171,7 +173,7 @@
             // 
             // BackBtn
             // 
-            this.BackBtn.Location = new System.Drawing.Point(258, 322);
+            this.BackBtn.Location = new System.Drawing.Point(258, 370);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.Size = new System.Drawing.Size(75, 23);
             this.BackBtn.TabIndex = 14;
@@ -181,7 +183,7 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.Location = new System.Drawing.Point(12, 322);
+            this.AddBtn.Location = new System.Drawing.Point(12, 370);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(75, 23);
             this.AddBtn.TabIndex = 15;
@@ -205,11 +207,34 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Référence : ";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(126, 65);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(92, 17);
+            this.checkBox1.TabIndex = 19;
+            this.checkBox1.Text = "Consommable";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // IsReservableCheckBox
+            // 
+            this.IsReservableCheckBox.AutoSize = true;
+            this.IsReservableCheckBox.Location = new System.Drawing.Point(126, 89);
+            this.IsReservableCheckBox.Name = "IsReservableCheckBox";
+            this.IsReservableCheckBox.Size = new System.Drawing.Size(80, 17);
+            this.IsReservableCheckBox.TabIndex = 20;
+            this.IsReservableCheckBox.Text = "Réservable";
+            this.IsReservableCheckBox.UseVisualStyleBackColor = true;
+            this.IsReservableCheckBox.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
             // AddCapitalizedView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 360);
+            this.ClientSize = new System.Drawing.Size(344, 404);
+            this.Controls.Add(this.IsReservableCheckBox);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.AddBtn);
@@ -228,7 +253,7 @@
             this.Controls.Add(this.DescriptionRichTextBox);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.NameLbl);
-            this.CapitalizedName = "AddCapitalizedView";
+            this.Name = "AddCapitalizedView";
             this.Text = "PixLogic - Ajouter un objet immobilisable";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -255,5 +280,7 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox IsReservableCheckBox;
     }
 }

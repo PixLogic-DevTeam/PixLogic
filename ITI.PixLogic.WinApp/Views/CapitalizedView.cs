@@ -16,8 +16,6 @@ namespace ITI.PixLogic.WinApp
 {
 	public partial class CapitalizedView : Form
 	{
-		ItemsEntity _itemsEntity;
-
 		public CapitalizedView()
 		{
 			InitializeComponent( );
@@ -26,9 +24,10 @@ namespace ITI.PixLogic.WinApp
 
 		private void Capitalized_Load( )
 		{
-			_itemsEntity = new ItemsEntity();
+			ItemsEntity _itemsEntity = new ItemsEntity();
 			_itemsEntity.Items.Load( );
             capitalizedBindingSource.DataSource = _itemsEntity.Items.Local.ToBindingList( );
+            _itemsEntity.Dispose( );
 		}
 
 		private void Suppr_Btn_Click( object sender, EventArgs e )
@@ -41,7 +40,7 @@ namespace ITI.PixLogic.WinApp
 			else
 			{
                 CapitalizedService.DeleteItem( (Item) CapitalizedDataListView.SelectedObject );
-                CapitalizedDataListView.DataSource = _itemsEntity.Items.Local.ToBindingList( );
+                CapitalizedDataListView.DataSource = CapitalizedService.GetAllItems( );
 			}
 		}
 
