@@ -38,6 +38,17 @@
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utilisateursformatPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.donnéesformatCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comptesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.réservationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consommablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.immobilisableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.packsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entreprisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.etatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +90,7 @@
             this.exportationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(571, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(841, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,13 +120,14 @@
             // contactToolStripMenuItem
             // 
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.contactToolStripMenuItem.Text = "Contacts";
             // 
             // exportationsToolStripMenuItem
             // 
             this.exportationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.utilisateursformatPDFToolStripMenuItem});
+            this.utilisateursformatPDFToolStripMenuItem,
+            this.donnéesformatCSVToolStripMenuItem});
             this.exportationsToolStripMenuItem.Name = "exportationsToolStripMenuItem";
             this.exportationsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.exportationsToolStripMenuItem.Text = "Exportations";
@@ -127,12 +139,89 @@
             this.utilisateursformatPDFToolStripMenuItem.Text = "Utilisateurs (format PDF)";
             this.utilisateursformatPDFToolStripMenuItem.Click += new System.EventHandler(this.utilisateursformatPDFToolStripMenuItem_Click);
             // 
+            // donnéesformatCSVToolStripMenuItem
+            // 
+            this.donnéesformatCSVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comptesToolStripMenuItem,
+            this.facturesToolStripMenuItem,
+            this.réservationsToolStripMenuItem,
+            this.contactToolStripMenuItem1,
+            this.consommablesToolStripMenuItem,
+            this.immobilisableToolStripMenuItem,
+            this.packsToolStripMenuItem,
+            this.entreprisesToolStripMenuItem,
+            this.marquesToolStripMenuItem,
+            this.etatsToolStripMenuItem});
+            this.donnéesformatCSVToolStripMenuItem.Name = "donnéesformatCSVToolStripMenuItem";
+            this.donnéesformatCSVToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.donnéesformatCSVToolStripMenuItem.Text = "Données (format CSV)";
+            // 
+            // comptesToolStripMenuItem
+            // 
+            this.comptesToolStripMenuItem.Name = "comptesToolStripMenuItem";
+            this.comptesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.comptesToolStripMenuItem.Text = "Comptes";
+            // 
+            // facturesToolStripMenuItem
+            // 
+            this.facturesToolStripMenuItem.Name = "facturesToolStripMenuItem";
+            this.facturesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.facturesToolStripMenuItem.Text = "Factures";
+            // 
+            // réservationsToolStripMenuItem
+            // 
+            this.réservationsToolStripMenuItem.Name = "réservationsToolStripMenuItem";
+            this.réservationsToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.réservationsToolStripMenuItem.Text = "Réservations";
+            // 
+            // contactToolStripMenuItem1
+            // 
+            this.contactToolStripMenuItem1.Name = "contactToolStripMenuItem1";
+            this.contactToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.contactToolStripMenuItem1.Text = "Contact";
+            // 
+            // consommablesToolStripMenuItem
+            // 
+            this.consommablesToolStripMenuItem.Name = "consommablesToolStripMenuItem";
+            this.consommablesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.consommablesToolStripMenuItem.Text = "Consommables";
+            // 
+            // immobilisableToolStripMenuItem
+            // 
+            this.immobilisableToolStripMenuItem.Name = "immobilisableToolStripMenuItem";
+            this.immobilisableToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.immobilisableToolStripMenuItem.Text = "Immobilisable";
+            // 
+            // packsToolStripMenuItem
+            // 
+            this.packsToolStripMenuItem.Name = "packsToolStripMenuItem";
+            this.packsToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.packsToolStripMenuItem.Text = "Packs";
+            // 
+            // entreprisesToolStripMenuItem
+            // 
+            this.entreprisesToolStripMenuItem.Name = "entreprisesToolStripMenuItem";
+            this.entreprisesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.entreprisesToolStripMenuItem.Text = "Entreprises";
+            // 
+            // marquesToolStripMenuItem
+            // 
+            this.marquesToolStripMenuItem.Name = "marquesToolStripMenuItem";
+            this.marquesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.marquesToolStripMenuItem.Text = "Marques";
+            // 
+            // etatsToolStripMenuItem
+            // 
+            this.etatsToolStripMenuItem.Name = "etatsToolStripMenuItem";
+            this.etatsToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.etatsToolStripMenuItem.Text = "Etats";
+            // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(571, 256);
+            this.ClientSize = new System.Drawing.Size(841, 354);
             this.Controls.Add(this.CapitalizedBtn);
             this.Controls.Add(this.consumable_button);
             this.Controls.Add(this.users_account_button);
@@ -160,5 +249,16 @@
         private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem utilisateursformatPDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem donnéesformatCSVToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem comptesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem réservationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem consommablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem immobilisableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem packsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entreprisesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marquesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem etatsToolStripMenuItem;
     }
 }
