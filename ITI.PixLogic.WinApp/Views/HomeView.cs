@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ITI.PixLogic.BLL;
+using ITI.PixLogic.DAL.Contexts.Items;
 
 namespace ITI.PixLogic.WinApp
 {
@@ -51,6 +53,8 @@ namespace ITI.PixLogic.WinApp
 
 		private void Home_Load( object sender, EventArgs e )
 		{
+            AmmountofItemsLbl.Text = Convert.ToString( StatsService.GetNumberOfItems( ) );
+            ReservationAmmountNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservationEvent( ) );
 		}
 
         private void ExitBtn_Click( object sender, EventArgs e )
