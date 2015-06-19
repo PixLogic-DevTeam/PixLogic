@@ -128,7 +128,7 @@
             // 
             // HomeView
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.MainMenuStrip);
             this.Name = "HomeView";
