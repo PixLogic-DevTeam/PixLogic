@@ -45,6 +45,9 @@
     <Reference Include="MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.Entity.6.9.6\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
+    <Reference Include="ObjectListView">
+      <HintPath>..\packages\ObjectListView.Official.2.8.1\lib\net20\ObjectListView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -57,10 +60,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexts\Accounts\account.cs">
+    <Compile Include="Contexts\Accounts\Account.cs">
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\accountmaincategory.cs">
+    <Compile Include="Contexts\Accounts\AccountMainCategory.cs">
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Accounts\AccountsModel.Context.cs">
@@ -78,16 +81,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountsModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\accountsubcategory.cs">
+    <Compile Include="Contexts\Accounts\AccountSubCategory.cs">
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Invoices\company.cs">
+    <Compile Include="Contexts\Invoices\Company.cs">
       <DependentUpon>InvoicesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Invoices\contact.cs">
+    <Compile Include="Contexts\Invoices\Contact.cs">
       <DependentUpon>InvoicesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Invoices\invoice.cs">
+    <Compile Include="Contexts\Invoices\Invoice.cs">
       <DependentUpon>InvoicesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Invoices\InvoicesModel.Context.cs">
@@ -105,16 +108,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoicesModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\item.cs">
+    <Compile Include="Contexts\Items\Item.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\itembrand.cs">
+    <Compile Include="Contexts\Items\ItemBrand.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\itemmaincategory.cs">
+    <Compile Include="Contexts\Items\ItemMainCategory.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\itemrestoration.cs">
+    <Compile Include="Contexts\Items\ItemRestoration.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Items\ItemsModel.Context.cs">
@@ -132,19 +135,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemsModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\itemstate.cs">
+    <Compile Include="Contexts\Items\ItemState.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\itemsubcategory.cs">
+    <Compile Include="Contexts\Items\ItemSubCategory.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\pack.cs">
+    <Compile Include="Contexts\Packs\Pack.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\packageditem.cs">
+    <Compile Include="Contexts\Packs\PackagedItem.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\packageditemcategory.cs">
+    <Compile Include="Contexts\Packs\PackagedItemCategory.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Packs\PacksModel.Context.cs">
@@ -162,13 +165,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PacksModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Reservations\reservationevent.cs">
+    <Compile Include="Contexts\Reservations\ReservationEvent.cs">
       <DependentUpon>ReservationsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Reservations\reservationitem.cs">
+    <Compile Include="Contexts\Reservations\ReservationItem.cs">
       <DependentUpon>ReservationsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Reservations\reservationplanning.cs">
+    <Compile Include="Contexts\Reservations\ReservationPlanning.cs">
       <DependentUpon>ReservationsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Reservations\ReservationsModel.Context.cs">
@@ -176,15 +179,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReservationsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Reservations\ReservationsModel.Designer.cs">
-      <DependentUpon>ReservationsModel.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Contexts\Reservations\ReservationsModel1.cs">
+    <Compile Include="Contexts\Reservations\ReservationsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReservationsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Reservations\ReservationsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationsModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -273,7 +276,7 @@
     <None Include="Contexts\Reservations\ReservationsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ReservationsModel.edmx</DependentUpon>
-      <LastGenOutput>ReservationsModel1.cs</LastGenOutput>
+      <LastGenOutput>ReservationsModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

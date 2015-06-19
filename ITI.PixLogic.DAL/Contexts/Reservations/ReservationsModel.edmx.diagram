@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="92750b1f57194f20b52e2fba415417fd" Name="Diagram1">
+      <Diagram DiagramId="a946a6a4da044547bc3a12df54064087" Name="Diagram1">
         <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Reservations.ReservationEvent" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Reservations.ReservationItem" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Reservations.ReservationPlanning" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Reservations.reservationevent_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Reservations.reservationitem_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Reservations.reservationitem_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Reservations.reservationevents_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Reservations.reservationitems_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Reservations.reservationitems_ibfk_2" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

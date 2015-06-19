@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="ITI.PixLogic.DAL.Contexts.Invoices.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Company">
+        <EntityType Name="Companies">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -18,7 +18,7 @@
           <Property Name="Adress" Type="tinytext" />
           <Property Name="LogoPath" Type="tinytext" />
         </EntityType>
-        <EntityType Name="Contact">
+        <EntityType Name="Contacts">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -31,7 +31,7 @@
           <Property Name="PortraitPath" Type="tinytext" />
           <Property Name="Employer" Type="uint" Nullable="false" />
         </EntityType>
-        <EntityType Name="Invoice">
+        <EntityType Name="Invoices">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -43,41 +43,41 @@
           <Property Name="ScanPath" Type="tinytext" />
           <Property Name="Provider" Type="uint" Nullable="false" />
         </EntityType>
-        <Association Name="contact_ibfk_1">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
-          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+        <Association Name="contacts_ibfk_1">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Company">
+            <Principal Role="Companies">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Contact">
+            <Dependent Role="Contacts">
               <PropertyRef Name="Employer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="invoice_ibfk_1">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
-          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+        <Association Name="invoices_ibfk_1">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Company">
+            <Principal Role="Companies">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Invoice">
+            <Dependent Role="Invoices">
               <PropertyRef Name="Provider" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ITIPixLogicDALContextsInvoicesStoreContainer">
-          <EntitySet Name="Company" EntityType="Self.Company" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="pixlogicdb" store:Type="Tables" />
-          <AssociationSet Name="contact_ibfk_1" Association="Self.contact_ibfk_1">
-            <End Role="Company" EntitySet="Company" />
-            <End Role="Contact" EntitySet="Contact" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="pixlogicdb" store:Type="Tables" />
+          <AssociationSet Name="contacts_ibfk_1" Association="Self.contacts_ibfk_1">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Contacts" EntitySet="Contacts" />
           </AssociationSet>
-          <AssociationSet Name="invoice_ibfk_1" Association="Self.invoice_ibfk_1">
-            <End Role="Company" EntitySet="Company" />
-            <End Role="Invoice" EntitySet="Invoice" />
+          <AssociationSet Name="invoices_ibfk_1" Association="Self.invoices_ibfk_1">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Invoices" EntitySet="Invoices" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -97,8 +97,8 @@
           <Property Name="Website" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Adress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="LogoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Contacts" Relationship="Self.contact_ibfk_1" FromRole="Company" ToRole="Contact" />
-          <NavigationProperty Name="Invoices" Relationship="Self.invoice_ibfk_1" FromRole="Company" ToRole="Invoice" />
+          <NavigationProperty Name="Contacts" Relationship="Self.contacts_ibfk_1" FromRole="Companies" ToRole="Contacts" />
+          <NavigationProperty Name="Invoices" Relationship="Self.invoices_ibfk_1" FromRole="Companies" ToRole="Invoices" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -112,7 +112,7 @@
           <Property Name="Fax" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="PortraitPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Employer" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Company" Relationship="Self.contact_ibfk_1" FromRole="Contact" ToRole="Company" />
+          <NavigationProperty Name="Company" Relationship="Self.contacts_ibfk_1" FromRole="Contacts" ToRole="Companies" />
         </EntityType>
         <EntityType Name="Invoice">
           <Key>
@@ -125,28 +125,28 @@
           <Property Name="Depreciation" Type="Int32" Nullable="false" />
           <Property Name="ScanPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Provider" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Company" Relationship="Self.invoice_ibfk_1" FromRole="Invoice" ToRole="Company" />
+          <NavigationProperty Name="Company" Relationship="Self.invoices_ibfk_1" FromRole="Invoices" ToRole="Companies" />
         </EntityType>
-        <Association Name="contact_ibfk_1">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
-          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+        <Association Name="contacts_ibfk_1">
+          <End Role="Companies" Type="Self.Company" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Company">
+            <Principal Role="Companies">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Contact">
+            <Dependent Role="Contacts">
               <PropertyRef Name="Employer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="invoice_ibfk_1">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
-          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+        <Association Name="invoices_ibfk_1">
+          <End Role="Companies" Type="Self.Company" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Company">
+            <Principal Role="Companies">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Invoice">
+            <Dependent Role="Invoices">
               <PropertyRef Name="Provider" />
             </Dependent>
           </ReferentialConstraint>
@@ -155,13 +155,13 @@
           <EntitySet Name="Companies" EntityType="Self.Company" />
           <EntitySet Name="Contacts" EntityType="Self.Contact" />
           <EntitySet Name="Invoices" EntityType="Self.Invoice" />
-          <AssociationSet Name="contact_ibfk_1" Association="Self.contact_ibfk_1">
-            <End Role="Company" EntitySet="Companies" />
-            <End Role="Contact" EntitySet="Contacts" />
+          <AssociationSet Name="contacts_ibfk_1" Association="Self.contacts_ibfk_1">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Contacts" EntitySet="Contacts" />
           </AssociationSet>
-          <AssociationSet Name="invoice_ibfk_1" Association="Self.invoice_ibfk_1">
-            <End Role="Company" EntitySet="Companies" />
-            <End Role="Invoice" EntitySet="Invoices" />
+          <AssociationSet Name="invoices_ibfk_1" Association="Self.invoices_ibfk_1">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Invoices" EntitySet="Invoices" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -172,7 +172,7 @@
         <EntityContainerMapping StorageEntityContainer="ITIPixLogicDALContextsInvoicesStoreContainer" CdmEntityContainer="InvoicesEntity">
           <EntitySetMapping Name="Companies">
             <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Invoices.Company">
-              <MappingFragment StoreEntitySet="Company">
+              <MappingFragment StoreEntitySet="Companies">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
@@ -186,7 +186,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Invoices.Contact">
-              <MappingFragment StoreEntitySet="Contact">
+              <MappingFragment StoreEntitySet="Contacts">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -200,7 +200,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Invoices">
             <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Invoices.Invoice">
-              <MappingFragment StoreEntitySet="Invoice">
+              <MappingFragment StoreEntitySet="Invoices">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PhaseNumber" ColumnName="PhaseNumber" />
                 <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />

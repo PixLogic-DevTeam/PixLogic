@@ -5,7 +5,33 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="ITI.PixLogic.DAL.Contexts.Items.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Item">
+        <EntityType Name="ItemBrands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="ItemMainCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="ItemRestorations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BeginningDate" Type="date" Nullable="false" />
+          <Property Name="EndingDate" Type="date" />
+          <Property Name="Repaired" Type="uint" Nullable="false" />
+          <Property Name="Repairer" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -22,33 +48,7 @@
           <Property Name="SubCategory" Type="uint" Nullable="false" />
           <Property Name="CurrentState" Type="uint" Nullable="false" />
         </EntityType>
-        <EntityType Name="ItemBrand">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="Description" Type="text" />
-        </EntityType>
-        <EntityType Name="ItemMainCategory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="Description" Type="text" />
-        </EntityType>
-        <EntityType Name="ItemRestoration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BeginningDate" Type="date" Nullable="false" />
-          <Property Name="EndingDate" Type="date" />
-          <Property Name="Repaired" Type="uint" Nullable="false" />
-          <Property Name="Repairer" Type="uint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ItemState">
+        <EntityType Name="ItemStates">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -57,7 +57,7 @@
           <Property Name="Description" Type="text" />
           <Property Name="Usable" Type="bool" Nullable="false" />
         </EntityType>
-        <EntityType Name="ItemSubCategory">
+        <EntityType Name="ItemSubCategories">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -66,92 +66,92 @@
           <Property Name="Description" Type="text" />
           <Property Name="MainCategory" Type="uint" Nullable="false" />
         </EntityType>
-        <Association Name="item_ibfk_1">
-          <End Role="ItemBrand" Type="Self.ItemBrand" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+        <Association Name="itemrestorations_ibfk_1">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="ItemRestorations" Type="Self.ItemRestorations" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ItemBrand">
+            <Principal Role="Items">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="Brand" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_ibfk_3">
-          <End Role="ItemSubCategory" Type="Self.ItemSubCategory" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ItemSubCategory">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="SubCategory" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_ibfk_4">
-          <End Role="ItemState" Type="Self.ItemState" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ItemState">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="CurrentState" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="itemrestoration_ibfk_1">
-          <End Role="Item" Type="Self.Item" Multiplicity="1" />
-          <End Role="ItemRestoration" Type="Self.ItemRestoration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Item">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ItemRestoration">
+            <Dependent Role="ItemRestorations">
               <PropertyRef Name="Repaired" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="itemsubcategory_ibfk_1">
-          <End Role="ItemMainCategory" Type="Self.ItemMainCategory" Multiplicity="1" />
-          <End Role="ItemSubCategory" Type="Self.ItemSubCategory" Multiplicity="*" />
+        <Association Name="items_ibfk_1">
+          <End Role="ItemBrands" Type="Self.ItemBrands" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ItemMainCategory">
+            <Principal Role="ItemBrands">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ItemSubCategory">
+            <Dependent Role="Items">
+              <PropertyRef Name="Brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_3">
+          <End Role="ItemSubCategories" Type="Self.ItemSubCategories" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemSubCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="SubCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_4">
+          <End Role="ItemStates" Type="Self.ItemStates" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemStates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CurrentState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="itemsubcategories_ibfk_1">
+          <End Role="ItemMainCategories" Type="Self.ItemMainCategories" Multiplicity="1" />
+          <End Role="ItemSubCategories" Type="Self.ItemSubCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemMainCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemSubCategories">
               <PropertyRef Name="MainCategory" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ITIPixLogicDALContextsItemsStoreContainer">
-          <EntitySet Name="Item" EntityType="Self.Item" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="ItemBrand" EntityType="Self.ItemBrand" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="ItemMainCategory" EntityType="Self.ItemMainCategory" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="ItemRestoration" EntityType="Self.ItemRestoration" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="ItemState" EntityType="Self.ItemState" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="ItemSubCategory" EntityType="Self.ItemSubCategory" Schema="pixlogicdb" store:Type="Tables" />
-          <AssociationSet Name="item_ibfk_1" Association="Self.item_ibfk_1">
-            <End Role="ItemBrand" EntitySet="ItemBrand" />
-            <End Role="Item" EntitySet="Item" />
+          <EntitySet Name="ItemBrands" EntityType="Self.ItemBrands" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemMainCategories" EntityType="Self.ItemMainCategories" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemRestorations" EntityType="Self.ItemRestorations" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemStates" EntityType="Self.ItemStates" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemSubCategories" EntityType="Self.ItemSubCategories" Schema="pixlogicdb" store:Type="Tables" />
+          <AssociationSet Name="itemrestorations_ibfk_1" Association="Self.itemrestorations_ibfk_1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemRestorations" EntitySet="ItemRestorations" />
           </AssociationSet>
-          <AssociationSet Name="item_ibfk_3" Association="Self.item_ibfk_3">
-            <End Role="ItemSubCategory" EntitySet="ItemSubCategory" />
-            <End Role="Item" EntitySet="Item" />
+          <AssociationSet Name="items_ibfk_1" Association="Self.items_ibfk_1">
+            <End Role="ItemBrands" EntitySet="ItemBrands" />
+            <End Role="Items" EntitySet="Items" />
           </AssociationSet>
-          <AssociationSet Name="item_ibfk_4" Association="Self.item_ibfk_4">
-            <End Role="ItemState" EntitySet="ItemState" />
-            <End Role="Item" EntitySet="Item" />
+          <AssociationSet Name="items_ibfk_3" Association="Self.items_ibfk_3">
+            <End Role="ItemSubCategories" EntitySet="ItemSubCategories" />
+            <End Role="Items" EntitySet="Items" />
           </AssociationSet>
-          <AssociationSet Name="itemrestoration_ibfk_1" Association="Self.itemrestoration_ibfk_1">
-            <End Role="Item" EntitySet="Item" />
-            <End Role="ItemRestoration" EntitySet="ItemRestoration" />
+          <AssociationSet Name="items_ibfk_4" Association="Self.items_ibfk_4">
+            <End Role="ItemStates" EntitySet="ItemStates" />
+            <End Role="Items" EntitySet="Items" />
           </AssociationSet>
-          <AssociationSet Name="itemsubcategory_ibfk_1" Association="Self.itemsubcategory_ibfk_1">
-            <End Role="ItemMainCategory" EntitySet="ItemMainCategory" />
-            <End Role="ItemSubCategory" EntitySet="ItemSubCategory" />
+          <AssociationSet Name="itemsubcategories_ibfk_1" Association="Self.itemsubcategories_ibfk_1">
+            <End Role="ItemMainCategories" EntitySet="ItemMainCategories" />
+            <End Role="ItemSubCategories" EntitySet="ItemSubCategories" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -159,6 +159,35 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ITI.PixLogic.DAL.Contexts.Items" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ItemBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Items" Relationship="Self.items_ibfk_1" FromRole="ItemBrands" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="ItemMainCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ItemSubCategories" Relationship="Self.itemsubcategories_ibfk_1" FromRole="ItemMainCategories" ToRole="ItemSubCategories" />
+        </EntityType>
+        <EntityType Name="ItemRestoration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BeginningDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndingDate" Type="DateTime" />
+          <Property Name="Repaired" Type="Int64" Nullable="false" />
+          <Property Name="Repairer" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.itemrestorations_ibfk_1" FromRole="ItemRestorations" ToRole="Items" />
+        </EntityType>
         <EntityType Name="Item">
           <Key>
             <PropertyRef Name="Id" />
@@ -175,39 +204,10 @@
           <Property Name="RelatedInvoice" Type="Int64" Nullable="false" />
           <Property Name="SubCategory" Type="Int64" Nullable="false" />
           <Property Name="CurrentState" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="ItemBrand" Relationship="Self.item_ibfk_1" FromRole="Item" ToRole="ItemBrand" />
-          <NavigationProperty Name="ItemSubCategory" Relationship="Self.item_ibfk_3" FromRole="Item" ToRole="ItemSubCategory" />
-          <NavigationProperty Name="ItemState" Relationship="Self.item_ibfk_4" FromRole="Item" ToRole="ItemState" />
-          <NavigationProperty Name="ItemRestorations" Relationship="Self.itemrestoration_ibfk_1" FromRole="Item" ToRole="ItemRestoration" />
-        </EntityType>
-        <EntityType Name="ItemBrand">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Items" Relationship="Self.item_ibfk_1" FromRole="ItemBrand" ToRole="Item" />
-        </EntityType>
-        <EntityType Name="ItemMainCategory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ItemSubCategories" Relationship="Self.itemsubcategory_ibfk_1" FromRole="ItemMainCategory" ToRole="ItemSubCategory" />
-        </EntityType>
-        <EntityType Name="ItemRestoration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BeginningDate" Type="DateTime" Nullable="false" />
-          <Property Name="EndingDate" Type="DateTime" />
-          <Property Name="Repaired" Type="Int64" Nullable="false" />
-          <Property Name="Repairer" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Item" Relationship="Self.itemrestoration_ibfk_1" FromRole="ItemRestoration" ToRole="Item" />
+          <NavigationProperty Name="ItemBrand" Relationship="Self.items_ibfk_1" FromRole="Items" ToRole="ItemBrands" />
+          <NavigationProperty Name="ItemRestorations" Relationship="Self.itemrestorations_ibfk_1" FromRole="Items" ToRole="ItemRestorations" />
+          <NavigationProperty Name="ItemSubCategory" Relationship="Self.items_ibfk_3" FromRole="Items" ToRole="ItemSubCategories" />
+          <NavigationProperty Name="ItemState" Relationship="Self.items_ibfk_4" FromRole="Items" ToRole="ItemStates" />
         </EntityType>
         <EntityType Name="ItemState">
           <Key>
@@ -217,7 +217,7 @@
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="Usable" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Items" Relationship="Self.item_ibfk_4" FromRole="ItemState" ToRole="Item" />
+          <NavigationProperty Name="Items" Relationship="Self.items_ibfk_4" FromRole="ItemStates" ToRole="Items" />
         </EntityType>
         <EntityType Name="ItemSubCategory">
           <Key>
@@ -227,95 +227,95 @@
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="MainCategory" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Items" Relationship="Self.item_ibfk_3" FromRole="ItemSubCategory" ToRole="Item" />
-          <NavigationProperty Name="ItemMainCategory" Relationship="Self.itemsubcategory_ibfk_1" FromRole="ItemSubCategory" ToRole="ItemMainCategory" />
+          <NavigationProperty Name="ItemMainCategory" Relationship="Self.itemsubcategories_ibfk_1" FromRole="ItemSubCategories" ToRole="ItemMainCategories" />
+          <NavigationProperty Name="Items" Relationship="Self.items_ibfk_3" FromRole="ItemSubCategories" ToRole="Items" />
         </EntityType>
-        <Association Name="item_ibfk_1">
-          <End Role="ItemBrand" Type="Self.ItemBrand" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+        <Association Name="items_ibfk_1">
+          <End Role="ItemBrands" Type="Self.ItemBrand" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ItemBrand">
+            <Principal Role="ItemBrands">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Item">
+            <Dependent Role="Items">
               <PropertyRef Name="Brand" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="item_ibfk_3">
-          <End Role="ItemSubCategory" Type="Self.ItemSubCategory" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+        <Association Name="itemsubcategories_ibfk_1">
+          <End Role="ItemMainCategories" Type="Self.ItemMainCategory" Multiplicity="1" />
+          <End Role="ItemSubCategories" Type="Self.ItemSubCategory" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ItemSubCategory">
+            <Principal Role="ItemMainCategories">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="SubCategory" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_ibfk_4">
-          <End Role="ItemState" Type="Self.ItemState" Multiplicity="1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ItemState">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="CurrentState" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="itemrestoration_ibfk_1">
-          <End Role="Item" Type="Self.Item" Multiplicity="1" />
-          <End Role="ItemRestoration" Type="Self.ItemRestoration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Item">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ItemRestoration">
-              <PropertyRef Name="Repaired" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="itemsubcategory_ibfk_1">
-          <End Role="ItemMainCategory" Type="Self.ItemMainCategory" Multiplicity="1" />
-          <End Role="ItemSubCategory" Type="Self.ItemSubCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ItemMainCategory">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ItemSubCategory">
+            <Dependent Role="ItemSubCategories">
               <PropertyRef Name="MainCategory" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="itemrestorations_ibfk_1">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="ItemRestorations" Type="Self.ItemRestoration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemRestorations">
+              <PropertyRef Name="Repaired" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_3">
+          <End Role="ItemSubCategories" Type="Self.ItemSubCategory" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemSubCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="SubCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_4">
+          <End Role="ItemStates" Type="Self.ItemState" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemStates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CurrentState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ItemsEntity" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Items" EntityType="Self.Item" />
           <EntitySet Name="ItemBrands" EntityType="Self.ItemBrand" />
           <EntitySet Name="ItemMainCategories" EntityType="Self.ItemMainCategory" />
           <EntitySet Name="ItemRestorations" EntityType="Self.ItemRestoration" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
           <EntitySet Name="ItemStates" EntityType="Self.ItemState" />
           <EntitySet Name="ItemSubCategories" EntityType="Self.ItemSubCategory" />
-          <AssociationSet Name="item_ibfk_1" Association="Self.item_ibfk_1">
-            <End Role="ItemBrand" EntitySet="ItemBrands" />
-            <End Role="Item" EntitySet="Items" />
+          <AssociationSet Name="items_ibfk_1" Association="Self.items_ibfk_1">
+            <End Role="ItemBrands" EntitySet="ItemBrands" />
+            <End Role="Items" EntitySet="Items" />
           </AssociationSet>
-          <AssociationSet Name="item_ibfk_3" Association="Self.item_ibfk_3">
-            <End Role="ItemSubCategory" EntitySet="ItemSubCategories" />
-            <End Role="Item" EntitySet="Items" />
+          <AssociationSet Name="itemsubcategories_ibfk_1" Association="Self.itemsubcategories_ibfk_1">
+            <End Role="ItemMainCategories" EntitySet="ItemMainCategories" />
+            <End Role="ItemSubCategories" EntitySet="ItemSubCategories" />
           </AssociationSet>
-          <AssociationSet Name="item_ibfk_4" Association="Self.item_ibfk_4">
-            <End Role="ItemState" EntitySet="ItemStates" />
-            <End Role="Item" EntitySet="Items" />
+          <AssociationSet Name="itemrestorations_ibfk_1" Association="Self.itemrestorations_ibfk_1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemRestorations" EntitySet="ItemRestorations" />
           </AssociationSet>
-          <AssociationSet Name="itemrestoration_ibfk_1" Association="Self.itemrestoration_ibfk_1">
-            <End Role="Item" EntitySet="Items" />
-            <End Role="ItemRestoration" EntitySet="ItemRestorations" />
+          <AssociationSet Name="items_ibfk_3" Association="Self.items_ibfk_3">
+            <End Role="ItemSubCategories" EntitySet="ItemSubCategories" />
+            <End Role="Items" EntitySet="Items" />
           </AssociationSet>
-          <AssociationSet Name="itemsubcategory_ibfk_1" Association="Self.itemsubcategory_ibfk_1">
-            <End Role="ItemMainCategory" EntitySet="ItemMainCategories" />
-            <End Role="ItemSubCategory" EntitySet="ItemSubCategories" />
+          <AssociationSet Name="items_ibfk_4" Association="Self.items_ibfk_4">
+            <End Role="ItemStates" EntitySet="ItemStates" />
+            <End Role="Items" EntitySet="Items" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -324,9 +324,38 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ITIPixLogicDALContextsItemsStoreContainer" CdmEntityContainer="ItemsEntity">
+          <EntitySetMapping Name="ItemBrands">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemBrand">
+              <MappingFragment StoreEntitySet="ItemBrands">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemMainCategories">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemMainCategory">
+              <MappingFragment StoreEntitySet="ItemMainCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemRestorations">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemRestoration">
+              <MappingFragment StoreEntitySet="ItemRestorations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BeginningDate" ColumnName="BeginningDate" />
+                <ScalarProperty Name="EndingDate" ColumnName="EndingDate" />
+                <ScalarProperty Name="Repaired" ColumnName="Repaired" />
+                <ScalarProperty Name="Repairer" ColumnName="Repairer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.Item">
-              <MappingFragment StoreEntitySet="Item">
+              <MappingFragment StoreEntitySet="Items">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="EAN13" ColumnName="EAN13" />
                 <ScalarProperty Name="Reference" ColumnName="Reference" />
@@ -342,38 +371,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ItemBrands">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemBrand">
-              <MappingFragment StoreEntitySet="ItemBrand">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ItemMainCategories">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemMainCategory">
-              <MappingFragment StoreEntitySet="ItemMainCategory">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ItemRestorations">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemRestoration">
-              <MappingFragment StoreEntitySet="ItemRestoration">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BeginningDate" ColumnName="BeginningDate" />
-                <ScalarProperty Name="EndingDate" ColumnName="EndingDate" />
-                <ScalarProperty Name="Repaired" ColumnName="Repaired" />
-                <ScalarProperty Name="Repairer" ColumnName="Repairer" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ItemStates">
             <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemState">
-              <MappingFragment StoreEntitySet="ItemState">
+              <MappingFragment StoreEntitySet="ItemStates">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -383,7 +383,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="ItemSubCategories">
             <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory">
-              <MappingFragment StoreEntitySet="ItemSubCategory">
+              <MappingFragment StoreEntitySet="ItemSubCategories">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
