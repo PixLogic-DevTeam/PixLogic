@@ -14,6 +14,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ITI.PixLogic.DAL.Contexts.Reservations;
+using System.Data.SqlClient;
+using ITI.PixLogic.DAL.Contexts.Items;
+using ITI.PixLogic.DAL.Contexts.Packs;
+using ITI.PixLogic.DAL.Contexts.Invoices;
 
 
 namespace ITI.PixLogic.WinApp
@@ -22,13 +26,16 @@ namespace ITI.PixLogic.WinApp
     {
         AccountsEntity _accountsEntity = new AccountsEntity();
         ReservationsEntity _resEntity = new ReservationsEntity();
+        ItemsEntity _itemsEntity = new ItemsEntity();
+        PacksEntity _packsEntity = new PacksEntity();
+        InvoicesEntity _invoicesEntity = new InvoicesEntity();
 
         public HomeView()
         {
             InitializeComponent();
         }
 
-        #region Imports
+        #region Imports CSV
         private void MainMenuStrip_Imports_Users_Click( object sender, EventArgs e )
         {
             Stream myStream = null;
@@ -49,7 +56,7 @@ namespace ITI.PixLogic.WinApp
                         using( CsvReader csv =
 							   new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
                         {
-                            
+
                             int fieldCount = csv.FieldCount;
 
                             string[] headers = csv.GetFieldHeaders();
@@ -94,59 +101,68 @@ namespace ITI.PixLogic.WinApp
         }
         #endregion
 
-        #region Exports
-        private void MainMenuStrip_Exports_Users_Click( object sender, EventArgs e )
+        #region Exports PDF
+
+        private void réservationsToolStripMenuItem2_Click( object sender, EventArgs e )
         {
             Document doc = new Document( PageSize.A4, 2, 2, 2, 2 );
             Paragraph p = new Paragraph( "Export de la base de donnée en PDF." );
+            PdfPTable headers = new PdfPTable( 14 );
+            PdfPTable infos = new PdfPTable( 14 );
+            List<Account> data = new List<Account>();
             p.Alignment = Element.ALIGN_CENTER;
 
             try
             {
-                using( PdfWriter.GetInstance( doc, new FileStream("toutes_les_réservations.pdf", FileMode.Create ) ) )
+                using( PdfWriter.GetInstance( doc, new FileStream( "toutes_les_réservations.pdf", FileMode.Create ) ) )
                 {
-                    List<ReservationItem> _resItem = new List<ReservationItem>();
-                    /*_resItem = _resEntity.ReservationItems.ToList();
-                    _resItem.Join()*/
-
-                    PdfPTable headers = new PdfPTable( 8 );
-                    PdfPTable infos = new PdfPTable( 8 );
-                    List<Account> data = new List<Account>();
 
                     headers.HorizontalAlignment = 1;
-                    headers.SpacingBefore = 20f;
-                    headers.SpacingAfter = 20f;
+                    headers.SpacingBefore = 40f;
+                    headers.SpacingAfter = 40f;
                     infos.HorizontalAlignment = 1;
-                    infos.SpacingBefore = 20f;
-                    infos.SpacingAfter = 20f;
+                    infos.SpacingBefore = 40f;
+                    infos.SpacingAfter = 40f;
 
                     headers.AddCell( "ID" );
                     headers.AddCell( "Prénom" );
                     headers.AddCell( "Nom" );
                     headers.AddCell( "Email" );
                     headers.AddCell( "Mot de passe" );
-                    headers.AddCell( "Etat" );
+                    headers.AddCell( "Salt" );
+                    headers.AddCell( "Téléphone" );
+                    headers.AddCell( "Adresse" );
+                    headers.AddCell( "Historique" );
                     headers.AddCell( "Porte-monnaie" );
+                    headers.AddCell( "Etat" );
+                    headers.AddCell( "Banni" );
+                    headers.AddCell( "Photo" );
                     headers.AddCell( "Sous-catégorie" );
 
-                    data = _accountsEntity.Accounts.OrderBy( a => a.FirstName ).ThenBy( a => a.LastName ).ThenBy( a => a.Password ).ToList();
+                    // data = _accountsEntity.Accounts.OrderBy( a => a.Id ).ThenBy( a => a.LastName ).ToList();
 
-                    foreach( var Account in data )
+                    foreach( var Account in _accountsEntity.Accounts )
                     {
                         infos.AddCell( Account.Id.ToString() );
                         infos.AddCell( Account.FirstName );
                         infos.AddCell( Account.LastName );
                         infos.AddCell( Account.Email );
                         infos.AddCell( Account.Password );
-                        infos.AddCell( Account.Active.ToString() );
+                        infos.AddCell( Account.Salt );
+                        infos.AddCell( Account.Phone );
+                        infos.AddCell( Account.Adress );
+                        infos.AddCell( Account.Historic );
                         infos.AddCell( Account.Wallet.ToString() + " points" );
+                        infos.AddCell( Account.Active.ToString() );
+                        infos.AddCell( Account.Banned.ToString() );
+                        infos.AddCell( Account.PicturePath );
                         infos.AddCell( Account.SubCategory.ToString() );
+
                         doc.Open();
                         doc.AddAuthor( "PixLogic PDF Generator" );
                         doc.Add( p );
                         doc.Add( headers );
                         doc.Add( infos );
-                        
                     }
                 }
                 MessageBox.Show( "Le fichier PDF a été créé !" );
@@ -160,6 +176,192 @@ namespace ITI.PixLogic.WinApp
                 doc.Close();
             }
         }
+
         #endregion
+
+        #region Exports CSV
+        private void utilisateursToolStripMenuItem2_Click( object sender, EventArgs e )
+        {
+
+            StringBuilder sb = new StringBuilder();
+            string delimiter = ";";
+            StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\utilisateurs.csv" );
+
+            try
+            {
+                foreach( var accounts in _accountsEntity.Accounts )
+                {
+                    sb.Append( accounts.Id + delimiter );
+                    sb.Append( accounts.FirstName + delimiter );
+                    sb.Append( accounts.LastName + delimiter );
+                    sb.Append( accounts.Email + delimiter );
+                    sb.Append( accounts.Password + delimiter );
+                    sb.Append( accounts.Salt + delimiter );
+                    sb.Append( accounts.Phone + delimiter );
+                    sb.Append( accounts.Adress + delimiter );
+                    sb.Append( accounts.Historic + delimiter );
+                    sb.Append( accounts.Wallet + delimiter );
+                    sb.Append( accounts.Active + delimiter );
+                    sb.Append( accounts.Banned + delimiter );
+                    sb.Append( accounts.PicturePath + delimiter );
+                    sb.Append( accounts.SubCategory + delimiter );
+                    sb.Append( "\r\n" );
+                }
+
+                file.WriteLine( sb.ToString() );
+                MessageBox.Show( "Le fichier csv est créer." );
+            }
+            catch( Exception a )
+            {
+                MessageBox.Show( " Une erreur est survenue : " + a.Message );
+            }
+
+            finally
+            {
+                file.Close();
+            }
+
+        }
+
+        private void objetsToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            StringBuilder sb = new StringBuilder();
+            string delimiter = ";";
+            StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\matériel.csv" );
+
+            try
+            {
+                foreach( var items in _itemsEntity.Items )
+                {
+                    sb.Append( items.Id + delimiter );
+                    sb.Append( items.EAN13 + delimiter );
+                    sb.Append( items.Reference + delimiter );
+                    sb.Append( items.ReservationCost + delimiter );
+                    sb.Append( items.Consumable + delimiter );
+                    sb.Append( items.Reservable + delimiter );
+                    sb.Append( items.Description + delimiter );
+                    sb.Append( items.PicturePath + delimiter );
+                    sb.Append( items.Brand + delimiter );
+                    sb.Append( items.RelatedInvoice + delimiter );
+                    sb.Append( items.SubCategory + delimiter );
+                    sb.Append( items.CurrentState + delimiter );
+                    sb.Append( "\r\n" );
+                }
+
+                file.WriteLine( sb.ToString() );
+                MessageBox.Show( "Le fichier csv est créer." );
+            }
+            catch( Exception a )
+            {
+                MessageBox.Show( " Une erreur est survenue : " + a.Message );
+            }
+
+            finally
+            {
+                file.Close();
+            }
+        }
+
+        private void packsToolStripMenuItem1_Click( object sender, EventArgs e )
+        {
+            StringBuilder sb = new StringBuilder();
+            string delimiter = ";";
+            StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\packs.csv" );
+
+            try
+            {
+                foreach( var packs in _packsEntity.Packs )
+                {
+                    sb.Append( packs.Id + delimiter );
+                    sb.Append( packs.Name + delimiter );
+                    sb.Append( packs.Description + delimiter );
+                    sb.Append( packs.Reservable + delimiter );
+                    sb.Append( "\r\n" );
+                }
+
+                file.WriteLine( sb.ToString() );
+                MessageBox.Show( "Le fichier csv est créer." );
+            }
+            catch( Exception a )
+            {
+                MessageBox.Show( " Une erreur est survenue : " + a.Message );
+            }
+
+            finally
+            {
+                file.Close();
+            }
+        }
+
+        private void réservationsToolStripMenuItem1_Click( object sender, EventArgs e )
+        {
+            StringBuilder sb = new StringBuilder();
+            string delimiter = ";";
+            StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\réservations.csv" );
+
+            try
+            {
+                foreach( var reservations in _resEntity.ReservationItems )
+                {
+                    sb.Append( reservations.Id + delimiter );
+                    sb.Append( reservations.Reservation + delimiter );
+                    sb.Append( reservations.RealPlanning + delimiter );
+                    sb.Append( reservations.ReservedItem + delimiter );
+                    sb.Append( reservations.ReservedPack + delimiter );
+                    sb.Append( reservations.InitialState + delimiter );
+                    sb.Append( reservations.ReturnState + delimiter );
+                    sb.Append( "\r\n" );
+                }
+
+                file.WriteLine( sb.ToString() );
+                MessageBox.Show( "Le fichier csv est créer." );
+            }
+            catch( Exception a )
+            {
+                MessageBox.Show( " Une erreur est survenue : " + a.Message );
+            }
+
+            finally
+            {
+                file.Close();
+            }
+        }
+
+        private void facturesToolStripMenuItem1_Click( object sender, EventArgs e )
+        {
+            StringBuilder sb = new StringBuilder();
+            string delimiter = ";";
+            StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\factures.csv" );
+
+            try
+            {
+                foreach( var factures in _invoicesEntity.Invoices )
+                {
+                    sb.Append( factures.Id + delimiter );
+                    sb.Append( factures.PhaseNumber + delimiter );
+                    sb.Append( factures.PurchaseDate + delimiter );
+                    sb.Append( factures.PurchaseCost + delimiter );
+                    sb.Append( factures.Depreciation + delimiter );
+                    sb.Append( factures.ScanPath + delimiter );
+                    sb.Append( factures.Provider + delimiter );
+                    sb.Append( "\r\n" );
+                }
+
+                file.WriteLine( sb.ToString() );
+                MessageBox.Show( "Le fichier csv est créer." );
+            }
+            catch( Exception a )
+            {
+                MessageBox.Show( " Une erreur est survenue : " + a.Message );
+            }
+
+            finally
+            {
+                file.Close();
+            }
+        }
+
+        #endregion
+
     }
 }
