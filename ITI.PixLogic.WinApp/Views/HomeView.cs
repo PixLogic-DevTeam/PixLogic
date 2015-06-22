@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ITI.PixLogic.BLL;
 using ITI.PixLogic.DAL.Contexts.Items;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ITI.PixLogic.WinApp
 {
@@ -53,8 +54,48 @@ namespace ITI.PixLogic.WinApp
 
 		private void Home_Load( object sender, EventArgs e )
 		{
-            AmmountofItemsLbl.Text = Convert.ToString( StatsService.GetNumberOfItems( ) );
+            /*
+             * Idée de statistique:
+             * -Objet le plus utilisé
+             * -Dernière réservations
+             * -Réservation se terminant bientot
+             * -Proportion de comptes suspendue
+             */
+
+            //Account Pie chart feeding
+            DataPoint _activeAccountsDP = new DataPoint( );
+            _activeAccountsDP.SetValueY( StatsService.GetNumberOfActiveAccount( ) );
+            _activeAccountsDP.LegendText = "Comptes actifs";
+
+            DataPoint _bannedAccountsDP = new DataPoint( );
+            _bannedAccountsDP.SetValueY( StatsService.GetNumberOfBannedAccount( ) );
+            _bannedAccountsDP.LegendText = "Comptes Suspendus";
+
+            AccountCharts.Series[ 0 ].Points.Clear( );
+            AccountCharts.Series[ 0 ].Points.Add( _activeAccountsDP );
+            AccountCharts.Series[ 0 ].Points.Add( _bannedAccountsDP );
+
+            //Item Pie chart feeding
+            DataPoint _consummableDP = new DataPoint( );
+            _consummableDP.SetValueY( StatsService.GetNumberOfConsummableItems() );
+            _consummableDP.Color = Color.Red;
+            _consummableDP.LegendText = "Consommable";
+
+            DataPoint _reservableDP = new DataPoint( );
+            _reservableDP.SetValueY( StatsService.GetNumberOfReservableItems( ) );
+            _reservableDP.Color = Color.LightBlue;
+            _reservableDP.LegendText = "Réservable";
+
+            ItemsCharts.Series[ 0 ].Points.Clear( );
+            ItemsCharts.Series[ 0 ].Points.Add( _consummableDP );
+            ItemsCharts.Series[ 0 ].Points.Add( _reservableDP );
+
+            //General stats feeding
+            AmmountofItemsNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfItems( ) );
             ReservationAmmountNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservationEvent( ) );
+            AmmountOfPackNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfPack( ) );
+            AmmountOfInvoicesNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfInvoices( ) );
+            RecentReservationdataListView.DataSource = StatsService.GetListOfReservationEvent( );
 		}
 
         private void ExitBtn_Click( object sender, EventArgs e )

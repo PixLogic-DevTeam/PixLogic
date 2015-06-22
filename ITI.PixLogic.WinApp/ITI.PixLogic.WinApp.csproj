@@ -81,6 +81,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartItemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChartItemDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PixLogicDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -169,6 +174,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ChartItemDataSet.xsc">
+      <DependentUpon>ChartItemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ChartItemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChartItemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ChartItemDataSet.xss">
+      <DependentUpon>ChartItemDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="PixLogicDBDataSet.xsc">
       <DependentUpon>PixLogicDBDataSet.xsd</DependentUpon>
