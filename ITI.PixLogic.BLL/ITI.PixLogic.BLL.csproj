@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="CapitalizedService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationItemModel.cs" />
     <Compile Include="StatsService.cs" />
   </ItemGroup>
   <ItemGroup>

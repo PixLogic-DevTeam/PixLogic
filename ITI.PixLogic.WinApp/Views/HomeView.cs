@@ -95,8 +95,8 @@ namespace ITI.PixLogic.WinApp
             AmmountOfPackNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfPack( ) );
             AmmountOfInvoicesNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfInvoices( ) );
 
-            RecentReservationdataListView.DataSource = StatsService.GetListOfReservationEvent( );
-            
+            //DataListView Feeding
+            var query = 
 		}
 
         private void ExitBtn_Click( object sender, EventArgs e )
