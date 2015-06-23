@@ -108,9 +108,9 @@ namespace ITI.PixLogic.WinApp
         private void réservationsToolStripMenuItem2_Click( object sender, EventArgs e )
         {
             Document doc = new Document( PageSize.A4, 2, 2, 2, 2 );
-            Paragraph p = new Paragraph( "Export de la base de donnée en PDF." );
-            PdfPTable headers = new PdfPTable( 14 );
-            PdfPTable infos = new PdfPTable( 14 );
+            Paragraph p = new Paragraph( "Export des réservations" );
+            PdfPTable headers = new PdfPTable( 7 );
+            PdfPTable infos = new PdfPTable( 7 );
 
             try
             {
@@ -120,9 +120,7 @@ namespace ITI.PixLogic.WinApp
 
                     headers.HorizontalAlignment = 1;
                     headers.SpacingBefore = 40f;
-                    headers.SpacingAfter = 40f;
                     infos.HorizontalAlignment = 1;
-                    infos.SpacingBefore = 40f;
                     infos.SpacingAfter = 40f;
 
                     headers.AddCell( "ID" );
@@ -133,6 +131,11 @@ namespace ITI.PixLogic.WinApp
                     headers.AddCell( "Etat initial" );
                     headers.AddCell( "Etat rendu" );
 
+                    doc.Open();
+                    doc.AddAuthor( "PixLogic PDF Generator" );
+                    doc.Add( p );
+                    doc.Add( headers );
+
                     foreach( var reservations in _reservationsEntity.ReservationItems )
                     {
                         infos.AddCell( reservations.Id.ToString() );
@@ -142,23 +145,16 @@ namespace ITI.PixLogic.WinApp
                         infos.AddCell( reservations.ReservedPack.ToString() );
                         infos.AddCell( reservations.InitialState.ToString() );
                         infos.AddCell( reservations.ReturnState.ToString() );
-
-                        doc.Open();
-                        doc.AddAuthor( "PixLogic PDF Generator" );
-                        doc.Add( p );
-                        doc.Add( headers );
-                        doc.Add( infos );
                     }
+
+                    doc.Add( infos );
+                    doc.Close();
                 }
                 MessageBox.Show( "Le fichier PDF a été créé !" );
             }
             catch( Exception ex )
             {
                 MessageBox.Show( "Erreur : " + ex.Message );
-            }
-            finally
-            {
-                doc.Close();
             }
         }
 
