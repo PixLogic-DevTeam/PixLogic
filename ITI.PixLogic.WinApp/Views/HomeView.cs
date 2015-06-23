@@ -59,7 +59,6 @@ namespace ITI.PixLogic.WinApp
              * -Objet le plus utilisé
              * -Dernière réservations
              * -Réservation se terminant bientot
-             * -Proportion de comptes suspendue
              */
 
             //Account Pie chart feeding
@@ -95,7 +94,9 @@ namespace ITI.PixLogic.WinApp
             ReservationAmmountNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservationEvent( ) );
             AmmountOfPackNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfPack( ) );
             AmmountOfInvoicesNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfInvoices( ) );
+
             RecentReservationdataListView.DataSource = StatsService.GetListOfReservationEvent( );
+            
 		}
 
         private void ExitBtn_Click( object sender, EventArgs e )

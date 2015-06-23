@@ -82,6 +82,15 @@ namespace ITI.PixLogic.BLL
             return getBannedAccounts.Count( );
         }
 
+        public static string GetUserNameOnId(int id)
+        {
+            var getName = from account in _accountEntity.Accounts
+                          where account.Id == id
+                          select account;
+
+            return getName.FirstOrDefault( ).FirstName + " " + getName.FirstOrDefault( ).LastName;
+        }
+
         public static List<ReservationEvent> GetListOfReservationEvent()
         {
             return _resEntity.ReservationEvents.Local.ToList( );

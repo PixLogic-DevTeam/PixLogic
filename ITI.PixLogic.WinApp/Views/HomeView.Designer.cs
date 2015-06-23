@@ -49,6 +49,12 @@
             this.ItemsCharts = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.StatisticsTabControl = new System.Windows.Forms.TabControl();
             this.GeneralInfoTab = new System.Windows.Forms.TabPage();
+            this.AmmountOfInvoicesNbrLbl = new System.Windows.Forms.Label();
+            this.AmmountOfInvoicesLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NearExpiredReservationdataListView = new BrightIdeasSoftware.DataListView();
+            this.RecentReservationdataListView = new BrightIdeasSoftware.DataListView();
             this.AmmountOfPackNbrLbl = new System.Windows.Forms.Label();
             this.AmmountOfPacksLbl = new System.Windows.Forms.Label();
             this.ReservationAmmountNbrLbl = new System.Windows.Forms.Label();
@@ -58,21 +64,15 @@
             this.ItemTab = new System.Windows.Forms.TabPage();
             this.AccountTab = new System.Windows.Forms.TabPage();
             this.AccountCharts = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.RecentReservationdataListView = new BrightIdeasSoftware.DataListView();
-            this.NearExpiredReservationdataListView = new BrightIdeasSoftware.DataListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.AmmountOfInvoicesLbl = new System.Windows.Forms.Label();
-            this.AmmountOfInvoicesNbrLbl = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsCharts)).BeginInit();
             this.StatisticsTabControl.SuspendLayout();
             this.GeneralInfoTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NearExpiredReservationdataListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecentReservationdataListView)).BeginInit();
             this.ItemTab.SuspendLayout();
             this.AccountTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccountCharts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentReservationdataListView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NearExpiredReservationdataListView)).BeginInit();
             this.SuspendLayout();
             // 
             // users_account_button
@@ -216,6 +216,62 @@
             this.GeneralInfoTab.Text = "Général";
             this.GeneralInfoTab.UseVisualStyleBackColor = true;
             // 
+            // AmmountOfInvoicesNbrLbl
+            // 
+            this.AmmountOfInvoicesNbrLbl.AutoSize = true;
+            this.AmmountOfInvoicesNbrLbl.Location = new System.Drawing.Point(177, 62);
+            this.AmmountOfInvoicesNbrLbl.Name = "AmmountOfInvoicesNbrLbl";
+            this.AmmountOfInvoicesNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.AmmountOfInvoicesNbrLbl.TabIndex = 11;
+            this.AmmountOfInvoicesNbrLbl.Text = "<error>";
+            // 
+            // AmmountOfInvoicesLbl
+            // 
+            this.AmmountOfInvoicesLbl.AutoSize = true;
+            this.AmmountOfInvoicesLbl.Location = new System.Drawing.Point(33, 62);
+            this.AmmountOfInvoicesLbl.Name = "AmmountOfInvoicesLbl";
+            this.AmmountOfInvoicesLbl.Size = new System.Drawing.Size(104, 13);
+            this.AmmountOfInvoicesLbl.TabIndex = 10;
+            this.AmmountOfInvoicesLbl.Text = "Nombre de facture : ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(403, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Réservations arrivant à expiration : ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Réservations récentes : ";
+            // 
+            // NearExpiredReservationdataListView
+            // 
+            this.NearExpiredReservationdataListView.DataSource = null;
+            this.NearExpiredReservationdataListView.Location = new System.Drawing.Point(406, 103);
+            this.NearExpiredReservationdataListView.Name = "NearExpiredReservationdataListView";
+            this.NearExpiredReservationdataListView.Size = new System.Drawing.Size(154, 219);
+            this.NearExpiredReservationdataListView.TabIndex = 7;
+            this.NearExpiredReservationdataListView.UseCompatibleStateImageBehavior = false;
+            this.NearExpiredReservationdataListView.View = System.Windows.Forms.View.Details;
+            // 
+            // RecentReservationdataListView
+            // 
+            this.RecentReservationdataListView.DataSource = null;
+            this.RecentReservationdataListView.Location = new System.Drawing.Point(12, 103);
+            this.RecentReservationdataListView.Name = "RecentReservationdataListView";
+            this.RecentReservationdataListView.Size = new System.Drawing.Size(352, 219);
+            this.RecentReservationdataListView.TabIndex = 6;
+            this.RecentReservationdataListView.UseCompatibleStateImageBehavior = false;
+            this.RecentReservationdataListView.View = System.Windows.Forms.View.Details;
+            // 
             // AmmountOfPackNbrLbl
             // 
             this.AmmountOfPackNbrLbl.AutoSize = true;
@@ -316,62 +372,6 @@
             this.AccountCharts.TabIndex = 0;
             this.AccountCharts.Text = "chart1";
             // 
-            // RecentReservationdataListView
-            // 
-            this.RecentReservationdataListView.DataSource = null;
-            this.RecentReservationdataListView.Location = new System.Drawing.Point(12, 103);
-            this.RecentReservationdataListView.Name = "RecentReservationdataListView";
-            this.RecentReservationdataListView.Size = new System.Drawing.Size(154, 219);
-            this.RecentReservationdataListView.TabIndex = 6;
-            this.RecentReservationdataListView.UseCompatibleStateImageBehavior = false;
-            this.RecentReservationdataListView.View = System.Windows.Forms.View.Details;
-            // 
-            // NearExpiredReservationdataListView
-            // 
-            this.NearExpiredReservationdataListView.DataSource = null;
-            this.NearExpiredReservationdataListView.Location = new System.Drawing.Point(180, 103);
-            this.NearExpiredReservationdataListView.Name = "NearExpiredReservationdataListView";
-            this.NearExpiredReservationdataListView.Size = new System.Drawing.Size(154, 219);
-            this.NearExpiredReservationdataListView.TabIndex = 7;
-            this.NearExpiredReservationdataListView.UseCompatibleStateImageBehavior = false;
-            this.NearExpiredReservationdataListView.View = System.Windows.Forms.View.Details;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 87);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Réservations récentes : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(177, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Réservations arrivant à expiration : ";
-            // 
-            // AmmountOfInvoicesLbl
-            // 
-            this.AmmountOfInvoicesLbl.AutoSize = true;
-            this.AmmountOfInvoicesLbl.Location = new System.Drawing.Point(33, 62);
-            this.AmmountOfInvoicesLbl.Name = "AmmountOfInvoicesLbl";
-            this.AmmountOfInvoicesLbl.Size = new System.Drawing.Size(104, 13);
-            this.AmmountOfInvoicesLbl.TabIndex = 10;
-            this.AmmountOfInvoicesLbl.Text = "Nombre de facture : ";
-            // 
-            // AmmountOfInvoicesNbrLbl
-            // 
-            this.AmmountOfInvoicesNbrLbl.AutoSize = true;
-            this.AmmountOfInvoicesNbrLbl.Location = new System.Drawing.Point(177, 62);
-            this.AmmountOfInvoicesNbrLbl.Name = "AmmountOfInvoicesNbrLbl";
-            this.AmmountOfInvoicesNbrLbl.Size = new System.Drawing.Size(40, 13);
-            this.AmmountOfInvoicesNbrLbl.TabIndex = 11;
-            this.AmmountOfInvoicesNbrLbl.Text = "<error>";
-            // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,11 +394,11 @@
             this.StatisticsTabControl.ResumeLayout(false);
             this.GeneralInfoTab.ResumeLayout(false);
             this.GeneralInfoTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NearExpiredReservationdataListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecentReservationdataListView)).EndInit();
             this.ItemTab.ResumeLayout(false);
             this.AccountTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AccountCharts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentReservationdataListView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NearExpiredReservationdataListView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
