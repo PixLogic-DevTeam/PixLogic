@@ -42,6 +42,7 @@
             this.réservationsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilisateursToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,10 +68,11 @@
             // 
             // utilisateursToolStripMenuItem
             // 
+            this.utilisateursToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.utilisateursToolStripMenuItem1});
             this.utilisateursToolStripMenuItem.Name = "utilisateursToolStripMenuItem";
-            this.utilisateursToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.utilisateursToolStripMenuItem.Text = "Utilisateurs (PDF)";
-            this.utilisateursToolStripMenuItem.Click += new System.EventHandler(this.MainMenuStrip_Imports_Users_Click);
+            this.utilisateursToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.utilisateursToolStripMenuItem.Text = "CSV";
             // 
             // exportationsToolStripMenuItem
             // 
@@ -157,6 +159,13 @@
             this.contactsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.contactsToolStripMenuItem.Text = "Contacts";
             // 
+            // utilisateursToolStripMenuItem1
+            // 
+            this.utilisateursToolStripMenuItem1.Name = "utilisateursToolStripMenuItem1";
+            this.utilisateursToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.utilisateursToolStripMenuItem1.Text = "Utilisateurs";
+            this.utilisateursToolStripMenuItem1.Click += new System.EventHandler(this.utilisateursToolStripMenuItem1_Click);
+            // 
             // HomeView
             // 
             this.BackColor = System.Drawing.Color.White;
@@ -188,5 +197,6 @@
         private System.Windows.Forms.ToolStripMenuItem facturesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem réservationsToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem utilisateursToolStripMenuItem1;
 	}
 }

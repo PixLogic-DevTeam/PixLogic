@@ -25,7 +25,7 @@ namespace ITI.PixLogic.WinApp
     public partial class HomeView : Form
     {
         AccountsEntity _accountsEntity = new AccountsEntity();
-        ReservationsEntity _resEntity = new ReservationsEntity();
+        ReservationsEntity _reservationsEntity = new ReservationsEntity();
         ItemsEntity _itemsEntity = new ItemsEntity();
         PacksEntity _packsEntity = new PacksEntity();
         InvoicesEntity _invoicesEntity = new InvoicesEntity();
@@ -36,14 +36,13 @@ namespace ITI.PixLogic.WinApp
         }
 
         #region Imports CSV
-        private void MainMenuStrip_Imports_Users_Click( object sender, EventArgs e )
+        private void utilisateursToolStripMenuItem1_Click( object sender, EventArgs e )
         {
             Stream myStream = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            int fieldCount = 0, rowCount = 0, importCount = 0;
 
             openFileDialog.InitialDirectory = "C:\\";
-            //openFileDialog.Filter = "CSV files (*.csv) | *.csv | All files (*.*)|*.*"; /* Error with CSV Files */
-            openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
 
             if( openFileDialog.ShowDialog() == DialogResult.OK )
@@ -53,18 +52,18 @@ namespace ITI.PixLogic.WinApp
                     using( myStream )
                     {
                         // open the file openFileDialog.FileName which is a CSV file with headers
-                        using( CsvReader csv =
-							   new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
+                        using( CsvReader csv = new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
                         {
-
-                            int fieldCount = csv.FieldCount;
+                            fieldCount = csv.FieldCount;
 
                             string[] headers = csv.GetFieldHeaders();
                             while( csv.ReadNextRecord() )
                             {
-                                for( int i = 0; i < fieldCount; i++ ) string.Format( "{0} = {1};", headers[i], csv[i] );
-
                                 Account user = new Account();
+
+                                for( int i = 0; i < fieldCount; i++ )
+                                    string.Format( "{0} = {1};", headers[i], csv[i] );
+
                                 user.FirstName = csv[1];
                                 user.LastName = csv[2];
                                 user.Email = csv[3];
@@ -74,48 +73,50 @@ namespace ITI.PixLogic.WinApp
                                 user.Adress = csv[7];
                                 user.Historic = csv[8];
                                 user.Wallet = Convert.ToInt32( csv[9] );
-                                //user.active = Convert.ToBoolean(csv[10]);
+                                //user.active = Convert.ToBoolean( csv[10] );
                                 //user.Banned = Convert.ToBoolean( csv[11] );
                                 user.PicturePath = csv[12];
-                                var test = csv[13];
-                                AccountSubCategory asc = _accountsEntity.AccountSubCategories.FirstOrDefault( o => o.Name == test );
-                                asc.Name = csv[13];
+
+                                string subCategory = csv[13];
+                                AccountSubCategory asc = _accountsEntity.AccountSubCategories.FirstOrDefault( o => o.Name == subCategory );
                                 user.SubCategory = asc.Id;
                                 user.AccountSubCategory = asc;
 
-                                var test2 = csv[14];
-                                AccountMainCategory amc = _accountsEntity.AccountMainCategories.FirstOrDefault( o => o.Name == test2 );
-                                amc.Name = csv[14];
+                                string mainCategory = csv[14];
+                                AccountMainCategory amc = _accountsEntity.AccountMainCategories.FirstOrDefault( o => o.Name == mainCategory );
                                 user.AccountSubCategory.AccountMainCategory = amc;
 
-                                _accountsEntity.Accounts.Add( user );
-                                _accountsEntity.SaveChanges();
+                                if( _accountsEntity.Accounts.FirstOrDefault<Account>( u => u.Email == user.Email ) != null )
+                                    MessageBox.Show( "Erreur : l'entrée n°" + user.Id + " n'as pas pu être inséré car l'email \"" + user.Email + "\" est déjà utilisé." );
+                                else
+                                {
+                                    _accountsEntity.Accounts.Add( user );
+                                    _accountsEntity.SaveChanges();
+                                    importCount++;
+                                }
+                                rowCount++;
                             }
-
-                            MessageBox.Show( "L'import de donnée a réussi." );
+                            MessageBox.Show( importCount + " comptes sur " + rowCount + " ont été importé dans la base de données." );
                         }
                     }
                 }
             }
-
         }
         #endregion
 
         #region Exports PDF
-
         private void réservationsToolStripMenuItem2_Click( object sender, EventArgs e )
         {
             Document doc = new Document( PageSize.A4, 2, 2, 2, 2 );
             Paragraph p = new Paragraph( "Export de la base de donnée en PDF." );
             PdfPTable headers = new PdfPTable( 14 );
             PdfPTable infos = new PdfPTable( 14 );
-            List<Account> data = new List<Account>();
-            p.Alignment = Element.ALIGN_CENTER;
 
             try
             {
                 using( PdfWriter.GetInstance( doc, new FileStream( "toutes_les_réservations.pdf", FileMode.Create ) ) )
                 {
+                    p.Alignment = Element.ALIGN_CENTER;
 
                     headers.HorizontalAlignment = 1;
                     headers.SpacingBefore = 40f;
@@ -125,38 +126,22 @@ namespace ITI.PixLogic.WinApp
                     infos.SpacingAfter = 40f;
 
                     headers.AddCell( "ID" );
-                    headers.AddCell( "Prénom" );
-                    headers.AddCell( "Nom" );
-                    headers.AddCell( "Email" );
-                    headers.AddCell( "Mot de passe" );
-                    headers.AddCell( "Salt" );
-                    headers.AddCell( "Téléphone" );
-                    headers.AddCell( "Adresse" );
-                    headers.AddCell( "Historique" );
-                    headers.AddCell( "Porte-monnaie" );
-                    headers.AddCell( "Etat" );
-                    headers.AddCell( "Banni" );
-                    headers.AddCell( "Photo" );
-                    headers.AddCell( "Sous-catégorie" );
+                    headers.AddCell( "Réservation" );
+                    headers.AddCell( "Plage horaire" );
+                    headers.AddCell( "Matériel réservé" );
+                    headers.AddCell( "Packs réservé" );
+                    headers.AddCell( "Etat initial" );
+                    headers.AddCell( "Etat rendu" );
 
-                    // data = _accountsEntity.Accounts.OrderBy( a => a.Id ).ThenBy( a => a.LastName ).ToList();
-
-                    foreach( var Account in _accountsEntity.Accounts )
+                    foreach( var reservations in _reservationsEntity.ReservationItems )
                     {
-                        infos.AddCell( Account.Id.ToString() );
-                        infos.AddCell( Account.FirstName );
-                        infos.AddCell( Account.LastName );
-                        infos.AddCell( Account.Email );
-                        infos.AddCell( Account.Password );
-                        infos.AddCell( Account.Salt );
-                        infos.AddCell( Account.Phone );
-                        infos.AddCell( Account.Adress );
-                        infos.AddCell( Account.Historic );
-                        infos.AddCell( Account.Wallet.ToString() + " points" );
-                        infos.AddCell( Account.Active.ToString() );
-                        infos.AddCell( Account.Banned.ToString() );
-                        infos.AddCell( Account.PicturePath );
-                        infos.AddCell( Account.SubCategory.ToString() );
+                        infos.AddCell( reservations.Id.ToString() );
+                        infos.AddCell( reservations.Reservation.ToString() );
+                        infos.AddCell( reservations.RealPlanning.ToString() );
+                        infos.AddCell( reservations.ReservedItem.ToString() );
+                        infos.AddCell( reservations.ReservedPack.ToString() );
+                        infos.AddCell( reservations.InitialState.ToString() );
+                        infos.AddCell( reservations.ReturnState.ToString() );
 
                         doc.Open();
                         doc.AddAuthor( "PixLogic PDF Generator" );
@@ -169,7 +154,7 @@ namespace ITI.PixLogic.WinApp
             }
             catch( Exception ex )
             {
-                MessageBox.Show( "Une erreur s'est produite (plus d'informations : " + ex.Message + ")." );
+                MessageBox.Show( "Erreur : " + ex.Message );
             }
             finally
             {
@@ -301,7 +286,7 @@ namespace ITI.PixLogic.WinApp
 
             try
             {
-                foreach( var reservations in _resEntity.ReservationItems )
+                foreach( var reservations in _reservationsEntity.ReservationItems )
                 {
                     sb.Append( reservations.Id + delimiter );
                     sb.Append( reservations.Reservation + delimiter );
@@ -362,6 +347,5 @@ namespace ITI.PixLogic.WinApp
         }
 
         #endregion
-
     }
 }
