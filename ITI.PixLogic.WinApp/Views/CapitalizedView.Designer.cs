@@ -41,9 +41,10 @@
             // 
             // Suppr_Btn
             // 
-            this.Suppr_Btn.Location = new System.Drawing.Point(83, 12);
+            this.Suppr_Btn.Location = new System.Drawing.Point(111, 15);
+            this.Suppr_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Suppr_Btn.Name = "Suppr_Btn";
-            this.Suppr_Btn.Size = new System.Drawing.Size(67, 27);
+            this.Suppr_Btn.Size = new System.Drawing.Size(89, 33);
             this.Suppr_Btn.TabIndex = 1;
             this.Suppr_Btn.Text = "Supprimer";
             this.Suppr_Btn.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // 
             // Add_Btn
             // 
-            this.Add_Btn.Location = new System.Drawing.Point(83, 45);
+            this.Add_Btn.Location = new System.Drawing.Point(111, 55);
+            this.Add_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Add_Btn.Name = "Add_Btn";
-            this.Add_Btn.Size = new System.Drawing.Size(67, 27);
+            this.Add_Btn.Size = new System.Drawing.Size(89, 33);
             this.Add_Btn.TabIndex = 2;
             this.Add_Btn.Text = "Ajouter";
             this.Add_Btn.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // 
             // EditBtn
             // 
-            this.EditBtn.Location = new System.Drawing.Point(83, 78);
+            this.EditBtn.Location = new System.Drawing.Point(111, 96);
+            this.EditBtn.Margin = new System.Windows.Forms.Padding(4);
             this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(67, 27);
+            this.EditBtn.Size = new System.Drawing.Size(89, 33);
             this.EditBtn.TabIndex = 3;
             this.EditBtn.Text = "Modifier";
             this.EditBtn.UseVisualStyleBackColor = true;
@@ -71,9 +74,10 @@
             // 
             // BackBtn
             // 
-            this.BackBtn.Location = new System.Drawing.Point(12, 460);
+            this.BackBtn.Location = new System.Drawing.Point(16, 566);
+            this.BackBtn.Margin = new System.Windows.Forms.Padding(4);
             this.BackBtn.Name = "BackBtn";
-            this.BackBtn.Size = new System.Drawing.Size(67, 27);
+            this.BackBtn.Size = new System.Drawing.Size(89, 33);
             this.BackBtn.TabIndex = 4;
             this.BackBtn.Text = "Retour";
             this.BackBtn.UseVisualStyleBackColor = true;
@@ -84,9 +88,10 @@
             this.CapitalizedDataListView.AutoArrange = false;
             this.CapitalizedDataListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
             this.CapitalizedDataListView.DataSource = this.capitalizedBindingSource;
-            this.CapitalizedDataListView.Location = new System.Drawing.Point(195, 12);
+            this.CapitalizedDataListView.Location = new System.Drawing.Point(260, 15);
+            this.CapitalizedDataListView.Margin = new System.Windows.Forms.Padding(4);
             this.CapitalizedDataListView.Name = "CapitalizedDataListView";
-            this.CapitalizedDataListView.Size = new System.Drawing.Size(892, 475);
+            this.CapitalizedDataListView.Size = new System.Drawing.Size(1188, 584);
             this.CapitalizedDataListView.TabIndex = 5;
             this.CapitalizedDataListView.UseCompatibleStateImageBehavior = false;
             this.CapitalizedDataListView.View = System.Windows.Forms.View.Details;
@@ -97,14 +102,15 @@
             // 
             // CapitalizedView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1099, 499);
+            this.ClientSize = new System.Drawing.Size(1465, 614);
             this.Controls.Add(this.CapitalizedDataListView);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.Add_Btn);
             this.Controls.Add(this.Suppr_Btn);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CapitalizedView";
             this.Text = "PixLogic - Objets immobilisables";
             ((System.ComponentModel.ISupportInitialize)(this.CapitalizedDataListView)).EndInit();

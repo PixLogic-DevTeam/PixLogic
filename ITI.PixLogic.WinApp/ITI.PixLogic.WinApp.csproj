@@ -80,6 +80,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="pixlogicdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pixlogicdbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pixlogicdbDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pixlogicdbDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Views\AccountsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +101,12 @@
     </Compile>
     <Compile Include="Views\AddCapitalizedView.Designer.cs">
       <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddConsumables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddConsumables.Designer.cs">
+      <DependentUpon>AddConsumables.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\AddConsumableView.cs">
       <SubType>Form</SubType>
@@ -136,6 +152,9 @@
     <EmbeddedResource Include="Views\AddCapitalizedView.resx">
       <DependentUpon>AddCapitalizedView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddConsumables.resx">
+      <DependentUpon>AddConsumables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AddConsumableView.resx">
       <DependentUpon>AddConsumableView.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,11 +183,40 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="pixlogicdbDataSet.xsc">
+      <DependentUpon>pixlogicdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="pixlogicdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pixlogicdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pixlogicdbDataSet.xss">
+      <DependentUpon>pixlogicdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="pixlogicdbDataSet1.xsc">
+      <DependentUpon>pixlogicdbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="pixlogicdbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pixlogicdbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pixlogicdbDataSet1.xss">
+      <DependentUpon>pixlogicdbDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.account.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_main_categories.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_sub_categories.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.capitalized.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.Item1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemBrand1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemMainCategory1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemRestoration1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemsEntity1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemState1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

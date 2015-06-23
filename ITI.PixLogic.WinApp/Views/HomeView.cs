@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ITI.PixLogic.WinApp.Views;
 
 namespace ITI.PixLogic.WinApp
 {
@@ -60,7 +61,7 @@ namespace ITI.PixLogic.WinApp
 
         private void CapitalizedBtn_Click( object sender, EventArgs e )
         {
-            new CapitalizedView( ).Show( );
+            new CapitalizedView().Show();
             this.Hide( );
         }
 

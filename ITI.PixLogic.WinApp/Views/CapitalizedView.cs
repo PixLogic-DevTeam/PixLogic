@@ -17,14 +17,15 @@ namespace ITI.PixLogic.WinApp
 	{
 		ItemsEntity _itemsEntity;
 
-		public CapitalizedView()
+        public CapitalizedView()
 		{
 			InitializeComponent( );
-			Capitalized_Load( );
+            Consumables_Load();
 		}
 
-		private void Capitalized_Load( )
+		private void Consumables_Load( )
 		{
+            
 			_itemsEntity = new ItemsEntity();
 			_itemsEntity.Items.Load( );
             capitalizedBindingSource.DataSource = _itemsEntity.Items.Local.ToBindingList( );
