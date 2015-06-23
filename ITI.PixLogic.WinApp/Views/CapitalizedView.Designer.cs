@@ -85,13 +85,15 @@
             // 
             // CapitalizedDataListView
             // 
+            this.CapitalizedDataListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CapitalizedDataListView.AutoArrange = false;
             this.CapitalizedDataListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
             this.CapitalizedDataListView.DataSource = this.capitalizedBindingSource;
-            this.CapitalizedDataListView.Location = new System.Drawing.Point(260, 15);
+            this.CapitalizedDataListView.Location = new System.Drawing.Point(200, 15);
             this.CapitalizedDataListView.Margin = new System.Windows.Forms.Padding(4);
             this.CapitalizedDataListView.Name = "CapitalizedDataListView";
-            this.CapitalizedDataListView.Size = new System.Drawing.Size(1188, 584);
+            this.CapitalizedDataListView.Size = new System.Drawing.Size(1248, 584);
             this.CapitalizedDataListView.TabIndex = 5;
             this.CapitalizedDataListView.UseCompatibleStateImageBehavior = false;
             this.CapitalizedDataListView.View = System.Windows.Forms.View.Details;
@@ -113,6 +115,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CapitalizedView";
             this.Text = "PixLogic - Objets immobilisables";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.CapitalizedDataListView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.capitalizedBindingSource)).EndInit();
             this.ResumeLayout(false);
