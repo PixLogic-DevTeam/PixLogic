@@ -58,8 +58,20 @@ namespace ITI.PixLogic.WinApp
 			}
 			else
 			{
+                var toBeDeleted =(CapitalizedItemModel)CapitalizedDataListView.SelectedObject;
+                   
+                var capitalizedData =_itemsEntity.Items.First( c => c.Id == toBeDeleted.Id );
+                _itemsEntity.Items.Remove( capitalizedData );
+                try
+                {
+                    _itemsEntity.SaveChanges();
+
+                }
+                catch( Exception expz )
+                {
+                    MessageBox.Show( expz.InnerException.ToString() );
+                }
                 _itemsEntity = new ItemsEntity();
-                _invoicesEntity = new InvoicesEntity();
 
                 var query = from it in _itemsEntity.Items
 
@@ -70,20 +82,13 @@ namespace ITI.PixLogic.WinApp
                             orderby it.Id
                             select new CapitalizedItemModel { items = it, item_brands = bra, item_sub_categories = sub, item_state = sta, /*invoices = inv*/ };
                 var cons = query.ToList();
-				foreach(var item in CapitalizedDataListView.SelectedObjects)
-				{
-                    
-                    cons.Remove( (CapitalizedItemModel) item );
-					//_itemsEntity.Items.Remove( (Item)item );
-				}
                 CapitalizedDataListView.DataSource = cons;
-                CapitalizedDataListView.Invalidate();
+                for( int i = CapitalizedDataListView.Columns.Count - 1; i > 11; i-- )
+                {
+                    CapitalizedDataListView.Columns.RemoveAt( i );
+                }
                 
-                //_itemsEntity.SaveChanges();
-                //_itemsEntity.Items.Load();
                 
-                //CapitalizedDataListView.DataSource = _itemsEntity.Items.Local.ToBindingList( );
-              
             }
 		}
 
