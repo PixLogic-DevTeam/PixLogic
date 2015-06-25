@@ -158,8 +158,6 @@ namespace ITI.PixLogic.WinApp
 			 }
 			
 		} 
-
-
 		#endregion
 
 		#region Exports CSV
