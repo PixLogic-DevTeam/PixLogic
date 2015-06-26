@@ -342,5 +342,11 @@ namespace ITI.PixLogic.WinApp
 			}
 		}
 		#endregion
+
+		private void bookEquipmentToolStripMenuItem_Click( object sender, EventArgs e )
+		{
+
+		}
+
 	}
 }
