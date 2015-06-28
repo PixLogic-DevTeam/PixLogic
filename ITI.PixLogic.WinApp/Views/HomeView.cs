@@ -110,8 +110,8 @@ namespace ITI.PixLogic.WinApp
 		{
 			Document doc = new Document( PageSize.A4, 2, 2, 2, 2 );
 			Paragraph p = new Paragraph( "Export des réservations" );
-			PdfPTable headers = new PdfPTable( 7 );
-			PdfPTable infos = new PdfPTable( 7 );
+			PdfPTable headers = new PdfPTable( 12 );
+			PdfPTable infos = new PdfPTable( 12 );
 
 			try
 			{
@@ -124,29 +124,38 @@ namespace ITI.PixLogic.WinApp
 					infos.HorizontalAlignment = 1;
 					infos.SpacingAfter = 40f;
 
-					headers.AddCell( "ID" );
-					headers.AddCell( "Réservation" );
-					headers.AddCell( "Plage horaire" );
-					headers.AddCell( "Matériel réservé" );
-					headers.AddCell( "Packs réservé" );
-					headers.AddCell( "Etat initial" );
-					headers.AddCell( "Etat rendu" );
+					headers.AddCell( "N° de la réservation" );
+					headers.AddCell( "Personne ayant réservée" );
+					headers.AddCell( "Début estimé de la réservation" );
+					headers.AddCell( "Début réel" );
+					headers.AddCell( "Fin estimé de la réservation" );
+					headers.AddCell( "Fin réel" );
+					headers.AddCell( "Nom" );
+					headers.AddCell( "Marque" );
+					headers.AddCell( "Référence" );
+					headers.AddCell( "Etat avant la réservation" );
+					headers.AddCell( "Etat après la réservation" );
+					headers.AddCell( "Etat actuel" );
 
 					doc.Open();
 					doc.AddAuthor( "PixLogic PDF Generator" );
 					doc.Add( p );
 					doc.Add( headers );
 
-
-					foreach( var reservations in _reservationsEntity.ReservationItems )
+					foreach( var reservations in _reservationsEntity.reservationexports )
 					{
-						infos.AddCell( reservations.Id.ToString() );
-						infos.AddCell( reservations.Reservation.ToString() );
-						infos.AddCell( reservations.RealPlanning.ToString() );
-						infos.AddCell( reservations.ReservedItem.ToString() );
-						infos.AddCell( reservations.ReservedPack.ToString() );
-						infos.AddCell( reservations.InitialState.ToString() );
-						infos.AddCell( reservations.ReturnState.ToString() );
+						infos.AddCell( reservations.Numéro_de_la_réservation.ToString() );
+						infos.AddCell( reservations.Personne_ayant_réservée.ToString() );
+						infos.AddCell( reservations.Début_estimé_de_la_réservation.ToString() );
+						infos.AddCell( reservations.Début_réel_de_la_réservation.ToString() );
+						infos.AddCell( reservations.Fin_estimée_de_la_réservation.ToString() );
+						infos.AddCell( reservations.Fin_réel_de_la_réservation.ToString() );
+						infos.AddCell( reservations.Nom_du_pack_utilisé.ToString() );
+						infos.AddCell( reservations.Marque.ToString() );
+						infos.AddCell( reservations.Référence.ToString() );
+						infos.AddCell( reservations.Etat_avant_la_réservation.ToString() );
+						infos.AddCell( reservations.Etat_après_la_réservation.ToString() );
+						infos.AddCell( reservations.Etat_actuel.ToString() );
 					}
 
 					doc.Add( infos );
@@ -284,15 +293,20 @@ namespace ITI.PixLogic.WinApp
 
 			try
 			{
-				foreach( var reservations in _reservationsEntity.ReservationItems )
+				foreach( var reservations in _reservationsEntity.reservationexports )
 				{
-					sb.Append( reservations.Id + delimiter );
-					sb.Append( reservations.Reservation + delimiter );
-					sb.Append( reservations.RealPlanning + delimiter );
-					sb.Append( reservations.ReservedItem + delimiter );
-					sb.Append( reservations.ReservedPack + delimiter );
-					sb.Append( reservations.InitialState + delimiter );
-					sb.Append( reservations.ReturnState + delimiter );
+					sb.Append( reservations.Numéro_de_la_réservation + delimiter );
+					sb.Append( reservations.Personne_ayant_réservée.ToString() + delimiter );
+					sb.Append( reservations.Début_estimé_de_la_réservation.ToString() + delimiter );
+					sb.Append( reservations.Début_réel_de_la_réservation.ToString() + delimiter );
+					sb.Append( reservations.Fin_estimée_de_la_réservation.ToString() + delimiter );
+					sb.Append( reservations.Fin_réel_de_la_réservation.ToString() + delimiter );
+					sb.Append( reservations.Nom_du_pack_utilisé.ToString() + delimiter );
+					sb.Append( reservations.Marque.ToString() + delimiter );
+					sb.Append( reservations.Référence.ToString() + delimiter );
+					sb.Append( reservations.Etat_avant_la_réservation.ToString() + delimiter );
+					sb.Append( reservations.Etat_après_la_réservation.ToString() + delimiter );
+					sb.Append( reservations.Etat_actuel.ToString() + delimiter );
 					sb.Append( "\r\n" );
 				}
 

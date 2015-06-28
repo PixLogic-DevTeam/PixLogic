@@ -28,5 +28,6 @@ namespace ITI.PixLogic.DAL.Contexts.Reservations
         public virtual DbSet<ReservationEvent> ReservationEvents { get; set; }
         public virtual DbSet<ReservationItem> ReservationItems { get; set; }
         public virtual DbSet<ReservationPlanning> ReservationPlannings { get; set; }
+        public virtual DbSet<reservationexport> reservationexports { get; set; }
     }
 }
