@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.Tests", "ITI.PixLogic.Tests\ITI.PixLogic.Tests.csproj", "{057632F9-4DA7-414D-8322-768DDA1F4F71}"
 EndProject
@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CC4A08
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.WebSite", "ITI.PixLogic.WebSite\ITI.PixLogic.WebSite.csproj", "{8D1E4926-06E2-49A9-B342-439F108CB9B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.BLL", "ITI.PixLogic.BLL\ITI.PixLogic.BLL.csproj", "{5C575DDE-54F6-46F0-BDE6-49733496811F}"
 EndProject
@@ -28,10 +26,6 @@ Global
 		{057632F9-4DA7-414D-8322-768DDA1F4F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{057632F9-4DA7-414D-8322-768DDA1F4F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{057632F9-4DA7-414D-8322-768DDA1F4F71}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8D1E4926-06E2-49A9-B342-439F108CB9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D1E4926-06E2-49A9-B342-439F108CB9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D1E4926-06E2-49A9-B342-439F108CB9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D1E4926-06E2-49A9-B342-439F108CB9B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C575DDE-54F6-46F0-BDE6-49733496811F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C575DDE-54F6-46F0-BDE6-49733496811F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C575DDE-54F6-46F0-BDE6-49733496811F}.Release|Any CPU.ActiveCfg = Release|Any CPU

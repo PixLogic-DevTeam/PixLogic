@@ -18,6 +18,7 @@ using System.Data.SqlClient;
 using ITI.PixLogic.DAL.Contexts.Items;
 using ITI.PixLogic.DAL.Contexts.Packs;
 using ITI.PixLogic.DAL.Contexts.Invoices;
+using ITI.PixLogic.WinApp.Views;
 
 
 namespace ITI.PixLogic.WinApp
@@ -114,7 +115,7 @@ namespace ITI.PixLogic.WinApp
 
 			try
 			{
-				using( PdfWriter.GetInstance( doc, new FileStream( "toutes_les_réservations.pdf", FileMode.Create ) ) )
+				using( PdfWriter.GetInstance( doc, new FileStream( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\PDF\toutes_les_réservations.pdf", FileMode.Create ) ) )
 				{
 					p.Alignment = Element.ALIGN_CENTER;
 
@@ -136,6 +137,7 @@ namespace ITI.PixLogic.WinApp
 					doc.Add( p );
 					doc.Add( headers );
 
+
 					foreach( var reservations in _reservationsEntity.ReservationItems )
 					{
 						infos.AddCell( reservations.Id.ToString() );
@@ -151,13 +153,13 @@ namespace ITI.PixLogic.WinApp
 					doc.Close();
 				}
 				MessageBox.Show( "Le fichier PDF a été créé !" );
-			 }
-			 catch( Exception ex )
-			 {
-				 MessageBox.Show( "Erreur : " + ex.Message );
-			 }
-			
-		} 
+			}
+			catch( Exception ex )
+			{
+				MessageBox.Show( "Erreur : " + ex.Message );
+			}
+
+		}
 		#endregion
 
 		#region Exports CSV
@@ -295,6 +297,7 @@ namespace ITI.PixLogic.WinApp
 				}
 
 				file.WriteLine( sb.ToString() );
+				file.Close();
 				MessageBox.Show( "Le fichier csv est créer." );
 			}
 			catch( Exception a )
@@ -304,7 +307,7 @@ namespace ITI.PixLogic.WinApp
 
 			finally
 			{
-				file.Close();
+
 			}
 		}
 
@@ -345,7 +348,7 @@ namespace ITI.PixLogic.WinApp
 
 		private void bookEquipmentToolStripMenuItem_Click( object sender, EventArgs e )
 		{
-
+			new MatérielView().Show();
 		}
 
 	}

@@ -24,9 +24,9 @@ namespace ITI.PixLogic.DAL.Contexts.Reservations
         {
             throw new UnintentionalCodeFirstException();
         }
-   
+    
         public virtual DbSet<ReservationEvent> ReservationEvents { get; set; }
         public virtual DbSet<ReservationItem> ReservationItems { get; set; }
-        public virtual DbSet<ReservationPlanning> ReservationPlannings { get; set; }		
+        public virtual DbSet<ReservationPlanning> ReservationPlannings { get; set; }
     }
 }

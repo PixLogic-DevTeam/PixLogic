@@ -4,10 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ITI.PixLogic.DAL.Contexts.Reservations.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ReservationsModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ReservationEvents">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Confirmed" />
+            <PropertyRef Name="InitialPlanning" />
+            <PropertyRef Name="Reserver" />
           </Key>
           <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Confirmed" Type="bool" Nullable="false" />
@@ -17,177 +20,103 @@
         <EntityType Name="ReservationItems">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Reservation" />
+            <PropertyRef Name="RealPlanning" />
+            <PropertyRef Name="ReservedItem" />
+            <PropertyRef Name="ReservedPack" />
+            <PropertyRef Name="InitialState" />
+            <PropertyRef Name="ReturnState" />
           </Key>
           <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Reservation" Type="uint" Nullable="false" />
           <Property Name="RealPlanning" Type="uint" Nullable="false" />
           <Property Name="ReservedItem" Type="uint" Nullable="false" />
-          <Property Name="ReservedPack" Type="uint" />
+          <Property Name="ReservedPack" Type="uint" Nullable="false" />
           <Property Name="InitialState" Type="uint" Nullable="false" />
-          <Property Name="ReturnState" Type="uint" />
+          <Property Name="ReturnState" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="ReservationPlannings">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="BeginningDate" />
+            <PropertyRef Name="EndingDate" />
           </Key>
           <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BeginningDate" Type="datetime" Precision="0" Nullable="false" />
-          <Property Name="EndingDate" Type="datetime" Precision="0" />
+          <Property Name="EndingDate" Type="datetime" Precision="0" Nullable="false" />
         </EntityType>
-        <Association Name="reservationevents_ibfk_1">
-          <End Role="ReservationPlannings" Type="Self.ReservationPlannings" Multiplicity="1" />
-          <End Role="ReservationEvents" Type="Self.ReservationEvents" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReservationPlannings">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReservationEvents">
-              <PropertyRef Name="InitialPlanning" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="reservationitems_ibfk_1">
-          <End Role="ReservationEvents" Type="Self.ReservationEvents" Multiplicity="1" />
-          <End Role="ReservationItems" Type="Self.ReservationItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReservationEvents">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReservationItems">
-              <PropertyRef Name="Reservation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="reservationitems_ibfk_2">
-          <End Role="ReservationPlannings" Type="Self.ReservationPlannings" Multiplicity="1" />
-          <End Role="ReservationItems" Type="Self.ReservationItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReservationPlannings">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReservationItems">
-              <PropertyRef Name="RealPlanning" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="ITIPixLogicDALContextsReservationsStoreContainer">
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'reservationevents_ibfk_1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="reservationevents_ibfk_1" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'reservationitems_ibfk_1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="reservationitems_ibfk_1" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'reservationitems_ibfk_2' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="reservationitems_ibfk_2" />-->
+        <EntityContainer Name="ReservationsModelStoreContainer">
           <EntitySet Name="ReservationEvents" EntityType="Self.ReservationEvents" Schema="pixlogicdb" store:Type="Tables" />
           <EntitySet Name="ReservationItems" EntityType="Self.ReservationItems" Schema="pixlogicdb" store:Type="Tables" />
           <EntitySet Name="ReservationPlannings" EntityType="Self.ReservationPlannings" Schema="pixlogicdb" store:Type="Tables" />
-          <AssociationSet Name="reservationevents_ibfk_1" Association="Self.reservationevents_ibfk_1">
-            <End Role="ReservationPlannings" EntitySet="ReservationPlannings" />
-            <End Role="ReservationEvents" EntitySet="ReservationEvents" />
-          </AssociationSet>
-          <AssociationSet Name="reservationitems_ibfk_1" Association="Self.reservationitems_ibfk_1">
-            <End Role="ReservationEvents" EntitySet="ReservationEvents" />
-            <End Role="ReservationItems" EntitySet="ReservationItems" />
-          </AssociationSet>
-          <AssociationSet Name="reservationitems_ibfk_2" Association="Self.reservationitems_ibfk_2">
-            <End Role="ReservationPlannings" EntitySet="ReservationPlannings" />
-            <End Role="ReservationItems" EntitySet="ReservationItems" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ITI.PixLogic.DAL.Contexts.Reservations" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ReservationsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ReservationEvent">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Confirmed" />
+            <PropertyRef Name="InitialPlanning" />
+            <PropertyRef Name="Reserver" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Confirmed" Type="Boolean" Nullable="false" />
           <Property Name="InitialPlanning" Type="Int64" Nullable="false" />
           <Property Name="Reserver" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="ReservationPlanning" Relationship="Self.reservationevents_ibfk_1" FromRole="ReservationEvents" ToRole="ReservationPlannings" />
-          <NavigationProperty Name="ReservationItems" Relationship="Self.reservationitems_ibfk_1" FromRole="ReservationEvents" ToRole="ReservationItems" />
         </EntityType>
         <EntityType Name="ReservationItem">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Reservation" />
+            <PropertyRef Name="RealPlanning" />
+            <PropertyRef Name="ReservedItem" />
+            <PropertyRef Name="ReservedPack" />
+            <PropertyRef Name="InitialState" />
+            <PropertyRef Name="ReturnState" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Reservation" Type="Int64" Nullable="false" />
           <Property Name="RealPlanning" Type="Int64" Nullable="false" />
           <Property Name="ReservedItem" Type="Int64" Nullable="false" />
-          <Property Name="ReservedPack" Type="Int64" />
+          <Property Name="ReservedPack" Type="Int64" Nullable="false" />
           <Property Name="InitialState" Type="Int64" Nullable="false" />
-          <Property Name="ReturnState" Type="Int64" />
-          <NavigationProperty Name="ReservationEvent" Relationship="Self.reservationitems_ibfk_1" FromRole="ReservationItems" ToRole="ReservationEvents" />
-          <NavigationProperty Name="ReservationPlanning" Relationship="Self.reservationitems_ibfk_2" FromRole="ReservationItems" ToRole="ReservationPlannings" />
+          <Property Name="ReturnState" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="ReservationPlanning">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="BeginningDate" />
+            <PropertyRef Name="EndingDate" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BeginningDate" Type="DateTime" Nullable="false" />
-          <Property Name="EndingDate" Type="DateTime" />
-          <NavigationProperty Name="ReservationEvents" Relationship="Self.reservationevents_ibfk_1" FromRole="ReservationPlannings" ToRole="ReservationEvents" />
-          <NavigationProperty Name="ReservationItems" Relationship="Self.reservationitems_ibfk_2" FromRole="ReservationPlannings" ToRole="ReservationItems" />
+          <Property Name="EndingDate" Type="DateTime" Nullable="false" />
         </EntityType>
-        <Association Name="reservationevents_ibfk_1">
-          <End Role="ReservationPlannings" Type="Self.ReservationPlanning" Multiplicity="1" />
-          <End Role="ReservationEvents" Type="Self.ReservationEvent" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReservationPlannings">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReservationEvents">
-              <PropertyRef Name="InitialPlanning" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="reservationitems_ibfk_1">
-          <End Role="ReservationEvents" Type="Self.ReservationEvent" Multiplicity="1" />
-          <End Role="ReservationItems" Type="Self.ReservationItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReservationEvents">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReservationItems">
-              <PropertyRef Name="Reservation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="reservationitems_ibfk_2">
-          <End Role="ReservationPlannings" Type="Self.ReservationPlanning" Multiplicity="1" />
-          <End Role="ReservationItems" Type="Self.ReservationItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReservationPlannings">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReservationItems">
-              <PropertyRef Name="RealPlanning" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ReservationsEntity" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ReservationEvents" EntityType="Self.ReservationEvent" />
           <EntitySet Name="ReservationItems" EntityType="Self.ReservationItem" />
           <EntitySet Name="ReservationPlannings" EntityType="Self.ReservationPlanning" />
-          <AssociationSet Name="reservationevents_ibfk_1" Association="Self.reservationevents_ibfk_1">
-            <End Role="ReservationPlannings" EntitySet="ReservationPlannings" />
-            <End Role="ReservationEvents" EntitySet="ReservationEvents" />
-          </AssociationSet>
-          <AssociationSet Name="reservationitems_ibfk_1" Association="Self.reservationitems_ibfk_1">
-            <End Role="ReservationEvents" EntitySet="ReservationEvents" />
-            <End Role="ReservationItems" EntitySet="ReservationItems" />
-          </AssociationSet>
-          <AssociationSet Name="reservationitems_ibfk_2" Association="Self.reservationitems_ibfk_2">
-            <End Role="ReservationPlannings" EntitySet="ReservationPlannings" />
-            <End Role="ReservationItems" EntitySet="ReservationItems" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ITIPixLogicDALContextsReservationsStoreContainer" CdmEntityContainer="ReservationsEntity">
+        <EntityContainerMapping StorageEntityContainer="ReservationsModelStoreContainer" CdmEntityContainer="ReservationsEntity">
           <EntitySetMapping Name="ReservationEvents">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Reservations.ReservationEvent">
+            <EntityTypeMapping TypeName="ReservationsModel.ReservationEvent">
               <MappingFragment StoreEntitySet="ReservationEvents">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
@@ -197,7 +126,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReservationItems">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Reservations.ReservationItem">
+            <EntityTypeMapping TypeName="ReservationsModel.ReservationItem">
               <MappingFragment StoreEntitySet="ReservationItems">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Reservation" ColumnName="Reservation" />
@@ -210,7 +139,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReservationPlannings">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Reservations.ReservationPlanning">
+            <EntityTypeMapping TypeName="ReservationsModel.ReservationPlanning">
               <MappingFragment StoreEntitySet="ReservationPlannings">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BeginningDate" ColumnName="BeginningDate" />
