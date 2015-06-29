@@ -41,10 +41,10 @@
             // 
             // Suppr_Btn
             // 
-            this.Suppr_Btn.Location = new System.Drawing.Point(111, 15);
+            this.Suppr_Btn.Location = new System.Drawing.Point(401, 217);
             this.Suppr_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Suppr_Btn.Name = "Suppr_Btn";
-            this.Suppr_Btn.Size = new System.Drawing.Size(89, 33);
+            this.Suppr_Btn.Size = new System.Drawing.Size(121, 64);
             this.Suppr_Btn.TabIndex = 1;
             this.Suppr_Btn.Text = "Supprimer";
             this.Suppr_Btn.UseVisualStyleBackColor = true;
@@ -52,10 +52,10 @@
             // 
             // Add_Btn
             // 
-            this.Add_Btn.Location = new System.Drawing.Point(111, 55);
+            this.Add_Btn.Location = new System.Drawing.Point(401, 31);
             this.Add_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Add_Btn.Name = "Add_Btn";
-            this.Add_Btn.Size = new System.Drawing.Size(89, 33);
+            this.Add_Btn.Size = new System.Drawing.Size(121, 64);
             this.Add_Btn.TabIndex = 2;
             this.Add_Btn.Text = "Ajouter";
             this.Add_Btn.UseVisualStyleBackColor = true;
@@ -63,10 +63,10 @@
             // 
             // EditBtn
             // 
-            this.EditBtn.Location = new System.Drawing.Point(111, 96);
+            this.EditBtn.Location = new System.Drawing.Point(401, 123);
             this.EditBtn.Margin = new System.Windows.Forms.Padding(4);
             this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(89, 33);
+            this.EditBtn.Size = new System.Drawing.Size(121, 64);
             this.EditBtn.TabIndex = 3;
             this.EditBtn.Text = "Modifier";
             this.EditBtn.UseVisualStyleBackColor = true;
@@ -90,10 +90,10 @@
             this.CapitalizedDataListView.AutoArrange = false;
             this.CapitalizedDataListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
             this.CapitalizedDataListView.DataSource = this.capitalizedBindingSource;
-            this.CapitalizedDataListView.Location = new System.Drawing.Point(200, 15);
+            this.CapitalizedDataListView.Location = new System.Drawing.Point(204, 13);
             this.CapitalizedDataListView.Margin = new System.Windows.Forms.Padding(4);
             this.CapitalizedDataListView.Name = "CapitalizedDataListView";
-            this.CapitalizedDataListView.Size = new System.Drawing.Size(1248, 584);
+            this.CapitalizedDataListView.Size = new System.Drawing.Size(1235, 475);
             this.CapitalizedDataListView.TabIndex = 5;
             this.CapitalizedDataListView.UseCompatibleStateImageBehavior = false;
             this.CapitalizedDataListView.View = System.Windows.Forms.View.Details;
@@ -106,6 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1465, 614);
             this.Controls.Add(this.CapitalizedDataListView);
             this.Controls.Add(this.BackBtn);
