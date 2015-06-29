@@ -20,6 +20,7 @@ namespace ITI.PixLogic.DAL.Contexts.Items
         }
     
         public long Id { get; set; }
+        public string Name { get; set; }
         public Nullable<long> EAN13 { get; set; }
         public string Reference { get; set; }
         public long ReservationCost { get; set; }

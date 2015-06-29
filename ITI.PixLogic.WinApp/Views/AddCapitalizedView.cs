@@ -13,10 +13,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
 namespace ITI.PixLogic.WinApp
 {
 	public partial class AddCapitalizedView : Form
 	{
+        CapitalizedView _capitalizedViewMain;
 		ItemsEntity _itemsEntity = new ItemsEntity();
 		InvoicesEntity _invoiceEntity = new InvoicesEntity();
 
@@ -37,9 +41,10 @@ namespace ITI.PixLogic.WinApp
         public long Current_State { get; set; }
         public int Reservable { get; set; }
 
-		public AddCapitalizedView()
+		public AddCapitalizedView(CapitalizedView CV)
 		{
 			InitializeComponent( );
+            _capitalizedViewMain = CV;
 		}
 
 		private void SubCatComboBox_Click( object sender, EventArgs e )
@@ -107,8 +112,26 @@ namespace ITI.PixLogic.WinApp
             
 			_itemsEntity.Items.Add( item );
 			_itemsEntity.SaveChanges();
-            _itemsEntity.Items.Load();
+            //_itemsEntity.Items.Load();
 
+
+            _itemsEntity = new ItemsEntity();
+
+            var query = from it in _itemsEntity.Items
+
+                        join sub in _itemsEntity.ItemSubCategories on it.SubCategory equals sub.Id
+                        join bra in _itemsEntity.ItemBrands on it.Brand equals bra.Id
+                        join sta in _itemsEntity.ItemStates on it.CurrentState equals sta.Id
+                        //join inv in _invoicesEntity.Invoices on c.RelatedInvoice equals inv.Id
+                        orderby it.Id
+                        select new CapitalizedItemModel { items = it, item_brands = bra, item_sub_categories = sub, item_state = sta, /*invoices = inv*/ };
+            var cons = query.ToList();
+            _capitalizedViewMain.CapitalizedDataListView.DataSource = cons;
+            
+            for( int i =_capitalizedViewMain.CapitalizedDataListView.Columns.Count - 1; i > 11; i-- )
+            {
+               _capitalizedViewMain.CapitalizedDataListView.Columns.RemoveAt( i );
+            }
 			this.Close( );
 		}
 
