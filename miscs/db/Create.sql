@@ -30,6 +30,8 @@ CREATE TABLE Accounts (
 	FirstName		TINYTEXT									NOT NULL,
 	LastName		TINYTEXT									NOT NULL,
 	Email			VARCHAR(255)								NOT NULL,
+	Password		VARCHAR(255)				DEFAULT NULL,
+	Salt			VARCHAR(255)				DEFAULT NULL,
 	Phone			TINYTEXT					DEFAULT NULL,
 	Adress			TINYTEXT					DEFAULT NULL,
 	Historic		LONGTEXT					DEFAULT NULL,
@@ -174,7 +176,7 @@ CREATE TABLE PackagedItemCategories (
 CREATE TABLE ReservationPlannings (
 	Id				INT				UNSIGNED 	AUTO_INCREMENT	NOT NULL,
 	BeginningDate	DATETIME									NOT NULL,
-	EndingDate		DATETIME									DEFAULT NULL,
+	EndingDate		DATETIME									NOT NULL,
 	PRIMARY KEY (id)
 )ENGINE = InnoDB;
 CREATE TABLE ReservationEvents (
@@ -191,9 +193,9 @@ CREATE TABLE ReservationItems (
 	Reservation		INT				UNSIGNED					NOT NULL,
 	RealPlanning	INT				UNSIGNED					NOT NULL,
 	ReservedItem	INT				UNSIGNED					NOT NULL,
-	ReservedPack	INT				UNSIGNED					DEFAULT NULL,
+	ReservedPack	INT				UNSIGNED					NOT NULL,
 	InitialState	INT				UNSIGNED					NOT NULL,
-	ReturnState		INT				UNSIGNED					DEFAULT NULL,
+	ReturnState		INT				UNSIGNED					NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (Reservation) REFERENCES ReservationEvents (Id),
 	FOREIGN KEY (RealPlanning) REFERENCES ReservationPlannings (Id),

@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 18D);
-			System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 18D);
+			System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.importationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.utilisateursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +76,7 @@
 			this.ActiveAccNbrLbl = new System.Windows.Forms.Label();
 			this.BannedAccNbrLbl = new System.Windows.Forms.Label();
 			this.AccountCharts = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.CapitalizedBtn = new System.Windows.Forms.Button();
 			this.MainMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ItemsCharts)).BeginInit();
 			this.StatisticsTabControl.SuspendLayout();
@@ -253,32 +254,32 @@
 			// 
 			// ItemsCharts
 			// 
-			chartArea1.Area3DStyle.Enable3D = true;
-			chartArea1.Area3DStyle.Inclination = 60;
-			chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-			chartArea1.Area3DStyle.WallWidth = 0;
-			chartArea1.Name = "PieChartArea";
-			this.ItemsCharts.ChartAreas.Add(chartArea1);
-			legend1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-			legend1.DockedToChartArea = "PieChartArea";
-			legend1.Name = "Legend1";
-			this.ItemsCharts.Legends.Add(legend1);
+			chartArea3.Area3DStyle.Enable3D = true;
+			chartArea3.Area3DStyle.Inclination = 60;
+			chartArea3.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+			chartArea3.Area3DStyle.WallWidth = 0;
+			chartArea3.Name = "PieChartArea";
+			this.ItemsCharts.ChartAreas.Add(chartArea3);
+			legend3.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+			legend3.DockedToChartArea = "PieChartArea";
+			legend3.Name = "Legend1";
+			this.ItemsCharts.Legends.Add(legend3);
 			this.ItemsCharts.Location = new System.Drawing.Point(6, 6);
 			this.ItemsCharts.Name = "ItemsCharts";
-			series1.ChartArea = "PieChartArea";
-			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-			series1.CustomProperties = "DrawingStyle=Cylinder";
-			series1.Legend = "Legend1";
-			series1.Name = "PieChartSerie";
-			series1.Points.Add(dataPoint1);
-			series1.Points.Add(dataPoint2);
-			this.ItemsCharts.Series.Add(series1);
+			series3.ChartArea = "PieChartArea";
+			series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+			series3.CustomProperties = "DrawingStyle=Cylinder";
+			series3.Legend = "Legend1";
+			series3.Name = "PieChartSerie";
+			series3.Points.Add(dataPoint3);
+			series3.Points.Add(dataPoint4);
+			this.ItemsCharts.Series.Add(series3);
 			this.ItemsCharts.Size = new System.Drawing.Size(655, 358);
 			this.ItemsCharts.TabIndex = 5;
 			this.ItemsCharts.Text = "chart1";
-			title1.Name = "PieChartTitle";
-			title1.Text = "Proportion de matériel";
-			this.ItemsCharts.Titles.Add(title1);
+			title3.Name = "PieChartTitle";
+			title3.Text = "Proportion de matériel";
+			this.ItemsCharts.Titles.Add(title3);
 			// 
 			// StatisticsTabControl
 			// 
@@ -445,32 +446,42 @@
 			// 
 			// AccountCharts
 			// 
-			chartArea2.Area3DStyle.Enable3D = true;
-			chartArea2.Area3DStyle.Inclination = 60;
-			chartArea2.Area3DStyle.IsRightAngleAxes = false;
-			chartArea2.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-			chartArea2.Area3DStyle.WallWidth = 0;
-			chartArea2.Name = "ChartArea1";
-			this.AccountCharts.ChartAreas.Add(chartArea2);
-			legend2.Name = "Legend1";
-			this.AccountCharts.Legends.Add(legend2);
+			chartArea4.Area3DStyle.Enable3D = true;
+			chartArea4.Area3DStyle.Inclination = 60;
+			chartArea4.Area3DStyle.IsRightAngleAxes = false;
+			chartArea4.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+			chartArea4.Area3DStyle.WallWidth = 0;
+			chartArea4.Name = "ChartArea1";
+			this.AccountCharts.ChartAreas.Add(chartArea4);
+			legend4.Name = "Legend1";
+			this.AccountCharts.Legends.Add(legend4);
 			this.AccountCharts.Location = new System.Drawing.Point(6, 6);
 			this.AccountCharts.Name = "AccountCharts";
-			series2.ChartArea = "ChartArea1";
-			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-			series2.CustomProperties = "CollectedSliceExploded=True";
-			series2.Legend = "Legend1";
-			series2.Name = "AccountProportions";
-			series2.YValuesPerPoint = 4;
-			this.AccountCharts.Series.Add(series2);
+			series4.ChartArea = "ChartArea1";
+			series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+			series4.CustomProperties = "CollectedSliceExploded=True";
+			series4.Legend = "Legend1";
+			series4.Name = "AccountProportions";
+			series4.YValuesPerPoint = 4;
+			this.AccountCharts.Series.Add(series4);
 			this.AccountCharts.Size = new System.Drawing.Size(655, 352);
 			this.AccountCharts.TabIndex = 0;
 			this.AccountCharts.Text = "chart1";
-			title2.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			title2.DockedToChartArea = "ChartArea1";
-			title2.Name = "AccountTitle";
-			title2.Text = "Proportion des comptes";
-			this.AccountCharts.Titles.Add(title2);
+			title4.Alignment = System.Drawing.ContentAlignment.TopCenter;
+			title4.DockedToChartArea = "ChartArea1";
+			title4.Name = "AccountTitle";
+			title4.Text = "Proportion des comptes";
+			this.AccountCharts.Titles.Add(title4);
+			// 
+			// CapitalizedBtn
+			// 
+			this.CapitalizedBtn.Location = new System.Drawing.Point(693, 83);
+			this.CapitalizedBtn.Name = "CapitalizedBtn";
+			this.CapitalizedBtn.Size = new System.Drawing.Size(131, 33);
+			this.CapitalizedBtn.TabIndex = 7;
+			this.CapitalizedBtn.Text = "Immobilisables";
+			this.CapitalizedBtn.UseVisualStyleBackColor = true;
+			this.CapitalizedBtn.Click += new System.EventHandler(this.CapitalizedBtn_Click);
 			// 
 			// HomeView
 			// 
@@ -478,6 +489,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.ClientSize = new System.Drawing.Size(836, 435);
+			this.Controls.Add(this.CapitalizedBtn);
 			this.Controls.Add(this.MainMenuStrip);
 			this.Controls.Add(this.StatisticsTabControl);
 			this.Controls.Add(this.ExitBtn);
@@ -543,5 +555,6 @@
         private System.Windows.Forms.Label ConsummableItemNbrLbl;
         private System.Windows.Forms.Label ActiveAccNbrLbl;
         private System.Windows.Forms.Label BannedAccNbrLbl;
+		private System.Windows.Forms.Button CapitalizedBtn;
     }
 }

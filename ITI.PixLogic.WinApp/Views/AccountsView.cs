@@ -26,7 +26,8 @@ namespace ITI.PixLogic.WinApp
         private void Accounts_Load()
         {
             _accountsEntity.Accounts.Load();
-            accountBindingSource.DataSource = _accountsEntity.Accounts.Local.ToBindingList();    
+			dataListView1.DataSource = _accountsEntity.Accounts.Local.ToBindingList();
+    		//AccountDataListView.DataSource = 
         }
 
         private void save_button_Click(object sender, EventArgs e)

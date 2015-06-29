@@ -134,7 +134,6 @@
     <Compile Include="Views\HomeView.Designer.cs">
       <DependentUpon>HomeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="HtmlTextWriter.cs" />
     <Compile Include="Views\ModifyAccountView.cs">
       <SubType>Form</SubType>
     </Compile>
