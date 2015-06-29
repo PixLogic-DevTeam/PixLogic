@@ -18,11 +18,8 @@ namespace ITI.PixLogic.DAL.Contexts.Reservations
         public long Reservation { get; set; }
         public long RealPlanning { get; set; }
         public long ReservedItem { get; set; }
-        public Nullable<long> ReservedPack { get; set; }
+        public long ReservedPack { get; set; }
         public long InitialState { get; set; }
-        public Nullable<long> ReturnState { get; set; }
-    
-        public virtual ReservationEvent ReservationEvent { get; set; }
-        public virtual ReservationPlanning ReservationPlanning { get; set; }
+        public long ReturnState { get; set; }
     }
 }

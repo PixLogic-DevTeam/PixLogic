@@ -20,8 +20,8 @@
       </parameters>
     </defaultConnectionFactory>
   </entityFramework>
-
-	<connectionStrings>
+	
+  <connectionStrings>
   <add name="AccountsEntity" connectionString="metadata=res://*/Contexts.Accounts.AccountsModel.csdl|res://*/Contexts.Accounts.AccountsModel.ssdl|res://*/Contexts.Accounts.AccountsModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;"
    providerName="System.Data.EntityClient" />
   <add name="InvoicesEntity" connectionString="metadata=res://*/Contexts.Invoices.InvoicesModel.csdl|res://*/Contexts.Invoices.InvoicesModel.ssdl|res://*/Contexts.Invoices.InvoicesModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;"

@@ -31,12 +31,10 @@ namespace ITI.PixLogic.WinApp.Properties {
         public string pixlogicdbConnectionString {
             get {
                 return ((string)(this["pixlogicdbConnectionString"]));
-=======
         [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;persistsecurityinfo=True;database=PixLogicDB")]
         public string PixLogicDBConnectionString {
             get {
-                return ((string)(this["PixLogicDBConnectionString"]));
->>>>>>> Statistics
+                return ((string)(this["PixLogicDBConnectionString"])); Statistics
             }
         }
     }

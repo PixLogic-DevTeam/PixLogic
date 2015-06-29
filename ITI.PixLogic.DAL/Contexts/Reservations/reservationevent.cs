@@ -14,17 +14,9 @@ namespace ITI.PixLogic.DAL.Contexts.Reservations
     
     public partial class ReservationEvent
     {
-        public ReservationEvent()
-        {
-            this.ReservationItems = new HashSet<ReservationItem>();
-        }
-    
         public long Id { get; set; }
         public bool Confirmed { get; set; }
         public long InitialPlanning { get; set; }
         public long Reserver { get; set; }
-    
-        public virtual ReservationPlanning ReservationPlanning { get; set; }
-        public virtual ICollection<ReservationItem> ReservationItems { get; set; }
     }
 }

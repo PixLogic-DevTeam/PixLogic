@@ -19,6 +19,7 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=localhost;user id=root;persistsecurityinfo=True;database=PixLogicDB</Value>
 >>>>>>> Statistics
+>>>>>>> origin/Statistics
     </Setting>
   </Settings>
 </SettingsFile>

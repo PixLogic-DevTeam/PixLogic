@@ -8,9 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.WinApp.Properties {
-    
-    
+namespace ITI.PixLogic.WinApp.Properties
+
+{
+       
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
@@ -32,5 +33,5 @@ namespace ITI.PixLogic.WinApp.Properties {
                 return ((string)(this["PixLogicDBConnectionString"]));
             }
         }
+        }
     }
-}
