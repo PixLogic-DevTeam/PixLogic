@@ -131,6 +131,6 @@
         private System.Windows.Forms.Button Add_Btn;
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Button BackBtn;
-        private BrightIdeasSoftware.DataListView CapitalizedDataListView;
+        public BrightIdeasSoftware.DataListView CapitalizedDataListView;
     }
 }

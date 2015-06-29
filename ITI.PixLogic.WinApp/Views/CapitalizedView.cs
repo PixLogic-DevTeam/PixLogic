@@ -104,12 +104,12 @@ namespace ITI.PixLogic.WinApp
 
 		private void Add_Btn_Click( object sender, EventArgs e )
 		{
-			new AddCapitalizedView( ).Show( );
+			new AddCapitalizedView(this ).Show( );
 		}
 
 		private void EditBtn_Click( object sender, EventArgs e )
 		{
-			using(AddCapitalizedView editForm = new AddCapitalizedView())
+			using(AddCapitalizedView editForm = new AddCapitalizedView(this))
 			{
 				Item capToEdit = (Item)CapitalizedDataListView.SelectedObject;
 
