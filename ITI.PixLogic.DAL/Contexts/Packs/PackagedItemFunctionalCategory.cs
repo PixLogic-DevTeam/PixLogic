@@ -7,22 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.DAL.Contexts.Accounts
+namespace ITI.PixLogic.DAL.Contexts.Packs
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class AccountMainCategory
+    public partial class PackagedItemFunctionalCategory
     {
-        public AccountMainCategory()
-        {
-            this.AccountSubCategories = new HashSet<AccountSubCategory>();
-        }
-    
         public long Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public long UsedItemFunctionalCategory { get; set; }
+        public long UsedPack { get; set; }
     
-        public virtual ICollection<AccountSubCategory> AccountSubCategories { get; set; }
+        public virtual Pack Pack { get; set; }
     }
 }

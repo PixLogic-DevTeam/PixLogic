@@ -26,10 +26,9 @@ namespace ITI.PixLogic.DAL.Contexts.Items
         }
     
         public virtual DbSet<ItemBrand> ItemBrands { get; set; }
-        public virtual DbSet<ItemMainCategory> ItemMainCategories { get; set; }
-        public virtual DbSet<ItemRestoration> ItemRestorations { get; set; }
+        public virtual DbSet<ItemCategory> ItemCategories { get; set; }
+        public virtual DbSet<ItemFunctionalCategory> ItemFunctionalCategories { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<ItemState> ItemStates { get; set; }
-        public virtual DbSet<ItemSubCategory> ItemSubCategories { get; set; }
     }
 }

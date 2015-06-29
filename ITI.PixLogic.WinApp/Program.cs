@@ -17,7 +17,7 @@ namespace ITI.PixLogic.WinApp
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault( false );
-			Application.Run( new MainFormView() );
+			Application.Run( new MainView() );
 		}
 	}
 }

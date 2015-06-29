@@ -16,6 +16,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.WinApp", "ITI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.DAL", "ITI.PixLogic.DAL\ITI.PixLogic.DAL.csproj", "{3A9317A0-32DC-475A-AAC2-4B9FFA819F69}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{C9948B5C-80E2-4B42-91CA-F90BE1198905}"
+	ProjectSection(SolutionItems) = preProject
+		Database\CreateDatabase.sql = Database\CreateDatabase.sql
+		Database\CreateTables.sql = Database\CreateTables.sql
+		Database\CreateViews.sql = Database\CreateViews.sql
+		Database\DeleteData.sql = Database\DeleteData.sql
+		Database\InsertData.sql = Database\InsertData.sql
+		Database\README.md = Database\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{AD5815A0-B8A9-45E9-8726-90A295603E39}"
+	ProjectSection(SolutionItems) = preProject
+		Licenses\GPL.txt = Licenses\GPL.txt
+		Licenses\MS-PL.txt = Licenses\MS-PL.txt
+		Licenses\README.md = Licenses\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

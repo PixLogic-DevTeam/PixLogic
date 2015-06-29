@@ -13,7 +13,7 @@
           <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Description" Type="text" />
         </EntityType>
-        <EntityType Name="ItemMainCategories">
+        <EntityType Name="ItemCategories">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -21,15 +21,14 @@
           <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Description" Type="text" />
         </EntityType>
-        <EntityType Name="ItemRestorations">
+        <EntityType Name="ItemFunctionalCategories">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BeginningDate" Type="date" Nullable="false" />
-          <Property Name="EndingDate" Type="date" />
-          <Property Name="Repaired" Type="uint" Nullable="false" />
-          <Property Name="Repairer" Type="uint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Category" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="Items">
           <Key>
@@ -45,7 +44,7 @@
           <Property Name="PicturePath" Type="tinytext" />
           <Property Name="Brand" Type="uint" Nullable="false" />
           <Property Name="RelatedInvoice" Type="uint" Nullable="false" />
-          <Property Name="SubCategory" Type="uint" Nullable="false" />
+          <Property Name="FunctionalCategory" Type="uint" Nullable="false" />
           <Property Name="CurrentState" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="ItemStates">
@@ -57,24 +56,15 @@
           <Property Name="Description" Type="text" />
           <Property Name="Usable" Type="bool" Nullable="false" />
         </EntityType>
-        <EntityType Name="ItemSubCategories">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="Description" Type="text" />
-          <Property Name="MainCategory" Type="uint" Nullable="false" />
-        </EntityType>
-        <Association Name="itemrestorations_ibfk_1">
-          <End Role="Items" Type="Self.Items" Multiplicity="1" />
-          <End Role="ItemRestorations" Type="Self.ItemRestorations" Multiplicity="*" />
+        <Association Name="itemfunctionalcategories_ibfk_1">
+          <End Role="ItemCategories" Type="Self.ItemCategories" Multiplicity="1" />
+          <End Role="ItemFunctionalCategories" Type="Self.ItemFunctionalCategories" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Items">
+            <Principal Role="ItemCategories">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ItemRestorations">
-              <PropertyRef Name="Repaired" />
+            <Dependent Role="ItemFunctionalCategories">
+              <PropertyRef Name="Category" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -91,14 +81,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="items_ibfk_3">
-          <End Role="ItemSubCategories" Type="Self.ItemSubCategories" Multiplicity="1" />
+          <End Role="ItemFunctionalCategories" Type="Self.ItemFunctionalCategories" Multiplicity="1" />
           <End Role="Items" Type="Self.Items" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ItemSubCategories">
+            <Principal Role="ItemFunctionalCategories">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Items">
-              <PropertyRef Name="SubCategory" />
+              <PropertyRef Name="FunctionalCategory" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -114,44 +104,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="itemsubcategories_ibfk_1">
-          <End Role="ItemMainCategories" Type="Self.ItemMainCategories" Multiplicity="1" />
-          <End Role="ItemSubCategories" Type="Self.ItemSubCategories" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ItemMainCategories">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ItemSubCategories">
-              <PropertyRef Name="MainCategory" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ITIPixLogicDALContextsItemsStoreContainer">
           <EntitySet Name="ItemBrands" EntityType="Self.ItemBrands" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="ItemMainCategories" EntityType="Self.ItemMainCategories" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="ItemRestorations" EntityType="Self.ItemRestorations" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemCategories" EntityType="Self.ItemCategories" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemFunctionalCategories" EntityType="Self.ItemFunctionalCategories" Schema="pixlogicdb" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="pixlogicdb" store:Type="Tables" />
           <EntitySet Name="ItemStates" EntityType="Self.ItemStates" Schema="pixlogicdb" store:Type="Tables" />
-          <EntitySet Name="ItemSubCategories" EntityType="Self.ItemSubCategories" Schema="pixlogicdb" store:Type="Tables" />
-          <AssociationSet Name="itemrestorations_ibfk_1" Association="Self.itemrestorations_ibfk_1">
-            <End Role="Items" EntitySet="Items" />
-            <End Role="ItemRestorations" EntitySet="ItemRestorations" />
+          <AssociationSet Name="itemfunctionalcategories_ibfk_1" Association="Self.itemfunctionalcategories_ibfk_1">
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+            <End Role="ItemFunctionalCategories" EntitySet="ItemFunctionalCategories" />
           </AssociationSet>
           <AssociationSet Name="items_ibfk_1" Association="Self.items_ibfk_1">
             <End Role="ItemBrands" EntitySet="ItemBrands" />
             <End Role="Items" EntitySet="Items" />
           </AssociationSet>
           <AssociationSet Name="items_ibfk_3" Association="Self.items_ibfk_3">
-            <End Role="ItemSubCategories" EntitySet="ItemSubCategories" />
+            <End Role="ItemFunctionalCategories" EntitySet="ItemFunctionalCategories" />
             <End Role="Items" EntitySet="Items" />
           </AssociationSet>
           <AssociationSet Name="items_ibfk_4" Association="Self.items_ibfk_4">
             <End Role="ItemStates" EntitySet="ItemStates" />
             <End Role="Items" EntitySet="Items" />
-          </AssociationSet>
-          <AssociationSet Name="itemsubcategories_ibfk_1" Association="Self.itemsubcategories_ibfk_1">
-            <End Role="ItemMainCategories" EntitySet="ItemMainCategories" />
-            <End Role="ItemSubCategories" EntitySet="ItemSubCategories" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -168,25 +141,25 @@
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Items" Relationship="Self.items_ibfk_1" FromRole="ItemBrands" ToRole="Items" />
         </EntityType>
-        <EntityType Name="ItemMainCategory">
+        <EntityType Name="ItemCategory">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ItemSubCategories" Relationship="Self.itemsubcategories_ibfk_1" FromRole="ItemMainCategories" ToRole="ItemSubCategories" />
+          <NavigationProperty Name="ItemFunctionalCategories" Relationship="Self.itemfunctionalcategories_ibfk_1" FromRole="ItemCategories" ToRole="ItemFunctionalCategories" />
         </EntityType>
-        <EntityType Name="ItemRestoration">
+        <EntityType Name="ItemFunctionalCategory">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BeginningDate" Type="DateTime" Nullable="false" />
-          <Property Name="EndingDate" Type="DateTime" />
-          <Property Name="Repaired" Type="Int64" Nullable="false" />
-          <Property Name="Repairer" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Item" Relationship="Self.itemrestorations_ibfk_1" FromRole="ItemRestorations" ToRole="Items" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ItemCategory" Relationship="Self.itemfunctionalcategories_ibfk_1" FromRole="ItemFunctionalCategories" ToRole="ItemCategories" />
+          <NavigationProperty Name="Items" Relationship="Self.items_ibfk_3" FromRole="ItemFunctionalCategories" ToRole="Items" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -202,11 +175,10 @@
           <Property Name="PicturePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Brand" Type="Int64" Nullable="false" />
           <Property Name="RelatedInvoice" Type="Int64" Nullable="false" />
-          <Property Name="SubCategory" Type="Int64" Nullable="false" />
+          <Property Name="FunctionalCategory" Type="Int64" Nullable="false" />
           <Property Name="CurrentState" Type="Int64" Nullable="false" />
           <NavigationProperty Name="ItemBrand" Relationship="Self.items_ibfk_1" FromRole="Items" ToRole="ItemBrands" />
-          <NavigationProperty Name="ItemRestorations" Relationship="Self.itemrestorations_ibfk_1" FromRole="Items" ToRole="ItemRestorations" />
-          <NavigationProperty Name="ItemSubCategory" Relationship="Self.items_ibfk_3" FromRole="Items" ToRole="ItemSubCategories" />
+          <NavigationProperty Name="ItemFunctionalCategory" Relationship="Self.items_ibfk_3" FromRole="Items" ToRole="ItemFunctionalCategories" />
           <NavigationProperty Name="ItemState" Relationship="Self.items_ibfk_4" FromRole="Items" ToRole="ItemStates" />
         </EntityType>
         <EntityType Name="ItemState">
@@ -218,17 +190,6 @@
           <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="Usable" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Items" Relationship="Self.items_ibfk_4" FromRole="ItemStates" ToRole="Items" />
-        </EntityType>
-        <EntityType Name="ItemSubCategory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-          <Property Name="MainCategory" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="ItemMainCategory" Relationship="Self.itemsubcategories_ibfk_1" FromRole="ItemSubCategories" ToRole="ItemMainCategories" />
-          <NavigationProperty Name="Items" Relationship="Self.items_ibfk_3" FromRole="ItemSubCategories" ToRole="Items" />
         </EntityType>
         <Association Name="items_ibfk_1">
           <End Role="ItemBrands" Type="Self.ItemBrand" Multiplicity="1" />
@@ -242,39 +203,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="itemsubcategories_ibfk_1">
-          <End Role="ItemMainCategories" Type="Self.ItemMainCategory" Multiplicity="1" />
-          <End Role="ItemSubCategories" Type="Self.ItemSubCategory" Multiplicity="*" />
+        <Association Name="itemfunctionalcategories_ibfk_1">
+          <End Role="ItemCategories" Type="Self.ItemCategory" Multiplicity="1" />
+          <End Role="ItemFunctionalCategories" Type="Self.ItemFunctionalCategory" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ItemMainCategories">
+            <Principal Role="ItemCategories">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ItemSubCategories">
-              <PropertyRef Name="MainCategory" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="itemrestorations_ibfk_1">
-          <End Role="Items" Type="Self.Item" Multiplicity="1" />
-          <End Role="ItemRestorations" Type="Self.ItemRestoration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Items">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ItemRestorations">
-              <PropertyRef Name="Repaired" />
+            <Dependent Role="ItemFunctionalCategories">
+              <PropertyRef Name="Category" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="items_ibfk_3">
-          <End Role="ItemSubCategories" Type="Self.ItemSubCategory" Multiplicity="1" />
+          <End Role="ItemFunctionalCategories" Type="Self.ItemFunctionalCategory" Multiplicity="1" />
           <End Role="Items" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ItemSubCategories">
+            <Principal Role="ItemFunctionalCategories">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Items">
-              <PropertyRef Name="SubCategory" />
+              <PropertyRef Name="FunctionalCategory" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -292,25 +241,20 @@
         </Association>
         <EntityContainer Name="ItemsEntity" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ItemBrands" EntityType="Self.ItemBrand" />
-          <EntitySet Name="ItemMainCategories" EntityType="Self.ItemMainCategory" />
-          <EntitySet Name="ItemRestorations" EntityType="Self.ItemRestoration" />
+          <EntitySet Name="ItemCategories" EntityType="Self.ItemCategory" />
+          <EntitySet Name="ItemFunctionalCategories" EntityType="Self.ItemFunctionalCategory" />
           <EntitySet Name="Items" EntityType="Self.Item" />
           <EntitySet Name="ItemStates" EntityType="Self.ItemState" />
-          <EntitySet Name="ItemSubCategories" EntityType="Self.ItemSubCategory" />
           <AssociationSet Name="items_ibfk_1" Association="Self.items_ibfk_1">
             <End Role="ItemBrands" EntitySet="ItemBrands" />
             <End Role="Items" EntitySet="Items" />
           </AssociationSet>
-          <AssociationSet Name="itemsubcategories_ibfk_1" Association="Self.itemsubcategories_ibfk_1">
-            <End Role="ItemMainCategories" EntitySet="ItemMainCategories" />
-            <End Role="ItemSubCategories" EntitySet="ItemSubCategories" />
-          </AssociationSet>
-          <AssociationSet Name="itemrestorations_ibfk_1" Association="Self.itemrestorations_ibfk_1">
-            <End Role="Items" EntitySet="Items" />
-            <End Role="ItemRestorations" EntitySet="ItemRestorations" />
+          <AssociationSet Name="itemfunctionalcategories_ibfk_1" Association="Self.itemfunctionalcategories_ibfk_1">
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+            <End Role="ItemFunctionalCategories" EntitySet="ItemFunctionalCategories" />
           </AssociationSet>
           <AssociationSet Name="items_ibfk_3" Association="Self.items_ibfk_3">
-            <End Role="ItemSubCategories" EntitySet="ItemSubCategories" />
+            <End Role="ItemFunctionalCategories" EntitySet="ItemFunctionalCategories" />
             <End Role="Items" EntitySet="Items" />
           </AssociationSet>
           <AssociationSet Name="items_ibfk_4" Association="Self.items_ibfk_4">
@@ -333,23 +277,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ItemMainCategories">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemMainCategory">
-              <MappingFragment StoreEntitySet="ItemMainCategories">
+          <EntitySetMapping Name="ItemCategories">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemCategory">
+              <MappingFragment StoreEntitySet="ItemCategories">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ItemRestorations">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemRestoration">
-              <MappingFragment StoreEntitySet="ItemRestorations">
+          <EntitySetMapping Name="ItemFunctionalCategories">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemFunctionalCategory">
+              <MappingFragment StoreEntitySet="ItemFunctionalCategories">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BeginningDate" ColumnName="BeginningDate" />
-                <ScalarProperty Name="EndingDate" ColumnName="EndingDate" />
-                <ScalarProperty Name="Repaired" ColumnName="Repaired" />
-                <ScalarProperty Name="Repairer" ColumnName="Repairer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -366,7 +309,7 @@
                 <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
                 <ScalarProperty Name="Brand" ColumnName="Brand" />
                 <ScalarProperty Name="RelatedInvoice" ColumnName="RelatedInvoice" />
-                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="FunctionalCategory" ColumnName="FunctionalCategory" />
                 <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -378,16 +321,6 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Usable" ColumnName="Usable" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ItemSubCategories">
-            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory">
-              <MappingFragment StoreEntitySet="ItemSubCategories">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="MainCategory" ColumnName="MainCategory" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

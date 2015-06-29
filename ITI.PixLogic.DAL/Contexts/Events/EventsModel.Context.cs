@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.DAL.Contexts.Reservations
+namespace ITI.PixLogic.DAL.Contexts.Events
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ReservationsEntity : DbContext
+    public partial class EventsEntity : DbContext
     {
-        public ReservationsEntity()
-            : base("name=ReservationsEntity")
+        public EventsEntity()
+            : base("name=EventsEntity")
         {
         }
     
@@ -25,8 +25,10 @@ namespace ITI.PixLogic.DAL.Contexts.Reservations
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Planning> Plannings { get; set; }
         public virtual DbSet<ReservationEvent> ReservationEvents { get; set; }
         public virtual DbSet<ReservationItem> ReservationItems { get; set; }
-        public virtual DbSet<ReservationPlanning> ReservationPlannings { get; set; }
+        public virtual DbSet<RestorationEvent> RestorationEvents { get; set; }
+        public virtual DbSet<RestorationItem> RestorationItems { get; set; }
     }
 }

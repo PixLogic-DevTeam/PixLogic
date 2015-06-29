@@ -7,25 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.DAL.Contexts.Packs
+namespace ITI.PixLogic.DAL.Contexts.Items
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Pack
+    public partial class ItemCategory
     {
-        public Pack()
+        public ItemCategory()
         {
-            this.PackagedItemFunctionalCategories = new HashSet<PackagedItemFunctionalCategory>();
-            this.PackagedItems = new HashSet<PackagedItem>();
+            this.ItemFunctionalCategories = new HashSet<ItemFunctionalCategory>();
         }
     
         public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public bool Reservable { get; set; }
     
-        public virtual ICollection<PackagedItemFunctionalCategory> PackagedItemFunctionalCategories { get; set; }
-        public virtual ICollection<PackagedItem> PackagedItems { get; set; }
+        public virtual ICollection<ItemFunctionalCategory> ItemFunctionalCategories { get; set; }
     }
 }

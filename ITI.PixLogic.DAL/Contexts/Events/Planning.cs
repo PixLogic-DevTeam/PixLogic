@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.DAL.Contexts.Reservations
+namespace ITI.PixLogic.DAL.Contexts.Events
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ReservationPlanning
+    public partial class Planning
     {
-        public ReservationPlanning()
+        public Planning()
         {
             this.ReservationEvents = new HashSet<ReservationEvent>();
             this.ReservationItems = new HashSet<ReservationItem>();
+            this.RestorationEvents = new HashSet<RestorationEvent>();
+            this.RestorationItems = new HashSet<RestorationItem>();
         }
     
         public long Id { get; set; }
@@ -26,5 +28,7 @@ namespace ITI.PixLogic.DAL.Contexts.Reservations
     
         public virtual ICollection<ReservationEvent> ReservationEvents { get; set; }
         public virtual ICollection<ReservationItem> ReservationItems { get; set; }
+        public virtual ICollection<RestorationEvent> RestorationEvents { get; set; }
+        public virtual ICollection<RestorationItem> RestorationItems { get; set; }
     }
 }

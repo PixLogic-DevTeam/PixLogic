@@ -7,24 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.DAL.Contexts.Items
+namespace ITI.PixLogic.DAL.Contexts.Events
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ItemSubCategory
+    public partial class RestorationItem
     {
-        public ItemSubCategory()
-        {
-            this.Items = new HashSet<Item>();
-        }
-    
         public long Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public long MainCategory { get; set; }
+        public long Restoration { get; set; }
+        public long RealPlanning { get; set; }
+        public long RestoredItem { get; set; }
+        public Nullable<long> RelatedPack { get; set; }
+        public long InitialState { get; set; }
+        public Nullable<long> ReturnState { get; set; }
     
-        public virtual ItemMainCategory ItemMainCategory { get; set; }
-        public virtual ICollection<Item> Items { get; set; }
+        public virtual Planning Planning { get; set; }
+        public virtual RestorationEvent RestorationEvent { get; set; }
     }
 }

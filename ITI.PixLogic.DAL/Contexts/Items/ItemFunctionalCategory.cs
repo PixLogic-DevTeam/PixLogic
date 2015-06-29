@@ -7,24 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.DAL.Contexts.Reservations
+namespace ITI.PixLogic.DAL.Contexts.Items
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ReservationEvent
+    public partial class ItemFunctionalCategory
     {
-        public ReservationEvent()
+        public ItemFunctionalCategory()
         {
-            this.ReservationItems = new HashSet<ReservationItem>();
+            this.Items = new HashSet<Item>();
         }
     
         public long Id { get; set; }
-        public bool Confirmed { get; set; }
-        public long InitialPlanning { get; set; }
-        public long Reserver { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public long Category { get; set; }
     
-        public virtual ReservationPlanning ReservationPlanning { get; set; }
-        public virtual ICollection<ReservationItem> ReservationItems { get; set; }
+        public virtual ItemCategory ItemCategory { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

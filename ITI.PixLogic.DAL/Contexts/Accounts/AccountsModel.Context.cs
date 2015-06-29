@@ -25,8 +25,8 @@ namespace ITI.PixLogic.DAL.Contexts.Accounts
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AccountMainCategory> AccountMainCategories { get; set; }
+        public virtual DbSet<AccountCategory> AccountCategories { get; set; }
+        public virtual DbSet<AccountDivision> AccountDivisions { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<AccountSubCategory> AccountSubCategories { get; set; }
     }
 }

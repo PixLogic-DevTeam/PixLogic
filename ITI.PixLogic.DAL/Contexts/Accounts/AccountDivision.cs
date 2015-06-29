@@ -12,9 +12,9 @@ namespace ITI.PixLogic.DAL.Contexts.Accounts
     using System;
     using System.Collections.Generic;
     
-    public partial class AccountSubCategory
+    public partial class AccountDivision
     {
-        public AccountSubCategory()
+        public AccountDivision()
         {
             this.Accounts = new HashSet<Account>();
         }
@@ -22,9 +22,10 @@ namespace ITI.PixLogic.DAL.Contexts.Accounts
         public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public long MainCategory { get; set; }
+        public string ReservationMod { get; set; }
+        public long Category { get; set; }
     
-        public virtual AccountMainCategory AccountMainCategory { get; set; }
+        public virtual AccountCategory AccountCategory { get; set; }
         public virtual ICollection<Account> Accounts { get; set; }
     }
 }

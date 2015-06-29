@@ -25,7 +25,7 @@ namespace ITI.PixLogic.DAL.Contexts.Packs
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<PackagedItemCategory> PackagedItemCategories { get; set; }
+        public virtual DbSet<PackagedItemFunctionalCategory> PackagedItemFunctionalCategories { get; set; }
         public virtual DbSet<PackagedItem> PackagedItems { get; set; }
         public virtual DbSet<Pack> Packs { get; set; }
     }

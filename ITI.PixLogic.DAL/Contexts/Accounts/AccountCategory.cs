@@ -7,19 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.DAL.Contexts.Items
+namespace ITI.PixLogic.DAL.Contexts.Accounts
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ItemRestoration
+    public partial class AccountCategory
     {
-        public long Id { get; set; }
-        public System.DateTime BeginningDate { get; set; }
-        public Nullable<System.DateTime> EndingDate { get; set; }
-        public long Repaired { get; set; }
-        public long Repairer { get; set; }
+        public AccountCategory()
+        {
+            this.AccountDivisions = new HashSet<AccountDivision>();
+        }
     
-        public virtual Item Item { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+    
+        public virtual ICollection<AccountDivision> AccountDivisions { get; set; }
     }
 }

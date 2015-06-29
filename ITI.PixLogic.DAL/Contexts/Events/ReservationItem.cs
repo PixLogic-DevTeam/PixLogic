@@ -7,17 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITI.PixLogic.DAL.Contexts.Packs
+namespace ITI.PixLogic.DAL.Contexts.Events
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class PackagedItemCategory
+    public partial class ReservationItem
     {
         public long Id { get; set; }
-        public long UsedCategory { get; set; }
-        public long UsedPack { get; set; }
+        public long Reservation { get; set; }
+        public long RealPlanning { get; set; }
+        public long ReservedItem { get; set; }
+        public Nullable<long> RelatedPack { get; set; }
+        public long InitialState { get; set; }
+        public Nullable<long> ReturnState { get; set; }
     
-        public virtual Pack Pack { get; set; }
+        public virtual Planning Planning { get; set; }
+        public virtual ReservationEvent ReservationEvent { get; set; }
     }
 }

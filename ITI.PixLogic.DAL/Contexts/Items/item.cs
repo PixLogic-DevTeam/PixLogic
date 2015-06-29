@@ -14,11 +14,6 @@ namespace ITI.PixLogic.DAL.Contexts.Items
     
     public partial class Item
     {
-        public Item()
-        {
-            this.ItemRestorations = new HashSet<ItemRestoration>();
-        }
-    
         public long Id { get; set; }
         public Nullable<long> EAN13 { get; set; }
         public string Reference { get; set; }
@@ -29,12 +24,11 @@ namespace ITI.PixLogic.DAL.Contexts.Items
         public string PicturePath { get; set; }
         public long Brand { get; set; }
         public long RelatedInvoice { get; set; }
-        public long SubCategory { get; set; }
+        public long FunctionalCategory { get; set; }
         public long CurrentState { get; set; }
     
         public virtual ItemBrand ItemBrand { get; set; }
-        public virtual ICollection<ItemRestoration> ItemRestorations { get; set; }
-        public virtual ItemSubCategory ItemSubCategory { get; set; }
+        public virtual ItemFunctionalCategory ItemFunctionalCategory { get; set; }
         public virtual ItemState ItemState { get; set; }
     }
 }

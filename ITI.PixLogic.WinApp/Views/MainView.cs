@@ -9,12 +9,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ITI.PixLogic.DAL.Contexts.Accounts;
 
 namespace ITI.PixLogic.WinApp.Views
 {
-	public partial class MainFormView : Form
+	public partial class MainView : Form
 	{
-		public MainFormView()
+		public MainView()
 		{
 			InitializeComponent();
 			DoubleBuffered = true;

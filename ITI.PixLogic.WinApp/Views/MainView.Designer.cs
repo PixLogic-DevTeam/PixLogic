@@ -1,6 +1,6 @@
 ﻿namespace ITI.PixLogic.WinApp.Views
 {
-	partial class MainFormView
+	partial class MainView
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormView));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
 			this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
 			this.PixLogicMainPanel = new System.Windows.Forms.Panel();
 			this.PixLogicRibbon = new RibbonLib.Ribbon();

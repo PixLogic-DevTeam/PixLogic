@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Sources\C#\S4\ITI.PixLogic\ITI.PixLogic.DAL\Contexts\Packs\PacksModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Sources\C-Sharp\S4\Project\ITI.PixLogic\ITI.PixLogic.DAL\Contexts\Packs\PacksModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

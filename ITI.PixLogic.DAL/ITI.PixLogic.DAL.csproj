@@ -60,7 +60,10 @@
     <Compile Include="Contexts\Accounts\Account.cs">
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\AccountMainCategory.cs">
+    <Compile Include="Contexts\Accounts\AccountCategory.cs">
+      <DependentUpon>AccountsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Accounts\AccountDivision.cs">
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Accounts\AccountsModel.Context.cs">
@@ -78,8 +81,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountsModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\AccountSubCategory.cs">
-      <DependentUpon>AccountsModel.tt</DependentUpon>
+    <Compile Include="Contexts\Events\EventsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Events\EventsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Events\EventsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Events\Planning.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Events\ReservationEvent.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Events\ReservationItem.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Events\RestorationEvent.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Events\RestorationItem.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Invoices\Company.cs">
       <DependentUpon>InvoicesModel.tt</DependentUpon>
@@ -111,10 +141,10 @@
     <Compile Include="Contexts\Items\ItemBrand.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemMainCategory.cs">
+    <Compile Include="Contexts\Items\ItemCategory.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemRestoration.cs">
+    <Compile Include="Contexts\Items\ItemFunctionalCategory.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Items\ItemsModel.Context.cs">
@@ -135,16 +165,13 @@
     <Compile Include="Contexts\Items\ItemState.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemSubCategory.cs">
-      <DependentUpon>ItemsModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Contexts\Packs\Pack.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Packs\PackagedItem.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\PackagedItemCategory.cs">
+    <Compile Include="Contexts\Packs\PackagedItemFunctionalCategory.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexts\Packs\PacksModel.Context.cs">
@@ -162,34 +189,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PacksModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Reservations\ReservationEvent.cs">
-      <DependentUpon>ReservationsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Reservations\ReservationItem.cs">
-      <DependentUpon>ReservationsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Reservations\ReservationPlanning.cs">
-      <DependentUpon>ReservationsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Reservations\ReservationsModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReservationsModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Reservations\ReservationsModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReservationsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Reservations\ReservationsModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReservationsModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Contexts\Events\EventsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EventsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <EntityDeploy Include="Contexts\Accounts\AccountsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AccountsModel.Designer.cs</LastGenOutput>
@@ -206,6 +215,19 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AccountsModel.edmx</DependentUpon>
       <LastGenOutput>AccountsModel.cs</LastGenOutput>
+    </None>
+    <None Include="Contexts\Events\EventsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EventsModel.edmx</DependentUpon>
+      <LastGenOutput>EventsModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Contexts\Events\EventsModel.edmx.diagram">
+      <DependentUpon>EventsModel.edmx</DependentUpon>
+    </None>
+    <None Include="Contexts\Events\EventsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EventsModel.edmx</DependentUpon>
+      <LastGenOutput>EventsModel.cs</LastGenOutput>
     </None>
     <EntityDeploy Include="Contexts\Invoices\InvoicesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -257,23 +279,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PacksModel.edmx</DependentUpon>
       <LastGenOutput>PacksModel.cs</LastGenOutput>
-    </None>
-    <EntityDeploy Include="Contexts\Reservations\ReservationsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ReservationsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Contexts\Reservations\ReservationsModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ReservationsModel.edmx</DependentUpon>
-      <LastGenOutput>ReservationsModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Contexts\Reservations\ReservationsModel.edmx.diagram">
-      <DependentUpon>ReservationsModel.edmx</DependentUpon>
-    </None>
-    <None Include="Contexts\Reservations\ReservationsModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ReservationsModel.edmx</DependentUpon>
-      <LastGenOutput>ReservationsModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

@@ -22,11 +22,10 @@ namespace ITI.PixLogic.DAL.Contexts.Accounts
         public string Adress { get; set; }
         public string Historic { get; set; }
         public int Wallet { get; set; }
-        public bool Active { get; set; }
-        public bool Banned { get; set; }
-        public string PicturePath { get; set; }
-        public long SubCategory { get; set; }
+        public string AccountState { get; set; }
+        public string PortraitPath { get; set; }
+        public long Division { get; set; }
     
-        public virtual AccountSubCategory AccountSubCategory { get; set; }
+        public virtual AccountDivision AccountDivision { get; set; }
     }
 }
