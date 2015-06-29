@@ -28,6 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 18D);
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.users_account_button = new System.Windows.Forms.Button();
             this.consumable_button = new System.Windows.Forms.Button();
             this.CapitalizedBtn = new System.Windows.Forms.Button();
@@ -37,12 +47,36 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitBtn = new System.Windows.Forms.Button();
+            this.ItemsCharts = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.StatisticsTabControl = new System.Windows.Forms.TabControl();
+            this.GeneralInfoTab = new System.Windows.Forms.TabPage();
+            this.AmmountOfInvoicesNbrLbl = new System.Windows.Forms.Label();
+            this.AmmountOfInvoicesLbl = new System.Windows.Forms.Label();
+            this.AmmountOfPackNbrLbl = new System.Windows.Forms.Label();
+            this.AmmountOfPacksLbl = new System.Windows.Forms.Label();
+            this.ReservationAmmountNbrLbl = new System.Windows.Forms.Label();
+            this.ReservationAmmountLbl = new System.Windows.Forms.Label();
+            this.AmmountofItemsNbrLbl = new System.Windows.Forms.Label();
+            this.AmmountOfItemsLbl = new System.Windows.Forms.Label();
+            this.ItemTab = new System.Windows.Forms.TabPage();
+            this.AccountTab = new System.Windows.Forms.TabPage();
+            this.AccountCharts = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ReservableItemNbrLbl = new System.Windows.Forms.Label();
+            this.ConsummableItemNbrLbl = new System.Windows.Forms.Label();
+            this.BannedAccNbrLbl = new System.Windows.Forms.Label();
+            this.ActiveAccNbrLbl = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemsCharts)).BeginInit();
+            this.StatisticsTabControl.SuspendLayout();
+            this.GeneralInfoTab.SuspendLayout();
+            this.ItemTab.SuspendLayout();
+            this.AccountTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AccountCharts)).BeginInit();
             this.SuspendLayout();
             // 
             // users_account_button
             // 
-            this.users_account_button.Location = new System.Drawing.Point(56, 54);
+            this.users_account_button.Location = new System.Drawing.Point(693, 27);
             this.users_account_button.Name = "users_account_button";
             this.users_account_button.Size = new System.Drawing.Size(131, 41);
             this.users_account_button.TabIndex = 0;
@@ -52,7 +86,7 @@
             // 
             // consumable_button
             // 
-            this.consumable_button.Location = new System.Drawing.Point(56, 149);
+            this.consumable_button.Location = new System.Drawing.Point(693, 122);
             this.consumable_button.Name = "consumable_button";
             this.consumable_button.Size = new System.Drawing.Size(131, 41);
             this.consumable_button.TabIndex = 1;
@@ -62,7 +96,7 @@
             // 
             // CapitalizedBtn
             // 
-            this.CapitalizedBtn.Location = new System.Drawing.Point(56, 101);
+            this.CapitalizedBtn.Location = new System.Drawing.Point(693, 74);
             this.CapitalizedBtn.Name = "CapitalizedBtn";
             this.CapitalizedBtn.Size = new System.Drawing.Size(131, 42);
             this.CapitalizedBtn.TabIndex = 2;
@@ -77,7 +111,7 @@
             this.aideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(234, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(836, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -112,7 +146,7 @@
             // 
             // ExitBtn
             // 
-            this.ExitBtn.Location = new System.Drawing.Point(56, 196);
+            this.ExitBtn.Location = new System.Drawing.Point(693, 169);
             this.ExitBtn.Name = "ExitBtn";
             this.ExitBtn.Size = new System.Drawing.Size(131, 41);
             this.ExitBtn.TabIndex = 4;
@@ -120,12 +154,234 @@
             this.ExitBtn.UseVisualStyleBackColor = true;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
+            // ItemsCharts
+            // 
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Area3DStyle.Inclination = 60;
+            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea1.Area3DStyle.WallWidth = 0;
+            chartArea1.Name = "PieChartArea";
+            this.ItemsCharts.ChartAreas.Add(chartArea1);
+            legend1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            legend1.DockedToChartArea = "PieChartArea";
+            legend1.Name = "Legend1";
+            this.ItemsCharts.Legends.Add(legend1);
+            this.ItemsCharts.Location = new System.Drawing.Point(6, 6);
+            this.ItemsCharts.Name = "ItemsCharts";
+            series1.ChartArea = "PieChartArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.CustomProperties = "DrawingStyle=Cylinder";
+            series1.Legend = "Legend1";
+            series1.Name = "PieChartSerie";
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            this.ItemsCharts.Series.Add(series1);
+            this.ItemsCharts.Size = new System.Drawing.Size(655, 358);
+            this.ItemsCharts.TabIndex = 5;
+            this.ItemsCharts.Text = "chart1";
+            title1.Name = "PieChartTitle";
+            title1.Text = "Proportion de matériel";
+            this.ItemsCharts.Titles.Add(title1);
+            // 
+            // StatisticsTabControl
+            // 
+            this.StatisticsTabControl.Controls.Add(this.GeneralInfoTab);
+            this.StatisticsTabControl.Controls.Add(this.ItemTab);
+            this.StatisticsTabControl.Controls.Add(this.AccountTab);
+            this.StatisticsTabControl.Location = new System.Drawing.Point(12, 27);
+            this.StatisticsTabControl.Name = "StatisticsTabControl";
+            this.StatisticsTabControl.SelectedIndex = 0;
+            this.StatisticsTabControl.Size = new System.Drawing.Size(675, 396);
+            this.StatisticsTabControl.TabIndex = 6;
+            // 
+            // GeneralInfoTab
+            // 
+            this.GeneralInfoTab.Controls.Add(this.AmmountOfInvoicesNbrLbl);
+            this.GeneralInfoTab.Controls.Add(this.AmmountOfInvoicesLbl);
+            this.GeneralInfoTab.Controls.Add(this.AmmountOfPackNbrLbl);
+            this.GeneralInfoTab.Controls.Add(this.AmmountOfPacksLbl);
+            this.GeneralInfoTab.Controls.Add(this.ReservationAmmountNbrLbl);
+            this.GeneralInfoTab.Controls.Add(this.ReservationAmmountLbl);
+            this.GeneralInfoTab.Controls.Add(this.AmmountofItemsNbrLbl);
+            this.GeneralInfoTab.Controls.Add(this.AmmountOfItemsLbl);
+            this.GeneralInfoTab.Location = new System.Drawing.Point(4, 22);
+            this.GeneralInfoTab.Name = "GeneralInfoTab";
+            this.GeneralInfoTab.Padding = new System.Windows.Forms.Padding(3);
+            this.GeneralInfoTab.Size = new System.Drawing.Size(667, 370);
+            this.GeneralInfoTab.TabIndex = 0;
+            this.GeneralInfoTab.Text = "Général";
+            this.GeneralInfoTab.UseVisualStyleBackColor = true;
+            // 
+            // AmmountOfInvoicesNbrLbl
+            // 
+            this.AmmountOfInvoicesNbrLbl.AutoSize = true;
+            this.AmmountOfInvoicesNbrLbl.Location = new System.Drawing.Point(177, 62);
+            this.AmmountOfInvoicesNbrLbl.Name = "AmmountOfInvoicesNbrLbl";
+            this.AmmountOfInvoicesNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.AmmountOfInvoicesNbrLbl.TabIndex = 11;
+            this.AmmountOfInvoicesNbrLbl.Text = "<error>";
+            // 
+            // AmmountOfInvoicesLbl
+            // 
+            this.AmmountOfInvoicesLbl.AutoSize = true;
+            this.AmmountOfInvoicesLbl.Location = new System.Drawing.Point(33, 62);
+            this.AmmountOfInvoicesLbl.Name = "AmmountOfInvoicesLbl";
+            this.AmmountOfInvoicesLbl.Size = new System.Drawing.Size(104, 13);
+            this.AmmountOfInvoicesLbl.TabIndex = 10;
+            this.AmmountOfInvoicesLbl.Text = "Nombre de facture : ";
+            // 
+            // AmmountOfPackNbrLbl
+            // 
+            this.AmmountOfPackNbrLbl.AutoSize = true;
+            this.AmmountOfPackNbrLbl.Location = new System.Drawing.Point(177, 44);
+            this.AmmountOfPackNbrLbl.Name = "AmmountOfPackNbrLbl";
+            this.AmmountOfPackNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.AmmountOfPackNbrLbl.TabIndex = 5;
+            this.AmmountOfPackNbrLbl.Text = "<error>";
+            // 
+            // AmmountOfPacksLbl
+            // 
+            this.AmmountOfPacksLbl.AutoSize = true;
+            this.AmmountOfPacksLbl.Location = new System.Drawing.Point(42, 44);
+            this.AmmountOfPacksLbl.Name = "AmmountOfPacksLbl";
+            this.AmmountOfPacksLbl.Size = new System.Drawing.Size(95, 13);
+            this.AmmountOfPacksLbl.TabIndex = 4;
+            this.AmmountOfPacksLbl.Text = "Nombre de pack : ";
+            // 
+            // ReservationAmmountNbrLbl
+            // 
+            this.ReservationAmmountNbrLbl.AutoSize = true;
+            this.ReservationAmmountNbrLbl.Location = new System.Drawing.Point(177, 25);
+            this.ReservationAmmountNbrLbl.Name = "ReservationAmmountNbrLbl";
+            this.ReservationAmmountNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.ReservationAmmountNbrLbl.TabIndex = 3;
+            this.ReservationAmmountNbrLbl.Text = "<error>";
+            // 
+            // ReservationAmmountLbl
+            // 
+            this.ReservationAmmountLbl.AutoSize = true;
+            this.ReservationAmmountLbl.Location = new System.Drawing.Point(9, 25);
+            this.ReservationAmmountLbl.Name = "ReservationAmmountLbl";
+            this.ReservationAmmountLbl.Size = new System.Drawing.Size(128, 13);
+            this.ReservationAmmountLbl.TabIndex = 2;
+            this.ReservationAmmountLbl.Text = "Nombre de réservations : ";
+            // 
+            // AmmountofItemsNbrLbl
+            // 
+            this.AmmountofItemsNbrLbl.AutoSize = true;
+            this.AmmountofItemsNbrLbl.Location = new System.Drawing.Point(177, 6);
+            this.AmmountofItemsNbrLbl.Name = "AmmountofItemsNbrLbl";
+            this.AmmountofItemsNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.AmmountofItemsNbrLbl.TabIndex = 1;
+            this.AmmountofItemsNbrLbl.Text = "<error>";
+            // 
+            // AmmountOfItemsLbl
+            // 
+            this.AmmountOfItemsLbl.AutoSize = true;
+            this.AmmountOfItemsLbl.Location = new System.Drawing.Point(17, 6);
+            this.AmmountOfItemsLbl.Name = "AmmountOfItemsLbl";
+            this.AmmountOfItemsLbl.Size = new System.Drawing.Size(120, 13);
+            this.AmmountOfItemsLbl.TabIndex = 0;
+            this.AmmountOfItemsLbl.Text = "Nombres d\'objets total : ";
+            // 
+            // ItemTab
+            // 
+            this.ItemTab.Controls.Add(this.ConsummableItemNbrLbl);
+            this.ItemTab.Controls.Add(this.ReservableItemNbrLbl);
+            this.ItemTab.Controls.Add(this.ItemsCharts);
+            this.ItemTab.Location = new System.Drawing.Point(4, 22);
+            this.ItemTab.Name = "ItemTab";
+            this.ItemTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ItemTab.Size = new System.Drawing.Size(667, 370);
+            this.ItemTab.TabIndex = 1;
+            this.ItemTab.Text = "Objets";
+            this.ItemTab.UseVisualStyleBackColor = true;
+            // 
+            // AccountTab
+            // 
+            this.AccountTab.Controls.Add(this.ActiveAccNbrLbl);
+            this.AccountTab.Controls.Add(this.BannedAccNbrLbl);
+            this.AccountTab.Controls.Add(this.AccountCharts);
+            this.AccountTab.Location = new System.Drawing.Point(4, 22);
+            this.AccountTab.Name = "AccountTab";
+            this.AccountTab.Padding = new System.Windows.Forms.Padding(3);
+            this.AccountTab.Size = new System.Drawing.Size(667, 370);
+            this.AccountTab.TabIndex = 2;
+            this.AccountTab.Text = "Comptes";
+            this.AccountTab.UseVisualStyleBackColor = true;
+            // 
+            // AccountCharts
+            // 
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.Area3DStyle.Inclination = 60;
+            chartArea2.Area3DStyle.IsRightAngleAxes = false;
+            chartArea2.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea2.Area3DStyle.WallWidth = 0;
+            chartArea2.Name = "ChartArea1";
+            this.AccountCharts.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.AccountCharts.Legends.Add(legend2);
+            this.AccountCharts.Location = new System.Drawing.Point(6, 6);
+            this.AccountCharts.Name = "AccountCharts";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.CustomProperties = "CollectedSliceExploded=True";
+            series2.Legend = "Legend1";
+            series2.Name = "AccountProportions";
+            series2.YValuesPerPoint = 4;
+            this.AccountCharts.Series.Add(series2);
+            this.AccountCharts.Size = new System.Drawing.Size(655, 352);
+            this.AccountCharts.TabIndex = 0;
+            this.AccountCharts.Text = "chart1";
+            title2.Alignment = System.Drawing.ContentAlignment.TopCenter;
+            title2.DockedToChartArea = "ChartArea1";
+            title2.Name = "AccountTitle";
+            title2.Text = "Proportion des comptes";
+            this.AccountCharts.Titles.Add(title2);
+            // 
+            // ReservableItemNbrLbl
+            // 
+            this.ReservableItemNbrLbl.AutoSize = true;
+            this.ReservableItemNbrLbl.Location = new System.Drawing.Point(182, 110);
+            this.ReservableItemNbrLbl.Name = "ReservableItemNbrLbl";
+            this.ReservableItemNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.ReservableItemNbrLbl.TabIndex = 6;
+            this.ReservableItemNbrLbl.Text = "<error>";
+            // 
+            // ConsummableItemNbrLbl
+            // 
+            this.ConsummableItemNbrLbl.AutoSize = true;
+            this.ConsummableItemNbrLbl.Location = new System.Drawing.Point(448, 271);
+            this.ConsummableItemNbrLbl.Name = "ConsummableItemNbrLbl";
+            this.ConsummableItemNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.ConsummableItemNbrLbl.TabIndex = 7;
+            this.ConsummableItemNbrLbl.Text = "<error>";
+            // 
+            // BannedAccNbrLbl
+            // 
+            this.BannedAccNbrLbl.AutoSize = true;
+            this.BannedAccNbrLbl.Location = new System.Drawing.Point(427, 246);
+            this.BannedAccNbrLbl.Name = "BannedAccNbrLbl";
+            this.BannedAccNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.BannedAccNbrLbl.TabIndex = 1;
+            this.BannedAccNbrLbl.Text = "<error>";
+            // 
+            // ActiveAccNbrLbl
+            // 
+            this.ActiveAccNbrLbl.AutoSize = true;
+            this.ActiveAccNbrLbl.Location = new System.Drawing.Point(81, 98);
+            this.ActiveAccNbrLbl.Name = "ActiveAccNbrLbl";
+            this.ActiveAccNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.ActiveAccNbrLbl.TabIndex = 2;
+            this.ActiveAccNbrLbl.Text = "<error>";
+            // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(234, 268);
+            this.ClientSize = new System.Drawing.Size(836, 435);
+            this.Controls.Add(this.StatisticsTabControl);
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.CapitalizedBtn);
             this.Controls.Add(this.consumable_button);
@@ -137,6 +393,15 @@
             this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemsCharts)).EndInit();
+            this.StatisticsTabControl.ResumeLayout(false);
+            this.GeneralInfoTab.ResumeLayout(false);
+            this.GeneralInfoTab.PerformLayout();
+            this.ItemTab.ResumeLayout(false);
+            this.ItemTab.PerformLayout();
+            this.AccountTab.ResumeLayout(false);
+            this.AccountTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AccountCharts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +418,23 @@
 		private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
         private System.Windows.Forms.Button ExitBtn;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ItemsCharts;
+        private System.Windows.Forms.TabControl StatisticsTabControl;
+        private System.Windows.Forms.TabPage GeneralInfoTab;
+        private System.Windows.Forms.Label ReservationAmmountNbrLbl;
+        private System.Windows.Forms.Label ReservationAmmountLbl;
+        private System.Windows.Forms.Label AmmountofItemsNbrLbl;
+        private System.Windows.Forms.Label AmmountOfItemsLbl;
+        private System.Windows.Forms.TabPage ItemTab;
+        private System.Windows.Forms.Label AmmountOfPacksLbl;
+        private System.Windows.Forms.Label AmmountOfPackNbrLbl;
+        private System.Windows.Forms.TabPage AccountTab;
+        private System.Windows.Forms.DataVisualization.Charting.Chart AccountCharts;
+        private System.Windows.Forms.Label AmmountOfInvoicesNbrLbl;
+        private System.Windows.Forms.Label AmmountOfInvoicesLbl;
+        private System.Windows.Forms.Label ReservableItemNbrLbl;
+        private System.Windows.Forms.Label ConsummableItemNbrLbl;
+        private System.Windows.Forms.Label ActiveAccNbrLbl;
+        private System.Windows.Forms.Label BannedAccNbrLbl;
     }
 }

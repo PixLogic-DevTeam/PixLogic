@@ -10,9 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
+using ITI.PixLogic.WinApp.Views;
+=======
 using ITI.PixLogic.BLL;
 using ITI.PixLogic.DAL.Contexts.Items;
 using System.Windows.Forms.DataVisualization.Charting;
+>>>>>>> Statistics
 
 namespace ITI.PixLogic.WinApp
 {

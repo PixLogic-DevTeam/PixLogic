@@ -11,7 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BrightIdeasSoftware;
 
 namespace ITI.PixLogic.WinApp
 {
@@ -41,34 +40,23 @@ namespace ITI.PixLogic.WinApp
 						orderby it.Id
 						select new CapitalizedItemModel { items = it, item_brands = bra, item_sub_categories = sub , item_state = sta, /*invoices = inv*/ };
 			var cons = query.ToList();
-		
+			//_itemsEntity.Items.Load();
 			CapitalizedDataListView.DataSource = cons;
-            for( int j = 0; j < 6; j++ )
-            {
-                CapitalizedDataListView.AutoResizeColumn(j, ColumnHeaderAutoResizeStyle.ColumnContent );
-                CapitalizedDataListView.AutoResizeColumn(j, ColumnHeaderAutoResizeStyle.HeaderSize );
+
+                
+            for(int i = CapitalizedDataListView.Columns.Count-1; i>11; i--){
+                CapitalizedDataListView.Columns.RemoveAt( i );
             }
-<<<<<<< HEAD
             for( int j=0; j < 6; j++ )
             {
                 CapitalizedDataListView.AutoResizeColumn(j, ColumnHeaderAutoResizeStyle.ColumnContent );
                 CapitalizedDataListView.AutoResizeColumn(j, ColumnHeaderAutoResizeStyle.HeaderSize );
             }
             for( int k =8; k < CapitalizedDataListView.Columns.Count - 1; k++ )
-=======
-            for( int k = 7; k < CapitalizedDataListView.Columns.Count - 1; k++ )
->>>>>>> origin/develop
             {
                 CapitalizedDataListView.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.ColumnContent );
                 CapitalizedDataListView.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.HeaderSize );
             }
-<<<<<<< HEAD
-=======
-                for( int i = CapitalizedDataListView.Columns.Count - 1; i > 11; i-- )
-                {
-                    CapitalizedDataListView.Columns.RemoveAt( i );
-                }
->>>>>>> origin/develop
            
 		}
 
@@ -111,33 +99,22 @@ namespace ITI.PixLogic.WinApp
                 }
                 
                 
-
             }
 		}
 
 		private void Add_Btn_Click( object sender, EventArgs e )
 		{
-			new AddCapitalizedView(this).Show( );
+			new AddCapitalizedView(this ).Show( );
 		}
 
 		private void EditBtn_Click( object sender, EventArgs e )
 		{
-            AddCapitalizedView editForm = new AddCapitalizedView( this );
+			using(AddCapitalizedView editForm = new AddCapitalizedView(this))
+			{
+				Item capToEdit = (Item)CapitalizedDataListView.SelectedObject;
 
-
-            var capToEdit = (CapitalizedItemModel)CapitalizedDataListView.SelectedObject;
-            var a = editForm.Controls;
-            editForm.Reference = capToEdit.Reference;
-            editForm.EAN13 = capToEdit.EAN13;
-            editForm.Description = capToEdit.Description;
-            //editForm.SubCategory = capToEdit.SubCategory;
-            //editForm.Reservable = capToEdit.Reservable;
-            editForm.Show( this.CapitalizedDataListView );
-            editForm.Refresh();
-           
-                
 				
-			
+			}
 		}
 
 		private void BackBtn_Click( object sender, EventArgs e )
@@ -145,48 +122,6 @@ namespace ITI.PixLogic.WinApp
 			this.Close( );
 			new HomeView( ).Show( );
 		}
-
-        private void CapitalizedDataListView_CellEditFinishing( object sender, BrightIdeasSoftware.CellEditEventArgs e )
-        {
-            if ( CapitalizedDataListView.SelectedItems.Count == 0 )
-			{
-				MessageBox.Show( "Veuillez selectionner une ligne a supprimer" );
-			}
-			else
-			{
-                var toBeUpdated =(CapitalizedItemModel)CapitalizedDataListView.SelectedObject;
-                   
-                var capitalizedData =_itemsEntity.Items.First( c => c.Id == toBeUpdated.Id );
-                _itemsEntity.Items.Remove( capitalizedData );
-                try
-                {
-                    _itemsEntity.SaveChanges();
-
-                }
-                catch( Exception expz )
-                {
-                    MessageBox.Show( expz.InnerException.ToString() );
-                }
-                _itemsEntity = new ItemsEntity();
-
-                var query = from it in _itemsEntity.Items
-
-                            join sub in _itemsEntity.ItemSubCategories on it.SubCategory equals sub.Id
-                            join bra in _itemsEntity.ItemBrands on it.Brand equals bra.Id
-                            join sta in _itemsEntity.ItemStates on it.CurrentState equals sta.Id
-                            //join inv in _invoicesEntity.Invoices on c.RelatedInvoice equals inv.Id
-                            orderby it.Id
-                            select new CapitalizedItemModel { items = it, item_brands = bra, item_sub_categories = sub, item_state = sta, /*invoices = inv*/ };
-                var cons = query.ToList();
-                CapitalizedDataListView.DataSource = cons;
-                for( int i = CapitalizedDataListView.Columns.Count - 1; i > 11; i-- )
-                {
-                    CapitalizedDataListView.Columns.RemoveAt( i );
-                }
-                
-                
-            
-        }
 	}
     public class CapitalizedItemModel
     {
@@ -207,11 +142,6 @@ namespace ITI.PixLogic.WinApp
         {
             get { return items.Id; }
             set { items.Id = value; }
-        }
-        public string Name
-        {
-            get { return items.Name; }
-            set { items.Name = value; }
         }
         public Int64 EAN13
         {

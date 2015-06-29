@@ -32,8 +32,13 @@
    providerName="System.Data.EntityClient" />
   <add name="ReservationsEntity" connectionString="metadata=res://*/Contexts.Reservations.ReservationsModel.csdl|res://*/Contexts.Reservations.ReservationsModel.ssdl|res://*/Contexts.Reservations.ReservationsModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;"
    providerName="System.Data.EntityClient" />
+<<<<<<< HEAD
+  <add name="ITI.PixLogic.WinApp.Properties.Settings.pixlogicdbConnectionString"
+   connectionString="server=localhost;user id=root;persistsecurityinfo=True;database=pixlogicdb"
+=======
   <add name="ITI.PixLogic.WinApp.Properties.Settings.PixLogicDBConnectionString"
    connectionString="server=localhost;user id=root;persistsecurityinfo=True;database=PixLogicDB"
+>>>>>>> Statistics
    providerName="MySql.Data.MySqlClient" />
  </connectionStrings>
 	

@@ -26,10 +26,17 @@ namespace ITI.PixLogic.WinApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< HEAD
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;persistsecurityinfo=True;database=pixlogicdb")]
+        public string pixlogicdbConnectionString {
+            get {
+                return ((string)(this["pixlogicdbConnectionString"]));
+=======
         [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;persistsecurityinfo=True;database=PixLogicDB")]
         public string PixLogicDBConnectionString {
             get {
                 return ((string)(this["PixLogicDBConnectionString"]));
+>>>>>>> Statistics
             }
         }
     }
