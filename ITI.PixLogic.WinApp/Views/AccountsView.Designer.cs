@@ -108,7 +108,7 @@
             this.subCategoryDataGridViewTextBoxColumn,
             this.accountSubCategoryDataGridViewTextBoxColumn});
 			this.dataGridViewUsers.DataSource = this.accountBindingSource;
-			this.dataGridViewUsers.Location = new System.Drawing.Point(290, 259);
+			this.dataGridViewUsers.Location = new System.Drawing.Point(928, 273);
 			this.dataGridViewUsers.Name = "dataGridViewUsers";
 			this.dataGridViewUsers.ReadOnly = true;
 			this.dataGridViewUsers.Size = new System.Drawing.Size(66, 58);
@@ -301,9 +301,9 @@
 			// dataListView1
 			// 
 			this.dataListView1.DataSource = this.accountBindingSource;
-			this.dataListView1.Location = new System.Drawing.Point(101, 51);
+			this.dataListView1.Location = new System.Drawing.Point(62, 32);
 			this.dataListView1.Name = "dataListView1";
-			this.dataListView1.Size = new System.Drawing.Size(501, 202);
+			this.dataListView1.Size = new System.Drawing.Size(766, 299);
 			this.dataListView1.TabIndex = 10;
 			this.dataListView1.UseCompatibleStateImageBehavior = false;
 			this.dataListView1.View = System.Windows.Forms.View.Details;

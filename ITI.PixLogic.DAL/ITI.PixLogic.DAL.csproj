@@ -202,6 +202,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <EntityDeploy Include="Contexts\Invoices\InvoicesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>InvoicesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <EntityDeploy Include="Contexts\Accounts\AccountsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AccountsModel.Designer.cs</LastGenOutput>
@@ -219,10 +223,6 @@
       <DependentUpon>AccountsModel.edmx</DependentUpon>
       <LastGenOutput>AccountsModel.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="Contexts\Invoices\InvoicesModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>InvoicesModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="Contexts\Invoices\InvoicesModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InvoicesModel.edmx</DependentUpon>
