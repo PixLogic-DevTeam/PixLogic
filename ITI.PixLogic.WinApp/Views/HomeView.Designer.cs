@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 18D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 18D);
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.users_account_button = new System.Windows.Forms.Button();
             this.consumable_button = new System.Windows.Forms.Button();
             this.CapitalizedBtn = new System.Windows.Forms.Button();
@@ -51,10 +52,6 @@
             this.GeneralInfoTab = new System.Windows.Forms.TabPage();
             this.AmmountOfInvoicesNbrLbl = new System.Windows.Forms.Label();
             this.AmmountOfInvoicesLbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.NearExpiredReservationdataListView = new BrightIdeasSoftware.DataListView();
-            this.RecentReservationdataListView = new BrightIdeasSoftware.DataListView();
             this.AmmountOfPackNbrLbl = new System.Windows.Forms.Label();
             this.AmmountOfPacksLbl = new System.Windows.Forms.Label();
             this.ReservationAmmountNbrLbl = new System.Windows.Forms.Label();
@@ -64,12 +61,14 @@
             this.ItemTab = new System.Windows.Forms.TabPage();
             this.AccountTab = new System.Windows.Forms.TabPage();
             this.AccountCharts = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ReservableItemNbrLbl = new System.Windows.Forms.Label();
+            this.ConsummableItemNbrLbl = new System.Windows.Forms.Label();
+            this.BannedAccNbrLbl = new System.Windows.Forms.Label();
+            this.ActiveAccNbrLbl = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsCharts)).BeginInit();
             this.StatisticsTabControl.SuspendLayout();
             this.GeneralInfoTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NearExpiredReservationdataListView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentReservationdataListView)).BeginInit();
             this.ItemTab.SuspendLayout();
             this.AccountTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccountCharts)).BeginInit();
@@ -157,31 +156,32 @@
             // 
             // ItemsCharts
             // 
-            chartArea3.Area3DStyle.Enable3D = true;
-            chartArea3.Area3DStyle.Inclination = 60;
-            chartArea3.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-            chartArea3.Area3DStyle.WallWidth = 0;
-            chartArea3.Name = "PieChartArea";
-            this.ItemsCharts.ChartAreas.Add(chartArea3);
-            legend3.DockedToChartArea = "PieChartArea";
-            legend3.Name = "Legend1";
-            this.ItemsCharts.Legends.Add(legend3);
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Area3DStyle.Inclination = 60;
+            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea1.Area3DStyle.WallWidth = 0;
+            chartArea1.Name = "PieChartArea";
+            this.ItemsCharts.ChartAreas.Add(chartArea1);
+            legend1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            legend1.DockedToChartArea = "PieChartArea";
+            legend1.Name = "Legend1";
+            this.ItemsCharts.Legends.Add(legend1);
             this.ItemsCharts.Location = new System.Drawing.Point(6, 6);
             this.ItemsCharts.Name = "ItemsCharts";
-            series3.ChartArea = "PieChartArea";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.CustomProperties = "DrawingStyle=Cylinder";
-            series3.Legend = "Legend1";
-            series3.Name = "PieChartSerie";
-            series3.Points.Add(dataPoint3);
-            series3.Points.Add(dataPoint4);
-            this.ItemsCharts.Series.Add(series3);
+            series1.ChartArea = "PieChartArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.CustomProperties = "DrawingStyle=Cylinder";
+            series1.Legend = "Legend1";
+            series1.Name = "PieChartSerie";
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            this.ItemsCharts.Series.Add(series1);
             this.ItemsCharts.Size = new System.Drawing.Size(655, 358);
             this.ItemsCharts.TabIndex = 5;
             this.ItemsCharts.Text = "chart1";
-            title2.Name = "PieChartTitle";
-            title2.Text = "Proportion de matériel";
-            this.ItemsCharts.Titles.Add(title2);
+            title1.Name = "PieChartTitle";
+            title1.Text = "Proportion de matériel";
+            this.ItemsCharts.Titles.Add(title1);
             // 
             // StatisticsTabControl
             // 
@@ -198,10 +198,6 @@
             // 
             this.GeneralInfoTab.Controls.Add(this.AmmountOfInvoicesNbrLbl);
             this.GeneralInfoTab.Controls.Add(this.AmmountOfInvoicesLbl);
-            this.GeneralInfoTab.Controls.Add(this.label2);
-            this.GeneralInfoTab.Controls.Add(this.label1);
-            this.GeneralInfoTab.Controls.Add(this.NearExpiredReservationdataListView);
-            this.GeneralInfoTab.Controls.Add(this.RecentReservationdataListView);
             this.GeneralInfoTab.Controls.Add(this.AmmountOfPackNbrLbl);
             this.GeneralInfoTab.Controls.Add(this.AmmountOfPacksLbl);
             this.GeneralInfoTab.Controls.Add(this.ReservationAmmountNbrLbl);
@@ -233,44 +229,6 @@
             this.AmmountOfInvoicesLbl.Size = new System.Drawing.Size(104, 13);
             this.AmmountOfInvoicesLbl.TabIndex = 10;
             this.AmmountOfInvoicesLbl.Text = "Nombre de facture : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(363, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Réservations arrivant à expiration : ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 87);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Réservations récentes : ";
-            // 
-            // NearExpiredReservationdataListView
-            // 
-            this.NearExpiredReservationdataListView.DataSource = null;
-            this.NearExpiredReservationdataListView.Location = new System.Drawing.Point(366, 103);
-            this.NearExpiredReservationdataListView.Name = "NearExpiredReservationdataListView";
-            this.NearExpiredReservationdataListView.Size = new System.Drawing.Size(295, 219);
-            this.NearExpiredReservationdataListView.TabIndex = 7;
-            this.NearExpiredReservationdataListView.UseCompatibleStateImageBehavior = false;
-            this.NearExpiredReservationdataListView.View = System.Windows.Forms.View.Details;
-            // 
-            // RecentReservationdataListView
-            // 
-            this.RecentReservationdataListView.DataSource = null;
-            this.RecentReservationdataListView.Location = new System.Drawing.Point(6, 103);
-            this.RecentReservationdataListView.Name = "RecentReservationdataListView";
-            this.RecentReservationdataListView.Size = new System.Drawing.Size(295, 219);
-            this.RecentReservationdataListView.TabIndex = 6;
-            this.RecentReservationdataListView.UseCompatibleStateImageBehavior = false;
-            this.RecentReservationdataListView.View = System.Windows.Forms.View.Details;
             // 
             // AmmountOfPackNbrLbl
             // 
@@ -328,6 +286,8 @@
             // 
             // ItemTab
             // 
+            this.ItemTab.Controls.Add(this.ConsummableItemNbrLbl);
+            this.ItemTab.Controls.Add(this.ReservableItemNbrLbl);
             this.ItemTab.Controls.Add(this.ItemsCharts);
             this.ItemTab.Location = new System.Drawing.Point(4, 22);
             this.ItemTab.Name = "ItemTab";
@@ -339,6 +299,8 @@
             // 
             // AccountTab
             // 
+            this.AccountTab.Controls.Add(this.ActiveAccNbrLbl);
+            this.AccountTab.Controls.Add(this.BannedAccNbrLbl);
             this.AccountTab.Controls.Add(this.AccountCharts);
             this.AccountTab.Location = new System.Drawing.Point(4, 22);
             this.AccountTab.Name = "AccountTab";
@@ -350,27 +312,68 @@
             // 
             // AccountCharts
             // 
-            chartArea4.Area3DStyle.Enable3D = true;
-            chartArea4.Area3DStyle.Inclination = 60;
-            chartArea4.Area3DStyle.IsRightAngleAxes = false;
-            chartArea4.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-            chartArea4.Area3DStyle.WallWidth = 0;
-            chartArea4.Name = "ChartArea1";
-            this.AccountCharts.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.AccountCharts.Legends.Add(legend4);
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.Area3DStyle.Inclination = 60;
+            chartArea2.Area3DStyle.IsRightAngleAxes = false;
+            chartArea2.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea2.Area3DStyle.WallWidth = 0;
+            chartArea2.Name = "ChartArea1";
+            this.AccountCharts.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.AccountCharts.Legends.Add(legend2);
             this.AccountCharts.Location = new System.Drawing.Point(6, 6);
             this.AccountCharts.Name = "AccountCharts";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.CustomProperties = "CollectedSliceExploded=True";
-            series4.Legend = "Legend1";
-            series4.Name = "AccountProportions";
-            series4.YValuesPerPoint = 4;
-            this.AccountCharts.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.CustomProperties = "CollectedSliceExploded=True";
+            series2.Legend = "Legend1";
+            series2.Name = "AccountProportions";
+            series2.YValuesPerPoint = 4;
+            this.AccountCharts.Series.Add(series2);
             this.AccountCharts.Size = new System.Drawing.Size(655, 352);
             this.AccountCharts.TabIndex = 0;
             this.AccountCharts.Text = "chart1";
+            title2.Alignment = System.Drawing.ContentAlignment.TopCenter;
+            title2.DockedToChartArea = "ChartArea1";
+            title2.Name = "AccountTitle";
+            title2.Text = "Proportion des comptes";
+            this.AccountCharts.Titles.Add(title2);
+            // 
+            // ReservableItemNbrLbl
+            // 
+            this.ReservableItemNbrLbl.AutoSize = true;
+            this.ReservableItemNbrLbl.Location = new System.Drawing.Point(182, 110);
+            this.ReservableItemNbrLbl.Name = "ReservableItemNbrLbl";
+            this.ReservableItemNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.ReservableItemNbrLbl.TabIndex = 6;
+            this.ReservableItemNbrLbl.Text = "<error>";
+            // 
+            // ConsummableItemNbrLbl
+            // 
+            this.ConsummableItemNbrLbl.AutoSize = true;
+            this.ConsummableItemNbrLbl.Location = new System.Drawing.Point(448, 271);
+            this.ConsummableItemNbrLbl.Name = "ConsummableItemNbrLbl";
+            this.ConsummableItemNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.ConsummableItemNbrLbl.TabIndex = 7;
+            this.ConsummableItemNbrLbl.Text = "<error>";
+            // 
+            // BannedAccNbrLbl
+            // 
+            this.BannedAccNbrLbl.AutoSize = true;
+            this.BannedAccNbrLbl.Location = new System.Drawing.Point(427, 246);
+            this.BannedAccNbrLbl.Name = "BannedAccNbrLbl";
+            this.BannedAccNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.BannedAccNbrLbl.TabIndex = 1;
+            this.BannedAccNbrLbl.Text = "<error>";
+            // 
+            // ActiveAccNbrLbl
+            // 
+            this.ActiveAccNbrLbl.AutoSize = true;
+            this.ActiveAccNbrLbl.Location = new System.Drawing.Point(81, 98);
+            this.ActiveAccNbrLbl.Name = "ActiveAccNbrLbl";
+            this.ActiveAccNbrLbl.Size = new System.Drawing.Size(40, 13);
+            this.ActiveAccNbrLbl.TabIndex = 2;
+            this.ActiveAccNbrLbl.Text = "<error>";
             // 
             // HomeView
             // 
@@ -394,10 +397,10 @@
             this.StatisticsTabControl.ResumeLayout(false);
             this.GeneralInfoTab.ResumeLayout(false);
             this.GeneralInfoTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NearExpiredReservationdataListView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentReservationdataListView)).EndInit();
             this.ItemTab.ResumeLayout(false);
+            this.ItemTab.PerformLayout();
             this.AccountTab.ResumeLayout(false);
+            this.AccountTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccountCharts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -427,11 +430,11 @@
         private System.Windows.Forms.Label AmmountOfPackNbrLbl;
         private System.Windows.Forms.TabPage AccountTab;
         private System.Windows.Forms.DataVisualization.Charting.Chart AccountCharts;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private BrightIdeasSoftware.DataListView NearExpiredReservationdataListView;
-        private BrightIdeasSoftware.DataListView RecentReservationdataListView;
         private System.Windows.Forms.Label AmmountOfInvoicesNbrLbl;
         private System.Windows.Forms.Label AmmountOfInvoicesLbl;
+        private System.Windows.Forms.Label ReservableItemNbrLbl;
+        private System.Windows.Forms.Label ConsummableItemNbrLbl;
+        private System.Windows.Forms.Label ActiveAccNbrLbl;
+        private System.Windows.Forms.Label BannedAccNbrLbl;
     }
 }

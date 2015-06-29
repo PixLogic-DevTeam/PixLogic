@@ -96,6 +96,30 @@ namespace ITI.PixLogic.BLL
             return _resEntity.ReservationEvents.Local.ToList( );
         }
 
+        //public static List<ReservationItemModel> GetAllReservationItemModel()
+        //{
+        //    var itemQuery = (from a in _itemEntity.Items
+        //                    join state in _itemEntity.ItemStates on a.CurrentState equals state.Id
+        //                    select a).ToArray();
+
+        //    var packQuery = (from b in _packEntity.Packs
+        //                    select b).ToArray();
+
+        //    var resQuery = from res in _resEntity.ReservationItems
+        //                join reservation in _resEntity.ReservationEvents on res.Reservation equals reservation.Id
+        //                join planning in _resEntity.ReservationPlannings on res.RealPlanning equals planning.Id
+        //                join it in itemQuery on res.ReservedItem equals it.Id
+        //                join pa in packQuery on res.ReservedPack equals pa.Id
+        //                //join resitem in _itemEntity.Items on res.ReservedItem equals resitem.Id
+        //                //join respack in _packEntity.Packs on res.ReservedPack equals respack.Id
+        //                //join initialsta in _itemEntity.ItemStates on res.InitialState equals initialsta.Id
+        //                //join returnsta in _itemEntity.ItemStates on res.ReturnState equals returnsta.Id
+
+        //                select new ReservationItemModel { res_Event = reservation, res_Planning = planning, res_Item = res, item_State = it.ItemState, item = it, pack = pa};
+
+        //    return resQuery.ToList( );
+        //}
+
         public static void DisposeAllEntities( )
         {
             _resEntity.Dispose( );

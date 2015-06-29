@@ -65,10 +65,12 @@ namespace ITI.PixLogic.WinApp
             DataPoint _activeAccountsDP = new DataPoint( );
             _activeAccountsDP.SetValueY( StatsService.GetNumberOfActiveAccount( ) );
             _activeAccountsDP.LegendText = "Comptes actifs";
+            ActiveAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfActiveAccount( ) );
 
             DataPoint _bannedAccountsDP = new DataPoint( );
             _bannedAccountsDP.SetValueY( StatsService.GetNumberOfBannedAccount( ) );
             _bannedAccountsDP.LegendText = "Comptes Suspendus";
+            BannedAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfBannedAccount( ) );
 
             AccountCharts.Series[ 0 ].Points.Clear( );
             AccountCharts.Series[ 0 ].Points.Add( _activeAccountsDP );
@@ -79,11 +81,13 @@ namespace ITI.PixLogic.WinApp
             _consummableDP.SetValueY( StatsService.GetNumberOfConsummableItems() );
             _consummableDP.Color = Color.Red;
             _consummableDP.LegendText = "Consommable";
+            ConsummableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfConsummableItems( ) );
 
             DataPoint _reservableDP = new DataPoint( );
             _reservableDP.SetValueY( StatsService.GetNumberOfReservableItems( ) );
             _reservableDP.Color = Color.LightBlue;
             _reservableDP.LegendText = "Réservable";
+            ReservableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservableItems( ) );
 
             ItemsCharts.Series[ 0 ].Points.Clear( );
             ItemsCharts.Series[ 0 ].Points.Add( _consummableDP );
@@ -93,10 +97,8 @@ namespace ITI.PixLogic.WinApp
             AmmountofItemsNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfItems( ) );
             ReservationAmmountNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservationEvent( ) );
             AmmountOfPackNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfPack( ) );
-            AmmountOfInvoicesNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfInvoices( ) );
-
-            //DataListView Feeding
-            var query = 
+            AmmountOfInvoicesNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfInvoices( ) ); 
+   
 		}
 
         private void ExitBtn_Click( object sender, EventArgs e )
@@ -120,6 +122,11 @@ namespace ITI.PixLogic.WinApp
         {
             new AccountsView( ).Show( );
             this.Hide( );
+        }
+
+        private void ReservationBtn_Click( object sender, EventArgs e )
+        {
+            
         }
 	}
 }

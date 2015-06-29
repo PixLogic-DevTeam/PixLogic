@@ -9,7 +9,7 @@ using ITI.PixLogic.DAL.Contexts.Packs;
 
 namespace ITI.PixLogic.BLL
 {
-    class ReservationItemModel
+    public class ReservationItemModel
     {
         public ReservationEvent res_Event { get; set; }
 
