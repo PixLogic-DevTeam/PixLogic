@@ -47,6 +47,16 @@ namespace ITI.PixLogic.WinApp
             for(int i = CapitalizedDataListView.Columns.Count-1; i>11; i--){
                 CapitalizedDataListView.Columns.RemoveAt( i );
             }
+            for( int j=0; j < 6; j++ )
+            {
+                CapitalizedDataListView.AutoResizeColumn(j, ColumnHeaderAutoResizeStyle.ColumnContent );
+                CapitalizedDataListView.AutoResizeColumn(j, ColumnHeaderAutoResizeStyle.HeaderSize );
+            }
+            for( int k =8; k < CapitalizedDataListView.Columns.Count - 1; k++ )
+            {
+                CapitalizedDataListView.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.ColumnContent );
+                CapitalizedDataListView.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.HeaderSize );
+            }
            
 		}
 
