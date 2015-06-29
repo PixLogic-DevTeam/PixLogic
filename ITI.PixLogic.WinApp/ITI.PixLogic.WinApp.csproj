@@ -42,9 +42,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\iTextSharp.5.5.6\lib\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="LumenWorks.Framework.IO">
-      <HintPath>..\packages\LumenWorks.Framework.IO.3.8.0\lib\net20\LumenWorks.Framework.IO.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\MySql.Data.6.9.6\lib\net45\MySql.Data.dll</HintPath>
@@ -54,7 +51,7 @@
     </Reference>
     <Reference Include="ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ObjectListView.Official.2.8.1\lib\net20\ObjectListView.dll</HintPath>
+      <HintPath>..\..\..\examples\ObjectListView.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -63,7 +60,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Design" />
-    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -75,6 +72,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\AccountsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccountsView.Designer.cs">
+      <DependentUpon>AccountsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddCapitalizedView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddCapitalizedView.Designer.cs">
+      <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddConsumableView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddConsumableView.Designer.cs">
+      <DependentUpon>AddConsumableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddAccountView.Designer.cs">
+      <DependentUpon>AddAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CapitalizedView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CapitalizedView.Designer.cs">
+      <DependentUpon>CapitalizedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConsumablesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ConsumablesView.Designer.cs">
+      <DependentUpon>ConsumablesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +115,12 @@
       <DependentUpon>HomeView.cs</DependentUpon>
     </Compile>
     <Compile Include="HtmlTextWriter.cs" />
+    <Compile Include="Views\ModifyAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModifyAccountView.Designer.cs">
+      <DependentUpon>ModifyAccountView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MatérielView.cs">
@@ -90,8 +129,29 @@
     <Compile Include="Views\MatérielView.Designer.cs">
       <DependentUpon>MatérielView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AccountsView.resx">
+      <DependentUpon>AccountsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddCapitalizedView.resx">
+      <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddConsumableView.resx">
+      <DependentUpon>AddConsumableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddAccountView.resx">
+      <DependentUpon>AddAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CapitalizedView.resx">
+      <DependentUpon>CapitalizedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConsumablesView.resx">
+      <DependentUpon>ConsumablesView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModifyAccountView.resx">
+      <DependentUpon>ModifyAccountView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -106,6 +166,11 @@
       <DependentUpon>MatérielView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.account.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_main_categories.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_sub_categories.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.capitalized.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,32 +185,17 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ITI.PixLogic.BLL\ITI.PixLogic.BLL.csproj">
+      <Project>{5c575dde-54f6-46f0-bde6-49733496811f}</Project>
+      <Name>ITI.PixLogic.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ITI.PixLogic.DAL\ITI.PixLogic.DAL.csproj">
       <Project>{3a9317a0-32dc-475a-aac2-4b9ffa819f69}</Project>
       <Name>ITI.PixLogic.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

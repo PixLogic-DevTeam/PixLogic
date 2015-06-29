@@ -16,6 +16,9 @@ using System.Windows.Forms;
 using ITI.PixLogic.DAL.Contexts.Reservations;
 using System.Data.SqlClient;
 using ITI.PixLogic.DAL.Contexts.Items;
+using ITI.PixLogic.BLL;
+using ITI.PixLogic.DAL.Contexts.Items;
+using System.Windows.Forms.DataVisualization.Charting;
 using ITI.PixLogic.DAL.Contexts.Packs;
 using ITI.PixLogic.DAL.Contexts.Invoices;
 using ITI.PixLogic.WinApp.Views;
@@ -282,7 +285,80 @@ namespace ITI.PixLogic.WinApp
 			finally
 			{
 				file.Close();
-			}
+            /*
+             * Idée de statistique:
+             * -Objet le plus utilisé
+             * -Dernière réservations
+             * -Réservation se terminant bientot
+             */
+
+            //Account Pie chart feeding
+            DataPoint _activeAccountsDP = new DataPoint( );
+            _activeAccountsDP.SetValueY( StatsService.GetNumberOfActiveAccount( ) );
+            _activeAccountsDP.LegendText = "Comptes actifs";
+            ActiveAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfActiveAccount( ) );
+
+            DataPoint _bannedAccountsDP = new DataPoint( );
+            _bannedAccountsDP.SetValueY( StatsService.GetNumberOfBannedAccount( ) );
+            _bannedAccountsDP.LegendText = "Comptes Suspendus";
+            BannedAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfBannedAccount( ) );
+
+            AccountCharts.Series[ 0 ].Points.Clear( );
+            AccountCharts.Series[ 0 ].Points.Add( _activeAccountsDP );
+            AccountCharts.Series[ 0 ].Points.Add( _bannedAccountsDP );
+
+            //Item Pie chart feeding
+            DataPoint _consummableDP = new DataPoint( );
+            _consummableDP.SetValueY( StatsService.GetNumberOfConsummableItems() );
+            _consummableDP.Color = Color.Red;
+            _consummableDP.LegendText = "Consommable";
+            ConsummableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfConsummableItems( ) );
+
+            DataPoint _reservableDP = new DataPoint( );
+            _reservableDP.SetValueY( StatsService.GetNumberOfReservableItems( ) );
+            _reservableDP.Color = Color.LightBlue;
+            _reservableDP.LegendText = "Réservable";
+            ReservableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservableItems( ) );
+
+            ItemsCharts.Series[ 0 ].Points.Clear( );
+            ItemsCharts.Series[ 0 ].Points.Add( _consummableDP );
+            ItemsCharts.Series[ 0 ].Points.Add( _reservableDP );
+
+            //General stats feeding
+            AmmountofItemsNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfItems( ) );
+            ReservationAmmountNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservationEvent( ) );
+            AmmountOfPackNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfPack( ) );
+            AmmountOfInvoicesNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfInvoices( ) ); 
+   
+		}
+
+        private void ExitBtn_Click( object sender, EventArgs e )
+        {
+            Application.Exit( );
+        }
+
+        private void CapitalizedBtn_Click( object sender, EventArgs e )
+        {
+            new CapitalizedView( ).Show( );
+            this.Hide( );
+        }
+
+        private void consumable_button_Click( object sender, EventArgs e )
+        {
+            new ConsumablesView( ).Show( );
+            this.Hide( );
+        }
+
+        private void users_account_button_Click( object sender, EventArgs e )
+        {
+            new AccountsView( ).Show( );
+            this.Hide( );
+        }
+
+        private void ReservationBtn_Click( object sender, EventArgs e )
+        {
+            
+        }
 		}
 
 		private void réservationsToolStripMenuItem1_Click( object sender, EventArgs e )

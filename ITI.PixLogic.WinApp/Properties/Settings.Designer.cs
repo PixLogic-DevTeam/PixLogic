@@ -26,12 +26,12 @@ namespace ITI.PixLogic.WinApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=pixlogic_db;allowuservariables=True;passwo" +
-            "rd=0000;persistsecurityinfo=True")]
-        public string pixlogic_dbConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;persistsecurityinfo=True;database=PixLogicDB")]
+        public string PixLogicDBConnectionString {
             get {
-                return ((string)(this["pixlogic_dbConnectionString"]));
+                return ((string)(this["PixLogicDBConnectionString"]));
             }
+        }
         }
     }
 }

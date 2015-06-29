@@ -579,6 +579,7 @@
 
         private System.Windows.Forms.Button users_account_button;
         private System.Windows.Forms.Button consumable_button;
+        private System.Windows.Forms.Button CapitalizedBtn;
         private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.DataVisualization.Charting.Chart ItemsCharts;
         private System.Windows.Forms.TabControl StatisticsTabControl;
@@ -588,23 +589,6 @@
         private System.Windows.Forms.Label AmmountofItemsNbrLbl;
         private System.Windows.Forms.Label AmmountOfItemsLbl;
         private System.Windows.Forms.TabPage ItemTab;
-        private System.Windows.Forms.MenuStrip MainMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem importationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contactsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem utilisateursToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cSVToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem objetsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem packsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem réservationsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem utilisateursToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem facturesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem réservationsToolStripMenuItem2;
-		private System.Windows.Forms.ToolStripMenuItem utilisateursToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem réservationToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem bookEquipmentToolStripMenuItem;
         private System.Windows.Forms.Label AmmountOfPacksLbl;
         private System.Windows.Forms.Label AmmountOfPackNbrLbl;
         private System.Windows.Forms.TabPage AccountTab;
