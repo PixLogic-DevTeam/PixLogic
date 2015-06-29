@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ITI.PixLogic.DAL.Contexts.Accounts;
 using System.Data.Entity;
+using ITI.PixLogic.DAL.Contexts.Items;
 
 namespace ITI.PixLogic.WinApp.Views
 {
@@ -25,15 +26,14 @@ namespace ITI.PixLogic.WinApp.Views
 
 		private void MatérielView_Load( object sender, EventArgs e )
 		{
-
-			AccountsEntity _accoutsEntity = new AccountsEntity();
-			_accoutsEntity.Accounts.Load();
+			ItemsEntity _itemsEntity = new ItemsEntity();
+			_itemsEntity.ItemSubCategories.Load();
 
 			List<string> _nameList = new List<string>();
 
-			foreach( Account a in _accoutsEntity.Accounts )
+			foreach( Item a in _itemsEntity.Items )
 			{
-				_nameList.Add( a.FirstName + a.LastName );
+				_nameList.Add( a.ItemSubCategory.Name);
 			}
 
 			comboBoxItem.DataSource = _nameList;

@@ -43,9 +43,8 @@
 			this.réservationsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.réservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.bookEquipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.bookPackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.réservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.MainMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -75,7 +74,7 @@
 			this.utilisateursToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.utilisateursToolStripMenuItem1});
 			this.utilisateursToolStripMenuItem.Name = "utilisateursToolStripMenuItem";
-			this.utilisateursToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
+			this.utilisateursToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.utilisateursToolStripMenuItem.Text = "CSV";
 			// 
 			// utilisateursToolStripMenuItem1
@@ -170,15 +169,6 @@
 			this.contactsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
 			this.contactsToolStripMenuItem.Text = "Contacts";
 			// 
-			// réservationToolStripMenuItem
-			// 
-			this.réservationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bookEquipmentToolStripMenuItem,
-            this.bookPackToolStripMenuItem});
-			this.réservationToolStripMenuItem.Name = "réservationToolStripMenuItem";
-			this.réservationToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-			this.réservationToolStripMenuItem.Text = "Réservation";
-			// 
 			// bookEquipmentToolStripMenuItem
 			// 
 			this.bookEquipmentToolStripMenuItem.Name = "bookEquipmentToolStripMenuItem";
@@ -186,11 +176,13 @@
 			this.bookEquipmentToolStripMenuItem.Text = "Matériel";
 			this.bookEquipmentToolStripMenuItem.Click += new System.EventHandler(this.bookEquipmentToolStripMenuItem_Click);
 			// 
-			// bookPackToolStripMenuItem
+			// réservationToolStripMenuItem
 			// 
-			this.bookPackToolStripMenuItem.Name = "bookPackToolStripMenuItem";
-			this.bookPackToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.bookPackToolStripMenuItem.Text = "Pack";
+			this.réservationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bookEquipmentToolStripMenuItem});
+			this.réservationToolStripMenuItem.Name = "réservationToolStripMenuItem";
+			this.réservationToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+			this.réservationToolStripMenuItem.Text = "Réservation";
 			// 
 			// HomeView
 			// 
@@ -223,9 +215,8 @@
         private System.Windows.Forms.ToolStripMenuItem facturesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem réservationsToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem utilisateursToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem utilisateursToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem réservationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem bookEquipmentToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem bookPackToolStripMenuItem;
 	}
 }

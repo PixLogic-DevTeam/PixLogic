@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.comboBoxItem = new System.Windows.Forms.ComboBox();
+			this.dataListView1 = new BrightIdeasSoftware.DataListView();
+			((System.ComponentModel.ISupportInitialize)(this.dataListView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// comboBoxItem
@@ -42,15 +44,27 @@
 			this.comboBoxItem.TabIndex = 0;
 			this.comboBoxItem.SelectedIndexChanged += new System.EventHandler(this.comboBoxItem_SelectedIndexChanged);
 			// 
+			// dataListView1
+			// 
+			this.dataListView1.DataSource = null;
+			this.dataListView1.Location = new System.Drawing.Point(208, 12);
+			this.dataListView1.Name = "dataListView1";
+			this.dataListView1.Size = new System.Drawing.Size(384, 257);
+			this.dataListView1.TabIndex = 1;
+			this.dataListView1.UseCompatibleStateImageBehavior = false;
+			this.dataListView1.View = System.Windows.Forms.View.Details;
+			// 
 			// MatérielView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(604, 312);
+			this.Controls.Add(this.dataListView1);
 			this.Controls.Add(this.comboBoxItem);
 			this.Name = "MatérielView";
 			this.Text = "MatérielView";
 			this.Load += new System.EventHandler(this.MatérielView_Load);
+			((System.ComponentModel.ISupportInitialize)(this.dataListView1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -58,5 +72,6 @@
 		#endregion
 
 		private System.Windows.Forms.ComboBox comboBoxItem;
+		private BrightIdeasSoftware.DataListView dataListView1;
 	}
 }
