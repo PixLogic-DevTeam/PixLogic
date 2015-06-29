@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using ITI.PixLogic.BLL;
 using ITI.PixLogic.DAL.Contexts.Items;
 using System.Windows.Forms.DataVisualization.Charting;
+using ITI.PixLogic.WinApp.Views;
 
 namespace ITI.PixLogic.WinApp
 {

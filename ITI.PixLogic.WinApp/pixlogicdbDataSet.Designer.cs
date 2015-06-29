@@ -1442,7 +1442,7 @@ namespace ITI.PixLogic.WinApp.pixlogicdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::ITI.PixLogic.WinApp.Properties.Settings.Default.pixlogicdbConnectionString;
+            this._connection.ConnectionString = global::ITI.PixLogic.WinApp.Properties.Settings.Default.PixLogicDBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
