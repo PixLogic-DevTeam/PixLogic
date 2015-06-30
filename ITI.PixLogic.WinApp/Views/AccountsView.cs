@@ -27,6 +27,16 @@ namespace ITI.PixLogic.WinApp
         {
             _accountsEntity.Accounts.Load();
 			dataListView1.DataSource = _accountsEntity.Accounts.Local.ToBindingList();
+			for( int j=0; j < 6; j++ )
+			{
+				dataListView1.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.ColumnContent );
+				dataListView1.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.HeaderSize );
+			}
+			for( int k =8; k < dataListView1.Columns.Count - 1; k++ )
+			{
+				dataListView1.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.ColumnContent );
+				dataListView1.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.HeaderSize );
+			}
         }
 
         private void save_button_Click(object sender, EventArgs e)

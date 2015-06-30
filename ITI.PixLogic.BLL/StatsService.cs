@@ -49,10 +49,10 @@ namespace ITI.PixLogic.BLL
             return getConsummableItems.Count( );
         }
 
-        public static int GetNumberOfReservableItems( )
+        public static int GetNumberOfReservableNonConsummableItems( )
         {
             var getReservableItems= from a in _itemEntity.Items
-                                    where a.Reservable == true
+                                    where a.Reservable == true && a.Consumable == false
                                     select a;
 
             return getReservableItems.Count( );

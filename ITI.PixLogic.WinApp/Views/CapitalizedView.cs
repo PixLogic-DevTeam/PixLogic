@@ -122,6 +122,11 @@ namespace ITI.PixLogic.WinApp
 			this.Close( );
 			new HomeView( ).Show( );
 		}
+
+		private void CapitalizedView_FormClosed( object sender, FormClosedEventArgs e )
+		{
+			Application.Exit();
+		}
 	}
     public class CapitalizedItemModel
     {

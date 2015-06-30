@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.Label nameLabel;
-			System.Windows.Forms.Label nameLabel1;
 			this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,42 +46,19 @@
 			this.subCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.accountSubCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.save_button = new System.Windows.Forms.Button();
 			this.button_back = new System.Windows.Forms.Button();
 			this.button_add = new System.Windows.Forms.Button();
 			this.button_delete = new System.Windows.Forms.Button();
 			this.button_modify = new System.Windows.Forms.Button();
 			this.accounts_sub_categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.nameSubCategory = new System.Windows.Forms.TextBox();
 			this.accounts_main_categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.nameMainCategory = new System.Windows.Forms.TextBox();
 			this.dataListView1 = new BrightIdeasSoftware.DataListView();
-			nameLabel = new System.Windows.Forms.Label();
-			nameLabel1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.accounts_sub_categoriesBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.accounts_main_categoriesBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataListView1)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// nameLabel
-			// 
-			nameLabel.AutoSize = true;
-			nameLabel.Location = new System.Drawing.Point(940, 87);
-			nameLabel.Name = "nameLabel";
-			nameLabel.Size = new System.Drawing.Size(71, 13);
-			nameLabel.TabIndex = 6;
-			nameLabel.Text = "Sub Category";
-			// 
-			// nameLabel1
-			// 
-			nameLabel1.AutoSize = true;
-			nameLabel1.Location = new System.Drawing.Point(936, 21);
-			nameLabel1.Name = "nameLabel1";
-			nameLabel1.Size = new System.Drawing.Size(75, 13);
-			nameLabel1.TabIndex = 8;
-			nameLabel1.Text = "Main Category";
 			// 
 			// dataGridViewUsers
 			// 
@@ -224,19 +199,9 @@
 			// 
 			this.accountBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Accounts.Account);
 			// 
-			// save_button
-			// 
-			this.save_button.Location = new System.Drawing.Point(40, 368);
-			this.save_button.Name = "save_button";
-			this.save_button.Size = new System.Drawing.Size(75, 23);
-			this.save_button.TabIndex = 1;
-			this.save_button.Text = "Sauvegarder";
-			this.save_button.UseVisualStyleBackColor = true;
-			this.save_button.Click += new System.EventHandler(this.save_button_Click);
-			// 
 			// button_back
 			// 
-			this.button_back.Location = new System.Drawing.Point(218, 368);
+			this.button_back.Location = new System.Drawing.Point(191, 437);
 			this.button_back.Name = "button_back";
 			this.button_back.Size = new System.Drawing.Size(75, 23);
 			this.button_back.TabIndex = 2;
@@ -246,7 +211,7 @@
 			// 
 			// button_add
 			// 
-			this.button_add.Location = new System.Drawing.Point(402, 368);
+			this.button_add.Location = new System.Drawing.Point(350, 437);
 			this.button_add.Name = "button_add";
 			this.button_add.Size = new System.Drawing.Size(75, 23);
 			this.button_add.TabIndex = 3;
@@ -256,7 +221,7 @@
 			// 
 			// button_delete
 			// 
-			this.button_delete.Location = new System.Drawing.Point(570, 367);
+			this.button_delete.Location = new System.Drawing.Point(500, 437);
 			this.button_delete.Name = "button_delete";
 			this.button_delete.Size = new System.Drawing.Size(75, 23);
 			this.button_delete.TabIndex = 4;
@@ -266,7 +231,7 @@
 			// 
 			// button_modify
 			// 
-			this.button_modify.Location = new System.Drawing.Point(736, 367);
+			this.button_modify.Location = new System.Drawing.Point(653, 437);
 			this.button_modify.Name = "button_modify";
 			this.button_modify.Size = new System.Drawing.Size(75, 23);
 			this.button_modify.TabIndex = 5;
@@ -278,32 +243,16 @@
 			// 
 			this.accounts_sub_categoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Accounts.AccountSubCategory);
 			// 
-			// nameSubCategory
-			// 
-			this.nameSubCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accounts_sub_categoriesBindingSource, "name", true));
-			this.nameSubCategory.Location = new System.Drawing.Point(928, 117);
-			this.nameSubCategory.Name = "nameSubCategory";
-			this.nameSubCategory.Size = new System.Drawing.Size(100, 20);
-			this.nameSubCategory.TabIndex = 8;
-			// 
 			// accounts_main_categoriesBindingSource
 			// 
 			this.accounts_main_categoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Accounts.AccountMainCategory);
-			// 
-			// nameMainCategory
-			// 
-			this.nameMainCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accounts_main_categoriesBindingSource, "name", true));
-			this.nameMainCategory.Location = new System.Drawing.Point(928, 51);
-			this.nameMainCategory.Name = "nameMainCategory";
-			this.nameMainCategory.Size = new System.Drawing.Size(100, 20);
-			this.nameMainCategory.TabIndex = 9;
 			// 
 			// dataListView1
 			// 
 			this.dataListView1.DataSource = this.accountBindingSource;
 			this.dataListView1.Location = new System.Drawing.Point(62, 32);
 			this.dataListView1.Name = "dataListView1";
-			this.dataListView1.Size = new System.Drawing.Size(766, 299);
+			this.dataListView1.Size = new System.Drawing.Size(932, 356);
 			this.dataListView1.TabIndex = 10;
 			this.dataListView1.UseCompatibleStateImageBehavior = false;
 			this.dataListView1.View = System.Windows.Forms.View.Details;
@@ -314,15 +263,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1028, 549);
 			this.Controls.Add(this.dataListView1);
-			this.Controls.Add(nameLabel1);
-			this.Controls.Add(this.nameMainCategory);
-			this.Controls.Add(nameLabel);
-			this.Controls.Add(this.nameSubCategory);
 			this.Controls.Add(this.button_modify);
 			this.Controls.Add(this.button_delete);
 			this.Controls.Add(this.button_add);
 			this.Controls.Add(this.button_back);
-			this.Controls.Add(this.save_button);
 			this.Controls.Add(this.dataGridViewUsers);
 			this.Name = "AccountsView";
 			this.Text = "PixLogic - Comptes d\'utilisateurs";
@@ -333,15 +277,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.accounts_main_categoriesBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataListView1)).EndInit();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.BindingSource accountBindingSource;
-        private System.Windows.Forms.DataGridView dataGridViewUsers;
-        private System.Windows.Forms.Button save_button;
+		private System.Windows.Forms.DataGridView dataGridViewUsers;
         private System.Windows.Forms.Button button_back;
         private System.Windows.Forms.Button button_add;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -354,10 +296,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button_delete;
         private System.Windows.Forms.Button button_modify;
-        private System.Windows.Forms.BindingSource accounts_sub_categoriesBindingSource;
-        private System.Windows.Forms.TextBox nameSubCategory;
-        private System.Windows.Forms.BindingSource accounts_main_categoriesBindingSource;
-        private System.Windows.Forms.TextBox nameMainCategory;
+		private System.Windows.Forms.BindingSource accounts_sub_categoriesBindingSource;
+		private System.Windows.Forms.BindingSource accounts_main_categoriesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saltDataGridViewTextBoxColumn;

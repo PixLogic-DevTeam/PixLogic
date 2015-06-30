@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 18D);
-			System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 18D);
+			System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.importationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.utilisateursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,41 +140,42 @@
             this.utilisateursToolStripMenuItem2,
             this.facturesToolStripMenuItem1});
 			this.cSVToolStripMenuItem.Name = "cSVToolStripMenuItem";
-			this.cSVToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-			this.cSVToolStripMenuItem.Text = "Utilisateurs (format CSV)";
+			this.cSVToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.cSVToolStripMenuItem.Text = "CSV";
+			this.cSVToolStripMenuItem.Click += new System.EventHandler(this.cSVToolStripMenuItem_Click);
 			// 
 			// objetsToolStripMenuItem
 			// 
 			this.objetsToolStripMenuItem.Name = "objetsToolStripMenuItem";
-			this.objetsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.objetsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.objetsToolStripMenuItem.Text = "Objets";
 			this.objetsToolStripMenuItem.Click += new System.EventHandler(this.objetsToolStripMenuItem_Click);
 			// 
 			// packsToolStripMenuItem1
 			// 
 			this.packsToolStripMenuItem1.Name = "packsToolStripMenuItem1";
-			this.packsToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
+			this.packsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.packsToolStripMenuItem1.Text = "Packs";
 			this.packsToolStripMenuItem1.Click += new System.EventHandler(this.packsToolStripMenuItem1_Click);
 			// 
 			// réservationsToolStripMenuItem1
 			// 
 			this.réservationsToolStripMenuItem1.Name = "réservationsToolStripMenuItem1";
-			this.réservationsToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
+			this.réservationsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.réservationsToolStripMenuItem1.Text = "Réservations";
 			this.réservationsToolStripMenuItem1.Click += new System.EventHandler(this.réservationsToolStripMenuItem1_Click);
 			// 
 			// utilisateursToolStripMenuItem2
 			// 
 			this.utilisateursToolStripMenuItem2.Name = "utilisateursToolStripMenuItem2";
-			this.utilisateursToolStripMenuItem2.Size = new System.Drawing.Size(140, 22);
+			this.utilisateursToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
 			this.utilisateursToolStripMenuItem2.Text = "Utilisateurs";
 			this.utilisateursToolStripMenuItem2.Click += new System.EventHandler(this.utilisateursToolStripMenuItem2_Click);
 			// 
 			// facturesToolStripMenuItem1
 			// 
 			this.facturesToolStripMenuItem1.Name = "facturesToolStripMenuItem1";
-			this.facturesToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
+			this.facturesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.facturesToolStripMenuItem1.Text = "Factures";
 			this.facturesToolStripMenuItem1.Click += new System.EventHandler(this.facturesToolStripMenuItem1_Click);
 			// 
@@ -204,8 +205,9 @@
 			// contactsToolStripMenuItem
 			// 
 			this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
-			this.contactsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+			this.contactsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.contactsToolStripMenuItem.Text = "Contacts";
+			this.contactsToolStripMenuItem.Click += new System.EventHandler(this.contactsToolStripMenuItem_Click);
 			// 
 			// réservationToolStripMenuItem
 			// 
@@ -254,32 +256,32 @@
 			// 
 			// ItemsCharts
 			// 
-			chartArea3.Area3DStyle.Enable3D = true;
-			chartArea3.Area3DStyle.Inclination = 60;
-			chartArea3.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-			chartArea3.Area3DStyle.WallWidth = 0;
-			chartArea3.Name = "PieChartArea";
-			this.ItemsCharts.ChartAreas.Add(chartArea3);
-			legend3.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-			legend3.DockedToChartArea = "PieChartArea";
-			legend3.Name = "Legend1";
-			this.ItemsCharts.Legends.Add(legend3);
+			chartArea5.Area3DStyle.Enable3D = true;
+			chartArea5.Area3DStyle.Inclination = 60;
+			chartArea5.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+			chartArea5.Area3DStyle.WallWidth = 0;
+			chartArea5.Name = "PieChartArea";
+			this.ItemsCharts.ChartAreas.Add(chartArea5);
+			legend5.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+			legend5.DockedToChartArea = "PieChartArea";
+			legend5.Name = "Legend1";
+			this.ItemsCharts.Legends.Add(legend5);
 			this.ItemsCharts.Location = new System.Drawing.Point(6, 6);
 			this.ItemsCharts.Name = "ItemsCharts";
-			series3.ChartArea = "PieChartArea";
-			series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-			series3.CustomProperties = "DrawingStyle=Cylinder";
-			series3.Legend = "Legend1";
-			series3.Name = "PieChartSerie";
-			series3.Points.Add(dataPoint3);
-			series3.Points.Add(dataPoint4);
-			this.ItemsCharts.Series.Add(series3);
+			series5.ChartArea = "PieChartArea";
+			series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+			series5.CustomProperties = "DrawingStyle=Cylinder";
+			series5.Legend = "Legend1";
+			series5.Name = "PieChartSerie";
+			series5.Points.Add(dataPoint5);
+			series5.Points.Add(dataPoint6);
+			this.ItemsCharts.Series.Add(series5);
 			this.ItemsCharts.Size = new System.Drawing.Size(655, 358);
 			this.ItemsCharts.TabIndex = 5;
 			this.ItemsCharts.Text = "chart1";
-			title3.Name = "PieChartTitle";
-			title3.Text = "Proportion de matériel";
-			this.ItemsCharts.Titles.Add(title3);
+			title5.Name = "PieChartTitle";
+			title5.Text = "Proportion de matériel";
+			this.ItemsCharts.Titles.Add(title5);
 			// 
 			// StatisticsTabControl
 			// 
@@ -446,32 +448,32 @@
 			// 
 			// AccountCharts
 			// 
-			chartArea4.Area3DStyle.Enable3D = true;
-			chartArea4.Area3DStyle.Inclination = 60;
-			chartArea4.Area3DStyle.IsRightAngleAxes = false;
-			chartArea4.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-			chartArea4.Area3DStyle.WallWidth = 0;
-			chartArea4.Name = "ChartArea1";
-			this.AccountCharts.ChartAreas.Add(chartArea4);
-			legend4.Name = "Legend1";
-			this.AccountCharts.Legends.Add(legend4);
+			chartArea6.Area3DStyle.Enable3D = true;
+			chartArea6.Area3DStyle.Inclination = 60;
+			chartArea6.Area3DStyle.IsRightAngleAxes = false;
+			chartArea6.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+			chartArea6.Area3DStyle.WallWidth = 0;
+			chartArea6.Name = "ChartArea1";
+			this.AccountCharts.ChartAreas.Add(chartArea6);
+			legend6.Name = "Legend1";
+			this.AccountCharts.Legends.Add(legend6);
 			this.AccountCharts.Location = new System.Drawing.Point(6, 6);
 			this.AccountCharts.Name = "AccountCharts";
-			series4.ChartArea = "ChartArea1";
-			series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-			series4.CustomProperties = "CollectedSliceExploded=True";
-			series4.Legend = "Legend1";
-			series4.Name = "AccountProportions";
-			series4.YValuesPerPoint = 4;
-			this.AccountCharts.Series.Add(series4);
+			series6.ChartArea = "ChartArea1";
+			series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+			series6.CustomProperties = "CollectedSliceExploded=True";
+			series6.Legend = "Legend1";
+			series6.Name = "AccountProportions";
+			series6.YValuesPerPoint = 4;
+			this.AccountCharts.Series.Add(series6);
 			this.AccountCharts.Size = new System.Drawing.Size(655, 352);
 			this.AccountCharts.TabIndex = 0;
 			this.AccountCharts.Text = "chart1";
-			title4.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			title4.DockedToChartArea = "ChartArea1";
-			title4.Name = "AccountTitle";
-			title4.Text = "Proportion des comptes";
-			this.AccountCharts.Titles.Add(title4);
+			title6.Alignment = System.Drawing.ContentAlignment.TopCenter;
+			title6.DockedToChartArea = "ChartArea1";
+			title6.Name = "AccountTitle";
+			title6.Text = "Proportion des comptes";
+			this.AccountCharts.Titles.Add(title6);
 			// 
 			// CapitalizedBtn
 			// 

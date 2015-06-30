@@ -86,7 +86,7 @@ namespace ITI.PixLogic.WinApp
 		private void AddBtn_Click( object sender, EventArgs e )
 		{
             Item item = new Item( );
-			item.Reference = NameTextBox.Text;
+			item.Reference = ReferenceTextBox.Text;
 			item.Description = DescriptionRichTextBox.Text;
 			item.EAN13 = Convert.ToInt64( EANTextBox.Text );
 			item.ReservationCost = Convert.ToInt64( ResCostTextBox.Text );
@@ -133,6 +133,23 @@ namespace ITI.PixLogic.WinApp
                _capitalizedViewMain.CapitalizedDataListView.Columns.RemoveAt( i );
             }
 			this.Close( );
+		}
+
+		private void EANTextBox_KeyPress( object sender, KeyPressEventArgs e )
+		{
+			if( !char.IsControl( e.KeyChar )
+		&& !char.IsDigit( e.KeyChar )
+		&& e.KeyChar != '.' )
+			{
+				e.Handled = true;
+			}
+
+			// only allow one decimal point
+			if( e.KeyChar == '.'
+				&& (sender as TextBox).Text.IndexOf( '.' ) > -1 )
+			{
+				e.Handled = true;
+			}
 		}
 
        

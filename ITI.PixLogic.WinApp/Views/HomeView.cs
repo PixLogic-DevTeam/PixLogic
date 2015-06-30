@@ -116,8 +116,8 @@ namespace ITI.PixLogic.WinApp
 			PdfPTable headers = new PdfPTable( 12 );
 			PdfPTable infos = new PdfPTable( 12 );
 
-			try
-			{
+			//try
+			//{
 				using( PdfWriter.GetInstance( doc, new FileStream( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\PDF\toutes_les_réservations.pdf", FileMode.Create ) ) )
 				{
 					p.Alignment = Element.ALIGN_CENTER;
@@ -166,12 +166,11 @@ namespace ITI.PixLogic.WinApp
 				}
 				MessageBox.Show( "Le fichier PDF a été créé !" );
 			}
-			catch( Exception ex )
-			{
-				MessageBox.Show( "Erreur : " + ex.Message );
-			}
-
-		}
+			//catch( Exception ex )
+			//{
+			//	MessageBox.Show( "Erreur : " + ex.Message );
+			//}
+		//}
 		#endregion
 
 		#region Exports CSV
@@ -400,10 +399,10 @@ namespace ITI.PixLogic.WinApp
             ConsummableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfConsummableItems( ) );
 
             DataPoint _reservableDP = new DataPoint( );
-            _reservableDP.SetValueY( StatsService.GetNumberOfReservableItems( ) );
+            _reservableDP.SetValueY( StatsService.GetNumberOfReservableNonConsummableItems( ) );
             _reservableDP.Color = Color.LightBlue;
             _reservableDP.LegendText = "Réservable";
-            ReservableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservableItems( ) );
+            ReservableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservableNonConsummableItems( ) );
 
             ItemsCharts.Series[ 0 ].Points.Clear( );
             ItemsCharts.Series[ 0 ].Points.Add( _consummableDP );
@@ -442,6 +441,17 @@ namespace ITI.PixLogic.WinApp
 		private void ReservationBtn_Click( object sender, EventArgs e )
 		{
 
+		}
+
+		private void cSVToolStripMenuItem_Click( object sender, EventArgs e )
+		{
+
+		}
+
+		private void contactsToolStripMenuItem_Click( object sender, EventArgs e )
+		{
+			ContactView contact = new ContactView();
+			contact.Show();
 		}
 		}
 	}
