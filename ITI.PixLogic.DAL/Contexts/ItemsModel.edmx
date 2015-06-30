@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ITI.PixLogic.DAL.Contexts.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ItemBrands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="ItemCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="ItemFunctionalCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Category" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EAN13" Type="uint" />
+          <Property Name="Reference" Type="tinytext" Nullable="false" />
+          <Property Name="ReservationCost" Type="uint" Nullable="false" />
+          <Property Name="Consumable" Type="bool" Nullable="false" />
+          <Property Name="Reservable" Type="bool" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="PicturePath" Type="tinytext" />
+          <Property Name="Brand" Type="uint" Nullable="false" />
+          <Property Name="RelatedInvoice" Type="uint" Nullable="false" />
+          <Property Name="FunctionalCategory" Type="uint" Nullable="false" />
+          <Property Name="CurrentState" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemStates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Usable" Type="bool" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.pixlogicdb.view_items' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_items">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="uint" Nullable="false" />
+          <Property Name="ItemCategory" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemFunctionalCategory" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemEAN13" Type="uint" />
+          <Property Name="ItemBrand" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemReference" Type="tinytext" Nullable="false" />
+          <Property Name="ItemDescription" Type="text" />
+          <Property Name="ItemPicture" Type="tinytext" />
+          <Property Name="ItemStateNow" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemIsUsable" Type="bool" Nullable="false" />
+          <Property Name="ItemIsConsumable" Type="bool" Nullable="false" />
+          <Property Name="ItemIsReservable" Type="bool" Nullable="false" />
+          <Property Name="InvoicePhaseNumber" Type="uint" Nullable="false" />
+        </EntityType>
+        <Association Name="itemfunctionalcategories_ibfk_1">
+          <End Role="ItemCategories" Type="Self.ItemCategories" Multiplicity="1" />
+          <End Role="ItemFunctionalCategories" Type="Self.ItemFunctionalCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemFunctionalCategories">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_1">
+          <End Role="ItemBrands" Type="Self.ItemBrands" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemBrands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="Brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_3">
+          <End Role="ItemFunctionalCategories" Type="Self.ItemFunctionalCategories" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemFunctionalCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="FunctionalCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_4">
+          <End Role="ItemStates" Type="Self.ItemStates" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemStates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CurrentState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ITIPixLogicDALContextsStoreContainer">
+          <EntitySet Name="ItemBrands" EntityType="Self.ItemBrands" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemCategories" EntityType="Self.ItemCategories" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemFunctionalCategories" EntityType="Self.ItemFunctionalCategories" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ItemStates" EntityType="Self.ItemStates" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="view_items" EntityType="Self.view_items" store:Type="Views" store:Schema="pixlogicdb">
+            <DefiningQuery>SELECT
+`view_items`.`ItemId`, 
+`view_items`.`ItemCategory`, 
+`view_items`.`ItemFunctionalCategory`, 
+`view_items`.`ItemEAN13`, 
+`view_items`.`ItemBrand`, 
+`view_items`.`ItemReference`, 
+`view_items`.`ItemDescription`, 
+`view_items`.`ItemPicture`, 
+`view_items`.`ItemStateNow`, 
+`view_items`.`ItemIsUsable`, 
+`view_items`.`ItemIsConsumable`, 
+`view_items`.`ItemIsReservable`, 
+`view_items`.`InvoicePhaseNumber`
+FROM `view_items` AS `view_items`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="itemfunctionalcategories_ibfk_1" Association="Self.itemfunctionalcategories_ibfk_1">
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+            <End Role="ItemFunctionalCategories" EntitySet="ItemFunctionalCategories" />
+          </AssociationSet>
+          <AssociationSet Name="items_ibfk_1" Association="Self.items_ibfk_1">
+            <End Role="ItemBrands" EntitySet="ItemBrands" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="items_ibfk_3" Association="Self.items_ibfk_3">
+            <End Role="ItemFunctionalCategories" EntitySet="ItemFunctionalCategories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="items_ibfk_4" Association="Self.items_ibfk_4">
+            <End Role="ItemStates" EntitySet="ItemStates" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITI.PixLogic.DAL.Contexts" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ItemBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Items" Relationship="Self.items_ibfk_1" FromRole="ItemBrands" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ItemFunctionalCategories" Relationship="Self.itemfunctionalcategories_ibfk_1" FromRole="ItemCategories" ToRole="ItemFunctionalCategories" />
+        </EntityType>
+        <EntityType Name="ItemFunctionalCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ItemCategory" Relationship="Self.itemfunctionalcategories_ibfk_1" FromRole="ItemFunctionalCategories" ToRole="ItemCategories" />
+          <NavigationProperty Name="Items" Relationship="Self.items_ibfk_3" FromRole="ItemFunctionalCategories" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EAN13" Type="Int64" />
+          <Property Name="Reference" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReservationCost" Type="Int64" Nullable="false" />
+          <Property Name="Consumable" Type="Boolean" Nullable="false" />
+          <Property Name="Reservable" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="PicturePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Brand" Type="Int64" Nullable="false" />
+          <Property Name="RelatedInvoice" Type="Int64" Nullable="false" />
+          <Property Name="FunctionalCategory" Type="Int64" Nullable="false" />
+          <Property Name="CurrentState" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ItemBrand" Relationship="Self.items_ibfk_1" FromRole="Items" ToRole="ItemBrands" />
+          <NavigationProperty Name="ItemFunctionalCategory" Relationship="Self.items_ibfk_3" FromRole="Items" ToRole="ItemFunctionalCategories" />
+          <NavigationProperty Name="ItemState" Relationship="Self.items_ibfk_4" FromRole="Items" ToRole="ItemStates" />
+        </EntityType>
+        <EntityType Name="ItemState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Usable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.items_ibfk_4" FromRole="ItemStates" ToRole="Items" />
+        </EntityType>
+        <Association Name="items_ibfk_1">
+          <End Role="ItemBrands" Type="Self.ItemBrand" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemBrands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="Brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="itemfunctionalcategories_ibfk_1">
+          <End Role="ItemCategories" Type="Self.ItemCategory" Multiplicity="1" />
+          <End Role="ItemFunctionalCategories" Type="Self.ItemFunctionalCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemFunctionalCategories">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_3">
+          <End Role="ItemFunctionalCategories" Type="Self.ItemFunctionalCategory" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemFunctionalCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="FunctionalCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="items_ibfk_4">
+          <End Role="ItemStates" Type="Self.ItemState" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemStates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CurrentState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ItemsEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ItemBrands" EntityType="Self.ItemBrand" />
+          <EntitySet Name="ItemCategories" EntityType="Self.ItemCategory" />
+          <EntitySet Name="ItemFunctionalCategories" EntityType="Self.ItemFunctionalCategory" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="ItemStates" EntityType="Self.ItemState" />
+          <AssociationSet Name="items_ibfk_1" Association="Self.items_ibfk_1">
+            <End Role="ItemBrands" EntitySet="ItemBrands" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="itemfunctionalcategories_ibfk_1" Association="Self.itemfunctionalcategories_ibfk_1">
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+            <End Role="ItemFunctionalCategories" EntitySet="ItemFunctionalCategories" />
+          </AssociationSet>
+          <AssociationSet Name="items_ibfk_3" Association="Self.items_ibfk_3">
+            <End Role="ItemFunctionalCategories" EntitySet="ItemFunctionalCategories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="items_ibfk_4" Association="Self.items_ibfk_4">
+            <End Role="ItemStates" EntitySet="ItemStates" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <EntitySet Name="view_items" EntityType="ITI.PixLogic.DAL.Contexts.view_items" />
+        </EntityContainer>
+        <EntityType Name="view_items">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int64" Nullable="false" />
+          <Property Name="ItemCategory" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemFunctionalCategory" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemEAN13" Type="Int64" />
+          <Property Name="ItemBrand" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemReference" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="ItemPicture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemStateNow" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ItemIsUsable" Type="Boolean" Nullable="false" />
+          <Property Name="ItemIsConsumable" Type="Boolean" Nullable="false" />
+          <Property Name="ItemIsReservable" Type="Boolean" Nullable="false" />
+          <Property Name="InvoicePhaseNumber" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITIPixLogicDALContextsStoreContainer" CdmEntityContainer="ItemsEntity">
+          <EntitySetMapping Name="ItemBrands">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.ItemBrand">
+              <MappingFragment StoreEntitySet="ItemBrands">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemCategories">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.ItemCategory">
+              <MappingFragment StoreEntitySet="ItemCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemFunctionalCategories">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.ItemFunctionalCategory">
+              <MappingFragment StoreEntitySet="ItemFunctionalCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EAN13" ColumnName="EAN13" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="ReservationCost" ColumnName="ReservationCost" />
+                <ScalarProperty Name="Consumable" ColumnName="Consumable" />
+                <ScalarProperty Name="Reservable" ColumnName="Reservable" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="RelatedInvoice" ColumnName="RelatedInvoice" />
+                <ScalarProperty Name="FunctionalCategory" ColumnName="FunctionalCategory" />
+                <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemStates">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.ItemState">
+              <MappingFragment StoreEntitySet="ItemStates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Usable" ColumnName="Usable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_items">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.view_items">
+              <MappingFragment StoreEntitySet="view_items">
+                <ScalarProperty Name="InvoicePhaseNumber" ColumnName="InvoicePhaseNumber" />
+                <ScalarProperty Name="ItemIsReservable" ColumnName="ItemIsReservable" />
+                <ScalarProperty Name="ItemIsConsumable" ColumnName="ItemIsConsumable" />
+                <ScalarProperty Name="ItemIsUsable" ColumnName="ItemIsUsable" />
+                <ScalarProperty Name="ItemStateNow" ColumnName="ItemStateNow" />
+                <ScalarProperty Name="ItemPicture" ColumnName="ItemPicture" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemReference" ColumnName="ItemReference" />
+                <ScalarProperty Name="ItemBrand" ColumnName="ItemBrand" />
+                <ScalarProperty Name="ItemEAN13" ColumnName="ItemEAN13" />
+                <ScalarProperty Name="ItemFunctionalCategory" ColumnName="ItemFunctionalCategory" />
+                <ScalarProperty Name="ItemCategory" ColumnName="ItemCategory" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -18,11 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.DAL", "ITI.Pix
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{C9948B5C-80E2-4B42-91CA-F90BE1198905}"
 	ProjectSection(SolutionItems) = preProject
-		Database\CreateDatabase.sql = Database\CreateDatabase.sql
-		Database\CreateTables.sql = Database\CreateTables.sql
-		Database\CreateViews.sql = Database\CreateViews.sql
-		Database\DeleteData.sql = Database\DeleteData.sql
-		Database\InsertData.sql = Database\InsertData.sql
+		Database\create.sql = Database\create.sql
+		Database\insert.sql = Database\insert.sql
 		Database\README.md = Database\README.md
 	EndProjectSection
 EndProject

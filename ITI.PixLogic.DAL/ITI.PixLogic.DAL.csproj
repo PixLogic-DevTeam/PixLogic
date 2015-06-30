@@ -29,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -57,137 +60,152 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexts\Accounts\Account.cs">
+    <Compile Include="Contexts\Account.cs">
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\AccountCategory.cs">
+    <Compile Include="Contexts\AccountCategory.cs">
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\AccountDivision.cs">
+    <Compile Include="Contexts\AccountDivision.cs">
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\AccountsModel.Context.cs">
+    <Compile Include="Contexts\AccountsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\AccountsModel.cs">
+    <Compile Include="Contexts\AccountsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Accounts\AccountsModel.Designer.cs">
+    <Compile Include="Contexts\AccountsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountsModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Events\EventsModel.Context.cs">
+    <Compile Include="Contexts\Company.cs">
+      <DependentUpon>InvoicesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\Contact.cs">
+      <DependentUpon>InvoicesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\EventsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Events\EventsModel.cs">
+    <Compile Include="Contexts\EventsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Events\EventsModel.Designer.cs">
+    <Compile Include="Contexts\EventsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventsModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Events\Planning.cs">
-      <DependentUpon>EventsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Events\ReservationEvent.cs">
-      <DependentUpon>EventsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Events\ReservationItem.cs">
-      <DependentUpon>EventsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Events\RestorationEvent.cs">
-      <DependentUpon>EventsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Events\RestorationItem.cs">
-      <DependentUpon>EventsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Invoices\Company.cs">
+    <Compile Include="Contexts\Invoice.cs">
       <DependentUpon>InvoicesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Invoices\Contact.cs">
-      <DependentUpon>InvoicesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Invoices\Invoice.cs">
-      <DependentUpon>InvoicesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\Invoices\InvoicesModel.Context.cs">
+    <Compile Include="Contexts\InvoicesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoicesModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Invoices\InvoicesModel.cs">
+    <Compile Include="Contexts\InvoicesModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoicesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Invoices\InvoicesModel.Designer.cs">
+    <Compile Include="Contexts\InvoicesModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoicesModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\Item.cs">
+    <Compile Include="Contexts\Item.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemBrand.cs">
+    <Compile Include="Contexts\ItemBrand.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemCategory.cs">
+    <Compile Include="Contexts\ItemCategory.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemFunctionalCategory.cs">
+    <Compile Include="Contexts\ItemFunctionalCategory.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemsModel.Context.cs">
+    <Compile Include="Contexts\ItemsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemsModel.cs">
+    <Compile Include="Contexts\ItemsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemsModel.Designer.cs">
+    <Compile Include="Contexts\ItemsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemsModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Items\ItemState.cs">
+    <Compile Include="Contexts\ItemState.cs">
       <DependentUpon>ItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\Pack.cs">
+    <Compile Include="Contexts\Pack.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\PackagedItem.cs">
+    <Compile Include="Contexts\PackagedItem.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\PackagedItemFunctionalCategory.cs">
+    <Compile Include="Contexts\PackagedItemFunctionalCategory.cs">
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\PacksModel.Context.cs">
+    <Compile Include="Contexts\PacksModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PacksModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\PacksModel.cs">
+    <Compile Include="Contexts\PacksModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PacksModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Packs\PacksModel.Designer.cs">
+    <Compile Include="Contexts\PacksModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PacksModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\ReservationEvent.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\ReservedItem.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\RestorationEvent.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\RestoredItem.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\view_accounts.cs">
+      <DependentUpon>AccountsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\view_invoices.cs">
+      <DependentUpon>InvoicesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\view_items.cs">
+      <DependentUpon>ItemsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\view_packs.cs">
+      <DependentUpon>PacksModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\view_reservations.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\view_restorations.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -195,87 +213,87 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Contexts\Events\EventsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EventsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="Contexts\Accounts\AccountsModel.edmx">
+    <EntityDeploy Include="Contexts\AccountsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AccountsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Contexts\Accounts\AccountsModel.Context.tt">
+    <None Include="Contexts\AccountsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AccountsModel.edmx</DependentUpon>
       <LastGenOutput>AccountsModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="Contexts\Accounts\AccountsModel.edmx.diagram">
+    <None Include="Contexts\AccountsModel.edmx.diagram">
       <DependentUpon>AccountsModel.edmx</DependentUpon>
     </None>
-    <None Include="Contexts\Accounts\AccountsModel.tt">
+    <None Include="Contexts\AccountsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AccountsModel.edmx</DependentUpon>
       <LastGenOutput>AccountsModel.cs</LastGenOutput>
     </None>
-    <None Include="Contexts\Events\EventsModel.Context.tt">
+    <EntityDeploy Include="Contexts\EventsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EventsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Contexts\EventsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EventsModel.edmx</DependentUpon>
       <LastGenOutput>EventsModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="Contexts\Events\EventsModel.edmx.diagram">
+    <None Include="Contexts\EventsModel.edmx.diagram">
       <DependentUpon>EventsModel.edmx</DependentUpon>
     </None>
-    <None Include="Contexts\Events\EventsModel.tt">
+    <None Include="Contexts\EventsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EventsModel.edmx</DependentUpon>
       <LastGenOutput>EventsModel.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="Contexts\Invoices\InvoicesModel.edmx">
+    <EntityDeploy Include="Contexts\InvoicesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>InvoicesModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Contexts\Invoices\InvoicesModel.Context.tt">
+    <None Include="Contexts\InvoicesModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InvoicesModel.edmx</DependentUpon>
       <LastGenOutput>InvoicesModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="Contexts\Invoices\InvoicesModel.edmx.diagram">
+    <None Include="Contexts\InvoicesModel.edmx.diagram">
       <DependentUpon>InvoicesModel.edmx</DependentUpon>
     </None>
-    <None Include="Contexts\Invoices\InvoicesModel.tt">
+    <None Include="Contexts\InvoicesModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InvoicesModel.edmx</DependentUpon>
       <LastGenOutput>InvoicesModel.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="Contexts\Items\ItemsModel.edmx">
+    <EntityDeploy Include="Contexts\ItemsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ItemsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Contexts\Items\ItemsModel.Context.tt">
+    <None Include="Contexts\ItemsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ItemsModel.edmx</DependentUpon>
       <LastGenOutput>ItemsModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="Contexts\Items\ItemsModel.edmx.diagram">
+    <None Include="Contexts\ItemsModel.edmx.diagram">
       <DependentUpon>ItemsModel.edmx</DependentUpon>
     </None>
-    <None Include="Contexts\Items\ItemsModel.tt">
+    <None Include="Contexts\ItemsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ItemsModel.edmx</DependentUpon>
       <LastGenOutput>ItemsModel.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="Contexts\Packs\PacksModel.edmx">
+    <EntityDeploy Include="Contexts\PacksModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PacksModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Contexts\Packs\PacksModel.Context.tt">
+    <None Include="Contexts\PacksModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PacksModel.edmx</DependentUpon>
       <LastGenOutput>PacksModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="Contexts\Packs\PacksModel.edmx.diagram">
+    <None Include="Contexts\PacksModel.edmx.diagram">
       <DependentUpon>PacksModel.edmx</DependentUpon>
     </None>
-    <None Include="Contexts\Packs\PacksModel.tt">
+    <None Include="Contexts\PacksModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PacksModel.edmx</DependentUpon>
       <LastGenOutput>PacksModel.cs</LastGenOutput>

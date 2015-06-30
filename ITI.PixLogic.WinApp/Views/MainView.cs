@@ -9,12 +9,18 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ITI.PixLogic.DAL.Contexts.Accounts;
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.WinApp.Views
 {
 	public partial class MainView : Form
 	{
+		AccountsEntity _accountsEntity = new AccountsEntity();
+		EventsEntity _eventsEntity = new EventsEntity();
+		InvoicesEntity _invoicesEntity = new InvoicesEntity();
+		ItemsEntity _itemsEntity = new ItemsEntity();
+		PacksEntity _packsEntity = new PacksEntity();
+
 		public MainView()
 		{
 			InitializeComponent();
