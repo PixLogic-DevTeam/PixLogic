@@ -39,6 +39,7 @@
 			this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.changeTrackerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.configurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Resbutton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataListView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.reservationsEntityBindingSource)).BeginInit();
@@ -122,11 +123,22 @@
 			this.configurationDataGridViewTextBoxColumn.Name = "configurationDataGridViewTextBoxColumn";
 			this.configurationDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
+			// Resbutton
+			// 
+			this.Resbutton.Location = new System.Drawing.Point(27, 35);
+			this.Resbutton.Name = "Resbutton";
+			this.Resbutton.Size = new System.Drawing.Size(96, 48);
+			this.Resbutton.TabIndex = 3;
+			this.Resbutton.Text = "Faire une réservation";
+			this.Resbutton.UseVisualStyleBackColor = true;
+			this.Resbutton.Click += new System.EventHandler(this.Resbutton_Click);
+			// 
 			// MatérielView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(998, 622);
+			this.Controls.Add(this.Resbutton);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.dataListView1);
 			this.Name = "MatérielView";
@@ -152,5 +164,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn changeTrackerDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn configurationDataGridViewTextBoxColumn;
+		private System.Windows.Forms.Button Resbutton;
 	}
 }

@@ -44,5 +44,11 @@ namespace ITI.PixLogic.WinApp.Views
 				dataListView1.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.HeaderSize );
 			}
 		}
+
+		private void Resbutton_Click( object sender, EventArgs e )
+		{
+			new AddReservationForm().Show();
+			this.Hide();
+		}
 	}
 }
