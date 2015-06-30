@@ -10,11 +10,14 @@ using System.Windows.Forms;
 using ITI.PixLogic.DAL.Contexts.Accounts;
 using System.Data.Entity;
 using ITI.PixLogic.DAL.Contexts.Items;
+using ITI.PixLogic.DAL.Contexts.Reservations;
 
 namespace ITI.PixLogic.WinApp.Views
 {
 	public partial class MatérielView : Form
 	{
+		ReservationsEntity _reservationsEntity = new ReservationsEntity();
+
 		public MatérielView()
 		{
 			InitializeComponent();
@@ -26,17 +29,20 @@ namespace ITI.PixLogic.WinApp.Views
 
 		private void MatérielView_Load( object sender, EventArgs e )
 		{
-			ItemsEntity _itemsEntity = new ItemsEntity();
-			_itemsEntity.ItemSubCategories.Load();
-
-			List<string> _nameList = new List<string>();
-
-			foreach( Item a in _itemsEntity.Items )
+			var query =  _reservationsEntity.reservationexports;
+			var cons = query.ToList();
+			dataListView1.DataSource = cons;
+			dataListView1.Columns.RemoveAt( 0 );
+			for( int i = 0; i < 9 ; i++ )
 			{
-				_nameList.Add( a.ItemSubCategory.Name);
+				dataListView1.Columns.RemoveAt( i );
 			}
 
-			comboBoxItem.DataSource = _nameList;
+			for( int j=0; j < dataListView1.Columns.Count -1; j++ )
+			{
+				dataListView1.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.ColumnContent );
+				dataListView1.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.HeaderSize );
+			}
 		}
 	}
 }

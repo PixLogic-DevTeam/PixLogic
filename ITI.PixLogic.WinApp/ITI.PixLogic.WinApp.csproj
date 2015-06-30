@@ -231,6 +231,11 @@
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemsEntity1.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemState1.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationEvent1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.reservationexport.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationItem1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationPlanning1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationsEntity1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
