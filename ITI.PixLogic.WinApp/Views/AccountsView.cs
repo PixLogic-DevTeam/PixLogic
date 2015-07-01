@@ -15,7 +15,6 @@ namespace ITI.PixLogic.WinApp
 {
     public partial class AccountsView : Form
     {
-
 		AccountsEntity _accountsEntity = new AccountsEntity();
         public AccountsView()
         {
@@ -71,7 +70,6 @@ namespace ITI.PixLogic.WinApp
                 MessageBox.Show("Veuillez selectionner une ligne a supprimer");
             }
 
-
             else
             {
                 var toBeDeleted = (long)dataGridViewUsers.SelectedRows[0].Cells[0].Value;
@@ -81,8 +79,7 @@ namespace ITI.PixLogic.WinApp
                 _accountsEntity.Accounts.Load();
                 dataGridViewUsers.DataSource = _accountsEntity.Accounts.Local.ToBindingList();
                 
-            }
-           
+            }          
         }
 
         private void button_modify_Click(object sender, EventArgs e)

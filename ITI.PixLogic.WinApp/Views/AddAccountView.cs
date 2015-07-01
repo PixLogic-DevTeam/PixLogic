@@ -102,5 +102,10 @@ namespace ITI.PixLogic.WinApp
 			new AccountsView().Show();
 			this.Close();
 		}
+
+		private void labelHistoric_Click( object sender, EventArgs e )
+		{
+
+		}
 	}
 }

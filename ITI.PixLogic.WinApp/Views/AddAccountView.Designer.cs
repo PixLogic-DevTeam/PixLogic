@@ -46,6 +46,12 @@
 			this.CategoryLabel = new System.Windows.Forms.Label();
 			this.MainCategoryComboBox = new System.Windows.Forms.ComboBox();
 			this.buttonBack = new System.Windows.Forms.Button();
+			this.labelPhone = new System.Windows.Forms.Label();
+			this.textBoxPhone = new System.Windows.Forms.TextBox();
+			this.labelAdress = new System.Windows.Forms.Label();
+			this.richTextBoxAdress = new System.Windows.Forms.RichTextBox();
+			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+			this.labelHistoric = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// firstName
@@ -88,7 +94,7 @@
 			// state
 			// 
 			this.state.AutoSize = true;
-			this.state.Location = new System.Drawing.Point(48, 205);
+			this.state.Location = new System.Drawing.Point(48, 247);
 			this.state.Name = "state";
 			this.state.Size = new System.Drawing.Size(35, 13);
 			this.state.TabIndex = 4;
@@ -97,7 +103,7 @@
 			// wallet
 			// 
 			this.wallet.AutoSize = true;
-			this.wallet.Location = new System.Drawing.Point(48, 247);
+			this.wallet.Location = new System.Drawing.Point(48, 205);
 			this.wallet.Name = "wallet";
 			this.wallet.Size = new System.Drawing.Size(82, 13);
 			this.wallet.TabIndex = 5;
@@ -106,7 +112,7 @@
 			// subCategory
 			// 
 			this.subCategory.AutoSize = true;
-			this.subCategory.Location = new System.Drawing.Point(51, 286);
+			this.subCategory.Location = new System.Drawing.Point(385, 252);
 			this.subCategory.Name = "subCategory";
 			this.subCategory.Size = new System.Drawing.Size(84, 13);
 			this.subCategory.TabIndex = 7;
@@ -143,7 +149,7 @@
 			// 
 			// textBoxWallet
 			// 
-			this.textBoxWallet.Location = new System.Drawing.Point(224, 239);
+			this.textBoxWallet.Location = new System.Drawing.Point(224, 202);
 			this.textBoxWallet.Name = "textBoxWallet";
 			this.textBoxWallet.Size = new System.Drawing.Size(100, 20);
 			this.textBoxWallet.TabIndex = 13;
@@ -151,7 +157,7 @@
 			// 
 			// button_confirm
 			// 
-			this.button_confirm.Location = new System.Drawing.Point(224, 332);
+			this.button_confirm.Location = new System.Drawing.Point(749, 28);
 			this.button_confirm.Name = "button_confirm";
 			this.button_confirm.Size = new System.Drawing.Size(75, 23);
 			this.button_confirm.TabIndex = 14;
@@ -165,7 +171,7 @@
 			this.comboBoxState.Items.AddRange(new object[] {
             "Actif",
             "Inactif"});
-			this.comboBoxState.Location = new System.Drawing.Point(224, 205);
+			this.comboBoxState.Location = new System.Drawing.Point(224, 244);
 			this.comboBoxState.Name = "comboBoxState";
 			this.comboBoxState.Size = new System.Drawing.Size(121, 21);
 			this.comboBoxState.TabIndex = 15;
@@ -173,7 +179,7 @@
 			// UserCategoryComboBox
 			// 
 			this.UserCategoryComboBox.FormattingEnabled = true;
-			this.UserCategoryComboBox.Location = new System.Drawing.Point(224, 277);
+			this.UserCategoryComboBox.Location = new System.Drawing.Point(481, 252);
 			this.UserCategoryComboBox.Name = "UserCategoryComboBox";
 			this.UserCategoryComboBox.Size = new System.Drawing.Size(121, 21);
 			this.UserCategoryComboBox.TabIndex = 16;
@@ -182,7 +188,7 @@
 			// CategoryLabel
 			// 
 			this.CategoryLabel.AutoSize = true;
-			this.CategoryLabel.Location = new System.Drawing.Point(397, 36);
+			this.CategoryLabel.Location = new System.Drawing.Point(385, 291);
 			this.CategoryLabel.Name = "CategoryLabel";
 			this.CategoryLabel.Size = new System.Drawing.Size(58, 13);
 			this.CategoryLabel.TabIndex = 17;
@@ -192,7 +198,7 @@
 			// MainCategoryComboBox
 			// 
 			this.MainCategoryComboBox.FormattingEnabled = true;
-			this.MainCategoryComboBox.Location = new System.Drawing.Point(481, 33);
+			this.MainCategoryComboBox.Location = new System.Drawing.Point(481, 286);
 			this.MainCategoryComboBox.Name = "MainCategoryComboBox";
 			this.MainCategoryComboBox.Size = new System.Drawing.Size(121, 21);
 			this.MainCategoryComboBox.TabIndex = 18;
@@ -200,7 +206,7 @@
 			// 
 			// buttonBack
 			// 
-			this.buttonBack.Location = new System.Drawing.Point(481, 332);
+			this.buttonBack.Location = new System.Drawing.Point(749, 72);
 			this.buttonBack.Name = "buttonBack";
 			this.buttonBack.Size = new System.Drawing.Size(75, 23);
 			this.buttonBack.TabIndex = 19;
@@ -208,11 +214,68 @@
 			this.buttonBack.UseVisualStyleBackColor = true;
 			this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
 			// 
-			// AddUserAccountForm
+			// labelPhone
+			// 
+			this.labelPhone.AutoSize = true;
+			this.labelPhone.Location = new System.Drawing.Point(48, 294);
+			this.labelPhone.Name = "labelPhone";
+			this.labelPhone.Size = new System.Drawing.Size(64, 13);
+			this.labelPhone.TabIndex = 20;
+			this.labelPhone.Text = "Téléphone :";
+			// 
+			// textBoxPhone
+			// 
+			this.textBoxPhone.Location = new System.Drawing.Point(224, 291);
+			this.textBoxPhone.Name = "textBoxPhone";
+			this.textBoxPhone.Size = new System.Drawing.Size(100, 20);
+			this.textBoxPhone.TabIndex = 21;
+			// 
+			// labelAdress
+			// 
+			this.labelAdress.AutoSize = true;
+			this.labelAdress.Location = new System.Drawing.Point(399, 33);
+			this.labelAdress.Name = "labelAdress";
+			this.labelAdress.Size = new System.Drawing.Size(51, 13);
+			this.labelAdress.TabIndex = 22;
+			this.labelAdress.Text = "Adresse :";
+			// 
+			// richTextBoxAdress
+			// 
+			this.richTextBoxAdress.Location = new System.Drawing.Point(481, 33);
+			this.richTextBoxAdress.Name = "richTextBoxAdress";
+			this.richTextBoxAdress.Size = new System.Drawing.Size(223, 71);
+			this.richTextBoxAdress.TabIndex = 23;
+			this.richTextBoxAdress.Text = "";
+			// 
+			// richTextBox2
+			// 
+			this.richTextBox2.Location = new System.Drawing.Point(481, 138);
+			this.richTextBox2.Name = "richTextBox2";
+			this.richTextBox2.Size = new System.Drawing.Size(223, 84);
+			this.richTextBox2.TabIndex = 24;
+			this.richTextBox2.Text = "";
+			// 
+			// labelHistoric
+			// 
+			this.labelHistoric.AutoSize = true;
+			this.labelHistoric.Location = new System.Drawing.Point(399, 141);
+			this.labelHistoric.Name = "labelHistoric";
+			this.labelHistoric.Size = new System.Drawing.Size(60, 13);
+			this.labelHistoric.TabIndex = 25;
+			this.labelHistoric.Text = "Historique :";
+			this.labelHistoric.Click += new System.EventHandler(this.labelHistoric_Click);
+			// 
+			// AddAccountView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(614, 373);
+			this.ClientSize = new System.Drawing.Size(836, 435);
+			this.Controls.Add(this.labelHistoric);
+			this.Controls.Add(this.richTextBox2);
+			this.Controls.Add(this.richTextBoxAdress);
+			this.Controls.Add(this.labelAdress);
+			this.Controls.Add(this.textBoxPhone);
+			this.Controls.Add(this.labelPhone);
 			this.Controls.Add(this.buttonBack);
 			this.Controls.Add(this.MainCategoryComboBox);
 			this.Controls.Add(this.CategoryLabel);
@@ -231,7 +294,7 @@
 			this.Controls.Add(this.mail);
 			this.Controls.Add(this.lastName);
 			this.Controls.Add(this.firstName);
-			this.Name = "AddUserAccountForm";
+			this.Name = "AddAccountView";
 			this.Text = "PixLogic - Ajouter un compte d\'utilisateur";
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -258,5 +321,11 @@
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.ComboBox MainCategoryComboBox;
         private System.Windows.Forms.Button buttonBack;
+		private System.Windows.Forms.Label labelPhone;
+		private System.Windows.Forms.TextBox textBoxPhone;
+		private System.Windows.Forms.Label labelAdress;
+		private System.Windows.Forms.RichTextBox richTextBoxAdress;
+		private System.Windows.Forms.RichTextBox richTextBox2;
+		private System.Windows.Forms.Label labelHistoric;
     }
 }
