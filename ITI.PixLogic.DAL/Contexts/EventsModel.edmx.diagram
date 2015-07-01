@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="06c5bda0abd54764b9156b7f07c19439" Name="Diagram1">
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.ReservationEvent" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.ReservedItem" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.RestorationEvent" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.RestoredItem" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.view_reservations" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.view_restorations" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.reserveditems_ibfk_5" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.restoreditems_ibfk_4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

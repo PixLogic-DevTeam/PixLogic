@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <configSections>
-		<!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+		
 		<section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-  </configSections>
+  <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 --></configSections>
 	
   <startup>
     <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
@@ -11,17 +11,19 @@
 	
   <entityFramework>
     <providers>
-      <provider invariantName="MySql.Data.MySqlClient" type="MySql.Data.MySqlClient.MySqlProviderServices, MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+      
       <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
-    </providers>
+    <provider invariantName="MySql.Data.MySqlClient" type="MySql.Data.MySqlClient.MySqlProviderServices, MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+      </provider></providers>
     <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
       <parameters>
         <parameter value="mssqllocaldb" />
       </parameters>
     </defaultConnectionFactory>
   </entityFramework>
-	
-  <connectionStrings>
+
+	<connectionStrings>
+<<<<<<< HEAD
   <add name="AccountsEntity" connectionString="metadata=res://*/Contexts.Accounts.AccountsModel.csdl|res://*/Contexts.Accounts.AccountsModel.ssdl|res://*/Contexts.Accounts.AccountsModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;"
    providerName="System.Data.EntityClient" />
   <add name="InvoicesEntity" connectionString="metadata=res://*/Contexts.Invoices.InvoicesModel.csdl|res://*/Contexts.Invoices.InvoicesModel.ssdl|res://*/Contexts.Invoices.InvoicesModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;"
@@ -32,20 +34,23 @@
    providerName="System.Data.EntityClient" />
   <add name="ReservationsEntity" connectionString="metadata=res://*/Contexts.Reservations.ReservationsModel.csdl|res://*/Contexts.Reservations.ReservationsModel.ssdl|res://*/Contexts.Reservations.ReservationsModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;"
    providerName="System.Data.EntityClient" />
-<<<<<<< HEAD
-  <add name="ITI.PixLogic.WinApp.Properties.Settings.pixlogicdbConnectionString"
-   connectionString="server=localhost;user id=root;persistsecurityinfo=True;database=pixlogicdb"
-=======
   <add name="ITI.PixLogic.WinApp.Properties.Settings.PixLogicDBConnectionString"
    connectionString="server=localhost;user id=root;persistsecurityinfo=True;database=PixLogicDB"
->>>>>>> Statistics
    providerName="MySql.Data.MySqlClient" />
  </connectionStrings>
+=======
+		<add name="AccountsEntity" connectionString="metadata=res://*/Contexts.AccountsModel.csdl|res://*/Contexts.AccountsModel.ssdl|res://*/Contexts.AccountsModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;" providerName="System.Data.EntityClient" />
+		<add name="EventsEntity" connectionString="metadata=res://*/Contexts.EventsModel.csdl|res://*/Contexts.EventsModel.ssdl|res://*/Contexts.EventsModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;" providerName="System.Data.EntityClient" />
+		<add name="InvoicesEntity" connectionString="metadata=res://*/Contexts.InvoicesModel.csdl|res://*/Contexts.InvoicesModel.ssdl|res://*/Contexts.InvoicesModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;" providerName="System.Data.EntityClient" />
+		<add name="ItemsEntity" connectionString="metadata=res://*/Contexts.ItemsModel.csdl|res://*/Contexts.ItemsModel.ssdl|res://*/Contexts.ItemsModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;" providerName="System.Data.EntityClient" />
+		<add name="PacksEntity" connectionString="metadata=res://*/Contexts.PacksModel.csdl|res://*/Contexts.PacksModel.ssdl|res://*/Contexts.PacksModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=0000;database=PixLogicDB;persistsecurityinfo=True&quot;" providerName="System.Data.EntityClient" />
+	</connectionStrings>
+>>>>>>> DB_Updates
 	
-  <system.data>
+  
+<system.data>
     <DbProviderFactories>
       <remove invariant="MySql.Data.MySqlClient" />
       <add name="MySQL Data Provider" invariant="MySql.Data.MySqlClient" description=".Net Framework Data Provider for MySQL" type="MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
     </DbProviderFactories>
-  </system.data>
-</configuration>
+  </system.data></configuration>

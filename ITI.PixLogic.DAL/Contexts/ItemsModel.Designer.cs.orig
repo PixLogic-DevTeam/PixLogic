@@ -1,0 +1,14 @@
+<<<<<<< HEAD:ITI.PixLogic.DAL/Contexts/Items/ItemsModel.Designer.cs
+﻿// T4 code generation is enabled for model 'C:\Users\b\Documents\Visual Studio 2013\Projects\ITI.Pixlogic\PixLogic\ITI.PixLogic.DAL\Contexts\Items\ItemsModel.edmx'. 
+=======
+﻿// T4 code generation is enabled for model 'C:\Sources\C-Sharp\S4\Project\ITI.PixLogic\ITI.PixLogic.DAL\Contexts\ItemsModel.edmx'. 
+>>>>>>> DB_Updates:ITI.PixLogic.DAL/Contexts/ItemsModel.Designer.cs
+// To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
+// property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
+// is open in the designer.
+
+// If no context and entity classes have been generated, it may be because you created an empty model but
+// have not yet chosen which version of Entity Framework to use. To generate a context class and entity
+// classes for your model, open the model in the designer, right-click on the designer surface, and
+// select 'Update Model from Database...', 'Generate Database from Model...', or 'Add Code Generation
+// Item...'.

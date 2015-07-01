@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ITI.PixLogic.DAL.Contexts.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ReservationEvents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Indication" Type="text" />
+          <Property Name="EventState" Type="enum" Nullable="false" />
+          <Property Name="PlannedStartDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="PlannedEndDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="Reserver" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReservedItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RealStartDate" Type="datetime" Precision="0" />
+          <Property Name="RealEndDate" Type="datetime" Precision="0" />
+          <Property Name="UsedItem" Type="uint" Nullable="false" />
+          <Property Name="UsedPack" Type="uint" />
+          <Property Name="InitialState" Type="uint" Nullable="false" />
+          <Property Name="ReturnState" Type="uint" />
+          <Property Name="Reservation" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RestorationEvents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Indication" Type="text" />
+          <Property Name="EventState" Type="enum" Nullable="false" />
+          <Property Name="PlannedStartDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="PlannedEndDate" Type="datetime" Precision="0" />
+          <Property Name="Restorer" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RestoredItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RealStartDate" Type="datetime" Precision="0" />
+          <Property Name="RealEndDate" Type="datetime" Precision="0" />
+          <Property Name="UsedItem" Type="uint" Nullable="false" />
+          <Property Name="InitialState" Type="uint" Nullable="false" />
+          <Property Name="ReturnState" Type="uint" />
+          <Property Name="Restoration" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.pixlogicdb.view_reservations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_reservations">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="uint" Nullable="false" />
+          <Property Name="ReservationEventState" Type="enum" Nullable="false" />
+          <Property Name="ReservationIndication" Type="text" />
+          <Property Name="ReserverEmail" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ReserverWallet" Type="int" Nullable="false" />
+          <Property Name="ReserverHistoric" Type="text" />
+          <Property Name="PlannedStartDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="RealStartDate" Type="datetime" Precision="0" />
+          <Property Name="PlannedEndDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="RealEndDate" Type="datetime" Precision="0" />
+          <Property Name="UsedPack" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemEAN13" Type="uint" />
+          <Property Name="ItemBrand" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemReference" Type="tinytext" Nullable="false" />
+          <Property Name="ItemDescription" Type="text" />
+          <Property Name="ItemCost" Type="uint" Nullable="false" />
+          <Property Name="ItemStateBefore" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemStateAfter" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemStateNow" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemIsUsable" Type="bool" Nullable="false" />
+          <Property Name="ItemIsConsumable" Type="bool" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.pixlogicdb.view_restorations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_restorations">
+          <Key>
+            <PropertyRef Name="RestorationId" />
+          </Key>
+          <Property Name="RestorationId" Type="uint" Nullable="false" />
+          <Property Name="RestorationIndication" Type="text" />
+          <Property Name="RestorationEventState" Type="enum" Nullable="false" />
+          <Property Name="RestorerName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PlannedStartDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="RealStartDate" Type="datetime" Precision="0" />
+          <Property Name="PlannedEndDate" Type="datetime" Precision="0" />
+          <Property Name="RealEndDate" Type="datetime" Precision="0" />
+          <Property Name="ItemEAN13" Type="uint" />
+          <Property Name="ItemBrand" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemReference" Type="tinytext" Nullable="false" />
+          <Property Name="ItemDescription" Type="text" />
+          <Property Name="ItemStateBefore" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemStateAfter" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemStateNow" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ItemIsUsable" Type="bool" Nullable="false" />
+          <Property Name="ItemIsReservable" Type="bool" Nullable="false" />
+          <Property Name="ItemIsConsumable" Type="bool" Nullable="false" />
+        </EntityType>
+        <Association Name="reserveditems_ibfk_5">
+          <End Role="ReservationEvents" Type="Self.ReservationEvents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReservedItems" Type="Self.ReservedItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationEvents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedItems">
+              <PropertyRef Name="Reservation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="restoreditems_ibfk_4">
+          <End Role="RestorationEvents" Type="Self.RestorationEvents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RestoredItems" Type="Self.RestoredItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RestorationEvents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RestoredItems">
+              <PropertyRef Name="Restoration" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ITIPixLogicDALContextsStoreContainer">
+          <EntitySet Name="ReservationEvents" EntityType="Self.ReservationEvents" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="ReservedItems" EntityType="Self.ReservedItems" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="RestorationEvents" EntityType="Self.RestorationEvents" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="RestoredItems" EntityType="Self.RestoredItems" Schema="pixlogicdb" store:Type="Tables" />
+          <EntitySet Name="view_reservations" EntityType="Self.view_reservations" store:Type="Views" store:Schema="pixlogicdb">
+            <DefiningQuery>SELECT
+`view_reservations`.`ReservationId`, 
+`view_reservations`.`ReservationEventState`, 
+`view_reservations`.`ReservationIndication`, 
+`view_reservations`.`ReserverEmail`, 
+`view_reservations`.`ReserverWallet`, 
+`view_reservations`.`ReserverHistoric`, 
+`view_reservations`.`PlannedStartDate`, 
+`view_reservations`.`RealStartDate`, 
+`view_reservations`.`PlannedEndDate`, 
+`view_reservations`.`RealEndDate`, 
+`view_reservations`.`UsedPack`, 
+`view_reservations`.`ItemEAN13`, 
+`view_reservations`.`ItemBrand`, 
+`view_reservations`.`ItemReference`, 
+`view_reservations`.`ItemDescription`, 
+`view_reservations`.`ItemCost`, 
+`view_reservations`.`ItemStateBefore`, 
+`view_reservations`.`ItemStateAfter`, 
+`view_reservations`.`ItemStateNow`, 
+`view_reservations`.`ItemIsUsable`, 
+`view_reservations`.`ItemIsConsumable`
+FROM `view_reservations` AS `view_reservations`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_restorations" EntityType="Self.view_restorations" store:Type="Views" store:Schema="pixlogicdb">
+            <DefiningQuery>SELECT
+`view_restorations`.`RestorationId`, 
+`view_restorations`.`RestorationIndication`, 
+`view_restorations`.`RestorationEventState`, 
+`view_restorations`.`RestorerName`, 
+`view_restorations`.`PlannedStartDate`, 
+`view_restorations`.`RealStartDate`, 
+`view_restorations`.`PlannedEndDate`, 
+`view_restorations`.`RealEndDate`, 
+`view_restorations`.`ItemEAN13`, 
+`view_restorations`.`ItemBrand`, 
+`view_restorations`.`ItemReference`, 
+`view_restorations`.`ItemDescription`, 
+`view_restorations`.`ItemStateBefore`, 
+`view_restorations`.`ItemStateAfter`, 
+`view_restorations`.`ItemStateNow`, 
+`view_restorations`.`ItemIsUsable`, 
+`view_restorations`.`ItemIsReservable`, 
+`view_restorations`.`ItemIsConsumable`
+FROM `view_restorations` AS `view_restorations`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="reserveditems_ibfk_5" Association="Self.reserveditems_ibfk_5">
+            <End Role="ReservationEvents" EntitySet="ReservationEvents" />
+            <End Role="ReservedItems" EntitySet="ReservedItems" />
+          </AssociationSet>
+          <AssociationSet Name="restoreditems_ibfk_4" Association="Self.restoreditems_ibfk_4">
+            <End Role="RestorationEvents" EntitySet="RestorationEvents" />
+            <End Role="RestoredItems" EntitySet="RestoredItems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITI.PixLogic.DAL.Contexts" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ReservationEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Indication" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="EventState" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlannedStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="PlannedEndDate" Type="DateTime" Nullable="false" />
+          <Property Name="Reserver" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ReservedItems" Relationship="Self.reserveditems_ibfk_5" FromRole="ReservationEvents" ToRole="ReservedItems" />
+        </EntityType>
+        <EntityType Name="ReservedItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RealStartDate" Type="DateTime" />
+          <Property Name="RealEndDate" Type="DateTime" />
+          <Property Name="UsedItem" Type="Int64" Nullable="false" />
+          <Property Name="UsedPack" Type="Int64" />
+          <Property Name="InitialState" Type="Int64" Nullable="false" />
+          <Property Name="ReturnState" Type="Int64" />
+          <Property Name="Reservation" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ReservationEvent" Relationship="Self.reserveditems_ibfk_5" FromRole="ReservedItems" ToRole="ReservationEvents" />
+        </EntityType>
+        <EntityType Name="RestorationEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Indication" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="EventState" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlannedStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="PlannedEndDate" Type="DateTime" />
+          <Property Name="Restorer" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="RestoredItems" Relationship="Self.restoreditems_ibfk_4" FromRole="RestorationEvents" ToRole="RestoredItems" />
+        </EntityType>
+        <EntityType Name="RestoredItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RealStartDate" Type="DateTime" />
+          <Property Name="RealEndDate" Type="DateTime" />
+          <Property Name="UsedItem" Type="Int64" Nullable="false" />
+          <Property Name="InitialState" Type="Int64" Nullable="false" />
+          <Property Name="ReturnState" Type="Int64" />
+          <Property Name="Restoration" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="RestorationEvent" Relationship="Self.restoreditems_ibfk_4" FromRole="RestoredItems" ToRole="RestorationEvents" />
+        </EntityType>
+        <EntityType Name="view_reservations">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="Int64" Nullable="false" />
+          <Property Name="ReservationEventState" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReservationIndication" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="ReserverEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReserverWallet" Type="Int32" Nullable="false" />
+          <Property Name="ReserverHistoric" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="PlannedStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="RealStartDate" Type="DateTime" />
+          <Property Name="PlannedEndDate" Type="DateTime" Nullable="false" />
+          <Property Name="RealEndDate" Type="DateTime" />
+          <Property Name="UsedPack" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemEAN13" Type="Int64" />
+          <Property Name="ItemBrand" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemReference" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCost" Type="Int64" Nullable="false" />
+          <Property Name="ItemStateBefore" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemStateAfter" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemStateNow" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemIsUsable" Type="Boolean" Nullable="false" />
+          <Property Name="ItemIsConsumable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_restorations">
+          <Key>
+            <PropertyRef Name="RestorationId" />
+          </Key>
+          <Property Name="RestorationId" Type="Int64" Nullable="false" />
+          <Property Name="RestorationIndication" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="RestorationEventState" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RestorerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlannedStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="RealStartDate" Type="DateTime" />
+          <Property Name="PlannedEndDate" Type="DateTime" />
+          <Property Name="RealEndDate" Type="DateTime" />
+          <Property Name="ItemEAN13" Type="Int64" />
+          <Property Name="ItemBrand" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemReference" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="ItemStateBefore" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemStateAfter" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemStateNow" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemIsUsable" Type="Boolean" Nullable="false" />
+          <Property Name="ItemIsReservable" Type="Boolean" Nullable="false" />
+          <Property Name="ItemIsConsumable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="reserveditems_ibfk_5">
+          <End Role="ReservationEvents" Type="Self.ReservationEvent" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReservedItems" Type="Self.ReservedItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationEvents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedItems">
+              <PropertyRef Name="Reservation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="restoreditems_ibfk_4">
+          <End Role="RestorationEvents" Type="Self.RestorationEvent" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RestoredItems" Type="Self.RestoredItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RestorationEvents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RestoredItems">
+              <PropertyRef Name="Restoration" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EventsEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ReservationEvents" EntityType="Self.ReservationEvent" />
+          <EntitySet Name="ReservedItems" EntityType="Self.ReservedItem" />
+          <EntitySet Name="RestorationEvents" EntityType="Self.RestorationEvent" />
+          <EntitySet Name="RestoredItems" EntityType="Self.RestoredItem" />
+          <EntitySet Name="view_reservations" EntityType="Self.view_reservations" />
+          <EntitySet Name="view_restorations" EntityType="Self.view_restorations" />
+          <AssociationSet Name="reserveditems_ibfk_5" Association="Self.reserveditems_ibfk_5">
+            <End Role="ReservationEvents" EntitySet="ReservationEvents" />
+            <End Role="ReservedItems" EntitySet="ReservedItems" />
+          </AssociationSet>
+          <AssociationSet Name="restoreditems_ibfk_4" Association="Self.restoreditems_ibfk_4">
+            <End Role="RestorationEvents" EntitySet="RestorationEvents" />
+            <End Role="RestoredItems" EntitySet="RestoredItems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITIPixLogicDALContextsStoreContainer" CdmEntityContainer="EventsEntity">
+          <EntitySetMapping Name="ReservationEvents">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.ReservationEvent">
+              <MappingFragment StoreEntitySet="ReservationEvents">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Indication" ColumnName="Indication" />
+                <ScalarProperty Name="EventState" ColumnName="EventState" />
+                <ScalarProperty Name="PlannedStartDate" ColumnName="PlannedStartDate" />
+                <ScalarProperty Name="PlannedEndDate" ColumnName="PlannedEndDate" />
+                <ScalarProperty Name="Reserver" ColumnName="Reserver" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservedItems">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.ReservedItem">
+              <MappingFragment StoreEntitySet="ReservedItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RealStartDate" ColumnName="RealStartDate" />
+                <ScalarProperty Name="RealEndDate" ColumnName="RealEndDate" />
+                <ScalarProperty Name="UsedItem" ColumnName="UsedItem" />
+                <ScalarProperty Name="UsedPack" ColumnName="UsedPack" />
+                <ScalarProperty Name="InitialState" ColumnName="InitialState" />
+                <ScalarProperty Name="ReturnState" ColumnName="ReturnState" />
+                <ScalarProperty Name="Reservation" ColumnName="Reservation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RestorationEvents">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.RestorationEvent">
+              <MappingFragment StoreEntitySet="RestorationEvents">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Indication" ColumnName="Indication" />
+                <ScalarProperty Name="EventState" ColumnName="EventState" />
+                <ScalarProperty Name="PlannedStartDate" ColumnName="PlannedStartDate" />
+                <ScalarProperty Name="PlannedEndDate" ColumnName="PlannedEndDate" />
+                <ScalarProperty Name="Restorer" ColumnName="Restorer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RestoredItems">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.RestoredItem">
+              <MappingFragment StoreEntitySet="RestoredItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RealStartDate" ColumnName="RealStartDate" />
+                <ScalarProperty Name="RealEndDate" ColumnName="RealEndDate" />
+                <ScalarProperty Name="UsedItem" ColumnName="UsedItem" />
+                <ScalarProperty Name="InitialState" ColumnName="InitialState" />
+                <ScalarProperty Name="ReturnState" ColumnName="ReturnState" />
+                <ScalarProperty Name="Restoration" ColumnName="Restoration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_reservations">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.view_reservations">
+              <MappingFragment StoreEntitySet="view_reservations">
+                <ScalarProperty Name="ReservationId" ColumnName="ReservationId" />
+                <ScalarProperty Name="ReservationEventState" ColumnName="ReservationEventState" />
+                <ScalarProperty Name="ReservationIndication" ColumnName="ReservationIndication" />
+                <ScalarProperty Name="ReserverEmail" ColumnName="ReserverEmail" />
+                <ScalarProperty Name="ReserverWallet" ColumnName="ReserverWallet" />
+                <ScalarProperty Name="ReserverHistoric" ColumnName="ReserverHistoric" />
+                <ScalarProperty Name="PlannedStartDate" ColumnName="PlannedStartDate" />
+                <ScalarProperty Name="RealStartDate" ColumnName="RealStartDate" />
+                <ScalarProperty Name="PlannedEndDate" ColumnName="PlannedEndDate" />
+                <ScalarProperty Name="RealEndDate" ColumnName="RealEndDate" />
+                <ScalarProperty Name="UsedPack" ColumnName="UsedPack" />
+                <ScalarProperty Name="ItemEAN13" ColumnName="ItemEAN13" />
+                <ScalarProperty Name="ItemBrand" ColumnName="ItemBrand" />
+                <ScalarProperty Name="ItemReference" ColumnName="ItemReference" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemCost" ColumnName="ItemCost" />
+                <ScalarProperty Name="ItemStateBefore" ColumnName="ItemStateBefore" />
+                <ScalarProperty Name="ItemStateAfter" ColumnName="ItemStateAfter" />
+                <ScalarProperty Name="ItemStateNow" ColumnName="ItemStateNow" />
+                <ScalarProperty Name="ItemIsUsable" ColumnName="ItemIsUsable" />
+                <ScalarProperty Name="ItemIsConsumable" ColumnName="ItemIsConsumable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_restorations">
+            <EntityTypeMapping TypeName="ITI.PixLogic.DAL.Contexts.view_restorations">
+              <MappingFragment StoreEntitySet="view_restorations">
+                <ScalarProperty Name="RestorationId" ColumnName="RestorationId" />
+                <ScalarProperty Name="RestorationIndication" ColumnName="RestorationIndication" />
+                <ScalarProperty Name="RestorationEventState" ColumnName="RestorationEventState" />
+                <ScalarProperty Name="RestorerName" ColumnName="RestorerName" />
+                <ScalarProperty Name="PlannedStartDate" ColumnName="PlannedStartDate" />
+                <ScalarProperty Name="RealStartDate" ColumnName="RealStartDate" />
+                <ScalarProperty Name="PlannedEndDate" ColumnName="PlannedEndDate" />
+                <ScalarProperty Name="RealEndDate" ColumnName="RealEndDate" />
+                <ScalarProperty Name="ItemEAN13" ColumnName="ItemEAN13" />
+                <ScalarProperty Name="ItemBrand" ColumnName="ItemBrand" />
+                <ScalarProperty Name="ItemReference" ColumnName="ItemReference" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemStateBefore" ColumnName="ItemStateBefore" />
+                <ScalarProperty Name="ItemStateAfter" ColumnName="ItemStateAfter" />
+                <ScalarProperty Name="ItemStateNow" ColumnName="ItemStateNow" />
+                <ScalarProperty Name="ItemIsUsable" ColumnName="ItemIsUsable" />
+                <ScalarProperty Name="ItemIsReservable" ColumnName="ItemIsReservable" />
+                <ScalarProperty Name="ItemIsConsumable" ColumnName="ItemIsConsumable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

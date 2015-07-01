@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+<<<<<<< HEAD:ITI.PixLogic.DAL/Contexts/Accounts/AccountsModel.edmx.diagram
+      <Diagram DiagramId="6e09fbab3b3e4f99aab3f5249dd0cfab" Name="Diagram1">
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Accounts.AccountMainCategory" Width="1.875" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Accounts.Account" Width="1.875" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Accounts.AccountSubCategory" Width="1.875" PointX="3" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Accounts.accountsubcategories_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.Accounts.accounts_ibfk_1" ManuallyRouted="false" />
+=======
+      <Diagram DiagramId="58bde211735449949ebf9f74062d03c7" Name="Diagram1">
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.AccountCategory" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.AccountDivision" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.Account" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITI.PixLogic.DAL.Contexts.view_accounts" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.accountdivisions_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="ITI.PixLogic.DAL.Contexts.accounts_ibfk_1" ManuallyRouted="false" />
+>>>>>>> DB_Updates:ITI.PixLogic.DAL/Contexts/AccountsModel.edmx.diagram
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

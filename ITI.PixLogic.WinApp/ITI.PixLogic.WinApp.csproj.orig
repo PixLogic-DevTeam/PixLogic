@@ -11,21 +11,6 @@
     <AssemblyName>ITI.PixLogic.WinApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,20 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp">
+    <Reference Include="itextsharp, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\iTextSharp.5.5.6\lib\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="LumenWorks.Framework.IO">
-      <HintPath>..\packages\LumenWorks.Framework.IO.3.8.0\lib\net20\LumenWorks.Framework.IO.dll</HintPath>
-    <Reference Include="LumenWorks.Framework.IO">
+    <Reference Include="LumenWorks.Framework.IO, Version=3.8.0.0, Culture=neutral, PublicKeyToken=5ad3ea2f85776344, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LumenWorks.Framework.IO.3.8.0\lib\net20\LumenWorks.Framework.IO.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
@@ -70,8 +53,12 @@
     <Reference Include="MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.Entity.6.9.6\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
-    <Reference Include="ObjectListView">
-      <HintPath>..\packages\ObjectListView.Official.2.8.1\lib\net20\ObjectListView.dll</HintPath>
+    <Reference Include="ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\examples\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Ribbon">
+      <HintPath>..\tools\RibbonLibBuild70298\Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -79,9 +66,9 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,7 +79,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+    <Compile Include="pixlogicdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pixlogicdbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pixlogicdbDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pixlogicdbDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Views\AccountsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +100,12 @@
     </Compile>
     <Compile Include="Views\AddCapitalizedView.Designer.cs">
       <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddConsumables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddConsumables.Designer.cs">
+      <DependentUpon>AddConsumables.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\AddConsumableView.cs">
       <SubType>Form</SubType>
@@ -117,6 +119,12 @@
     <Compile Include="Views\AddAccountView.Designer.cs">
       <DependentUpon>AddAccountView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddReservationForm.Designer.cs">
+      <DependentUpon>AddReservationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CapitalizedView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,15 +137,18 @@
     <Compile Include="Views\ConsumablesView.Designer.cs">
       <DependentUpon>ConsumablesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeView.cs">
-=======
+    <Compile Include="Views\ContactView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ContactView.Designer.cs">
+      <DependentUpon>ContactView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\HomeView.Designer.cs">
       <DependentUpon>HomeView.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Views\ModifyAccountView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,11 +157,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+    <Compile Include="Views\MatérielView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MatérielView.Designer.cs">
+      <DependentUpon>MatérielView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\AccountsView.resx">
       <DependentUpon>AccountsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AddCapitalizedView.resx">
       <DependentUpon>AddCapitalizedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddConsumables.resx">
+      <DependentUpon>AddConsumables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AddConsumableView.resx">
       <DependentUpon>AddConsumableView.cs</DependentUpon>
@@ -158,23 +179,31 @@
     <EmbeddedResource Include="Views\AddAccountView.resx">
       <DependentUpon>AddAccountView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddReservationForm.resx">
+      <DependentUpon>AddReservationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CapitalizedView.resx">
       <DependentUpon>CapitalizedView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ConsumablesView.resx">
       <DependentUpon>ConsumablesView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ContactView.resx">
+      <DependentUpon>ContactView.cs</DependentUpon>
+    </EmbeddedResource>
+=======
+    <Compile Include="Views\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+>>>>>>> DB_Updates
     <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModifyAccountView.resx">
       <DependentUpon>ModifyAccountView.cs</DependentUpon>
-    </EmbeddedResource>
-=======
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Views\HomeView.resx">
-      <DependentUpon>HomeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,7 +214,54 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Views\MatérielView.resx">
+      <DependentUpon>MatérielView.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Views\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+>>>>>>> DB_Updates
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="pixlogicdbDataSet.xsc">
+      <DependentUpon>pixlogicdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="pixlogicdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pixlogicdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pixlogicdbDataSet.xss">
+      <DependentUpon>pixlogicdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="pixlogicdbDataSet1.xsc">
+      <DependentUpon>pixlogicdbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="pixlogicdbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pixlogicdbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pixlogicdbDataSet1.xss">
+      <DependentUpon>pixlogicdbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.account.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_main_categories.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_sub_categories.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.capitalized.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.Item1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemBrand1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemMainCategory1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemRestoration1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemsEntity1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemState1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationEvent1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.reservationexport.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationItem1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationPlanning1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationsEntity1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,37 +271,37 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="RibbonMarkup.ribbon">
+      <DependentUpon>RibbonMarkup.xml</DependentUpon>
+    </EmbeddedResource>
+    <None Include="RibbonMarkup.log">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RibbonMarkup.xml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ITI.PixLogic.BLL\ITI.PixLogic.BLL.csproj">
+      <Project>{5c575dde-54f6-46f0-bde6-49733496811f}</Project>
+      <Name>ITI.PixLogic.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ITI.PixLogic.DAL\ITI.PixLogic.DAL.csproj">
       <Project>{3a9317a0-32dc-475a-aac2-4b9ffa819f69}</Project>
       <Name>ITI.PixLogic.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-    <Folder Include="Properties\DataSources\" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <Content Include="RibbonMarkup.xml">
+      <SubType>Designer</SubType>
+      <Generator>RibbonGenerator</Generator>
+      <LastGenOutput>RibbonMarkup.log</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
