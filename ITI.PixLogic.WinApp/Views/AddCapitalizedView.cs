@@ -1,7 +1,4 @@
-﻿using ITI.PixLogic.DAL;
-using ITI.PixLogic.DAL.Contexts.Items;
-using ITI.PixLogic.DAL.Contexts.Invoices;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
-
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.WinApp
 {
@@ -49,8 +44,8 @@ namespace ITI.PixLogic.WinApp
 
 		private void SubCatComboBox_Click( object sender, EventArgs e )
 		{
-            _itemsEntity.ItemSubCategories.Load( );
-            SubCatComboBox.DataSource = _itemsEntity.ItemSubCategories.Local.ToBindingList( );
+            _itemsEntity.ItemFunctionalCategories.Load( );
+			SubCatComboBox.DataSource = _itemsEntity.ItemFunctionalCategories.Local.ToBindingList();
 			SubCatComboBox.ValueMember = "id";
 			SubCatComboBox.DisplayMember = "name";
 		}
@@ -96,10 +91,10 @@ namespace ITI.PixLogic.WinApp
             brand.Name = BrandComboBox.Text;
             item.ItemBrand = brand;
 
-            ItemSubCategory subCategory = _itemsEntity.ItemSubCategories.FirstOrDefault( o => o.Name == SubCatComboBox.Text );
+			ItemFunctionalCategory funcCat = _itemsEntity.ItemFunctionalCategories.FirstOrDefault( o => o.Name == SubCatComboBox.Text );
 			//Debug.Assert( subCategory != null );
-			subCategory.Name = SubCatComboBox.Text;
-            item.ItemSubCategory = subCategory;
+			funcCat.Name = SubCatComboBox.Text;
+			item.ItemFunctionalCategory = funcCat;
 
 			Invoice invoice = _invoiceEntity.Invoices.FirstOrDefault( o => o.Id == InvoiceComboBox.SelectedIndex+1);
 			//Debug.Assert( invoce != null );
@@ -117,14 +112,14 @@ namespace ITI.PixLogic.WinApp
 
             _itemsEntity = new ItemsEntity();
 
-            var query = from it in _itemsEntity.Items
+            var query = from item2 in _itemsEntity.Items
 
-                        join sub in _itemsEntity.ItemSubCategories on it.SubCategory equals sub.Id
-                        join bra in _itemsEntity.ItemBrands on it.Brand equals bra.Id
-                        join sta in _itemsEntity.ItemStates on it.CurrentState equals sta.Id
+                        join funcCat2 in _itemsEntity.ItemFunctionalCategories on item2.FunctionalCategory equals funcCat2.Id
+                        join brand2 in _itemsEntity.ItemBrands on item2.Brand equals brand2.Id
+                        join state2 in _itemsEntity.ItemStates on item2.CurrentState equals state2.Id
                         //join inv in _invoicesEntity.Invoices on c.RelatedInvoice equals inv.Id
-                        orderby it.Id
-                        select new CapitalizedItemModel { items = it, item_brands = bra, item_sub_categories = sub, item_state = sta, /*invoices = inv*/ };
+                        orderby item2.Id
+                        select new CapitalizedItemModel { item = item2, item_brand = brand2, item_func_category = funcCat2, item_state = state, /*invoices = inv*/ };
             var cons = query.ToList();
             _capitalizedViewMain.CapitalizedDataListView.DataSource = cons;
             

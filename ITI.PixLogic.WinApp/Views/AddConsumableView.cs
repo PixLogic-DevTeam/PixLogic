@@ -1,7 +1,4 @@
-﻿using ITI.PixLogic.DAL;
-using ITI.PixLogic.DAL.Contexts.Items;
-using ITI.PixLogic.DAL.Contexts.Invoices;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ITI.PixLogic.WinApp.Views;
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.WinApp
 {
@@ -48,13 +46,13 @@ namespace ITI.PixLogic.WinApp
 			ItemState state = _itemsEntity.ItemStates.First();
 			objConsumable.ItemState = state;
 
-			ItemSubCategory subCategory = _itemsEntity.ItemSubCategories.FirstOrDefault(o => o.Name == subCategoryComboBox.Text);
-			subCategory.Name = subCategoryComboBox.Text;
-			objConsumable.ItemSubCategory = subCategory;
+			ItemFunctionalCategory functionalCategory = _itemsEntity.ItemFunctionalCategories.FirstOrDefault( o => o.Name == subCategoryComboBox.Text );
+			functionalCategory.Name = subCategoryComboBox.Text;
+			objConsumable.ItemFunctionalCategory = functionalCategory;
 
-			ItemMainCategory mainCategory = _itemsEntity.ItemMainCategories.FirstOrDefault(o => o.Name == mainCategoryComboBox.Text);
-			mainCategory.Name = mainCategoryComboBox.Text;
-			objConsumable.ItemSubCategory.ItemMainCategory = mainCategory;
+			ItemCategory category = _itemsEntity.ItemCategories.FirstOrDefault(o => o.Name == mainCategoryComboBox.Text);
+			category.Name = mainCategoryComboBox.Text;
+			objConsumable.ItemFunctionalCategory.ItemCategory = category;
 
 
 			Invoice invoice = _invoiceEntity.Invoices.First();
@@ -85,9 +83,9 @@ namespace ITI.PixLogic.WinApp
 		private void subCategoryComboBox_Click(object sender, EventArgs e)
 		{
 			_itemsEntity = new ItemsEntity();
-			_itemsEntity.ItemSubCategories.Load();
+			_itemsEntity.ItemFunctionalCategories.Load();
 
-			subCategoryComboBox.DataSource = _itemsEntity.ItemSubCategories.Local.ToBindingList();
+			subCategoryComboBox.DataSource = _itemsEntity.ItemFunctionalCategories.Local.ToBindingList();
 			subCategoryComboBox.ValueMember = "id";
 			subCategoryComboBox.DisplayMember = "name";
 		}
@@ -95,9 +93,9 @@ namespace ITI.PixLogic.WinApp
 		private void mainCategoryComboBox_Click(object sender, EventArgs e)
 		{
 			_itemsEntity = new ItemsEntity();
-			_itemsEntity.ItemMainCategories.Load();
+			_itemsEntity.ItemCategories.Load();
 
-			mainCategoryComboBox.DataSource = _itemsEntity.ItemMainCategories.Local.ToBindingList();
+			mainCategoryComboBox.DataSource = _itemsEntity.ItemCategories.Local.ToBindingList();
 			mainCategoryComboBox.ValueMember = "id";
 			mainCategoryComboBox.DisplayMember = "name";
 		}

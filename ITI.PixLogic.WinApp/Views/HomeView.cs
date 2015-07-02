@@ -1,9 +1,4 @@
-﻿using iTextSharp;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using LumenWorks.Framework.IO.Csv;
-using ITI.PixLogic.DAL.Contexts.Accounts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,23 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ITI.PixLogic.DAL.Contexts.Reservations;
 using System.Data.SqlClient;
-using ITI.PixLogic.DAL.Contexts.Items;
-using ITI.PixLogic.BLL;
-using ITI.PixLogic.DAL.Contexts.Items;
 using System.Windows.Forms.DataVisualization.Charting;
-using ITI.PixLogic.DAL.Contexts.Packs;
-using ITI.PixLogic.DAL.Contexts.Invoices;
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using LumenWorks.Framework.IO.Csv;
 using ITI.PixLogic.WinApp.Views;
-
+using ITI.PixLogic.BLL;
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.WinApp
 {
 	public partial class HomeView : Form
 	{
 		AccountsEntity _accountsEntity = new AccountsEntity();
-		ReservationsEntity _reservationsEntity = new ReservationsEntity();
+		EventsEntity _reservationsEntity = new EventsEntity();
 		ItemsEntity _itemsEntity = new ItemsEntity();
 		PacksEntity _packsEntity = new PacksEntity();
 		InvoicesEntity _invoicesEntity = new InvoicesEntity();
@@ -71,24 +65,24 @@ namespace ITI.PixLogic.WinApp
 								user.FirstName = csv[1];
 								user.LastName = csv[2];
 								user.Email = csv[3];
-								user.Password = csv[4];
-								user.Salt = csv[5];
+								//user.Password = csv[4];
+								//user.Salt = csv[5];
 								user.Phone = csv[6];
 								user.Adress = csv[7];
 								user.Historic = csv[8];
 								user.Wallet = Convert.ToInt32( csv[9] );
 								//user.active = Convert.ToBoolean( csv[10] );
 								//user.Banned = Convert.ToBoolean( csv[11] );
-								user.PicturePath = csv[12];
+								user.PortraitPath = csv[12];
 
-								string subCategory = csv[13];
-								AccountSubCategory asc = _accountsEntity.AccountSubCategories.FirstOrDefault( o => o.Name == subCategory );
-								user.SubCategory = asc.Id;
-								user.AccountSubCategory = asc;
+								string strDiv = csv[13];
+								AccountDivision div = _accountsEntity.AccountDivisions.FirstOrDefault( o => o.Name == strDiv );
+								user.Division = div.Id;
+								user.AccountDivision = div;
 
-								string mainCategory = csv[14];
-								AccountMainCategory amc = _accountsEntity.AccountMainCategories.FirstOrDefault( o => o.Name == mainCategory );
-								user.AccountSubCategory.AccountMainCategory = amc;
+								string strCat = csv[14];
+								AccountCategory cat = _accountsEntity.AccountCategories.FirstOrDefault( o => o.Name == strCat );
+								user.AccountDivision.AccountCategory = cat;
 
 								if( _accountsEntity.Accounts.FirstOrDefault<Account>( u => u.Email == user.Email ) != null )
 									MessageBox.Show( "Erreur : l'entrée n°" + user.Id + " n'as pas pu être inséré car l'email \"" + user.Email + "\" est déjà utilisé." );
@@ -145,20 +139,29 @@ namespace ITI.PixLogic.WinApp
 					doc.Add( p );
 					doc.Add( headers );
 
-					foreach( var reservations in _reservationsEntity.reservationexports )
+					foreach( var reservations in _reservationsEntity.view_reservations )
 					{
-						infos.AddCell( reservations.Numéro_de_la_réservation.ToString() );
-						infos.AddCell( reservations.Personne_ayant_réservée.ToString() );
-						infos.AddCell( reservations.Début_estimé_de_la_réservation.ToString() );
-						infos.AddCell( reservations.Début_réel_de_la_réservation.ToString() );
-						infos.AddCell( reservations.Fin_estimée_de_la_réservation.ToString() );
-						infos.AddCell( reservations.Fin_réel_de_la_réservation.ToString() );
-						infos.AddCell( reservations.Nom_du_pack_utilisé.ToString() );
-						infos.AddCell( reservations.Marque.ToString() );
-						infos.AddCell( reservations.Référence.ToString() );
-						infos.AddCell( reservations.Etat_avant_la_réservation.ToString() );
-						infos.AddCell( reservations.Etat_après_la_réservation.ToString() );
-						infos.AddCell( reservations.Etat_actuel.ToString() );
+						infos.AddCell( reservations.ReservationId.ToString() );
+						infos.AddCell( reservations.ReservationEventState.ToString() );
+						infos.AddCell( reservations.ReservationIndication.ToString() );
+						infos.AddCell( reservations.ReserverEmail.ToString() );
+						infos.AddCell( reservations.ReserverWallet.ToString() );
+						infos.AddCell( reservations.ReserverHistoric.ToString() );
+						infos.AddCell( reservations.PlannedStartDate.ToString() );
+						infos.AddCell( reservations.RealStartDate.ToString() );
+						infos.AddCell( reservations.PlannedEndDate.ToString() );
+						infos.AddCell( reservations.RealEndDate.ToString() );
+						infos.AddCell( reservations.UsedPack.ToString() );
+						infos.AddCell( reservations.ItemEAN13.ToString() );
+						infos.AddCell( reservations.ItemBrand.ToString() );
+						infos.AddCell( reservations.ItemReference.ToString() );
+						infos.AddCell( reservations.ItemDescription.ToString() );
+						infos.AddCell( reservations.ItemCost.ToString() );
+						infos.AddCell( reservations.ItemStateBefore.ToString() );
+						infos.AddCell( reservations.ItemStateAfter.ToString() );
+						infos.AddCell( reservations.ItemStateNow.ToString() );
+						infos.AddCell( reservations.ItemIsUsable.ToString() );
+						infos.AddCell( reservations.ItemIsConsumable.ToString() );
 					}
 
 					doc.Add( infos );
@@ -189,16 +192,12 @@ namespace ITI.PixLogic.WinApp
 					sb.Append( accounts.FirstName + delimiter );
 					sb.Append( accounts.LastName + delimiter );
 					sb.Append( accounts.Email + delimiter );
-					sb.Append( accounts.Password + delimiter );
-					sb.Append( accounts.Salt + delimiter );
 					sb.Append( accounts.Phone + delimiter );
 					sb.Append( accounts.Adress + delimiter );
 					sb.Append( accounts.Historic + delimiter );
 					sb.Append( accounts.Wallet + delimiter );
-					sb.Append( accounts.Active + delimiter );
-					sb.Append( accounts.Banned + delimiter );
-					sb.Append( accounts.PicturePath + delimiter );
-					sb.Append( accounts.SubCategory + delimiter );
+					sb.Append( accounts.PortraitPath + delimiter );
+					sb.Append( accounts.Division + delimiter );
 					sb.Append( "\r\n" );
 				}
 
@@ -237,7 +236,7 @@ namespace ITI.PixLogic.WinApp
 					sb.Append( items.PicturePath + delimiter );
 					sb.Append( items.Brand + delimiter );
 					sb.Append( items.RelatedInvoice + delimiter );
-					sb.Append( items.SubCategory + delimiter );
+					sb.Append( items.FunctionalCategory + delimiter );
 					sb.Append( items.CurrentState + delimiter );
 					sb.Append( "\r\n" );
 				}
@@ -269,7 +268,6 @@ namespace ITI.PixLogic.WinApp
 					sb.Append( packs.Id + delimiter );
 					sb.Append( packs.Name + delimiter );
 					sb.Append( packs.Description + delimiter );
-					sb.Append( packs.Reservable + delimiter );
 					sb.Append( "\r\n" );
 				}
 
@@ -295,20 +293,29 @@ namespace ITI.PixLogic.WinApp
 
 			try
 			{
-				foreach( var reservations in _reservationsEntity.reservationexports )
+				foreach( var reservations in _reservationsEntity.view_reservations )
 				{
-					sb.Append( reservations.Numéro_de_la_réservation + delimiter );
-					sb.Append( reservations.Personne_ayant_réservée.ToString() + delimiter );
-					sb.Append( reservations.Début_estimé_de_la_réservation.ToString() + delimiter );
-					sb.Append( reservations.Début_réel_de_la_réservation.ToString() + delimiter );
-					sb.Append( reservations.Fin_estimée_de_la_réservation.ToString() + delimiter );
-					sb.Append( reservations.Fin_réel_de_la_réservation.ToString() + delimiter );
-					sb.Append( reservations.Nom_du_pack_utilisé.ToString() + delimiter );
-					sb.Append( reservations.Marque.ToString() + delimiter );
-					sb.Append( reservations.Référence.ToString() + delimiter );
-					sb.Append( reservations.Etat_avant_la_réservation.ToString() + delimiter );
-					sb.Append( reservations.Etat_après_la_réservation.ToString() + delimiter );
-					sb.Append( reservations.Etat_actuel.ToString() + delimiter );
+					sb.Append( reservations.ReservationId.ToString() + delimiter );
+					sb.Append( reservations.ReservationEventState + delimiter );
+					sb.Append( reservations.ReservationIndication + delimiter );
+					sb.Append( reservations.ReserverEmail + delimiter );
+					sb.Append( reservations.ReserverWallet + delimiter );
+					sb.Append( reservations.ReserverHistoric+ delimiter );
+					sb.Append( reservations.PlannedStartDate + delimiter );
+					sb.Append( reservations.RealStartDate + delimiter );
+					sb.Append( reservations.PlannedEndDate + delimiter );
+					sb.Append( reservations.RealEndDate + delimiter );
+					sb.Append( reservations.UsedPack + delimiter );
+					sb.Append( reservations.ItemEAN13 + delimiter );
+					sb.Append( reservations.ItemBrand + delimiter );
+					sb.Append( reservations.ItemReference + delimiter );
+					sb.Append( reservations.ItemDescription + delimiter );
+					sb.Append( reservations.ItemCost + delimiter );
+					sb.Append( reservations.ItemStateBefore + delimiter );
+					sb.Append( reservations.ItemStateAfter + delimiter );
+					sb.Append( reservations.ItemStateNow + delimiter );
+					sb.Append( reservations.ItemIsUsable + delimiter );
+					sb.Append( reservations.ItemIsConsumable + delimiter );
 					sb.Append( "\r\n" );
 				}
 

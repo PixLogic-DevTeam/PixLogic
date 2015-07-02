@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
-using ITI.PixLogic.DAL.Contexts.Items;
-
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.WinApp.Views
 {
@@ -32,9 +31,9 @@ namespace ITI.PixLogic.WinApp.Views
 
 			List<string> itemName = new List<string>();
 
-			foreach(Item it in _itemEntity.Items.ToList())
+			foreach(Item item in _itemEntity.Items.ToList())
 			{
-				itemName.Add( it.ItemSubCategory.Name );
+				itemName.Add( item.ItemFunctionalCategory.Name );
 			}
 		}
 	}

@@ -7,16 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ITI.PixLogic.DAL.Contexts.Accounts;
 using System.Data.Entity;
-using ITI.PixLogic.DAL.Contexts.Items;
-using ITI.PixLogic.DAL.Contexts.Reservations;
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.WinApp.Views
 {
 	public partial class MatérielView : Form
 	{
-		ReservationsEntity _reservationsEntity = new ReservationsEntity();
+		EventsEntity _reservationsEntity = new EventsEntity();
 
 		public MatérielView()
 		{
@@ -29,7 +27,7 @@ namespace ITI.PixLogic.WinApp.Views
 
 		private void MatérielView_Load( object sender, EventArgs e )
 		{
-			var query =  _reservationsEntity.reservationexports;
+			var query =  _reservationsEntity.view_reservations;
 			var cons = query.ToList();
 			dataListView1.DataSource = cons;
 			dataListView1.Columns.RemoveAt( 0 );

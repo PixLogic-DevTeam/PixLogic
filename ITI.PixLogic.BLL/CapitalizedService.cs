@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ITI.PixLogic.DAL.Contexts.Items;
-using ITI.PixLogic.DAL.Contexts.Packs;
-using ITI.PixLogic.DAL.Contexts.Reservations;
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.BLL
 {
@@ -13,7 +11,7 @@ namespace ITI.PixLogic.BLL
     {
         static ItemsEntity _itemEntity = new ItemsEntity( );
         static PacksEntity _packEntity = new PacksEntity( );
-        static ReservationsEntity _resEntity = new ReservationsEntity( );
+		static EventsEntity _resEntity = new EventsEntity();
 
         /// <summary>
         /// Delete the given item in the database by removing all binded packs and reservations first
@@ -27,7 +25,7 @@ namespace ITI.PixLogic.BLL
                                      where c.UsedItem == itemToDelete.Id
                                      select c;
 
-            var getItemReservation = from d in _resEntity.ReservationItems
+            var getItemReservation = from d in _resEntity.ReservedItems
                                      where d.Id == itemToDelete.Id
                                      select d;
 
@@ -36,9 +34,9 @@ namespace ITI.PixLogic.BLL
                 _packEntity.PackagedItems.Remove( pi );
             }
 
-            foreach (ReservationItem ri in getItemReservation)
+            foreach (ReservedItem ri in getItemReservation)
             {
-                _resEntity.ReservationItems.Remove( ri );
+                _resEntity.ReservedItems.Remove( ri );
             }
 
             _itemEntity.Items.Remove( itemToDelete );

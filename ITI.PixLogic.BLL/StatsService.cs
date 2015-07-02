@@ -4,17 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using ITI.PixLogic.DAL.Contexts.Reservations;
-using ITI.PixLogic.DAL.Contexts.Items;
-using ITI.PixLogic.DAL.Contexts.Packs;
-using ITI.PixLogic.DAL.Contexts.Invoices;
-using ITI.PixLogic.DAL.Contexts.Accounts;
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.BLL
 {
     public static class StatsService
     {
-        static ReservationsEntity _resEntity = new ReservationsEntity( );
+		static EventsEntity _resEntity = new EventsEntity();
         static ItemsEntity _itemEntity = new ItemsEntity( );
         static PacksEntity _packEntity = new PacksEntity( );
         static InvoicesEntity _invoiceEntity = new InvoicesEntity( );
@@ -67,7 +63,7 @@ namespace ITI.PixLogic.BLL
         public static int GetNumberOfActiveAccount( )
         {
             var getActiveAccounts = from a in _accountEntity.Accounts
-                                    where a.Active == true
+                                    where a.PermissionLevel == "Actived"
                                     select a;
 
             return getActiveAccounts.Count( );
@@ -76,7 +72,7 @@ namespace ITI.PixLogic.BLL
         public static int GetNumberOfBannedAccount()
         {
             var getBannedAccounts = from a in _accountEntity.Accounts
-                                    where a.Banned == true
+									where a.PermissionLevel == "Banned"
                                     select a;
 
             return getBannedAccounts.Count( );

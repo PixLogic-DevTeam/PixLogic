@@ -1,6 +1,4 @@
-﻿using ITI.PixLogic.DAL;
-using ITI.PixLogic.DAL.Contexts.Accounts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ITI.PixLogic.DAL.Contexts;
 
 namespace ITI.PixLogic.WinApp
 {

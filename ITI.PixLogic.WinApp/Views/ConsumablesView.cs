@@ -1,15 +1,6 @@
 ﻿//using System;
 //using System.Collections.Generic;
 //using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Windows.Forms;
-//using ITI.PixLogic.DAL.Contexts.Items;
-using ITI.PixLogic.DAL;
-using ITI.PixLogic.DAL.Contexts.Items;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,11 +11,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ITI.PixLogic.DAL.Contexts;
+
 namespace ITI.PixLogic.WinApp.Views
 {
     public partial class ConsumablesView : Form
     {
         ItemsEntity _itemsEntity;
+
         public ConsumablesView()
         {
             InitializeComponent();
