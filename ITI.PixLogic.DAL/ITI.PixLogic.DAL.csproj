@@ -90,6 +90,21 @@
     <Compile Include="Contexts\Contact.cs">
       <DependentUpon>InvoicesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\EmptyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmptyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\EmptyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmptyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\EmptyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmptyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Contexts\EventsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,6 +249,23 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EventsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Contexts\EmptyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmptyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Contexts\EmptyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmptyModel.edmx</DependentUpon>
+      <LastGenOutput>EmptyModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Contexts\EmptyModel.edmx.diagram">
+      <DependentUpon>EmptyModel.edmx</DependentUpon>
+    </None>
+    <None Include="Contexts\EmptyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmptyModel.edmx</DependentUpon>
+      <LastGenOutput>EmptyModel.cs</LastGenOutput>
+    </None>
     <None Include="Contexts\EventsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EventsModel.edmx</DependentUpon>

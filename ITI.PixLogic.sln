@@ -16,18 +16,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.WinApp", "ITI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.PixLogic.DAL", "ITI.PixLogic.DAL\ITI.PixLogic.DAL.csproj", "{3A9317A0-32DC-475A-AAC2-4B9FFA819F69}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{C9948B5C-80E2-4B42-91CA-F90BE1198905}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licensing", "Licensing", "{B55D5638-A822-4EC1-A249-354DC44ADD50}"
 	ProjectSection(SolutionItems) = preProject
-		Database\create.sql = Database\create.sql
-		Database\insert.sql = Database\insert.sql
-		Database\README.md = Database\README.md
+		Licensing\CC Attribution 4.0.txt = Licensing\CC Attribution 4.0.txt
+		Licensing\GPL.txt = Licensing\GPL.txt
+		Licensing\MS-PL.txt = Licensing\MS-PL.txt
+		Licensing\README.md = Licensing\README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{AD5815A0-B8A9-45E9-8726-90A295603E39}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Datastorage", "Datastorage", "{B326F1FB-4328-441E-B2CA-362ABFFE5C31}"
 	ProjectSection(SolutionItems) = preProject
-		Licenses\GPL.txt = Licenses\GPL.txt
-		Licenses\MS-PL.txt = Licenses\MS-PL.txt
-		Licenses\README.md = Licenses\README.md
+		Datastorage\create.sql = Datastorage\create.sql
+		Datastorage\insert.sql = Datastorage\insert.sql
+		Datastorage\README.md = Datastorage\README.md
+		Datastorage\views.sql = Datastorage\views.sql
 	EndProjectSection
 EndProject
 Global

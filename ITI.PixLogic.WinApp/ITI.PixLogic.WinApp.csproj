@@ -137,6 +137,10 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ITI.PixLogic.BLL\ITI.PixLogic.BLL.csproj">
+      <Project>{5c575dde-54f6-46f0-bde6-49733496811f}</Project>
+      <Name>ITI.PixLogic.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ITI.PixLogic.DAL\ITI.PixLogic.DAL.csproj">
       <Project>{3a9317a0-32dc-475a-aac2-4b9ffa819f69}</Project>
       <Name>ITI.PixLogic.DAL</Name>
@@ -166,15 +170,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="RibbonMarkup.xml">
-      <SubType>Designer</SubType>
       <Generator>RibbonGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>RibbonMarkup.log</LastGenOutput>
     </Content>
+    <Content Include="Resources\16px\menu_close.bmp" />
+    <Content Include="Resources\16px\menu_export.bmp" />
+    <Content Include="Resources\16px\menu_export_table.bmp" />
+    <Content Include="Resources\32px\menu_close.bmp" />
+    <Content Include="Resources\32px\menu_export.bmp" />
+    <Content Include="Resources\32px\menu_export_table.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
