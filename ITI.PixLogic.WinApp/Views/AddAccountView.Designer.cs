@@ -38,7 +38,6 @@
 			this.textBox_firstName = new System.Windows.Forms.TextBox();
 			this.textBox_lastName = new System.Windows.Forms.TextBox();
 			this.textBoxMail = new System.Windows.Forms.TextBox();
-			this.textBoxPassword = new System.Windows.Forms.TextBox();
 			this.textBoxWallet = new System.Windows.Forms.TextBox();
 			this.button_confirm = new System.Windows.Forms.Button();
 			this.comboBoxState = new System.Windows.Forms.ComboBox();
@@ -50,7 +49,7 @@
 			this.textBoxPhone = new System.Windows.Forms.TextBox();
 			this.labelAdress = new System.Windows.Forms.Label();
 			this.richTextBoxAdress = new System.Windows.Forms.RichTextBox();
-			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+			this.richTextBoxHistoric = new System.Windows.Forms.RichTextBox();
 			this.labelHistoric = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
@@ -96,9 +95,9 @@
 			this.state.AutoSize = true;
 			this.state.Location = new System.Drawing.Point(48, 247);
 			this.state.Name = "state";
-			this.state.Size = new System.Drawing.Size(35, 13);
+			this.state.Size = new System.Drawing.Size(101, 13);
 			this.state.TabIndex = 4;
-			this.state.Text = "Etat : ";
+			this.state.Text = "Etat de l\'utilisateur : ";
 			// 
 			// wallet
 			// 
@@ -139,14 +138,6 @@
 			this.textBoxMail.Size = new System.Drawing.Size(100, 20);
 			this.textBoxMail.TabIndex = 10;
 			// 
-			// textBoxPassword
-			// 
-			this.textBoxPassword.Location = new System.Drawing.Point(224, 162);
-			this.textBoxPassword.Name = "textBoxPassword";
-			this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
-			this.textBoxPassword.TabIndex = 11;
-			this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
-			// 
 			// textBoxWallet
 			// 
 			this.textBoxWallet.Location = new System.Drawing.Point(224, 202);
@@ -170,7 +161,8 @@
 			this.comboBoxState.FormattingEnabled = true;
 			this.comboBoxState.Items.AddRange(new object[] {
             "Actif",
-            "Inactif"});
+            "Inactif",
+            "Banni"});
 			this.comboBoxState.Location = new System.Drawing.Point(224, 244);
 			this.comboBoxState.Name = "comboBoxState";
 			this.comboBoxState.Size = new System.Drawing.Size(121, 21);
@@ -229,6 +221,7 @@
 			this.textBoxPhone.Name = "textBoxPhone";
 			this.textBoxPhone.Size = new System.Drawing.Size(100, 20);
 			this.textBoxPhone.TabIndex = 21;
+			this.textBoxPhone.TextChanged += new System.EventHandler(this.textBoxPhone_TextChanged);
 			// 
 			// labelAdress
 			// 
@@ -247,13 +240,13 @@
 			this.richTextBoxAdress.TabIndex = 23;
 			this.richTextBoxAdress.Text = "";
 			// 
-			// richTextBox2
+			// richTextBoxHistoric
 			// 
-			this.richTextBox2.Location = new System.Drawing.Point(481, 138);
-			this.richTextBox2.Name = "richTextBox2";
-			this.richTextBox2.Size = new System.Drawing.Size(223, 84);
-			this.richTextBox2.TabIndex = 24;
-			this.richTextBox2.Text = "";
+			this.richTextBoxHistoric.Location = new System.Drawing.Point(481, 138);
+			this.richTextBoxHistoric.Name = "richTextBoxHistoric";
+			this.richTextBoxHistoric.Size = new System.Drawing.Size(223, 84);
+			this.richTextBoxHistoric.TabIndex = 24;
+			this.richTextBoxHistoric.Text = "";
 			// 
 			// labelHistoric
 			// 
@@ -271,7 +264,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(836, 435);
 			this.Controls.Add(this.labelHistoric);
-			this.Controls.Add(this.richTextBox2);
+			this.Controls.Add(this.richTextBoxHistoric);
 			this.Controls.Add(this.richTextBoxAdress);
 			this.Controls.Add(this.labelAdress);
 			this.Controls.Add(this.textBoxPhone);
@@ -283,7 +276,6 @@
 			this.Controls.Add(this.comboBoxState);
 			this.Controls.Add(this.button_confirm);
 			this.Controls.Add(this.textBoxWallet);
-			this.Controls.Add(this.textBoxPassword);
 			this.Controls.Add(this.textBoxMail);
 			this.Controls.Add(this.textBox_lastName);
 			this.Controls.Add(this.textBox_firstName);
@@ -312,8 +304,7 @@
         private System.Windows.Forms.Label subCategory;
         private System.Windows.Forms.TextBox textBox_firstName;
         private System.Windows.Forms.TextBox textBox_lastName;
-        private System.Windows.Forms.TextBox textBoxMail;
-        private System.Windows.Forms.TextBox textBoxPassword;
+		private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.TextBox textBoxWallet;
         private System.Windows.Forms.Button button_confirm;
         private System.Windows.Forms.ComboBox comboBoxState;
@@ -325,7 +316,7 @@
 		private System.Windows.Forms.TextBox textBoxPhone;
 		private System.Windows.Forms.Label labelAdress;
 		private System.Windows.Forms.RichTextBox richTextBoxAdress;
-		private System.Windows.Forms.RichTextBox richTextBox2;
+		private System.Windows.Forms.RichTextBox richTextBoxHistoric;
 		private System.Windows.Forms.Label labelHistoric;
     }
 }

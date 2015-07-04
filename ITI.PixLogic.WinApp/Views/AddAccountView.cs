@@ -31,8 +31,12 @@ namespace ITI.PixLogic.WinApp
 			objAccount.FirstName = textBox_firstName.Text;
 			objAccount.LastName = textBox_lastName.Text.ToUpper();
 			objAccount.Email = textBoxMail.Text;
+			objAccount.Phone = textBoxPhone.Text;
+			objAccount.Adress = richTextBoxAdress.Text;
+			objAccount.Historic = richTextBoxHistoric.Text;
 			objAccount.Wallet = Convert.ToInt32(textBoxWallet.Text);
-			//objAccount.active = Convert.ToBoolean(comboBoxState);
+			//objAccount.PermissionLevel = Convert.ToString(comboBoxState.SelectedText);
+			//objAccount.PortraitPath = ;
             
 			/*accounts_sub_categories sub = ple.accounts_sub_categories.FirstOrDefault(o => o.name == UserCategoryComboBox.Text);
 			Debug.Assert(sub != null);
@@ -53,12 +57,6 @@ namespace ITI.PixLogic.WinApp
 		private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
-		}
-
-		private void textBoxPassword_TextChanged(object sender, EventArgs e)
-		{
-			//textBoxPassword.Text = "";
-			Convert.ToChar(textBoxPassword.PasswordChar = '*');
 		}
 
 		private void textBoxWallet_TextChanged(object sender, EventArgs e)
@@ -104,6 +102,18 @@ namespace ITI.PixLogic.WinApp
 		private void labelHistoric_Click( object sender, EventArgs e )
 		{
 
+		}
+
+		private void textBoxPhone_TextChanged( object sender, EventArgs e )
+		{
+			int valeur;
+			bool isInteger = int.TryParse( textBoxWallet.Text, out valeur );
+			var result = isInteger.ToString();
+			if( result == "False" && textBoxWallet.TextLength != 0 )
+			{
+				MessageBox.Show( "Tapez uniquement des chiffres." );
+				textBoxWallet.Text = "";
+			}
 		}
 	}
 }

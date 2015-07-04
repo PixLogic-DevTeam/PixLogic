@@ -34,17 +34,10 @@
 			this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.saltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.adressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.historicDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.walletDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.bannedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.picturePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.subCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.accountSubCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.button_back = new System.Windows.Forms.Button();
 			this.button_add = new System.Windows.Forms.Button();
@@ -71,17 +64,10 @@
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn,
-            this.saltDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.adressDataGridViewTextBoxColumn,
             this.historicDataGridViewTextBoxColumn,
-            this.walletDataGridViewTextBoxColumn,
-            this.activeDataGridViewCheckBoxColumn,
-            this.bannedDataGridViewCheckBoxColumn,
-            this.picturePathDataGridViewTextBoxColumn,
-            this.subCategoryDataGridViewTextBoxColumn,
-            this.accountSubCategoryDataGridViewTextBoxColumn});
+            this.walletDataGridViewTextBoxColumn});
 			this.dataGridViewUsers.DataSource = this.accountBindingSource;
 			this.dataGridViewUsers.Location = new System.Drawing.Point(928, 273);
 			this.dataGridViewUsers.Name = "dataGridViewUsers";
@@ -118,20 +104,6 @@
 			this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
 			this.emailDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// passwordDataGridViewTextBoxColumn
-			// 
-			this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-			this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-			this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-			this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// saltDataGridViewTextBoxColumn
-			// 
-			this.saltDataGridViewTextBoxColumn.DataPropertyName = "Salt";
-			this.saltDataGridViewTextBoxColumn.HeaderText = "Salt";
-			this.saltDataGridViewTextBoxColumn.Name = "saltDataGridViewTextBoxColumn";
-			this.saltDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// phoneDataGridViewTextBoxColumn
 			// 
 			this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
@@ -159,41 +131,6 @@
 			this.walletDataGridViewTextBoxColumn.HeaderText = "Wallet";
 			this.walletDataGridViewTextBoxColumn.Name = "walletDataGridViewTextBoxColumn";
 			this.walletDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// activeDataGridViewCheckBoxColumn
-			// 
-			this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-			this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-			this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-			this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
-			// 
-			// bannedDataGridViewCheckBoxColumn
-			// 
-			this.bannedDataGridViewCheckBoxColumn.DataPropertyName = "Banned";
-			this.bannedDataGridViewCheckBoxColumn.HeaderText = "Banned";
-			this.bannedDataGridViewCheckBoxColumn.Name = "bannedDataGridViewCheckBoxColumn";
-			this.bannedDataGridViewCheckBoxColumn.ReadOnly = true;
-			// 
-			// picturePathDataGridViewTextBoxColumn
-			// 
-			this.picturePathDataGridViewTextBoxColumn.DataPropertyName = "PicturePath";
-			this.picturePathDataGridViewTextBoxColumn.HeaderText = "PicturePath";
-			this.picturePathDataGridViewTextBoxColumn.Name = "picturePathDataGridViewTextBoxColumn";
-			this.picturePathDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// subCategoryDataGridViewTextBoxColumn
-			// 
-			this.subCategoryDataGridViewTextBoxColumn.DataPropertyName = "SubCategory";
-			this.subCategoryDataGridViewTextBoxColumn.HeaderText = "SubCategory";
-			this.subCategoryDataGridViewTextBoxColumn.Name = "subCategoryDataGridViewTextBoxColumn";
-			this.subCategoryDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// accountSubCategoryDataGridViewTextBoxColumn
-			// 
-			this.accountSubCategoryDataGridViewTextBoxColumn.DataPropertyName = "AccountSubCategory";
-			this.accountSubCategoryDataGridViewTextBoxColumn.HeaderText = "AccountSubCategory";
-			this.accountSubCategoryDataGridViewTextBoxColumn.Name = "accountSubCategoryDataGridViewTextBoxColumn";
-			this.accountSubCategoryDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// accountBindingSource
 			// 

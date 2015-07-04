@@ -65,22 +65,19 @@ namespace ITI.PixLogic.WinApp
 								user.FirstName = csv[1];
 								user.LastName = csv[2];
 								user.Email = csv[3];
-								//user.Password = csv[4];
-								//user.Salt = csv[5];
-								user.Phone = csv[6];
-								user.Adress = csv[7];
-								user.Historic = csv[8];
-								user.Wallet = Convert.ToInt32( csv[9] );
-								//user.active = Convert.ToBoolean( csv[10] );
-								//user.Banned = Convert.ToBoolean( csv[11] );
-								user.PortraitPath = csv[12];
+								user.Phone = csv[4];
+								user.Adress = csv[5];
+								user.Historic = csv[6];
+								user.Wallet = Convert.ToInt32( csv[7] );
+								user.PermissionLevel = csv[8];
+								user.PortraitPath = csv[9];
 
-								string strDiv = csv[13];
+								string strDiv = csv[10];
 								AccountDivision div = _accountsEntity.AccountDivisions.FirstOrDefault( o => o.Name == strDiv );
 								user.Division = div.Id;
 								user.AccountDivision = div;
 
-								string strCat = csv[14];
+								string strCat = csv[11];
 								AccountCategory cat = _accountsEntity.AccountCategories.FirstOrDefault( o => o.Name == strCat );
 								user.AccountDivision.AccountCategory = cat;
 
@@ -107,11 +104,9 @@ namespace ITI.PixLogic.WinApp
 		{
 			Document doc = new Document( PageSize.A4, 2, 2, 2, 2 );
 			Paragraph p = new Paragraph( "Export des réservations" );
-			PdfPTable headers = new PdfPTable( 12 );
-			PdfPTable infos = new PdfPTable( 12 );
+			PdfPTable headers = new PdfPTable( 21 );
+			PdfPTable infos = new PdfPTable( 21 );
 
-			//try
-			//{
 				using( PdfWriter.GetInstance( doc, new FileStream( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\PDF\toutes_les_réservations.pdf", FileMode.Create ) ) )
 				{
 					p.Alignment = Element.ALIGN_CENTER;
@@ -121,18 +116,28 @@ namespace ITI.PixLogic.WinApp
 					infos.HorizontalAlignment = 1;
 					infos.SpacingAfter = 40f;
 
-					headers.AddCell( "N° de la réservation" );
-					headers.AddCell( "Personne ayant réservée" );
-					headers.AddCell( "Début estimé de la réservation" );
-					headers.AddCell( "Début réel" );
-					headers.AddCell( "Fin estimé de la réservation" );
-					headers.AddCell( "Fin réel" );
-					headers.AddCell( "Nom" );
+					headers.AddCell( "ID" );
+					headers.AddCell( "Etat de la réservation" );
+					headers.AddCell( "Indicatif" );
+					headers.AddCell( "Email du réserveur" );
+					headers.AddCell( "Porte monnaie du réserveur" );
+					headers.AddCell( "Historique du réserveur" );
+					headers.AddCell( "Date prévu de la réservation" );
+					headers.AddCell( "Date réel de la réservation" );
+					headers.AddCell( "Matériel utilisable" );
+					headers.AddCell( "Date prévu du rendu " );
+					headers.AddCell( "Data réel du rendu" );
+					headers.AddCell( "Pack utilisé" );
+					headers.AddCell( "EAN13" );
 					headers.AddCell( "Marque" );
-					headers.AddCell( "Référence" );
-					headers.AddCell( "Etat avant la réservation" );
-					headers.AddCell( "Etat après la réservation" );
+					headers.AddCell( "Nom" );
+					headers.AddCell( "Description" );
+					headers.AddCell( "Prix" );
+					headers.AddCell( "Etat avant réservation" );
+					headers.AddCell( "Etat après réservation" );
 					headers.AddCell( "Etat actuel" );
+					headers.AddCell( "Matériel utilisable" );
+					headers.AddCell( " Matériel Consommable" );
 
 					doc.Open();
 					doc.AddAuthor( "PixLogic PDF Generator" );
@@ -143,10 +148,10 @@ namespace ITI.PixLogic.WinApp
 					{
 						infos.AddCell( reservations.ReservationId.ToString() );
 						infos.AddCell( reservations.ReservationEventState.ToString() );
-						infos.AddCell( reservations.ReservationIndication.ToString() );
+						infos.AddCell( reservations.ReservationIndication );
 						infos.AddCell( reservations.ReserverEmail.ToString() );
 						infos.AddCell( reservations.ReserverWallet.ToString() );
-						infos.AddCell( reservations.ReserverHistoric.ToString() );
+						infos.AddCell( reservations.ReserverHistoric);
 						infos.AddCell( reservations.PlannedStartDate.ToString() );
 						infos.AddCell( reservations.RealStartDate.ToString() );
 						infos.AddCell( reservations.PlannedEndDate.ToString() );
@@ -169,11 +174,6 @@ namespace ITI.PixLogic.WinApp
 				}
 				MessageBox.Show( "Le fichier PDF a été créé !" );
 			}
-			//catch( Exception ex )
-			//{
-			//	MessageBox.Show( "Erreur : " + ex.Message );
-			//}
-		//}
 		#endregion
 
 		#region Exports CSV

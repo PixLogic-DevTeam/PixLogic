@@ -37,13 +37,16 @@
 			// 
 			// label1
 			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(117, 27);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(85, 25);
+			this.label1.Size = new System.Drawing.Size(198, 25);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Equipe";
+			this.label1.Text = "L\'équipe PixLogic";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// label2
 			// 
@@ -51,42 +54,42 @@
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(34, 108);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(179, 13);
+			this.label2.Size = new System.Drawing.Size(339, 13);
 			this.label2.TabIndex = 1;
-			this.label2.Text = "Loic DONNE ( Chef de projet )";
+			this.label2.Text = "Loic DONNE ( Chef de projet ) email : donne@intechinfo.fr";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(35, 143);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(94, 13);
+			this.label3.Size = new System.Drawing.Size(229, 13);
 			this.label3.TabIndex = 2;
-			this.label3.Text = "Arnaud FRECHET";
+			this.label3.Text = "Arnaud FRECHET email : frechet@intechinfo.fr";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(34, 176);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(93, 13);
+			this.label4.Size = new System.Drawing.Size(232, 13);
 			this.label4.TabIndex = 3;
-			this.label4.Text = "Benoit HUMBLOT";
+			this.label4.Text = "Benoit HUMBLOT email : humblot@intechinfo.fr";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(34, 203);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(86, 13);
+			this.label5.Size = new System.Drawing.Size(221, 13);
 			this.label5.TabIndex = 4;
-			this.label5.Text = "Florian CUCHOT";
+			this.label5.Text = "Florian CUCHOT email : cuchot@intechinfo.fr";
 			// 
 			// ContactView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(326, 323);
+			this.ClientSize = new System.Drawing.Size(589, 356);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
