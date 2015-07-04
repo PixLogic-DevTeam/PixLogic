@@ -232,6 +232,9 @@
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_main_categories.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.accounts_sub_categories.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.capitalized.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.EventsEntity.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Item.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.ItemFunctionalCategory.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.Item1.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemBrand1.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemMainCategory1.datasource" />
@@ -239,6 +242,7 @@
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemsEntity1.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemState1.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory1.datasource" />
+    <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.ItemsEntity.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationEvent1.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.reservationexport.datasource" />
     <None Include="Properties\DataSources\ITI.PixLogic.DAL.Contexts.Reservations.ReservationItem1.datasource" />

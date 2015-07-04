@@ -42,13 +42,21 @@
 			this.Invoice_consumable_txt = new System.Windows.Forms.TextBox();
 			this.Current_state_consumable_txt = new System.Windows.Forms.TextBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.consumablessubcategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.subCategoryComboBox = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.mainCategoryComboBox = new System.Windows.Forms.ComboBox();
 			this.button_back = new System.Windows.Forms.Button();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.itemFunctionalCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.itemCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.itemsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			nameLabel = new System.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)(this.consumablessubcategoriesBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.itemFunctionalCategoryBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// nameLabel
@@ -173,14 +181,8 @@
 			this.textBox1.TabIndex = 14;
 			this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
 			// 
-			// consumablessubcategoriesBindingSource
-			// 
-			this.consumablessubcategoriesBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory);
-			this.consumablessubcategoriesBindingSource.CurrentChanged += new System.EventHandler(this.consumablessubcategoriesBindingSource_CurrentChanged);
-			// 
 			// subCategoryComboBox
 			// 
-			this.subCategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumablessubcategoriesBindingSource, "name", true));
 			this.subCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.subCategoryComboBox.FormattingEnabled = true;
 			this.subCategoryComboBox.Location = new System.Drawing.Point(248, 231);
@@ -221,11 +223,69 @@
 			this.button_back.UseVisualStyleBackColor = true;
 			this.button_back.Click += new System.EventHandler(this.button_back_Click);
 			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AutoGenerateColumns = false;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.categoryDataGridViewTextBoxColumn,
+            this.itemCategoryDataGridViewTextBoxColumn,
+            this.itemsDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.itemFunctionalCategoryBindingSource;
+			this.dataGridView1.Location = new System.Drawing.Point(341, 411);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+			this.dataGridView1.TabIndex = 19;
+			// 
+			// itemFunctionalCategoryBindingSource
+			// 
+			this.itemFunctionalCategoryBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.ItemFunctionalCategory);
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			// 
+			// nameDataGridViewTextBoxColumn
+			// 
+			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			// 
+			// descriptionDataGridViewTextBoxColumn
+			// 
+			this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+			this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+			this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+			// 
+			// categoryDataGridViewTextBoxColumn
+			// 
+			this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+			this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+			this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+			// 
+			// itemCategoryDataGridViewTextBoxColumn
+			// 
+			this.itemCategoryDataGridViewTextBoxColumn.DataPropertyName = "ItemCategory";
+			this.itemCategoryDataGridViewTextBoxColumn.HeaderText = "ItemCategory";
+			this.itemCategoryDataGridViewTextBoxColumn.Name = "itemCategoryDataGridViewTextBoxColumn";
+			// 
+			// itemsDataGridViewTextBoxColumn
+			// 
+			this.itemsDataGridViewTextBoxColumn.DataPropertyName = "Items";
+			this.itemsDataGridViewTextBoxColumn.HeaderText = "Items";
+			this.itemsDataGridViewTextBoxColumn.Name = "itemsDataGridViewTextBoxColumn";
+			// 
 			// AddConsumableView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(593, 481);
+			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.button_back);
 			this.Controls.Add(this.mainCategoryComboBox);
 			this.Controls.Add(this.label1);
@@ -246,7 +306,8 @@
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "AddConsumableView";
 			this.Text = "PixLogic - Ajouter un objet consommable";
-			((System.ComponentModel.ISupportInitialize)(this.consumablessubcategoriesBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.itemFunctionalCategoryBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -267,11 +328,18 @@
         private System.Windows.Forms.TextBox Current_state_consumable_txt;
         private System.Windows.Forms.BindingSource consumableBindingSource;
         private System.Windows.Forms.BindingSource consumables_sub_categoriesBindingSource;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.BindingSource consumablessubcategoriesBindingSource;
+		private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox subCategoryComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox mainCategoryComboBox;
         private System.Windows.Forms.Button button_back;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn itemCategoryDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn itemsDataGridViewTextBoxColumn;
+		private System.Windows.Forms.BindingSource itemFunctionalCategoryBindingSource;
     }
 }

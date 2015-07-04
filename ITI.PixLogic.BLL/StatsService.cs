@@ -20,7 +20,7 @@ namespace ITI.PixLogic.BLL
 
         public static int GetNumberOfReservationEvent( )
         {
-            _resEntity.ReservationEvents.Load( );
+			_resEntity.RestorationEvents.Load();
             return _resEntity.ReservationEvents.Count( );
         }
 
@@ -60,23 +60,23 @@ namespace ITI.PixLogic.BLL
             return _invoiceEntity.Invoices.Count( );
         }
 
-        public static int GetNumberOfActiveAccount( )
-        {
-            var getActiveAccounts = from a in _accountEntity.Accounts
-                                    where a.PermissionLevel == "Actived"
-                                    select a;
+		public static int GetNumberOfActiveAccount()
+		{
+			var getActiveAccounts = from a in _accountEntity.Accounts
+									where a.PermissionLevel == "Actived"
+									select a;
 
-            return getActiveAccounts.Count( );
-        }
+			return getActiveAccounts.Count();
+		}
 
-        public static int GetNumberOfBannedAccount()
-        {
-            var getBannedAccounts = from a in _accountEntity.Accounts
+		public static int GetNumberOfBannedAccount()
+		{
+			var getBannedAccounts = from a in _accountEntity.Accounts
 									where a.PermissionLevel == "Banned"
-                                    select a;
+									select a;
 
-            return getBannedAccounts.Count( );
-        }
+			return getBannedAccounts.Count();
+		}
 
         public static string GetUserNameOnId(int id)
         {

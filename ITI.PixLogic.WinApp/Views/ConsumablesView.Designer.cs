@@ -65,8 +65,8 @@
             // 
             // itemSubCategoryBindingSource
             // 
-            this.itemSubCategoryBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.Items.ItemSubCategory);
-            // 
+            this.itemSubCategoryBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.ItemFunctionalCategory);
+            //  
             // itemsTableAdapter
             // 
             this.itemsTableAdapter.ClearBeforeFill = true;

@@ -385,14 +385,14 @@ namespace ITI.PixLogic.WinApp
 
             //Account Pie chart feeding
             DataPoint _activeAccountsDP = new DataPoint( );
-            _activeAccountsDP.SetValueY( StatsService.GetNumberOfActiveAccount( ) );
-            _activeAccountsDP.LegendText = "Comptes actifs";
-            ActiveAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfActiveAccount( ) );
+			_activeAccountsDP.SetValueY( StatsService.GetNumberOfActiveAccount() );
+			_activeAccountsDP.LegendText = "Comptes actifs";
+			ActiveAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfActiveAccount() );
 
-            DataPoint _bannedAccountsDP = new DataPoint( );
-            _bannedAccountsDP.SetValueY( StatsService.GetNumberOfBannedAccount( ) );
-            _bannedAccountsDP.LegendText = "Comptes Suspendus";
-            BannedAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfBannedAccount( ) );
+			DataPoint _bannedAccountsDP = new DataPoint();
+			_bannedAccountsDP.SetValueY( StatsService.GetNumberOfBannedAccount() );
+			_bannedAccountsDP.LegendText = "Comptes Suspendus";
+			BannedAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfBannedAccount() );
 
             AccountCharts.Series[ 0 ].Points.Clear( );
             AccountCharts.Series[ 0 ].Points.Add( _activeAccountsDP );
