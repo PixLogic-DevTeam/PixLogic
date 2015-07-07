@@ -34,8 +34,8 @@
 			this.EditBtn = new System.Windows.Forms.Button();
 			this.BackBtn = new System.Windows.Forms.Button();
 			this.CapitalizedDataListView = new BrightIdeasSoftware.DataListView();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.itemsEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.itemBrandsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.itemCategoriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.itemFunctionalCategoriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,13 +46,13 @@
 			this.changeTrackerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.configurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.CapitalizedDataListView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.itemsEntityBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// Suppr_Btn
 			// 
-			this.Suppr_Btn.Location = new System.Drawing.Point(301, 176);
+			this.Suppr_Btn.Location = new System.Drawing.Point(12, 157);
 			this.Suppr_Btn.Name = "Suppr_Btn";
 			this.Suppr_Btn.Size = new System.Drawing.Size(91, 52);
 			this.Suppr_Btn.TabIndex = 1;
@@ -62,7 +62,7 @@
 			// 
 			// Add_Btn
 			// 
-			this.Add_Btn.Location = new System.Drawing.Point(301, 25);
+			this.Add_Btn.Location = new System.Drawing.Point(12, 12);
 			this.Add_Btn.Name = "Add_Btn";
 			this.Add_Btn.Size = new System.Drawing.Size(91, 52);
 			this.Add_Btn.TabIndex = 2;
@@ -72,7 +72,7 @@
 			// 
 			// EditBtn
 			// 
-			this.EditBtn.Location = new System.Drawing.Point(301, 100);
+			this.EditBtn.Location = new System.Drawing.Point(12, 80);
 			this.EditBtn.Name = "EditBtn";
 			this.EditBtn.Size = new System.Drawing.Size(91, 52);
 			this.EditBtn.TabIndex = 3;
@@ -82,9 +82,9 @@
 			// 
 			// BackBtn
 			// 
-			this.BackBtn.Location = new System.Drawing.Point(1, 90);
+			this.BackBtn.Location = new System.Drawing.Point(12, 228);
 			this.BackBtn.Name = "BackBtn";
-			this.BackBtn.Size = new System.Drawing.Size(66, 53);
+			this.BackBtn.Size = new System.Drawing.Size(91, 53);
 			this.BackBtn.TabIndex = 4;
 			this.BackBtn.Text = "Retour";
 			this.BackBtn.UseVisualStyleBackColor = true;
@@ -97,12 +97,16 @@
 			this.CapitalizedDataListView.AutoArrange = false;
 			this.CapitalizedDataListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
 			this.CapitalizedDataListView.DataSource = this.itemsEntityBindingSource;
-			this.CapitalizedDataListView.Location = new System.Drawing.Point(134, 11);
+			this.CapitalizedDataListView.Location = new System.Drawing.Point(12, 12);
 			this.CapitalizedDataListView.Name = "CapitalizedDataListView";
-			this.CapitalizedDataListView.Size = new System.Drawing.Size(1027, 387);
+			this.CapitalizedDataListView.Size = new System.Drawing.Size(1095, 334);
 			this.CapitalizedDataListView.TabIndex = 1;
 			this.CapitalizedDataListView.UseCompatibleStateImageBehavior = false;
 			this.CapitalizedDataListView.View = System.Windows.Forms.View.Details;
+			// 
+			// itemsEntityBindingSource
+			// 
+			this.itemsEntityBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.ItemsEntity);
 			// 
 			// dataGridView1
 			// 
@@ -124,10 +128,6 @@
 			this.dataGridView1.Size = new System.Drawing.Size(101, 68);
 			this.dataGridView1.TabIndex = 6;
 			this.dataGridView1.Visible = false;
-			// 
-			// itemsEntityBindingSource
-			// 
-			this.itemsEntityBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.ItemsEntity);
 			// 
 			// itemBrandsDataGridViewTextBoxColumn
 			// 
@@ -203,8 +203,8 @@
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CapitalizedView_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.CapitalizedDataListView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.itemsEntityBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 
         }
