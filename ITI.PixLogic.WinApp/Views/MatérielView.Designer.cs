@@ -31,8 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			this.dataListView1 = new BrightIdeasSoftware.DataListView();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.Resbutton = new System.Windows.Forms.Button();
-			this.eventsEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.reservedItemsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.restorationEventsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +40,8 @@
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.eventsEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.Resbutton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataListView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventsEntityBindingSource)).BeginInit();
@@ -49,6 +49,7 @@
 			// 
 			// dataListView1
 			// 
+			this.dataListView1.DataSource = null;
 			this.dataListView1.Location = new System.Drawing.Point(208, 12);
 			this.dataListView1.Name = "dataListView1";
 			this.dataListView1.Size = new System.Drawing.Size(778, 401);
@@ -76,20 +77,6 @@
 			this.dataGridView1.Size = new System.Drawing.Size(72, 68);
 			this.dataGridView1.TabIndex = 2;
 			this.dataGridView1.Visible = false;
-			// 
-			// Resbutton
-			// 
-			this.Resbutton.Location = new System.Drawing.Point(27, 35);
-			this.Resbutton.Name = "Resbutton";
-			this.Resbutton.Size = new System.Drawing.Size(96, 48);
-			this.Resbutton.TabIndex = 3;
-			this.Resbutton.Text = "Faire une réservation";
-			this.Resbutton.UseVisualStyleBackColor = true;
-			this.Resbutton.Click += new System.EventHandler(this.Resbutton_Click);
-			// 
-			// eventsEntityBindingSource
-			// 
-			this.eventsEntityBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.EventsEntity);
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
@@ -147,6 +134,20 @@
 			this.dataGridViewTextBoxColumn4.HeaderText = "Configuration";
 			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
 			this.dataGridViewTextBoxColumn4.ReadOnly = true;
+			// 
+			// eventsEntityBindingSource
+			// 
+			this.eventsEntityBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.EventsEntity);
+			// 
+			// Resbutton
+			// 
+			this.Resbutton.Location = new System.Drawing.Point(27, 35);
+			this.Resbutton.Name = "Resbutton";
+			this.Resbutton.Size = new System.Drawing.Size(96, 48);
+			this.Resbutton.TabIndex = 3;
+			this.Resbutton.Text = "Faire une réservation";
+			this.Resbutton.UseVisualStyleBackColor = true;
+			this.Resbutton.Click += new System.EventHandler(this.Resbutton_Click);
 			// 
 			// MatérielView
 			// 

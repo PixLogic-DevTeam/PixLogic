@@ -15,8 +15,7 @@ namespace ITI.PixLogic.WinApp
 	
 	public partial class CapitalizedView : Form
 	{
-		ItemsEntity _itemsEntity;
-		InvoicesEntity _invoicesEntity;
+		ItemsEntity _itemsEntity = new ItemsEntity();
  
 		public CapitalizedView()
 		{
@@ -25,11 +24,8 @@ namespace ITI.PixLogic.WinApp
 		}
 
 		private void Consumables_Load( )
-		{    
-			_itemsEntity = new ItemsEntity();
-			_invoicesEntity = new InvoicesEntity();
-			
-			var query = from item in _itemsEntity.Items
+		{    			
+			/*var query = from item in _itemsEntity.Items
 						
 						join funcCat in _itemsEntity.ItemFunctionalCategories on item.FunctionalCategory equals funcCat.Id
 						join brand in _itemsEntity.ItemBrands on item.Brand equals brand.Id
@@ -53,7 +49,22 @@ namespace ITI.PixLogic.WinApp
             {
                 CapitalizedDataListView.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.ColumnContent );
                 CapitalizedDataListView.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.HeaderSize );
-            }
+            }*/
+
+			var query =  _itemsEntity.view_items;
+			var cons = query.ToList();
+			CapitalizedDataListView.DataSource = cons;
+			CapitalizedDataListView.Columns.RemoveAt( 0 );
+			for( int i = 0; i < 9; i++ )
+			{
+				CapitalizedDataListView.Columns.RemoveAt( i );
+			}
+
+			for( int j=0; j < CapitalizedDataListView.Columns.Count - 1; j++ )
+			{
+				CapitalizedDataListView.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.ColumnContent );
+				CapitalizedDataListView.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.HeaderSize );
+			}
            
 		}
 
@@ -122,7 +133,7 @@ namespace ITI.PixLogic.WinApp
 
 		private void CapitalizedView_FormClosed( object sender, FormClosedEventArgs e )
 		{
-			Application.Exit();
+			//Application.Exit();
 		}
 	}
     public class CapitalizedItemModel
