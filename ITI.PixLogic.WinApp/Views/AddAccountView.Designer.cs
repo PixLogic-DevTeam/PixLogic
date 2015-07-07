@@ -31,7 +31,6 @@
 			this.firstName = new System.Windows.Forms.Label();
 			this.lastName = new System.Windows.Forms.Label();
 			this.mail = new System.Windows.Forms.Label();
-			this.password = new System.Windows.Forms.Label();
 			this.state = new System.Windows.Forms.Label();
 			this.wallet = new System.Windows.Forms.Label();
 			this.subCategory = new System.Windows.Forms.Label();
@@ -81,19 +80,10 @@
 			this.mail.TabIndex = 2;
 			this.mail.Text = "Email :";
 			// 
-			// password
-			// 
-			this.password.AutoSize = true;
-			this.password.Location = new System.Drawing.Point(48, 162);
-			this.password.Name = "password";
-			this.password.Size = new System.Drawing.Size(77, 13);
-			this.password.TabIndex = 3;
-			this.password.Text = "Mot de passe :";
-			// 
 			// state
 			// 
 			this.state.AutoSize = true;
-			this.state.Location = new System.Drawing.Point(48, 247);
+			this.state.Location = new System.Drawing.Point(45, 219);
 			this.state.Name = "state";
 			this.state.Size = new System.Drawing.Size(101, 13);
 			this.state.TabIndex = 4;
@@ -102,7 +92,7 @@
 			// wallet
 			// 
 			this.wallet.AutoSize = true;
-			this.wallet.Location = new System.Drawing.Point(48, 205);
+			this.wallet.Location = new System.Drawing.Point(45, 169);
 			this.wallet.Name = "wallet";
 			this.wallet.Size = new System.Drawing.Size(82, 13);
 			this.wallet.TabIndex = 5;
@@ -140,7 +130,7 @@
 			// 
 			// textBoxWallet
 			// 
-			this.textBoxWallet.Location = new System.Drawing.Point(224, 202);
+			this.textBoxWallet.Location = new System.Drawing.Point(224, 169);
 			this.textBoxWallet.Name = "textBoxWallet";
 			this.textBoxWallet.Size = new System.Drawing.Size(100, 20);
 			this.textBoxWallet.TabIndex = 13;
@@ -163,7 +153,7 @@
             "Actif",
             "Inactif",
             "Banni"});
-			this.comboBoxState.Location = new System.Drawing.Point(224, 244);
+			this.comboBoxState.Location = new System.Drawing.Point(224, 219);
 			this.comboBoxState.Name = "comboBoxState";
 			this.comboBoxState.Size = new System.Drawing.Size(121, 21);
 			this.comboBoxState.TabIndex = 15;
@@ -209,7 +199,7 @@
 			// labelPhone
 			// 
 			this.labelPhone.AutoSize = true;
-			this.labelPhone.Location = new System.Drawing.Point(48, 294);
+			this.labelPhone.Location = new System.Drawing.Point(48, 271);
 			this.labelPhone.Name = "labelPhone";
 			this.labelPhone.Size = new System.Drawing.Size(64, 13);
 			this.labelPhone.TabIndex = 20;
@@ -217,7 +207,7 @@
 			// 
 			// textBoxPhone
 			// 
-			this.textBoxPhone.Location = new System.Drawing.Point(224, 291);
+			this.textBoxPhone.Location = new System.Drawing.Point(224, 271);
 			this.textBoxPhone.Name = "textBoxPhone";
 			this.textBoxPhone.Size = new System.Drawing.Size(100, 20);
 			this.textBoxPhone.TabIndex = 21;
@@ -282,7 +272,6 @@
 			this.Controls.Add(this.subCategory);
 			this.Controls.Add(this.wallet);
 			this.Controls.Add(this.state);
-			this.Controls.Add(this.password);
 			this.Controls.Add(this.mail);
 			this.Controls.Add(this.lastName);
 			this.Controls.Add(this.firstName);
@@ -297,8 +286,7 @@
 
         private System.Windows.Forms.Label firstName;
         private System.Windows.Forms.Label lastName;
-        private System.Windows.Forms.Label mail;
-        private System.Windows.Forms.Label password;
+		private System.Windows.Forms.Label mail;
         private System.Windows.Forms.Label state;
         private System.Windows.Forms.Label wallet;
         private System.Windows.Forms.Label subCategory;

@@ -34,20 +34,7 @@
 			this.EditBtn = new System.Windows.Forms.Button();
 			this.BackBtn = new System.Windows.Forms.Button();
 			this.CapitalizedDataListView = new BrightIdeasSoftware.DataListView();
-			this.itemsEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.itemBrandsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.itemCategoriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.itemFunctionalCategoriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.itemsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.itemStatesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.viewitemsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.changeTrackerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.configurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.CapitalizedDataListView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.itemsEntityBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// Suppr_Btn
@@ -96,7 +83,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.CapitalizedDataListView.AutoArrange = false;
 			this.CapitalizedDataListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
-			this.CapitalizedDataListView.DataSource = this.itemsEntityBindingSource;
 			this.CapitalizedDataListView.Location = new System.Drawing.Point(12, 12);
 			this.CapitalizedDataListView.Name = "CapitalizedDataListView";
 			this.CapitalizedDataListView.Size = new System.Drawing.Size(1095, 334);
@@ -104,95 +90,12 @@
 			this.CapitalizedDataListView.UseCompatibleStateImageBehavior = false;
 			this.CapitalizedDataListView.View = System.Windows.Forms.View.Details;
 			// 
-			// itemsEntityBindingSource
-			// 
-			this.itemsEntityBindingSource.DataSource = typeof(ITI.PixLogic.DAL.Contexts.ItemsEntity);
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.AutoGenerateColumns = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.itemBrandsDataGridViewTextBoxColumn,
-            this.itemCategoriesDataGridViewTextBoxColumn,
-            this.itemFunctionalCategoriesDataGridViewTextBoxColumn,
-            this.itemsDataGridViewTextBoxColumn,
-            this.itemStatesDataGridViewTextBoxColumn,
-            this.viewitemsDataGridViewTextBoxColumn,
-            this.databaseDataGridViewTextBoxColumn,
-            this.changeTrackerDataGridViewTextBoxColumn,
-            this.configurationDataGridViewTextBoxColumn});
-			this.dataGridView1.DataSource = this.itemsEntityBindingSource;
-			this.dataGridView1.Location = new System.Drawing.Point(1, 306);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(101, 68);
-			this.dataGridView1.TabIndex = 6;
-			this.dataGridView1.Visible = false;
-			// 
-			// itemBrandsDataGridViewTextBoxColumn
-			// 
-			this.itemBrandsDataGridViewTextBoxColumn.DataPropertyName = "ItemBrands";
-			this.itemBrandsDataGridViewTextBoxColumn.HeaderText = "ItemBrands";
-			this.itemBrandsDataGridViewTextBoxColumn.Name = "itemBrandsDataGridViewTextBoxColumn";
-			// 
-			// itemCategoriesDataGridViewTextBoxColumn
-			// 
-			this.itemCategoriesDataGridViewTextBoxColumn.DataPropertyName = "ItemCategories";
-			this.itemCategoriesDataGridViewTextBoxColumn.HeaderText = "ItemCategories";
-			this.itemCategoriesDataGridViewTextBoxColumn.Name = "itemCategoriesDataGridViewTextBoxColumn";
-			// 
-			// itemFunctionalCategoriesDataGridViewTextBoxColumn
-			// 
-			this.itemFunctionalCategoriesDataGridViewTextBoxColumn.DataPropertyName = "ItemFunctionalCategories";
-			this.itemFunctionalCategoriesDataGridViewTextBoxColumn.HeaderText = "ItemFunctionalCategories";
-			this.itemFunctionalCategoriesDataGridViewTextBoxColumn.Name = "itemFunctionalCategoriesDataGridViewTextBoxColumn";
-			// 
-			// itemsDataGridViewTextBoxColumn
-			// 
-			this.itemsDataGridViewTextBoxColumn.DataPropertyName = "Items";
-			this.itemsDataGridViewTextBoxColumn.HeaderText = "Items";
-			this.itemsDataGridViewTextBoxColumn.Name = "itemsDataGridViewTextBoxColumn";
-			// 
-			// itemStatesDataGridViewTextBoxColumn
-			// 
-			this.itemStatesDataGridViewTextBoxColumn.DataPropertyName = "ItemStates";
-			this.itemStatesDataGridViewTextBoxColumn.HeaderText = "ItemStates";
-			this.itemStatesDataGridViewTextBoxColumn.Name = "itemStatesDataGridViewTextBoxColumn";
-			// 
-			// viewitemsDataGridViewTextBoxColumn
-			// 
-			this.viewitemsDataGridViewTextBoxColumn.DataPropertyName = "view_items";
-			this.viewitemsDataGridViewTextBoxColumn.HeaderText = "view_items";
-			this.viewitemsDataGridViewTextBoxColumn.Name = "viewitemsDataGridViewTextBoxColumn";
-			// 
-			// databaseDataGridViewTextBoxColumn
-			// 
-			this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
-			this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
-			this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
-			this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// changeTrackerDataGridViewTextBoxColumn
-			// 
-			this.changeTrackerDataGridViewTextBoxColumn.DataPropertyName = "ChangeTracker";
-			this.changeTrackerDataGridViewTextBoxColumn.HeaderText = "ChangeTracker";
-			this.changeTrackerDataGridViewTextBoxColumn.Name = "changeTrackerDataGridViewTextBoxColumn";
-			this.changeTrackerDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// configurationDataGridViewTextBoxColumn
-			// 
-			this.configurationDataGridViewTextBoxColumn.DataPropertyName = "Configuration";
-			this.configurationDataGridViewTextBoxColumn.HeaderText = "Configuration";
-			this.configurationDataGridViewTextBoxColumn.Name = "configurationDataGridViewTextBoxColumn";
-			this.configurationDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// CapitalizedView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.ClientSize = new System.Drawing.Size(1109, 499);
-			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.CapitalizedDataListView);
 			this.Controls.Add(this.BackBtn);
 			this.Controls.Add(this.EditBtn);
@@ -203,8 +106,6 @@
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CapitalizedView_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.CapitalizedDataListView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.itemsEntityBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -217,16 +118,5 @@
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Button BackBtn;
 		public BrightIdeasSoftware.DataListView CapitalizedDataListView;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn itemBrandsDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn itemCategoriesDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn itemFunctionalCategoriesDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn itemsDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn itemStatesDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn viewitemsDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn changeTrackerDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn configurationDataGridViewTextBoxColumn;
-		private System.Windows.Forms.BindingSource itemsEntityBindingSource;
     }
 }

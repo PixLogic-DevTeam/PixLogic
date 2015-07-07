@@ -28,6 +28,7 @@ namespace ITI.PixLogic.WinApp
 		private void button_confirm_Click(object sender, EventArgs e)
 		{
             Account objAccount = new Account( );
+
 			objAccount.FirstName = textBox_firstName.Text;
 			objAccount.LastName = textBox_lastName.Text.ToUpper();
 			objAccount.Email = textBoxMail.Text;
@@ -35,16 +36,13 @@ namespace ITI.PixLogic.WinApp
 			objAccount.Adress = richTextBoxAdress.Text;
 			objAccount.Historic = richTextBoxHistoric.Text;
 			objAccount.Wallet = Convert.ToInt32(textBoxWallet.Text);
-			//objAccount.PermissionLevel = Convert.ToString(comboBoxState.SelectedText);
-			//objAccount.PortraitPath = ;
-            
-			/*accounts_sub_categories sub = ple.accounts_sub_categories.FirstOrDefault(o => o.name == UserCategoryComboBox.Text);
-			Debug.Assert(sub != null);
-			sub.name = UserCategoryComboBox.Text;*/
-			AccountDivision div = _accountsEntity.AccountDivisions.First();
+			objAccount.PermissionLevel = Convert.ToString(comboBoxState.SelectedText);
+			objAccount.PortraitPath = null;
+         
+			AccountDivision div = _accountsEntity.AccountDivisions.FirstOrDefault(o => o.Name == UserCategoryComboBox.Text);
 			objAccount.AccountDivision = div;
 
-			AccountCategory cat = _accountsEntity.AccountCategories.First();
+			AccountCategory cat = _accountsEntity.AccountCategories.FirstOrDefault(o => o.Name == MainCategoryComboBox.Text);
 			objAccount.AccountDivision.AccountCategory = cat;
 
 			_accountsEntity.Accounts.Add(objAccount);

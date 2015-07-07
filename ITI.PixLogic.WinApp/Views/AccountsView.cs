@@ -23,14 +23,11 @@ namespace ITI.PixLogic.WinApp
 
         private void Accounts_Load()
         {
-            _accountsEntity.Accounts.Load();
-			dataListView1.DataSource = _accountsEntity.Accounts.Local.ToBindingList();
-			for( int j=0; j < 6; j++ )
-			{
-				dataListView1.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.ColumnContent );
-				dataListView1.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.HeaderSize );
-			}
-			for( int k =8; k < dataListView1.Columns.Count - 1; k++ )
+			var query =  _accountsEntity.view_accounts;
+			var cons = query.ToList();
+			dataListView1.DataSource = cons;
+
+			for( int k = 0; k < dataListView1.Columns.Count - 1; k++ )
 			{
 				dataListView1.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.ColumnContent );
 				dataListView1.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.HeaderSize );
@@ -63,20 +60,22 @@ namespace ITI.PixLogic.WinApp
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            if (dataGridViewUsers.SelectedRows.Count == 0 || dataGridViewUsers.SelectedRows.Contains(dataGridViewUsers.Rows[dataGridViewUsers.RowCount - 1]))
-            //if (consumablesdataGridView.SelectedRows[0].Cells[0].Value == null)
+            if(dataListView1.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Veuillez selectionner une ligne a supprimer");
             }
 
             else
             {
-                var toBeDeleted = (long)dataGridViewUsers.SelectedRows[0].Cells[0].Value;
-                var UserData = _accountsEntity.Accounts.First(c => c.Id == toBeDeleted);
+				var toBeDeleted = (view_accounts)dataListView1.SelectedObject;
+                var UserData = _accountsEntity.Accounts.First(c => c.Id == toBeDeleted.AccountId);
+
                 _accountsEntity.Accounts.Remove(UserData);
                 _accountsEntity.SaveChanges();
-                _accountsEntity.Accounts.Load();
-                dataGridViewUsers.DataSource = _accountsEntity.Accounts.Local.ToBindingList();
+
+				var query =  _accountsEntity.view_accounts;
+				var cons = query.ToList();
+				dataListView1.DataSource = cons;
                 
             }          
         }

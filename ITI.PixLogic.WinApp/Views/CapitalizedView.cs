@@ -24,48 +24,25 @@ namespace ITI.PixLogic.WinApp
 		}
 
 		private void Consumables_Load( )
-		{    			
-			/*var query = from item in _itemsEntity.Items
-						
-						join funcCat in _itemsEntity.ItemFunctionalCategories on item.FunctionalCategory equals funcCat.Id
-						join brand in _itemsEntity.ItemBrands on item.Brand equals brand.Id
-						join state in _itemsEntity.ItemStates on item.CurrentState equals state.Id
-						orderby item.Id
-						select new CapitalizedItemModel { item = item, item_brand = brand, item_func_category = funcCat , item_state = state };
-			var cons = query.ToList();
-			//_itemsEntity.Items.Load();
-			CapitalizedDataListView.DataSource = cons;
-
-                
-            for(int i = CapitalizedDataListView.Columns.Count-1; i>11; i--){
-                CapitalizedDataListView.Columns.RemoveAt( i );
-            }
-            for( int j=0; j < 6; j++ )
-            {
-                CapitalizedDataListView.AutoResizeColumn(j, ColumnHeaderAutoResizeStyle.ColumnContent );
-                CapitalizedDataListView.AutoResizeColumn(j, ColumnHeaderAutoResizeStyle.HeaderSize );
-            }
-            for( int k =8; k < CapitalizedDataListView.Columns.Count - 1; k++ )
-            {
-                CapitalizedDataListView.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.ColumnContent );
-                CapitalizedDataListView.AutoResizeColumn( k, ColumnHeaderAutoResizeStyle.HeaderSize );
-            }*/
-
+		{ 
 			var query =  _itemsEntity.view_items;
 			var cons = query.ToList();
 			CapitalizedDataListView.DataSource = cons;
-			CapitalizedDataListView.Columns.RemoveAt( 0 );
-			for( int i = 0; i < 9; i++ )
-			{
-				CapitalizedDataListView.Columns.RemoveAt( i );
-			}
 
-			for( int j=0; j < CapitalizedDataListView.Columns.Count - 1; j++ )
+			#region rezise the column of datalistview
+
+			for( int j = 0; j < 7 - 1; j++ )
 			{
 				CapitalizedDataListView.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.ColumnContent );
 				CapitalizedDataListView.AutoResizeColumn( j, ColumnHeaderAutoResizeStyle.HeaderSize );
 			}
-           
+
+			for( int a = 7; a < 14 - 1; a++ )
+			{
+				CapitalizedDataListView.AutoResizeColumn( a, ColumnHeaderAutoResizeStyle.ColumnContent );
+				CapitalizedDataListView.AutoResizeColumn( a, ColumnHeaderAutoResizeStyle.HeaderSize );
+			}
+			#endregion
 		}
 
 		private void Suppr_Btn_Click( object sender, EventArgs e )
