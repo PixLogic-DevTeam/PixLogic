@@ -273,71 +273,71 @@ namespace ITI.PixLogic.WinApp
 
 		private void entreprisesToolStripMenuItem_Click( object sender, EventArgs e )
 		{
-			Stream myStream = null;
-			OpenFileDialog openFileDialog = new OpenFileDialog();
-			int fieldCount = 0, rowCount = 0, importCount = 0;
+			//Stream myStream = null;
+			//OpenFileDialog openFileDialog = new OpenFileDialog();
+			//int fieldCount = 0, rowCount = 0, importCount = 0;
 
-			openFileDialog.InitialDirectory = "C:\\";
-			openFileDialog.RestoreDirectory = true;
+			//openFileDialog.InitialDirectory = "C:\\";
+			//openFileDialog.RestoreDirectory = true;
 
-			if( openFileDialog.ShowDialog() == DialogResult.OK )
-			{
-				if( (myStream = openFileDialog.OpenFile()) != null )
-				{
-					using( myStream )
-					{
-						// open the file openFileDialog.FileName which is a CSV file with headers
-						using( CsvReader csv = new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
-						{
-							fieldCount = csv.FieldCount;
+			//if( openFileDialog.ShowDialog() == DialogResult.OK )
+			//{
+			//	if( (myStream = openFileDialog.OpenFile()) != null )
+			//	{
+			//		using( myStream )
+			//		{
+			//			// open the file openFileDialog.FileName which is a CSV file with headers
+			//			using( CsvReader csv = new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
+			//			{
+			//				fieldCount = csv.FieldCount;
 
-							string[] headers = csv.GetFieldHeaders();
-							while( csv.ReadNextRecord() )
-							{
-								Company company = new Company();
+			//				string[] headers = csv.GetFieldHeaders();
+			//				while( csv.ReadNextRecord() )
+			//				{
+			//					Company company = new Company();
 
-								for( int i = 0; i < fieldCount; i++ )
-									string.Format( "{0} = {1};", headers[i], csv[i] );
+			//					for( int i = 0; i < fieldCount; i++ )
+			//						string.Format( "{0} = {1};", headers[i], csv[i] );
 
-								item.EAN13 = Convert.ToInt32( csv[1] );
-								item.Reference = csv[2];
-								item.ReservationCost = Convert.ToInt32( csv[3] );
-								item.Consumable = Convert.ToBoolean( csv[4] );
-								item.Reservable = Convert.ToBoolean( csv[5] );
-								item.Description = csv[6];
-								item.PicturePath = csv[7];
+			//					item.EAN13 = Convert.ToInt32( csv[1] );
+			//					item.Reference = csv[2];
+			//					item.ReservationCost = Convert.ToInt32( csv[3] );
+			//					item.Consumable = Convert.ToBoolean( csv[4] );
+			//					item.Reservable = Convert.ToBoolean( csv[5] );
+			//					item.Description = csv[6];
+			//					item.PicturePath = csv[7];
 
-								string strDiv = csv[8];
-								ItemBrand div = _itemsEntity.ItemBrands.FirstOrDefault( o => o.Name == strDiv );
-								item.Brand = div.Id;
+			//					string strDiv = csv[8];
+			//					ItemBrand div = _itemsEntity.ItemBrands.FirstOrDefault( o => o.Name == strDiv );
+			//					item.Brand = div.Id;
 
-								int intPhaseNb = Convert.ToInt32( csv[9] );
-								Invoice search = _invoicesEntity.Invoices.FirstOrDefault( o => o.PhaseNumber == intPhaseNb );
-								item.RelatedInvoice = search.Id;
+			//					int intPhaseNb = Convert.ToInt32( csv[9] );
+			//					Invoice search = _invoicesEntity.Invoices.FirstOrDefault( o => o.PhaseNumber == intPhaseNb );
+			//					item.RelatedInvoice = search.Id;
 
-								string strFunc = csv[10];
-								ItemFunctionalCategory search2 = _itemsEntity.ItemFunctionalCategories.FirstOrDefault( o => o.Name == strFunc );
-								item.FunctionalCategory = search2.Id;
+			//					string strFunc = csv[10];
+			//					ItemFunctionalCategory search2 = _itemsEntity.ItemFunctionalCategories.FirstOrDefault( o => o.Name == strFunc );
+			//					item.FunctionalCategory = search2.Id;
 
-								string strState = csv[11];
-								ItemState search3 = _itemsEntity.ItemStates.FirstOrDefault( o => o.Name == strState );
-								item.CurrentState = search3.Id;
+			//					string strState = csv[11];
+			//					ItemState search3 = _itemsEntity.ItemStates.FirstOrDefault( o => o.Name == strState );
+			//					item.CurrentState = search3.Id;
 
-								if( _itemsEntity.Items.FirstOrDefault<Item>( u => u.EAN13 == item.EAN13 ) != null )
-									MessageBox.Show( "Erreur : l'entrée n°" + item.Id + " n'as pas pu être inséré car l'EAN13 \"" + item.EAN13 + "\" est déjà utilisé." );
-								else
-								{
-									_itemsEntity.Items.Add( item );
-									_itemsEntity.SaveChanges();
-									importCount++;
-								}
-								rowCount++;
-							}
-							MessageBox.Show( importCount + " Matériels sur " + rowCount + " ont été importé dans la base de données." );
-						}
-					}
-				}
-			}
+			//					if( _itemsEntity.Items.FirstOrDefault<Item>( u => u.EAN13 == item.EAN13 ) != null )
+			//						MessageBox.Show( "Erreur : l'entrée n°" + item.Id + " n'as pas pu être inséré car l'EAN13 \"" + item.EAN13 + "\" est déjà utilisé." );
+			//					else
+			//					{
+			//						_itemsEntity.Items.Add( item );
+			//						_itemsEntity.SaveChanges();
+			//						importCount++;
+			//					}
+			//					rowCount++;
+			//				}
+			//				MessageBox.Show( importCount + " Matériels sur " + rowCount + " ont été importé dans la base de données." );
+			//			}
+			//		}
+			//	}
+			//}
 		}
 
 		#endregion

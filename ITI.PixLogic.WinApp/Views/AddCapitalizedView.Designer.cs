@@ -205,9 +205,9 @@
 			this.Reservable_comboBox.FormattingEnabled = true;
 			this.Reservable_comboBox.Items.AddRange(new object[] {
             "0",
-            "1"});
+            "1\t"});
 			this.Reservable_comboBox.Location = new System.Drawing.Point(126, 155);
-			this.Reservable_comboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Reservable_comboBox.Margin = new System.Windows.Forms.Padding(2);
 			this.Reservable_comboBox.Name = "Reservable_comboBox";
 			this.Reservable_comboBox.Size = new System.Drawing.Size(92, 21);
 			this.Reservable_comboBox.TabIndex = 4;
@@ -226,7 +226,7 @@
 			// 
 			this.BrandComboBox.FormattingEnabled = true;
 			this.BrandComboBox.Location = new System.Drawing.Point(126, 123);
-			this.BrandComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.BrandComboBox.Margin = new System.Windows.Forms.Padding(2);
 			this.BrandComboBox.Name = "BrandComboBox";
 			this.BrandComboBox.Size = new System.Drawing.Size(92, 21);
 			this.BrandComboBox.TabIndex = 3;

@@ -55,7 +55,6 @@ namespace ITI.PixLogic.WinApp
         private void button_add_Click(object sender, EventArgs e)
         {
             new AddAccountView().Show();
-            this.Close();
         }
 
         private void button_delete_Click(object sender, EventArgs e)
