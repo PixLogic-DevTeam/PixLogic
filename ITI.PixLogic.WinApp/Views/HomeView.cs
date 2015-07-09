@@ -97,6 +97,249 @@ namespace ITI.PixLogic.WinApp
 				}
 			}
 		}
+
+		private void packsToolStripMenuItem_Click( object sender, EventArgs e )
+		{
+			Stream myStream = null;
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			int fieldCount = 0, rowCount = 0, importCount = 0;
+
+			openFileDialog.InitialDirectory = "C:\\";
+			openFileDialog.RestoreDirectory = true;
+
+			if( openFileDialog.ShowDialog() == DialogResult.OK )
+			{
+				if( (myStream = openFileDialog.OpenFile()) != null )
+				{
+					using( myStream )
+					{
+						// open the file openFileDialog.FileName which is a CSV file with headers
+						using( CsvReader csv = new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
+						{
+							fieldCount = csv.FieldCount;
+
+							string[] headers = csv.GetFieldHeaders();
+							while( csv.ReadNextRecord() )
+							{
+								Pack pack = new Pack();
+
+								for( int i = 0; i < fieldCount; i++ )
+									string.Format( "{0} = {1};", headers[i], csv[i] );
+
+								pack.Name = csv[1];
+								pack.Description = csv[2];
+
+								if( _packsEntity.Packs.FirstOrDefault<Pack>( u => u.Name == pack.Name ) != null )
+									MessageBox.Show( "Erreur : l'entrée n°" + pack.Id + " n'as pas pu être inséré car ce pack du nom \"" + pack.Name + "\" existe déjà." );
+								else
+								{
+									_packsEntity.Packs.Add( pack );
+									_packsEntity.SaveChanges();
+									importCount++;
+								}
+								rowCount++;
+							}
+							MessageBox.Show( importCount + " packs sur " + rowCount + " ont été importé dans la base de données." );
+						}
+					}
+				}
+			}
+		}
+
+		private void facturesToolStripMenuItem_Click( object sender, EventArgs e )
+		{
+			Stream myStream = null;
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			int fieldCount = 0, rowCount = 0, importCount = 0;
+
+			openFileDialog.InitialDirectory = "C:\\";
+			openFileDialog.RestoreDirectory = true;
+
+			if( openFileDialog.ShowDialog() == DialogResult.OK )
+			{
+				if( (myStream = openFileDialog.OpenFile()) != null )
+				{
+					using( myStream )
+					{
+						// open the file openFileDialog.FileName which is a CSV file with headers
+						using( CsvReader csv = new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
+						{
+							fieldCount = csv.FieldCount;
+
+							string[] headers = csv.GetFieldHeaders();
+							while( csv.ReadNextRecord() )
+							{
+								Invoice invoices = new Invoice();
+
+								for( int i = 0; i < fieldCount; i++ )
+									string.Format( "{0} = {1};", headers[i], csv[i] );
+
+								invoices.PhaseNumber = Convert.ToInt32( csv[1] );
+								invoices.PurchaseDate = Convert.ToDateTime( csv[2] );
+								invoices.PurchaseCost = Convert.ToInt32( csv[3] );
+								invoices.Depreciation = Convert.ToInt32( csv[4] );
+								invoices.Indication = csv[5];
+								invoices.ScanPath = csv[6];
+
+								string strDiv = csv[7];
+								Company div = _invoicesEntity.Companies.FirstOrDefault( o => o.Name == strDiv );
+								invoices.Provider = div.Id;
+
+								if( _invoicesEntity.Invoices.FirstOrDefault<Invoice>( u => u.PhaseNumber == invoices.PhaseNumber ) != null )
+									MessageBox.Show( "Erreur : l'entrée n°" + invoices.Id + " n'as pas pu être inséré car le numéro \"" + invoices.PhaseNumber + "\" est déjà utilisé." );
+								else
+								{
+									_invoicesEntity.Invoices.Add( invoices );
+									_invoicesEntity.SaveChanges();
+									importCount++;
+								}
+								rowCount++;
+							}
+							MessageBox.Show( importCount + " factures sur " + rowCount + " ont été importé dans la base de données." );
+						}
+					}
+				}
+			}
+		}
+
+		private void objetsToolStripMenuItem1_Click( object sender, EventArgs e )
+		{
+			Stream myStream = null;
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			int fieldCount = 0, rowCount = 0, importCount = 0;
+
+			openFileDialog.InitialDirectory = "C:\\";
+			openFileDialog.RestoreDirectory = true;
+
+			if( openFileDialog.ShowDialog() == DialogResult.OK )
+			{
+				if( (myStream = openFileDialog.OpenFile()) != null )
+				{
+					using( myStream )
+					{
+						// open the file openFileDialog.FileName which is a CSV file with headers
+						using( CsvReader csv = new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
+						{
+							fieldCount = csv.FieldCount;
+
+							string[] headers = csv.GetFieldHeaders();
+							while( csv.ReadNextRecord() )
+							{
+								Item item = new Item();
+
+								for( int i = 0; i < fieldCount; i++ )
+									string.Format( "{0} = {1};", headers[i], csv[i] );
+
+								item.EAN13 = Convert.ToInt32(csv[1]);
+								item.Reference = csv[2];
+								item.ReservationCost = Convert.ToInt32(csv[3]);
+								item.Consumable =Convert.ToBoolean(csv[4]);
+								item.Reservable =Convert.ToBoolean(csv[5]);
+								item.Description = csv[6];
+								item.PicturePath = csv[7];
+
+								string strDiv = csv[8];
+								ItemBrand div = _itemsEntity.ItemBrands.FirstOrDefault( o => o.Name == strDiv );
+								item.Brand = div.Id;
+
+								int intPhaseNb = Convert.ToInt32(csv[9]);
+								Invoice search = _invoicesEntity.Invoices.FirstOrDefault( o => o.PhaseNumber == intPhaseNb );
+								item.RelatedInvoice = search.Id;
+
+								string strFunc = csv[10];
+								ItemFunctionalCategory search2 = _itemsEntity.ItemFunctionalCategories.FirstOrDefault( o => o.Name == strFunc );
+								item.FunctionalCategory = search2.Id;
+
+								string strState = csv[11];
+								ItemState search3 = _itemsEntity.ItemStates.FirstOrDefault( o => o.Name == strState );
+								item.CurrentState = search3.Id;
+
+								if( _itemsEntity.Items.FirstOrDefault<Item>( u => u.EAN13 == item.EAN13 ) != null )
+									MessageBox.Show( "Erreur : l'entrée n°" + item.Id + " n'as pas pu être inséré car l'EAN13 \"" + item.EAN13 + "\" est déjà utilisé." );
+								else
+								{
+									_itemsEntity.Items.Add( item );
+									_itemsEntity.SaveChanges();
+									importCount++;
+								}
+								rowCount++;
+							}
+							MessageBox.Show( importCount + " Matériels sur " + rowCount + " ont été importé dans la base de données." );
+						}
+					}
+				}
+			}
+		}
+
+		private void entreprisesToolStripMenuItem_Click( object sender, EventArgs e )
+		{
+			Stream myStream = null;
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			int fieldCount = 0, rowCount = 0, importCount = 0;
+
+			openFileDialog.InitialDirectory = "C:\\";
+			openFileDialog.RestoreDirectory = true;
+
+			if( openFileDialog.ShowDialog() == DialogResult.OK )
+			{
+				if( (myStream = openFileDialog.OpenFile()) != null )
+				{
+					using( myStream )
+					{
+						// open the file openFileDialog.FileName which is a CSV file with headers
+						using( CsvReader csv = new CsvReader( new StreamReader( openFileDialog.FileName ), true ) )
+						{
+							fieldCount = csv.FieldCount;
+
+							string[] headers = csv.GetFieldHeaders();
+							while( csv.ReadNextRecord() )
+							{
+								Company company = new Company();
+
+								for( int i = 0; i < fieldCount; i++ )
+									string.Format( "{0} = {1};", headers[i], csv[i] );
+
+								item.EAN13 = Convert.ToInt32( csv[1] );
+								item.Reference = csv[2];
+								item.ReservationCost = Convert.ToInt32( csv[3] );
+								item.Consumable = Convert.ToBoolean( csv[4] );
+								item.Reservable = Convert.ToBoolean( csv[5] );
+								item.Description = csv[6];
+								item.PicturePath = csv[7];
+
+								string strDiv = csv[8];
+								ItemBrand div = _itemsEntity.ItemBrands.FirstOrDefault( o => o.Name == strDiv );
+								item.Brand = div.Id;
+
+								int intPhaseNb = Convert.ToInt32( csv[9] );
+								Invoice search = _invoicesEntity.Invoices.FirstOrDefault( o => o.PhaseNumber == intPhaseNb );
+								item.RelatedInvoice = search.Id;
+
+								string strFunc = csv[10];
+								ItemFunctionalCategory search2 = _itemsEntity.ItemFunctionalCategories.FirstOrDefault( o => o.Name == strFunc );
+								item.FunctionalCategory = search2.Id;
+
+								string strState = csv[11];
+								ItemState search3 = _itemsEntity.ItemStates.FirstOrDefault( o => o.Name == strState );
+								item.CurrentState = search3.Id;
+
+								if( _itemsEntity.Items.FirstOrDefault<Item>( u => u.EAN13 == item.EAN13 ) != null )
+									MessageBox.Show( "Erreur : l'entrée n°" + item.Id + " n'as pas pu être inséré car l'EAN13 \"" + item.EAN13 + "\" est déjà utilisé." );
+								else
+								{
+									_itemsEntity.Items.Add( item );
+									_itemsEntity.SaveChanges();
+									importCount++;
+								}
+								rowCount++;
+							}
+							MessageBox.Show( importCount + " Matériels sur " + rowCount + " ont été importé dans la base de données." );
+						}
+					}
+				}
+			}
+		}
+
 		#endregion
 
 		#region Exports PDF
@@ -106,74 +349,75 @@ namespace ITI.PixLogic.WinApp
 			Paragraph p = new Paragraph( "Export des réservations" );
 			PdfPTable headers = new PdfPTable( 21 );
 			PdfPTable infos = new PdfPTable( 21 );
+			PdfPCell cellule = new PdfPCell( new Paragraph( "izi" ) );
 
-				using( PdfWriter.GetInstance( doc, new FileStream( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\PDF\toutes_les_réservations.pdf", FileMode.Create ) ) )
+			using( PdfWriter.GetInstance( doc, new FileStream( @".\..\..\..\ITI.PixLogic.WinApp\PDF\toutes_les_réservations.pdf", FileMode.Create ) ) )
+			{
+				p.Alignment = Element.ALIGN_CENTER;
+
+				headers.HorizontalAlignment = 1;
+				headers.SpacingBefore = 40f;
+				infos.HorizontalAlignment = 1;
+				infos.SpacingAfter = 40f;
+
+				headers.AddCell( "ID" );
+				headers.AddCell( "Etat de la réservation" );
+				headers.AddCell( "Indicatif" );
+				headers.AddCell( "Email du réserveur" );
+				headers.AddCell( "Porte monnaie du réserveur" );
+				headers.AddCell( "Historique du réserveur" );
+				headers.AddCell( "Date prévu de la réservation" );
+				headers.AddCell( "Date réel de la réservation" );
+				headers.AddCell( "Matériel utilisable" );
+				headers.AddCell( "Date prévu du rendu " );
+				headers.AddCell( "Data réel du rendu" );
+				headers.AddCell( "Pack utilisé" );
+				headers.AddCell( "EAN13" );
+				headers.AddCell( "Marque" );
+				headers.AddCell( "Nom" );
+				headers.AddCell( "Description" );
+				headers.AddCell( "Prix" );
+				headers.AddCell( "Etat avant réservation" );
+				headers.AddCell( "Etat après réservation" );
+				headers.AddCell( "Etat actuel" );
+				headers.AddCell( "Matériel utilisable" );
+				headers.AddCell( " Matériel Consommable" );
+
+				doc.Open();
+				doc.AddAuthor( "PixLogic PDF Generator" );
+				doc.Add( p );
+				doc.Add( headers );
+
+				foreach( var reservations in _reservationsEntity.view_reservations )
 				{
-					p.Alignment = Element.ALIGN_CENTER;
-
-					headers.HorizontalAlignment = 1;
-					headers.SpacingBefore = 40f;
-					infos.HorizontalAlignment = 1;
-					infos.SpacingAfter = 40f;
-
-					headers.AddCell( "ID" );
-					headers.AddCell( "Etat de la réservation" );
-					headers.AddCell( "Indicatif" );
-					headers.AddCell( "Email du réserveur" );
-					headers.AddCell( "Porte monnaie du réserveur" );
-					headers.AddCell( "Historique du réserveur" );
-					headers.AddCell( "Date prévu de la réservation" );
-					headers.AddCell( "Date réel de la réservation" );
-					headers.AddCell( "Matériel utilisable" );
-					headers.AddCell( "Date prévu du rendu " );
-					headers.AddCell( "Data réel du rendu" );
-					headers.AddCell( "Pack utilisé" );
-					headers.AddCell( "EAN13" );
-					headers.AddCell( "Marque" );
-					headers.AddCell( "Nom" );
-					headers.AddCell( "Description" );
-					headers.AddCell( "Prix" );
-					headers.AddCell( "Etat avant réservation" );
-					headers.AddCell( "Etat après réservation" );
-					headers.AddCell( "Etat actuel" );
-					headers.AddCell( "Matériel utilisable" );
-					headers.AddCell( " Matériel Consommable" );
-
-					doc.Open();
-					doc.AddAuthor( "PixLogic PDF Generator" );
-					doc.Add( p );
-					doc.Add( headers );
-
-					foreach( var reservations in _reservationsEntity.view_reservations )
-					{
-						infos.AddCell( reservations.ReservationId.ToString() );
-						infos.AddCell( reservations.ReservationEventState.ToString() );
-						infos.AddCell( reservations.ReservationIndication );
-						infos.AddCell( reservations.ReserverEmail.ToString() );
-						infos.AddCell( reservations.ReserverWallet.ToString() );
-						infos.AddCell( reservations.ReserverHistoric);
-						infos.AddCell( reservations.PlannedStartDate.ToString() );
-						infos.AddCell( reservations.RealStartDate.ToString() );
-						infos.AddCell( reservations.PlannedEndDate.ToString() );
-						infos.AddCell( reservations.RealEndDate.ToString() );
-						infos.AddCell( reservations.UsedPack.ToString() );
-						infos.AddCell( reservations.ItemEAN13.ToString() );
-						infos.AddCell( reservations.ItemBrand.ToString() );
-						infos.AddCell( reservations.ItemReference.ToString() );
-						infos.AddCell( reservations.ItemDescription.ToString() );
-						infos.AddCell( reservations.ItemCost.ToString() );
-						infos.AddCell( reservations.ItemStateBefore.ToString() );
-						infos.AddCell( reservations.ItemStateAfter.ToString() );
-						infos.AddCell( reservations.ItemStateNow.ToString() );
-						infos.AddCell( reservations.ItemIsUsable.ToString() );
-						infos.AddCell( reservations.ItemIsConsumable.ToString() );
-					}
-
-					doc.Add( infos );
-					doc.Close();
+					infos.AddCell( reservations.ReservationId.ToString() );
+					infos.AddCell( reservations.ReservationEventState.ToString() );
+					infos.AddCell( reservations.ReservationIndication );
+					infos.AddCell( reservations.ReserverEmail.ToString() );
+					infos.AddCell( reservations.ReserverWallet.ToString() );
+					infos.AddCell( reservations.ReserverHistoric );
+					infos.AddCell( reservations.PlannedStartDate.ToString() );
+					infos.AddCell( reservations.RealStartDate.ToString() );
+					infos.AddCell( reservations.PlannedEndDate.ToString() );
+					infos.AddCell( reservations.RealEndDate.ToString() );
+					infos.AddCell( reservations.UsedPack.ToString() );
+					infos.AddCell( reservations.ItemEAN13.ToString() );
+					infos.AddCell( reservations.ItemBrand.ToString() );
+					infos.AddCell( reservations.ItemReference.ToString() );
+					infos.AddCell( reservations.ItemDescription.ToString() );
+					infos.AddCell( reservations.ItemCost.ToString() );
+					infos.AddCell( reservations.ItemStateBefore.ToString() );
+					infos.AddCell( reservations.ItemStateAfter.ToString() );
+					infos.AddCell( reservations.ItemStateNow.ToString() );
+					infos.AddCell( reservations.ItemIsUsable.ToString() );
+					infos.AddCell( reservations.ItemIsConsumable.ToString() );
 				}
-				MessageBox.Show( "Le fichier PDF a été créé !" );
+
+				doc.Add( infos );
+				doc.Close();
 			}
+			MessageBox.Show( "Le fichier PDF a été créé !" );
+		}
 		#endregion
 
 		#region Exports CSV
@@ -182,7 +426,7 @@ namespace ITI.PixLogic.WinApp
 
 			StringBuilder sb = new StringBuilder();
 			string delimiter = ";";
-			StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\utilisateurs.csv" );
+			StreamWriter file = new StreamWriter( @".\..\..\..\ITI.PixLogic.WinApp\Csv\utilisateurs.csv" );
 
 			try
 			{
@@ -220,7 +464,7 @@ namespace ITI.PixLogic.WinApp
 		{
 			StringBuilder sb = new StringBuilder();
 			string delimiter = ";";
-			StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\matériel.csv" );
+			StreamWriter file = new StreamWriter( @".\..\..\..\ITI.PixLogic.WinApp\Csv\matériel.csv" );
 
 			try
 			{
@@ -259,7 +503,7 @@ namespace ITI.PixLogic.WinApp
 		{
 			StringBuilder sb = new StringBuilder();
 			string delimiter = ";";
-			StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\packs.csv" );
+			StreamWriter file = new StreamWriter( @".\..\..\..\ITI.PixLogic.WinApp\Csv\packs.csv" );
 
 			try
 			{
@@ -289,7 +533,7 @@ namespace ITI.PixLogic.WinApp
 		{
 			StringBuilder sb = new StringBuilder();
 			string delimiter = ";";
-			StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\réservations.csv" );
+			StreamWriter file = new StreamWriter( @".\..\..\..\ITI.PixLogic.WinApp\Csv\réservations.csv" );
 
 			try
 			{
@@ -300,7 +544,7 @@ namespace ITI.PixLogic.WinApp
 					sb.Append( reservations.ReservationIndication + delimiter );
 					sb.Append( reservations.ReserverEmail + delimiter );
 					sb.Append( reservations.ReserverWallet + delimiter );
-					sb.Append( reservations.ReserverHistoric+ delimiter );
+					sb.Append( reservations.ReserverHistoric + delimiter );
 					sb.Append( reservations.PlannedStartDate + delimiter );
 					sb.Append( reservations.RealStartDate + delimiter );
 					sb.Append( reservations.PlannedEndDate + delimiter );
@@ -338,7 +582,7 @@ namespace ITI.PixLogic.WinApp
 		{
 			StringBuilder sb = new StringBuilder();
 			string delimiter = ";";
-			StreamWriter file = new StreamWriter( @"C:\Users\Loïc\Documents\PixLogic\ITI.PixLogic.WinApp\Csv\factures.csv" );
+			StreamWriter file = new StreamWriter( @".\..\..\..\ITI.PixLogic.WinApp\Csv\factures.csv" );
 
 			try
 			{
@@ -372,19 +616,19 @@ namespace ITI.PixLogic.WinApp
 		private void bookEquipmentToolStripMenuItem_Click( object sender, EventArgs e )
 		{
 			new MatérielView().Show();
-		}        
+		}
 
 		private void HomeView_Load( object sender, EventArgs e )
 		{
-			 /*
-             * Idée de statistique:
-             * -Objet le plus utilisé
-             * -Dernière réservations
-             * -Réservation se terminant bientot
-             */
+			/*
+			* Idée de statistique:
+			* -Objet le plus utilisé
+			* -Dernière réservations
+			* -Réservation se terminant bientot
+			*/
 
-            //Account Pie chart feeding
-            DataPoint _activeAccountsDP = new DataPoint( );
+			//Account Pie chart feeding
+			DataPoint _activeAccountsDP = new DataPoint();
 			_activeAccountsDP.SetValueY( StatsService.GetNumberOfActiveAccount() );
 			_activeAccountsDP.LegendText = "Comptes actifs";
 			ActiveAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfActiveAccount() );
@@ -394,32 +638,32 @@ namespace ITI.PixLogic.WinApp
 			_bannedAccountsDP.LegendText = "Comptes Suspendus";
 			BannedAccNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfBannedAccount() );
 
-            AccountCharts.Series[ 0 ].Points.Clear( );
-            AccountCharts.Series[ 0 ].Points.Add( _activeAccountsDP );
-            AccountCharts.Series[ 0 ].Points.Add( _bannedAccountsDP );
+			AccountCharts.Series[0].Points.Clear();
+			AccountCharts.Series[0].Points.Add( _activeAccountsDP );
+			AccountCharts.Series[0].Points.Add( _bannedAccountsDP );
 
-            //Item Pie chart feeding
-            DataPoint _consummableDP = new DataPoint( );
-            _consummableDP.SetValueY( StatsService.GetNumberOfConsummableItems() );
-            _consummableDP.Color = Color.Red;
-            _consummableDP.LegendText = "Consommable";
-            ConsummableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfConsummableItems( ) );
+			//Item Pie chart feeding
+			DataPoint _consummableDP = new DataPoint();
+			_consummableDP.SetValueY( StatsService.GetNumberOfConsummableItems() );
+			_consummableDP.Color = Color.Red;
+			_consummableDP.LegendText = "Consommable";
+			ConsummableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfConsummableItems() );
 
-            DataPoint _reservableDP = new DataPoint( );
-            _reservableDP.SetValueY( StatsService.GetNumberOfReservableNonConsummableItems( ) );
-            _reservableDP.Color = Color.LightBlue;
-            _reservableDP.LegendText = "Réservable";
-            ReservableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservableNonConsummableItems( ) );
+			DataPoint _reservableDP = new DataPoint();
+			_reservableDP.SetValueY( StatsService.GetNumberOfReservableNonConsummableItems() );
+			_reservableDP.Color = Color.LightBlue;
+			_reservableDP.LegendText = "Réservable";
+			ReservableItemNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservableNonConsummableItems() );
 
-            ItemsCharts.Series[ 0 ].Points.Clear( );
-            ItemsCharts.Series[ 0 ].Points.Add( _consummableDP );
-            ItemsCharts.Series[ 0 ].Points.Add( _reservableDP );
+			ItemsCharts.Series[0].Points.Clear();
+			ItemsCharts.Series[0].Points.Add( _consummableDP );
+			ItemsCharts.Series[0].Points.Add( _reservableDP );
 
-            //General stats feeding
-            AmmountofItemsNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfItems( ) );
-            ReservationAmmountNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservationEvent( ) );
-            AmmountOfPackNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfPack( ) );
-            AmmountOfInvoicesNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfInvoices( ) ); 
+			//General stats feeding
+			AmmountofItemsNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfItems() );
+			ReservationAmmountNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfReservationEvent() );
+			AmmountOfPackNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfPack() );
+			AmmountOfInvoicesNbrLbl.Text = Convert.ToString( StatsService.GetNumberOfInvoices() );
 		}
 
 		private void ExitBtn_Click( object sender, EventArgs e )
@@ -460,5 +704,5 @@ namespace ITI.PixLogic.WinApp
 			ContactView contact = new ContactView();
 			contact.Show();
 		}
-		}
 	}
+}
