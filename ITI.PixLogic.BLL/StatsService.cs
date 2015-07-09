@@ -38,8 +38,8 @@ namespace ITI.PixLogic.BLL
 
 		public static int GetNumberOfConsummableItems()
 		{
-			var getConsummableItems = from a in _itemEntity.Items
-									  where a.Consumable == true
+			var getConsummableItems = from a in _itemEntity.view_items
+									  where a.ItemIsConsumable == true
 									  select a;
 
 			return getConsummableItems.Count();
@@ -47,8 +47,8 @@ namespace ITI.PixLogic.BLL
 
 		public static int GetNumberOfReservableNonConsummableItems()
 		{
-			var getReservableItems= from a in _itemEntity.Items
-									where a.Reservable == true && a.Consumable == false
+			var getReservableItems= from a in _itemEntity.view_items
+									where a.ItemIsReservable == true && a.ItemIsConsumable == false
 									select a;
 
 			return getReservableItems.Count();
@@ -62,8 +62,8 @@ namespace ITI.PixLogic.BLL
 
 		public static int GetNumberOfActiveAccount()
 		{
-			var getActiveAccounts = from a in _accountEntity.Accounts
-									where a.PermissionLevel == "Actived"
+			var getActiveAccounts = from a in _accountEntity.view_accounts
+									where a.AccountPermissionLevel == "Actived"
 									select a;
 
 			return getActiveAccounts.Count();
@@ -71,8 +71,8 @@ namespace ITI.PixLogic.BLL
 
 		public static int GetNumberOfBannedAccount()
 		{
-			var getBannedAccounts = from a in _accountEntity.Accounts
-									where a.PermissionLevel == "Banned"
+			var getBannedAccounts = from a in _accountEntity.view_accounts
+									where a.AccountPermissionLevel == "Banned"
 									select a;
 
 			return getBannedAccounts.Count();
@@ -80,11 +80,12 @@ namespace ITI.PixLogic.BLL
 
 		public static string GetUserNameOnId( int id )
 		{
-			var getName = from account in _accountEntity.Accounts
-						  where account.Id == id
+			var getName = from account in _accountEntity.view_accounts
+						  where account.AccountId == id
 						  select account;
 
-			return getName.FirstOrDefault().FirstName + " " + getName.FirstOrDefault().LastName;
+			return getName.FirstOrDefault().AccountFirstName + " " + getName.FirstOrDefault().AccountLastName
+;
 		}
 
 		public static List<ReservationEvent> GetListOfReservationEvent()
