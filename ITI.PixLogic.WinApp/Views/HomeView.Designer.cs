@@ -168,6 +168,7 @@
 			this.contactsToolStripMenuItem1.Name = "contactsToolStripMenuItem1";
 			this.contactsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.contactsToolStripMenuItem1.Text = "Contacts";
+			this.contactsToolStripMenuItem1.Click += new System.EventHandler(this.contactsToolStripMenuItem1_Click);
 			// 
 			// exportationsToolStripMenuItem
 			// 
