@@ -1,23 +1,31 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
 <Application xmlns='http://schemas.microsoft.com/windows/2009/Ribbon'>
-	
+
+<!--
+		=============================================
+		List of the commands (aka: "what to display") 
+		=============================================
+-->
+
 	<Application.Commands>
+		<!-- Commands for the ribbon application menu [Ids' range: 1000/2000] -->
 		<Command Name="ApplicationMenu" Id="1000" />
-		
-		<Command Name="CommandDb" Id="1200" LabelTitle="Base de données">
+		<Command Name="DataManagementGroup" Id="1100"
+						 LabelTitle="Gestion des données" />
+		<Command Name="CommandDb" Id="1110"
+						 LabelTitle="Base de données">
 			<Command.LargeImages>
-				<Image>Resources/32px/menu_database_not_connected.bmp</Image>
+				<Image>Resources/32px/menu_database_default.bmp</Image>
 			</Command.LargeImages>
 			<Command.SmallImages>
-				<Image>Resources/16px/menu_database_not_connected.bmp</Image>
+				<Image>Resources/16px/menu_database_default.bmp</Image>
 			</Command.SmallImages>
-		</Command>	
-		<Command Name="CommandDbConnectionRefresh"
-           Id="1210"
-           LabelTitle="Actualiser la connection"
-           LabelDescription=""
-           TooltipTitle="Actualiser la connection à la base de données"
-           TooltipDescription="Condition : vérifier que la base de donnée est lancée avant d'actualiser la connection">
+		</Command>
+		<Command Name="CommandDbConnectionRefresh" Id="1111"
+						 LabelTitle="Actualiser la connexion"
+						 LabelDescription="En cas d'erreur lors de la connexion à la base de données"
+						 TooltipTitle="Actualiser la connexion à la base de données"
+						 TooltipDescription="Vérifiez que la base de données est lancée avant d'actualiser la connexion">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_database_connection_refresh.bmp</Image>
 			</Command.LargeImages>
@@ -25,16 +33,13 @@
 				<Image>Resources/16px/menu_database_connection_refresh.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-				<Command Name="CommandDbBackupConfigure"
-           Id="1220"
-           LabelTitle="Configurer les sauvegardes"
-           LabelDescription=""
-           TooltipTitle="Configurer les sauvegardes automatiques de la base de données [format binaire]"
-           TooltipDescription="Conditions :
-  1) Vérifier que la base de données est lancée et que la connection est active
-  2) Ne quitter pas l'application pendant la sauvegarde
-  3) L'application sera désactivée durant la sauvegarde
-  4) La base de donnée ne sera accessible qu'en lecture">
+		<Command Name="CommandDbBackupConfigure" Id="1112"
+						 LabelTitle="Configurer les sauvegardes"
+						 LabelDescription="Format de sortie : binaire"
+						 TooltipTitle="Configurer les sauvegardes automatiques de la base de données"
+						 TooltipDescription="Vérifiez que la base de données est lancée, que la connexion est active et ne quittez pas l'application
+					 
+Pendant les sauvegardes : l'application sera désactivée et la base de données accessible uniquement en lecture">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_database_backup_configure.bmp</Image>
 			</Command.LargeImages>
@@ -42,16 +47,13 @@
 				<Image>Resources/16px/menu_database_backup_configure.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-		<Command Name="CommandDbBackupMakeNow"
-           Id="1230"
-           LabelTitle="Sauvegarder la base"
-           LabelDescription=""
-           TooltipTitle="Créer une sauvegarde de la base de donnée maintenant [format binaire]"
-           TooltipDescription="Conditions :
-  1) Vérifier que la base de données est lancée et que la connection est active
-  2) Ne quitter pas l'application pendant la sauvegarde
-  3) L'application sera désactivée durant la sauvegarde
-  4) La base de donnée ne sera accessible qu'en lecture">
+		<Command Name="CommandDbBackupMakeNow" Id="1113"
+						 LabelTitle="Sauvegarder la base"
+						 LabelDescription="Format de sortie : binaire"
+						 TooltipTitle="Créer une sauvegarde de la base de donnée maintenant"
+						 TooltipDescription="Vérifiez que la base de données est lancée, que la connexion est active et ne quittez pas l'application
+					 
+Pendant la sauvegarde : l'application sera désactivée et la base de données accessible uniquement en lecture">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_database_backup_make_now.bmp</Image>
 			</Command.LargeImages>
@@ -59,16 +61,13 @@
 				<Image>Resources/16px/menu_database_backup_make_now.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-		<Command Name="CommandDbBackupApplyNow"
-           Id="1024"
-           LabelTitle="Restaurer la base"
-           LabelDescription=""
-           TooltipTitle="Restaurer la base de données à partir d'une sauvegarde maintenant [format binaire]"
-           TooltipDescription="Conditions :
-  1) Vérifier que la base de données est lancée
-  2) Ne quitter pas l'application pendant la restauration
-  3) L'application sera désactivée durant la restauration
-  4) La base de donnée ne sera accessible qu'en lecture">
+		<Command Name="CommandDbBackupApplyNow" Id="1114"
+						 LabelTitle="Restaurer la base"
+						 LabelDescription="Format d'entrée : binaire"
+						 TooltipTitle="Restaurer la base de données à partir d'une sauvegarde maintenant"
+						 TooltipDescription="Vérifiez que la base de données est lancée, que la connexion est active et ne quittez pas l'application
+					 
+Pendant la restauration : l'application sera désactivée et la base de données accessible uniquement en lecture">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_database_backup_apply_now.bmp</Image>
 			</Command.LargeImages>
@@ -76,9 +75,8 @@
 				<Image>Resources/16px/menu_database_backup_apply_now.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-
-
-		<Command Name="CommandExports" Id="1400" LabelTitle="Exportations">
+		<Command Name="CommandExports" Id="1120"
+						 LabelTitle="Exportations">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_export.bmp</Image>
 			</Command.LargeImages>
@@ -86,12 +84,11 @@
 				<Image>Resources/16px/menu_export.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-		<Command Name="CommandExportAccounts"
-           Id="1410"
-           LabelTitle="Exporter (comptes)"
-           LabelDescription=""
-           TooltipTitle="Exporter les comptes"
-           TooltipDescription="Exportations des comptes">
+		<Command Name="CommandExportAccounts" Id="1121"
+						 LabelTitle="Exporter les comptes"
+						 LabelDescription="Format de sortie : CSV"
+						 TooltipTitle="Exporter les comptes enregistrés dans la base de données"
+						 TooltipDescription="Vérifiez que la base de données est lancée et que la connexion est active avant d'effectuer l'exportation des comptes">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_export_table.bmp</Image>
 			</Command.LargeImages>
@@ -99,12 +96,11 @@
 				<Image>Resources/16px/menu_export_table.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-		<Command Name="CommandExportInvoices"
-           Id="1420"
-           LabelTitle="Exporter (factures)"
-           LabelDescription=""
-           TooltipTitle="Exporter les factures"
-           TooltipDescription="Exportations des factures">
+		<Command Name="CommandExportInvoices" Id="1122"
+						 LabelTitle="Exporter les factures"
+						 LabelDescription="Format de sortie : CSV"
+						 TooltipTitle="Exporter les factures enregistrées dans la base de données"
+						 TooltipDescription="Vérifiez que la base de données est lancée et que la connexion est active avant d'effectuer l'exportation des factures">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_export_table.bmp</Image>
 			</Command.LargeImages>
@@ -112,12 +108,11 @@
 				<Image>Resources/16px/menu_export_table.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-		<Command Name="CommandExportItems"
-           Id="1430"
-           LabelTitle="Exporter (matériel)"
-           LabelDescription=""
-           TooltipTitle="Exporter le matériel"
-           TooltipDescription="Exportations du matériel">
+		<Command Name="CommandExportItems" Id="1123"
+						 LabelTitle="Exporter le matériel"
+						 LabelDescription="Format de sortie : CSV"
+						 TooltipTitle="Exporter le matériel enregistré dans la base de données"
+						 TooltipDescription="Vérifiez que la base de données est lancée et que la connexion est active avant d'effectuer l'exportation du matériel">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_export_table.bmp</Image>
 			</Command.LargeImages>
@@ -125,12 +120,11 @@
 				<Image>Resources/16px/menu_export_table.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-		<Command Name="CommandExportPacks"
-           Id="1440"
-           LabelTitle="Exporter (packs)"
-           LabelDescription=""
-           TooltipTitle="Exporter les packs"
-           TooltipDescription="Exportations des packs">
+		<Command Name="CommandExportPacks" Id="1124"
+						 LabelTitle="Exporter les packs"
+						 LabelDescription="Format de sortie : CSV"
+						 TooltipTitle="Exporter les packs enregistrés dans la base de données"
+						 TooltipDescription="Vérifiez que la base de données est lancée et que la connexion est active avant d'effectuer l'exportation des packs">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_export_table.bmp</Image>
 			</Command.LargeImages>
@@ -138,12 +132,11 @@
 				<Image>Resources/16px/menu_export_table.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-				<Command Name="CommandExportReservations"
-           Id="1450"
-           LabelTitle="Exporter (réservations)"
-           LabelDescription=""
-           TooltipTitle="Exporter les réservations"
-           TooltipDescription="Exportations des réservations">
+		<Command Name="CommandExportReservations" Id="1125"
+						 LabelTitle="Exporter les réservations"
+						 LabelDescription="Format de sortie : CSV"
+						 TooltipTitle="Exporter les réservations enregistrées dans la base de données"
+						 TooltipDescription="Vérifiez que la base de données est lancée et que la connexion est active avant d'effectuer l'exportation des réservations">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_export_table.bmp</Image>
 			</Command.LargeImages>
@@ -151,39 +144,31 @@
 				<Image>Resources/16px/menu_export_table.bmp</Image>
 			</Command.SmallImages>
 		</Command>
-
-		<Command Name="CommandAbout"
-           Id="1600"
-           LabelTitle="A propos"
-           LabelDescription=""
-           TooltipTitle="A propos de cette application"
-           TooltipDescription="">
+		<Command Name="ApplicationManagementGroup" Id="1200"
+						 LabelTitle="Gestion de l'application" />
+		<Command Name="CommandAbout" Id="1210"
+						 LabelTitle="A propos"
+						 TooltipTitle="A propos de cette application">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_about.bmp</Image>
 			</Command.LargeImages>
 			<Command.SmallImages>
 				<Image>Resources/16px/menu_about.bmp</Image>
 			</Command.SmallImages>
-		</Command>		
-		<Command Name="CommandConfiguration"
-           Id="1700"
-           LabelTitle="Configuration"
-           LabelDescription=""
-           TooltipTitle="Configurer l'application"
-           TooltipDescription="">
+		</Command>
+		<Command Name="CommandConfiguration" Id="1220"
+						 LabelTitle="Configuration"
+						 TooltipTitle="Configurer l'application">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_configuration.bmp</Image>
 			</Command.LargeImages>
 			<Command.SmallImages>
 				<Image>Resources/16px/menu_configuration.bmp</Image>
 			</Command.SmallImages>
-		</Command>			
-		<Command Name="CommandExit"
-           Id="1800"
-           LabelTitle="Fermer"
-           LabelDescription=""
-           TooltipTitle="Fermer l'application"
-           TooltipDescription="">
+		</Command>
+		<Command Name="CommandExit" Id="1230"
+						 LabelTitle="Fermer"
+						 TooltipTitle="Fermer l'application">
 			<Command.LargeImages>
 				<Image>Resources/32px/menu_close.bmp</Image>
 			</Command.LargeImages>
@@ -191,24 +176,59 @@
 				<Image>Resources/16px/menu_close.bmp</Image>
 			</Command.SmallImages>
 		</Command>
+
+		<!-- Commands for ribbon accounts' tab [Ids' range: 2000/2999] -->
+		<Command Name="AccountsTab" Id="2000"
+						 LabelTitle="Comptes" />
+
+		<!-- Commands for ribbon invoices' tab [Ids' range: 3000/3999] -->
+		<Command Name="InvoicesTab" Id="3000"
+						 LabelTitle="Factures" />
+
+		<!-- Commands for ribbon items' tab [Ids' range: 4000/4999] -->
+		<Command Name="ItemsTab" Id="4000"
+						 LabelTitle="Matériel" />
+
+		<!-- Commands for ribbon packs' tab [Ids' range: 5000/5999] -->
+		<Command Name="PacksTab" Id="5000"
+						 LabelTitle="Packs" />
+		
+		<!-- Commands for ribbon reservations' tab [Ids' range: 6000/6999] -->
+		<Command Name="ReservationsTab" Id="6000"
+						 LabelTitle="Réservations" />
+		
+		<!-- Commands for ribbon restorations' tab [Ids' range: 7000/7999]  -->
+		<Command Name="RestorationsTab" Id="7000"
+						 LabelTitle="Réparations" />
+		
+		<!-- Commands for help's button -->
+		<Command Name="CommandHelp" Id="9999" />
 	</Application.Commands>
+
+<!--
+		=============================================
+		List of the views (aka: "the way to display") 
+		=============================================
+-->
 	
 	<Application.Views>
-		<Ribbon>
+		<Ribbon>	
+			<!-- Views for ribbon application menu -->
 			<Ribbon.ApplicationMenu>
 				<ApplicationMenu CommandName="ApplicationMenu">
-					<MenuGroup>
+					<MenuGroup CommandName="DataManagementGroup">
 						<DropDownButton CommandName='CommandDb'>
 							<MenuGroup Class='MajorItems'>
 								<Button CommandName='CommandDbConnectionRefresh' />
+							</MenuGroup>
+							<MenuGroup Class='MajorItems'>
 								<Button CommandName='CommandDbBackupConfigure' />
 								<Button CommandName='CommandDbBackupMakeNow' />
 								<Button CommandName='CommandDbBackupApplyNow' />
 							</MenuGroup>
 						</DropDownButton>
-							
 						<DropDownButton CommandName='CommandExports'>
-							<MenuGroup Class='MajorItems'>
+							<MenuGroup Class='MajorItems'> 
 								<Button CommandName='CommandExportAccounts' />
 								<Button CommandName='CommandExportInvoices' />
 								<Button CommandName='CommandExportItems' />
@@ -217,14 +237,50 @@
 							</MenuGroup>
 						</DropDownButton>
 					</MenuGroup>
-					<MenuGroup>
+					<MenuGroup CommandName='ApplicationManagementGroup'>
 						<Button CommandName="CommandAbout" />
 						<Button CommandName="CommandConfiguration" />
 						<Button CommandName="CommandExit" />
 					</MenuGroup>
 				</ApplicationMenu>
 			</Ribbon.ApplicationMenu>
+			
+			<Ribbon.Tabs>
+				<!-- Views for ribbon accounts' tab -->
+				<Tab CommandName="AccountsTab">
+
+				</Tab>
+				
+				<!-- Views for ribbon invoices' tab -->
+				<Tab CommandName="InvoicesTab">
+
+				</Tab>
+				
+				<!-- Views for ribbon items' tab -->
+				<Tab CommandName="ItemsTab">
+
+				</Tab>
+				
+				<!-- Views for ribbon packs' tab -->
+				<Tab CommandName="PacksTab">
+
+				</Tab>
+				
+				<!-- Views for ribbon reservations' tab -->
+				<Tab CommandName="ReservationsTab">
+
+				</Tab>
+				
+				<!-- Views for ribbon restorations' tab -->
+				<Tab CommandName="RestorationsTab">
+					
+				</Tab>
+			</Ribbon.Tabs>
+
+			<!-- View for ribbon help's button -->
+			<Ribbon.HelpButton>
+				<HelpButton CommandName="CommandHelp" />
+			</Ribbon.HelpButton>
 		</Ribbon>
 	</Application.Views>
-	
 </Application>

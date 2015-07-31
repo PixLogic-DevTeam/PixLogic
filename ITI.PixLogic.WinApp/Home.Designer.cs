@@ -1,6 +1,6 @@
-﻿namespace ITI.PixLogic.WinApp.Views
+﻿namespace ITI.PixLogic.WinApp
 {
-	partial class MainView
+	partial class Home
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
 			this._printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
 			this._ribbon = new RibbonLib.Ribbon();
 			this._panel = new System.Windows.Forms.Panel();
@@ -67,11 +67,13 @@
 			this._panel.BackColor = System.Drawing.Color.White;
 			this._panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this._panel.Location = new System.Drawing.Point(5, 149);
+			this._panel.Margin = new System.Windows.Forms.Padding(5);
 			this._panel.Name = "_panel";
+			this._panel.Padding = new System.Windows.Forms.Padding(5);
 			this._panel.Size = new System.Drawing.Size(774, 408);
 			this._panel.TabIndex = 5;
 			// 
-			// MainView
+			// Home
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,8 +85,8 @@
 			this.Name = "MainView";
 			this.Text = "PixLogic";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_OnPaint);
-			this.Resize += new System.EventHandler(this.MainForm_OnResize);
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.Home_OnPaint);
+			this.Resize += new System.EventHandler(this.Home_OnResize);
 			this.ResumeLayout(false);
 
 		}
